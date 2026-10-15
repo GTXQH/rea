@@ -704,3 +704,41 @@
 ::1 - "GET /imgs/dm1.svg HTTP/1.1" 200 -
 ::1 - "GET /imgs/dm2.svg HTTP/1.1" 200 -
 ::1 - "GET /imgs/dm3.svg HTTP/1.1" 200 -
+::ffff:127.0.0.1 - "GET /h5/ HTTP/1.1" 200 -
+::ffff:127.0.0.1 - "POST /wechat/Home/getHomeInfo HTTP/1.1" 200 -
+[api] /wechat/Home/getHomeInfo <- {"cat1_id":0}
+::1 - "GET / HTTP/1.1" 302 -
+::1 - "GET /h5/ HTTP/1.1" 200 -
+::1 - "GET /h5/static/index.cc298949.css HTTP/1.1" 200 -
+::1 - "GET /h5/static/js/chunk-vendors.b607875f.js HTTP/1.1" 200 -
+::1 - "GET /h5/static/js/index.bb23f40d.js HTTP/1.1" 200 -
+::1 - "GET /h5/static/js/pages-active-goods~pages-active-turntable~pages-index-goods~pages-index-index~pages-pay-raffle~pages~c8bef51b.dd513651.js HTTP/1.1" 200 -
+::1 - "GET /h5/static/js/pages-active-goods~pages-index-goods~pages-index-index~pages-user-index~pages-user-level.772671e7.js HTTP/1.1" 200 -
+::1 - "GET /h5/static/js/pages-index-index~pages_sub1-chat-info.677e3086.js HTTP/1.1" 200 -
+::1 - "GET /h5/static/js/pages-index-index.d5551ea4.js HTTP/1.1" 200 -
+::1 - "POST /wechat/Home/getHomeInfo HTTP/1.1" 200 -
+[api] /wechat/Home/getHomeInfo <- {"cat1_id":0,"page":1,"sort":0,"token":"","platform":"h5","system_type":"linux"}
+::1 - "POST /wechat/Wechat/getShareSignPackage HTTP/1.1" 200 -
+[api] /wechat/Wechat/getShareSignPackage <- {"url":"http://127.0.0.1:16000/h5/","token":"","platform":"h5","system_type":"linux"}
+::1 - "POST /wechat/Wechat/getNavList HTTP/1.1" 200 -
+[api] /wechat/Wechat/getNavList <- {"label":1,"token":"","platform":"h5","system_type":"linux"}
+::1 - "POST /wechat/Wechat/getAudioConfig HTTP/1.1" 200 -
+[api] /wechat/Wechat/getAudioConfig <- {"token":"","platform":"h5","system_type":"linux"}
+::1 - "GET /h5/static/imgs/no-data.png HTTP/1.1" 200 -
+::1 - "GET /files/imgs/youqu.jpg HTTP/1.1" 200 -
+::1 - "GET /h5/assets/uvicons.f0fbf8a0.ttf HTTP/1.1" 200 -
+::1 - "GET /h5/imgs/tab-home.svg HTTP/1.1" 200 -
+::1 - "GET /h5/imgs/tab-cat.svg HTTP/1.1" 200 -
+::1 - "GET /h5/imgs/tab-kefu.svg HTTP/1.1" 200 -
+::1 - "GET /h5/imgs/tab-star.svg HTTP/1.1" 200 -
+::1 - "GET /h5/imgs/tab-user.svg HTTP/1.1" 200 -
+::1 - "POST /wechat/Home/getOrderDanmu HTTP/1.1" 200 -
+[api] /wechat/Home/getOrderDanmu <- {"token":"","platform":"h5","system_type":"linux"}
+::1 - "GET /imgs/dm1.svg HTTP/1.1" 200 -
+::1 - "GET /favicon.ico HTTP/1.1" 200 -
+::1 - "POST /wechat/Chat/getChatConfig HTTP/1.1" 200 -
+[api] /wechat/Chat/getChatConfig <- {"token":"","platform":"h5","system_type":"linux"}
+::1 - "POST /wechat/Wechat/getUserSubscribeInfo HTTP/1.1" 200 -
+[api] /wechat/Wechat/getUserSubscribeInfo <- {"label":1,"token":"","platform":"h5","system_type":"linux"}
+::1 - "GET /imgs/dm2.svg HTTP/1.1" 200 -
+::1 - "GET /imgs/dm3.svg HTTP/1.1" 200 -
