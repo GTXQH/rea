@@ -156,7 +156,11 @@ CREATE TABLE IF NOT EXISTS goods(
   cat1_id INTEGER DEFAULT 0,
   status INTEGER DEFAULT 1,
   sales INTEGER DEFAULT 0,
-  created_at TEXT DEFAULT ''
+  created_at TEXT DEFAULT '',
+  pics TEXT DEFAULT '',
+  c1_text TEXT DEFAULT '',
+  c2_text TEXT DEFAULT '',
+  c3_text TEXT DEFAULT ''
 );
 CREATE TABLE IF NOT EXISTS banners(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -204,42 +208,42 @@ def seed():
     if cur.execute("SELECT COUNT(*) FROM cats").fetchone()[0]:
         conn.close()
         return
-    cats = [
-        ("王者荣耀", icon_img("icat1", "王者", "#ff7a45", "#c0392b"), 1),
-        ("和平精英", icon_img("icat2", "吃鸡", "#2f9e44", "#1b5e20"), 2),
-        ("原神", icon_img("icat3", "原神", "#13c2c2", "#006064"), 3),
-        ("英雄联盟", icon_img("icat4", "LOL", "#2f54eb", "#1a237e"), 4),
-        ("蛋仔派对", icon_img("icat5", "蛋仔", "#eb2f96", "#880e4f"), 5),
-        ("更多分类", icon_img("icat6", "更多", "#8c8c8c", "#595959"), 6),
-    ]
-    for name, icon, sort in cats:
-        cur.execute("INSERT INTO cats(name,icon,sort) VALUES(?,?,?)", (name, icon, sort))
-    goods = [
-        ("王者荣耀 上分陪玩", "20.00", 328, "#ff7a45", "#c0392b", "王者荣耀", 1),
-        ("和平精英 四排带飞", "25.00", 256, "#2f9e44", "#1b5e20", "和平精英", 2),
-        ("原神 深渊代打", "30.00", 189, "#13c2c2", "#006064", "原神", 3),
-        ("英雄联盟手游 上分", "22.00", 143, "#2f54eb", "#1a237e", "英雄联盟", 4),
-        ("蛋仔派对 陪玩", "15.00", 512, "#eb2f96", "#880e4f", "蛋仔派对", 5),
-        ("云顶之弈 上分", "18.00", 97, "#722ed1", "#311b92", "更多分类", 6),
-    ]
-    for i, (name, price, sales, c1, c2, cat, cat_id) in enumerate(goods):
-        cover = cover_img("goods%d" % (i + 1), name.split(" ")[0], "陪玩 · 上分", c1, c2)
-        cur.execute(
-            "INSERT INTO goods(name,price,min_num,cover,intro,content,cat1_id,status,sales,created_at)"
-            " VALUES(?,?,?,?,?,?,?,?,?,?)",
-            (name, price, 1, cover, "真人陪玩 · 高分带飞",
-             "<p>本地演示数据：%s，包含 1 小时陪玩服务。</p>" % name, cat_id, 1, sales, now()))
-    banners = [
-        (banner_img("banner1", "大神在线 · 随心畅玩", "真人陪玩 高分带飞", "#5b8def", "#2b3a8f"), 1),
-        (banner_img("banner2", "新人专享 · 首单立减", "全场通用 自动到账", "#722ed1", "#311b92"), 2),
-    ]
-    for img, sort in banners:
-        cur.execute("INSERT INTO banners(image,url,sort) VALUES(?,?,?)", (img, "", sort))
+    # 种子数据来自原站（冰刃电竞俱乐部）首页接口快照 home_seed.json，
+    # 图片保留七牛云 OSS 直链，UI 与原站一致。
+    seed_path = os.path.join(ROOT, "home_seed.json")
+    src = {}
+    if os.path.exists(seed_path):
+        with open(seed_path, "r", encoding="utf-8") as f:
+            src = json.load(f).get("data") or {}
+    ng = 0
+    for b in src.get("banner") or []:
+        cur.execute("INSERT INTO banners(id,image,url,sort) VALUES(?,?,?,?)",
+                    (b.get("id"), b.get("path") or "", b.get("url") or "",
+                     b.get("weigh") or 0))
+    for i, c in enumerate(src.get("home_cat") or []):
+        cur.execute("INSERT INTO cats(id,name,icon,sort) VALUES(?,?,?,?)",
+                    (c.get("id"), c.get("name") or "", c.get("thumb") or "",
+                     c.get("id") or i + 1))
+    for g in src.get("goods_list", {}).get("list") or []:
+        for it in g.get("list") or []:
+            cur.execute(
+                "INSERT INTO goods(id,name,price,min_num,cover,intro,content,"
+                "cat1_id,status,sales,created_at,pics,c1_text,c2_text,c3_text)"
+                " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                (it.get("id"), it.get("title") or "", float(it.get("price") or 0),
+                 int(it.get("min_num") or 1), it.get("thumb") or "",
+                 it.get("intro") or "", it.get("buy_tips") or "",
+                 it.get("cat1_id") or 0, 1, int(it.get("sale_num2") or 0),
+                 now(), json.dumps(it.get("pics") or [], ensure_ascii=False),
+                 it.get("cat1_text") or "", it.get("cat2_text") or "",
+                 it.get("cat3_text") or ""))
+            ng += 1
     cur.execute("INSERT INTO admins(username,password,token) VALUES(?,?,?)",
                 (ADMIN_USER, ADMIN_PASS, ""))
     conn.commit()
     conn.close()
-    print("[db] seeded: %d cats, %d goods, %d banners" % (len(cats), len(goods), len(banners)))
+    print("[db] seeded from home_seed.json: %d cats, %d goods, %d banners" % (
+        len(src.get("home_cat") or []), ng, len(src.get("banner") or [])))
 
 
 def g_row(row):
@@ -306,41 +310,36 @@ def order_counts(conn, uid):
     return counts
 
 
+def load_home_seed():
+    seed_path = os.path.join(ROOT, "home_seed.json")
+    if not os.path.exists(seed_path):
+        return {}
+    with open(seed_path, "r", encoding="utf-8") as f:
+        return json.load(f).get("data") or {}
+
+
 def api_getHomeInfo(conn, req, user=None):
+    # 首页 UI 与原站（冰刃电竞俱乐部）完全一致：直接返回原站接口快照；
+    # cat1_id>0 时按一级分类过滤商品分组，模拟原站分类切换。
+    data = json.loads(json.dumps(load_home_seed()))  # deep copy
+    if not data:
+        return {"goods_list": {"list": [], "no_more": 1}, "banner": [],
+                "banner2": [], "home_cat": [], "rec_cat": {"list": [], "num": 0},
+                "notice_home": "", "store_close": {"online": 1},
+                "home_goods_tpl": 1, "home_cat2_tpl": 1, "vip_status": 0,
+                "auth_status": 1, "notice_status": 0, "home_icons": []}
     cat1_id = int(req.get("cat1_id") or 0)
-    sort = req.get("sort") or "default"
-    q = "SELECT * FROM goods WHERE status=1"
-    args = []
     if cat1_id > 0:
-        q += " AND cat1_id=?"
-        args.append(cat1_id)
-    if sort == "sales":
-        q += " ORDER BY sales DESC"
-    else:
-        q += " ORDER BY id ASC"
-    rows = conn.execute(q, args).fetchall()
-    goods_list = [goods_dict(r) for r in rows]
-    cats = conn.execute("SELECT * FROM cats ORDER BY sort ASC").fetchall()
-    banners = [dict(r) for r in conn.execute(
-        "SELECT * FROM banners ORDER BY sort ASC").fetchall()]
-    home_cat = [{"id": 0, "name": "推荐"}] + [
-        {"id": c["id"], "name": c["name"]} for c in cats[:5]]
-    return {
-        "goods_list": {"list": goods_list, "no_more": 1},
-        "banner": banners, "banner2": [],
-        "raffle": {"status": 0},
-        "home_cat": home_cat,
-        "rec_cat": {"list": [dict(c) for c in cats], "num": len(cats)},
-        "vip_status": 0, "home_goods_tpl": 1, "home_cat2_tpl": 1,
-        "home_cat2_all_icon": cats[5]["icon"] if len(cats) > 5 else "",
-        "home_cat2_all_switch": 1, "logo": "", "home_more": 0,
-        "notice_home": "本地演示环境：数据由本机 SQLite 后端提供，可在 /admin/ 后台管理。",
-        "bind_mobile_tips": 0,
-        "notice": "本地演示环境：数据由本机 SQLite 后端提供，可在 /admin/ 后台管理。",
-        "store_close": {"online": 1}, "game_tpl": {"status": 0},
-        "home_copy_right": "本地演示 · 反编译源码预览 · 自建后端",
-        "kefu": None, "home_icons": [], "notice_status": 0, "auth_status": 1,
-    }
+        groups = data.get("goods_list", {}).get("list") or []
+        kept = []
+        for g in groups:
+            lst = [it for it in g.get("list") or [] if it.get("cat1_id") == cat1_id]
+            if lst:
+                kept.append({"id": g.get("id"), "name": g.get("name"), "list": lst})
+        data["goods_list"] = {"no_more": 1, "list": kept}
+    data["store_close"] = dict(data.get("store_close") or {})
+    data["store_close"]["online"] = 1  # 本地演示始终营业中，可下单
+    return data
 
 
 def api_getNavList(conn, req):
@@ -388,18 +387,35 @@ def api_getGoodsListInCat(conn, req):
     return _goods_query(conn, req, "keyword")
 
 
+def fmt_price(p):
+    s = "%.2f" % float(p or 0)
+    return s[:-3] if s.endswith(".00") else s
+
+
 def api_getGoodsInfo(conn, req, user=None):
     gid = int(req.get("id") or 0)
     row = conn.execute("SELECT * FROM goods WHERE id=?", (gid,)).fetchone()
     if not row:
         return {"status": 0, "msg": "商品不存在", "data": {}}
+    try:
+        pics = json.loads(row["pics"] or "[]")
+    except Exception:
+        pics = []
     d = goods_dict(row)
     d.update({
-        "title": row["name"], "pics": [row["cover"]], "sale_num2": row["sales"],
+        "title": row["name"], "goods_name": row["name"],
+        "price": fmt_price(row["price"]),
+        "pics": pics or [row["cover"]],
+        "sale_num2": row["sales"], "sale_num": row["sales"],
         "is_vip": 0, "child_num": 0, "limit1": 0, "alert_status": 0,
-        "alert_des": "", "raffle_id": 0,
-        "buy_tips": "<p>%s</p>" % (row["content"] or row["intro"]),
-        "vip_status": 0, "store_close": {"online": 1},
+        "alert_des": "", "raffle_id": 0, "raffle_show_id": 0,
+        "cat1_text": row["c1_text"], "cat2_text": row["c2_text"],
+        "cat3_text": row["c3_text"],
+        "buy_tips": row["content"] or ("<p>%s</p>" % row["intro"]),
+        "buy_tips_status": 0,
+        "vip_status": 0,
+        "store_close": (load_home_seed().get("store_close")
+                        or {"online": 1}),
         "show_login_panel": 0 if user else 1,
         "kefu": KEFU_NONE, "seckill_show": None, "user": {},
         "min_num": row["min_num"], "content": row["content"],
