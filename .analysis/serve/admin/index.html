@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>演示后台 · 数据管理</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333; }
+  button { cursor:pointer; border:none; border-radius:6px; font-size:13px; padding:8px 16px; background:#4a6cf7; color:#fff; }
+  button.gray { background:#eee; color:#555; }
+  button.red { background:#ff4d4f; }
+  button.mini { padding:4px 10px; font-size:12px; }
+  input,select,textarea { border:1px solid #ddd; border-radius:6px; padding:8px 10px; font-size:13px; outline:none; width:100%; }
+  input:focus,textarea:focus { border-color:#4a6cf7; }
+  table { width:100%; border-collapse:collapse; background:#fff; font-size:13px; }
+  th,td { padding:10px 12px; text-align:left; border-bottom:1px solid #f0f0f0; vertical-align:middle; }
+  th { background:#fafafa; color:#666; font-weight:600; white-space:nowrap; }
+  tr:hover td { background:#fafcff; }
+  .cover { width:52px; height:52px; object-fit:cover; border-radius:8px; background:#f5f5f5; display:block; }
+  /* 登录页 */
+  #login { display:flex; align-items:center; justify-content:center; height:100vh; background:linear-gradient(135deg,#4a6cf7,#253a8e); }
+  #login .card { background:#fff; border-radius:14px; padding:38px 34px; width:340px; box-shadow:0 20px 50px rgba(0,0,0,.25); }
+  #login h1 { font-size:20px; margin-bottom:6px; }
+  #login p { font-size:12px; color:#999; margin-bottom:22px; }
+  #login input { margin-bottom:14px; }
+  #login button { width:100%; padding:11px; font-size:15px; margin-top:4px; }
+  #login .tip { margin-top:14px; font-size:12px; color:#4a6cf7; background:#eef1ff; border-radius:6px; padding:8px 10px; }
+  /* 主布局 */
+  #app { display:none; min-height:100vh; }
+  #side { position:fixed; left:0; top:0; bottom:0; width:190px; background:#1e2746; color:#aab; padding-top:18px; }
+  #side .logo { color:#fff; font-weight:700; font-size:16px; padding:0 20px 16px; border-bottom:1px solid #2c3860; }
+  #side a { display:block; padding:13px 22px; color:#aab; text-decoration:none; font-size:14px; cursor:pointer; }
+  #side a.on, #side a:hover { color:#fff; background:rgba(255,255,255,.06); border-left:3px solid #4a6cf7; }
+  #main { margin-left:190px; padding:20px 24px 40px; }
+  .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+  .top h2 { font-size:18px; }
+  .stat { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:20px; }
+  .stat .s { background:#fff; border-radius:10px; padding:18px; }
+  .stat .s b { display:block; font-size:24px; margin-top:6px; }
+  .stat .s span { font-size:12px; color:#999; }
+  .panel { background:#fff; border-radius:10px; padding:16px 18px; margin-bottom:20px; }
+  .panel h3 { font-size:14px; margin-bottom:12px; color:#555; }
+  .toolbar { display:flex; gap:10px; margin-bottom:14px; align-items:center; }
+  .toolbar input { width:220px; }
+  .tag { display:inline-block; padding:2px 9px; border-radius:20px; font-size:12px; }
+  .tag.g { background:#e8f7ec; color:#1a7f37; } .tag.o { background:#fff3e0; color:#b26a00; }
+  .tag.b { background:#e8f0fe; color:#1a56db; } .tag.r { background:#fde8e8; color:#c0392b; }
+  .tag.gray { background:#eee; color:#666; }
+  /* 弹窗 */
+  #mask { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:10; align-items:center; justify-content:center; }
+  #mask .box { background:#fff; border-radius:12px; width:480px; max-height:86vh; overflow:auto; padding:24px; }
+  #mask h3 { margin-bottom:16px; }
+  #mask label { display:block; font-size:12px; color:#888; margin:12px 0 5px; }
+  .uprow { display:flex; gap:12px; align-items:center; }
+  .uprow img { width:76px; height:76px; object-fit:cover; border-radius:10px; background:#f5f5f5; }
+  #toast { position:fixed; top:18px; left:50%; transform:translateX(-50%); background:#333; color:#fff; padding:9px 20px; border-radius:8px; font-size:13px; z-index:99; display:none; }
+  .pagerbtns { display:flex; gap:6px; }
+</style>
+</head>
+<body>
+
+<div id="login">
+  <div class="card">
+    <h1>演示后台</h1>
+    <p>自建 SQLite 后端 · 数据管理控制台</p>
+    <input id="lu" placeholder="用户名" value="admin">
+    <input id="lp" type="password" placeholder="密码" value="admin123">
+    <button onclick="doLogin()">登 录</button>
+    <div class="tip">默认账号 admin / admin123</div>
+  </div>
+</div>
+
+<div id="app">
+  <div id="side">
+    <div class="logo">演示后台</div>
+    <a data-v="dash" class="on">📊 数据看板</a>
+    <a data-v="goods">🛍️ 商品管理</a>
+    <a data-v="orders">📦 订单管理</a>
+    <a data-v="users">👥 用户管理</a>
+    <a onclick="fetch('/admin/api/logout',{method:'POST'}).then(()=>location.reload())">🚪 退出登录</a>
+  </div>
+  <div id="main">
+    <div class="top"><h2 id="vtitle">数据看板</h2><span style="font-size:12px;color:#999" id="clock"></span></div>
+
+    <!-- 看板 -->
+    <div id="v-dash">
+      <div class="stat" id="stats"></div>
+      <div class="panel"><h3>最近订单</h3><table id="recent"><thead><tr>
+        <th>订单号</th><th>用户</th><th>商品</th><th>金额</th><th>状态</th><th>时间</th></tr></thead><tbody></tbody></table></div>
+    </div>
+
+    <!-- 商品 -->
+    <div id="v-goods" style="display:none">
+      <div class="toolbar">
+        <input id="gk" placeholder="搜索商品名" oninput="loadGoods()">
+        <button onclick="editGoods(0)">＋ 新增商品</button>
+      </div>
+      <div class="panel" style="padding:0 18px"><table id="gtab"><thead><tr>
+        <th>图片</th><th>名称</th><th>价格</th><th>分类</th><th>销量</th><th>状态</th><th>操作</th></tr></thead><tbody></tbody></table></div>
+    </div>
+
+    <!-- 订单 -->
+    <div id="v-orders" style="display:none">
+      <div class="panel" style="padding:0 18px"><table id="otab"><thead><tr>
+        <th>订单号</th><th>用户</th><th>商品</th><th>数量</th><th>金额</th><th>状态</th><th>下单时间</th><th>操作</th></tr></thead><tbody></tbody></table></div>
+    </div>
+
+    <!-- 用户 -->
+    <div id="v-users" style="display:none">
+      <div class="panel" style="padding:0 18px"><table id="utab"><thead><tr>
+        <th>ID</th><th>手机号</th><th>昵称</th><th>余额</th><th>订单数</th><th>消费总额</th><th>注册时间</th><th>操作</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </div>
+</div>
+
+<div id="mask"><div class="box" id="mbox"></div></div>
+<div id="toast"></div>
+
+<script>
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',1800);}
+async function api(p,body){var r=await fetch(p,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{});if(r.status==401)return{status:401};return await r.json();}
+
+async function doLogin(){
+  var r=await api('/admin/api/login',{username:lu.value,password:lp.value});
+  if(r.status==1){location.reload();}else toast(r.msg||'登录失败');
+}
+
+var TAG={0:['o','待付款'],1:['o','待接单'],2:['b','服务中'],3:['b','待结单'],4:['g','已完成'],5:['r','售后中'],6:['gray','已退款'],8:['r','问题单']};
+function tag(s){var t=TAG[s]||['gray','未知'];return '<span class="tag '+t[0]+'">'+t[1]+'</span>';}
+
+var VIEWS={'dash':'数据看板','goods':'商品管理','orders':'订单管理','users':'用户管理'};
+function view(v){
+  document.querySelectorAll('#side a[data-v]').forEach(a=>a.classList.toggle('on',a.dataset.v==v));
+  ['dash','goods','orders','users'].forEach(x=>document.getElementById('v-'+x).style.display=x==v?'':'none');
+  document.getElementById('vtitle').textContent=VIEWS[v];
+  ({dash:loadDash,goods:loadGoods,orders:loadOrders,users:loadUsers})[v]();
+}
+document.querySelectorAll('#side a[data-v]').forEach(a=>a.onclick=()=>view(a.dataset.v));
+
+async function loadDash(){
+  var r=await api('/admin/api/stats');if(r.status==401)return location.reload();
+  var d=r.data;
+  document.getElementById('stats').innerHTML=
+    [['注册用户',d.users],['商品数量',d.goods],['订单总数',d.orders],['待接单',d.pending],['营业额(元)',d.revenue]]
+    .map(x=>'<div class="s"><span>'+x[0]+'</span><b>'+x[1]+'</b></div>').join('');
+  document.querySelector('#recent tbody').innerHTML=(d.recent||[]).map(o=>
+    '<tr><td>'+o.order_no+'</td><td>'+(o.mobile||'-')+'</td><td>'+o.goods_name+'</td><td>￥'+(+o.total).toFixed(2)+'</td><td>'+tag(o.status)+'</td><td>'+o.created_at+'</td></tr>').join('')||'<tr><td colspan="6" style="color:#999">暂无订单，去前端下几单试试</td></tr>';
+}
+
+var CATS=[];
+async function loadGoods(){
+  var r=await api('/admin/api/goods');if(r.status==401)return location.reload();
+  CATS=r.data.cats;var kw=(document.getElementById('gk').value||'').trim();
+  var list=r.data.list.filter(g=>!kw||g.name.includes(kw));
+  document.querySelector('#gtab tbody').innerHTML=list.map(g=>
+    '<tr><td><img class="cover" src="'+g.cover+'"></td><td>'+g.name+'</td><td>￥'+(+g.price).toFixed(2)+'</td><td>'+(g.cat_name||'-')+'</td><td>'+g.sales+'</td><td>'+(g.status?'<span class="tag g">在售</span>':'<span class="tag gray">下架</span>')+'</td>'
+    +'<td class="pagerbtns"><button class="mini" onclick="editGoods('+g.id+')">编辑</button><button class="mini red" onclick="delGoods('+g.id+')">删除</button></td></tr>').join('')||'<tr><td colspan="7" style="color:#999">暂无商品</td></tr>';
+}
+function catOpts(v){return CATS.map(c=>'<option value="'+c.id+'"'+(c.id==v?' selected':'')+'>'+c.name+'</option>').join('');}
+function editGoods(id){
+  if(id){
+    api('/admin/api/goods').then(r=>{var it=r.data.list.find(x=>x.id==id);openGoodsForm(it,id);});
+  } else {
+    openGoodsForm({name:'',price:'',min_num:1,cat1_id:(CATS[0]||{}).id,cover:'',intro:'',content:'',sales:0,status:1},0);
+  }
+}
+function openGoodsForm(g,id){
+  document.getElementById('mbox').innerHTML='<h3>'+(id?'编辑商品':'新增商品')+'</h3>'
+    +'<label>商品名称</label><input id="f_name" value="'+(g.name||'').replace(/"/g,'&quot;')+'">'
+    +'<label>单价(元/小时)</label><input id="f_price" value="'+(g.price||'')+'">'
+    +'<label>起购数量</label><input id="f_min" value="'+(g.min_num||1)+'">'
+    +'<label>分类</label><select id="f_cat">'+catOpts(g.cat1_id)+'</select>'
+    +'<label>商品封面图（可上传本机图片）</label><div class="uprow"><img id="f_prev" src="'+(g.cover||'')+'">'
+    +'<div><input type="file" id="f_file" accept="image/*" onchange="upFile(this)"><div style="font-size:12px;color:#999;margin-top:6px" id="f_url">'+(g.cover||'')+'</div></div></div>'
+    +'<label>简介</label><input id="f_intro" value="'+(g.intro||'').replace(/"/g,'&quot;')+'">'
+    +'<label>详情（HTML）</label><textarea id="f_content" rows="3">'+(g.content||'')+'</textarea>'
+    +'<label>初始销量</label><input id="f_sales" value="'+(g.sales||0)+'">'
+    +'<label>状态</label><select id="f_status"><option value="1"'+(g.status?' selected':'')+'>在售</option><option value="0"'+(g.status?'':' selected')+'>下架</option></select>'
+    +'<div style="display:flex;gap:10px;margin-top:18px"><button onclick="saveGoods('+id+')">保存</button><button class="gray" onclick="mask.style.display=\'none\'">取消</button></div>';
+  mask.style.display='flex';
+}
+function upFile(inp){
+  var f=inp.files[0];if(!f)return;
+  var rd=new FileReader();
+  rd.onload=function(){
+    fetch('/admin/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:rd.result})})
+      .then(r=>r.json()).then(r=>{
+        if(r.status==1){f_prev.src=r.data.url;f_url.textContent=r.data.url;f_url.dataset.url=r.data.url;toast('图片已上传');}
+        else toast(r.msg);
+      });
+  };
+  rd.readAsDataURL(f);
+}
+async function saveGoods(id){
+  var r=await api('/admin/api/goods',{action:'save',id:id,name:f_name.value,price:f_price.value,
+    min_num:f_min.value,cat1_id:f_cat.value,cover:(f_url.dataset.url||f_url.textContent),
+    intro:f_intro.value,content:f_content.value,sales:f_sales.value,status:f_status.value});
+  if(r.status==1){toast('已保存');mask.style.display='none';loadGoods();}else toast(r.msg);
+}
+async function delGoods(id){
+  if(!confirm('确定删除该商品？'))return;
+  var r=await api('/admin/api/goods',{action:'del',id:id});
+  if(r.status==1){toast('已删除');loadGoods();}else toast(r.msg);
+}
+
+async function loadOrders(){
+  var r=await api('/admin/api/orders');if(r.status==401)return location.reload();
+  var st=r.data.status_text;
+  document.querySelector('#otab tbody').innerHTML=(r.data.list||[]).map(o=>
+    '<tr><td style="font-size:12px">'+o.order_no+'</td><td>'+(o.mobile||'-')+'</td><td>'+o.goods_name+'</td><td>'+o.num+'</td><td>￥'+(+o.total).toFixed(2)+'</td><td>'+tag(o.status)+'</td><td style="font-size:12px">'+o.created_at+'</td>'
+    +'<td><select onchange="setStatus('+o.id+',this.value)" style="width:auto;padding:4px 6px">'
+    +Object.keys(st).map(k=>'<option value="'+k+'"'+(k==o.status?' selected':'')+'>'+st[k]+'</option>').join('')+'</select></td></tr>').join('')||'<tr><td colspan="8" style="color:#999">暂无订单</td></tr>';
+}
+async function setStatus(id,s){
+  var r=await api('/admin/api/orders',{action:'status',id:id,status:s});
+  if(r.status==1){toast('状态已更新');loadOrders();}else toast(r.msg);
+}
+
+async function loadUsers(){
+  var r=await api('/admin/api/users');if(r.status==401)return location.reload();
+  document.querySelector('#utab tbody').innerHTML=(r.data.list||[]).map(u=>
+    '<tr><td>'+u.id+'</td><td>'+u.mobile+'</td><td>'+u.nickname+'</td><td>￥'+(+u.balance).toFixed(2)+'</td><td>'+u.order_count+'</td><td>￥'+(+u.sum_total).toFixed(2)+'</td><td style="font-size:12px">'+u.created_at+'</td>'
+    +'<td><button class="mini" onclick="recharge('+u.id+')">充值</button></td></tr>').join('')||'<tr><td colspan="8" style="color:#999">暂无用户</td></tr>';
+}
+function recharge(uid){
+  var a=prompt('充值金额（元）：','50');
+  if(a===null)return;
+  api('/admin/api/recharge',{user_id:uid,amount:parseFloat(a)}).then(r=>{if(r.status==1){toast(r.msg);loadUsers();}else toast(r.msg);});
+}
+
+setInterval(()=>{document.getElementById('clock').textContent=new Date().toLocaleString('zh-CN');},1000);
+
+// 初始化：检查登录态
+api('/admin/api/stats').then(r=>{
+  if(r.status==401){document.getElementById('login').style.display='flex';document.getElementById('app').style.display='none';}
+  else{document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';view('dash');}
+});
+</script>
+</body>
+</html>
