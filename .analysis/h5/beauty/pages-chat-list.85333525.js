@@ -1,0 +1,1224 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages-chat-list"],
+  {
+    "04e3": function (t, e, i) {
+      "use strict";
+      i("6a54"),
+        Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("aa77"),
+        i("bf0f"),
+        i("64aa"),
+        i("4100");
+      var a = i("e74a"),
+        n = {
+          data: function () {
+            return {
+              user: [],
+              current: 0,
+              order_status: -1,
+              order_status_list: [],
+              list: [],
+              notice: [],
+              navbar: [],
+              selected: 3,
+              online: !0,
+              server_name: "",
+              audio_url: "",
+              new_num: 0,
+              tabs: [
+                { name: "咨询中", id: 1 },
+                { name: "全部", id: 0 },
+              ],
+              chat_status: 1,
+              ring_tone: 0,
+              palte: "h5",
+              kefu: [],
+            };
+          },
+          onShow: function () {
+            this.getMobileChatCenter();
+          },
+          onLoad: function () {
+            uni.$on("websocket_message", this.handleWebsocketMessage);
+          },
+          onUnload: function () {
+            uni.$off("websocket_message", this.handleWebsocketMessage);
+          },
+          onPullDownRefresh: function () {
+            var t = this;
+            uni.showLoading({ title: "刷新中" }),
+              setTimeout(function () {
+                uni.hideLoading(),
+                  t.getMobileChatCenter(),
+                  uni.showToast({ title: "刷新成功", duration: 1e3 }),
+                  uni.stopPullDownRefresh();
+              }, 300);
+          },
+          methods: {
+            getMobileChatCenter: function () {
+              var t = this;
+              (0, a.send)(
+                "/wechat/Chat/getMobileChatCenter",
+                {
+                  chat_status: this.chat_status,
+                  order_status: this.order_status,
+                },
+                !1,
+              ).then(function (e) {
+                var i = e.status,
+                  a = e.msg,
+                  n = e.data;
+                if (1 != i) return uni.$uv.toast(a);
+                (t.list = n.list.list),
+                  (t.user = n.list.user),
+                  (t.order_status_list = n.order_status_list),
+                  (t.online = t.user.kefu ? t.user.kefu.online : 0),
+                  (t.server_name = n.server_name),
+                  (t.audio_url = n.audio_url),
+                  (t.kefu = n.kefu),
+                  (t.notice = n.notice);
+              });
+            },
+            jump: function (t) {
+              uni.navigateTo({ url: t });
+            },
+            changeTabs: function (t) {
+              (this.order_status = t.id),
+                (this.current = t.index),
+                this.getMobileChatList();
+            },
+            getMobileChatList: function () {
+              var t = this;
+              (0, a.send)(
+                "/wechat/ChatWithOrder/getMobileChatList",
+                {
+                  chat_status: this.chat_status,
+                  order_status: this.order_status,
+                },
+                !1,
+              ).then(function (e) {
+                var i = e.status,
+                  a = e.msg,
+                  n = e.data;
+                if (1 != i) return uni.$uv.toast(a);
+                t.list = n.list;
+              });
+            },
+            changeMobileKefuStatus: function () {
+              var t = this,
+                e = this;
+              (this.online = !this.online),
+                (0, a.send)(
+                  "/wechat/Kefu/changeMobileKefuStatus",
+                  { online: this.online },
+                  !1,
+                ).then(function (i) {
+                  var a = i.status,
+                    n = i.msg;
+                  i.data;
+                  return 1 != a
+                    ? uni.$uv.toast(n)
+                    : 1 == t.online
+                      ? (t.tipsRing(),
+                        uni.showToast({
+                          title: "已开始接待",
+                          icon: "success",
+                          duration: 2e3,
+                        }))
+                      : uni.showModal({
+                          title: "温馨提示",
+                          showCancel: !1,
+                          content: "已停止接待, 请尽快结束或转接咨询中的会话",
+                          success: function (t) {
+                            e.tipsRing();
+                          },
+                        });
+                });
+            },
+            changeUserType: function () {
+              var t = this;
+              1 == this.user.user_type
+                ? (this.user.user_type = 3)
+                : (this.user.user_type = 1),
+                (0, a.send)(
+                  "/wechat/User/changeUserType",
+                  { user_type: this.user.user_type },
+                  !1,
+                ).then(function (e) {
+                  var i = e.status,
+                    a = e.msg;
+                  e.data;
+                  return 1 != i
+                    ? uni.$uv.toast(a)
+                    : (t.tipsRing(),
+                      t.getMobileChatList(),
+                      1 == t.user.user_type
+                        ? uni.showToast({
+                            title: "当前身份已切换为: 用户",
+                            icon: "none",
+                            duration: 2e3,
+                          })
+                        : 3 == t.user.user_type
+                          ? uni.showToast({
+                              title: "当前身份已切换为: 打手",
+                              icon: "none",
+                              duration: 2e3,
+                            })
+                          : void 0);
+                });
+            },
+            tipsRing: function () {
+              if (1 == this.ring_tone) return !0;
+              (this.ring_tone = 1),
+                setTimeout(function () {
+                  return uni.showToast({
+                    title: "已开启铃声",
+                    icon: "none",
+                    duration: 2e3,
+                  });
+                }, 2500);
+            },
+            handleWebsocketMessage: function (t) {
+              "sync_msg" == t.label &&
+                0 == t.me_kefu_id &&
+                ((this.list = this.incrementKefuNewById(1, this.list, t)),
+                this.playLocalAudio()),
+                "sync_kefu_msg" == t.label &&
+                  (this.list = this.incrementKefuNewById(2, this.list, t));
+            },
+            incrementKefuNewById: function () {
+              var t =
+                  arguments.length > 0 && void 0 !== arguments[0]
+                    ? arguments[0]
+                    : 1,
+                e = arguments.length > 1 ? arguments[1] : void 0,
+                i = arguments.length > 2 ? arguments[2] : void 0,
+                a = e.find(function (t) {
+                  return t.id === i.chat_id;
+                });
+              return (
+                a
+                  ? ((a.new_num = 1 == t ? Number(a.new_num) + 1 : 0),
+                    (a.content_text = i.content_text),
+                    (a.last = i.time),
+                    ++this.new_num,
+                    console.log(this.new_num))
+                  : this.getMobileChatList(),
+                e.sort(function (t, e) {
+                  return new Date(e.last) - new Date(t.last);
+                }),
+                e
+              );
+            },
+            playLocalAudio: function () {
+              var t = uni.createInnerAudioContext();
+              (t.src = this.audio_url),
+                t.play(),
+                t.onError(function (t) {
+                  console.error("音频播放失败：", t);
+                });
+            },
+            matchKefu1: function () {
+              "h5" == this.palte
+                ? 1 == this.kefu.kefu_h5_type || 3 == this.kefu.kefu_h5_type
+                  ? (window.location.href = this.kefu.kefu_link)
+                  : uni.$uv.throttle(this.matchKefu1Handle, 1500)
+                : ((1 != this.kefu.kefu_weapp_type &&
+                    4 != this.kefu.kefu_weapp_type) ||
+                    wx.openCustomerServiceChat({
+                      extInfo: { url: this.kefu.kefu_link },
+                      corpId: this.kefu.kefu_corp_id,
+                      success: function (t) {
+                        console.log(t);
+                      },
+                    }),
+                  2 == this.kefu.kefu_weapp_type &&
+                    uni.$uv.throttle(this.matchKefu1Handle, 1500));
+            },
+            matchKefu1Handle: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, a.send)(
+                  "/wechat/Chat/matchKefu1",
+                  { order_id: 0 },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var i = e.status,
+                    a = e.msg,
+                    n = e.data;
+                  if (1 != i) return uni.$uv.toast(a);
+                  t.jump("/pages_sub1/chat/info?id=" + n.chat_id);
+                });
+            },
+            changeChatStatus: function (t) {
+              (this.chat_status = t.id), this.getMobileChatList();
+            },
+          },
+        };
+      e.default = n;
+    },
+    "05c2": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var a = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("473f"),
+        i("bf0f"),
+        i("f7a5"),
+        i("5c47"),
+        i("0506"),
+        i("c223"),
+        i("18f7"),
+        i("de6c"),
+        i("fd3c");
+      var n = a(i("5de6")),
+        s = a(i("9b1b")),
+        r = a(i("2634")),
+        o = a(i("2fdc")),
+        u = a(i("4d8f0")),
+        l = a(i("9463")),
+        c = a(i("b92c")),
+        d = a(i("7689")),
+        f = {
+          name: "uv-tabs",
+          emits: ["click", "change"],
+          mixins: [u.default, l.default, d.default],
+          data: function () {
+            return {
+              firstTime: !0,
+              scrollLeft: 0,
+              scrollViewWidth: 0,
+              lineOffsetLeft: 0,
+              tabsRect: { left: 0 },
+              innerCurrent: 0,
+              moving: !1,
+            };
+          },
+          watch: {
+            current: {
+              immediate: !0,
+              handler: function (t, e) {
+                var i = this;
+                t !== this.innerCurrent &&
+                  ((this.innerCurrent = t),
+                  this.$nextTick(function () {
+                    i.resize();
+                  }));
+              },
+            },
+            list: function () {
+              var t = this;
+              this.$nextTick(function () {
+                t.resize();
+              });
+            },
+          },
+          computed: {
+            textStyle: function () {
+              var t = this;
+              return function (e) {
+                var i = {},
+                  a =
+                    e == t.innerCurrent
+                      ? t.$uv.addStyle(t.activeStyle)
+                      : t.$uv.addStyle(t.inactiveStyle);
+                return (
+                  t.list[e].disabled && (i.color = "#c8c9cc"),
+                  t.$uv.deepMerge(a, i)
+                );
+              };
+            },
+            propsBadge: function () {
+              return c.default;
+            },
+          },
+          mounted: function () {
+            var t = this;
+            return (0, o.default)(
+              (0, r.default)().mark(function e() {
+                return (0, r.default)().wrap(function (e) {
+                  while (1)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        t.init();
+                      case 1:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e);
+              }),
+            )();
+          },
+          methods: {
+            setLineLeft: function () {
+              var t = this,
+                e = this.list[this.innerCurrent];
+              if (e) {
+                var i = this.list.slice(0, this.innerCurrent).reduce(function (
+                    t,
+                    e,
+                  ) {
+                    return t + e.rect.width;
+                  }, 0),
+                  a = this.$uv.getPx(this.lineWidth);
+                this.$uv.test.number(this.lineWidth) &&
+                  this.$uv.unit &&
+                  (a = this.$uv.getPx(
+                    "".concat(this.lineWidth).concat(this.$uv.unit),
+                  )),
+                  (this.lineOffsetLeft = i + (e.rect.width - a) / 2),
+                  this.firstTime &&
+                    setTimeout(function () {
+                      t.firstTime = !1;
+                    }, 20);
+              }
+            },
+            animation: function (t) {},
+            clickHandler: function (t, e) {
+              var i = this;
+              this.$emit(
+                "click",
+                (0, s.default)((0, s.default)({}, t), {}, { index: e }),
+              ),
+                t.disabled ||
+                  (this.innerCurrent != e &&
+                    this.$emit(
+                      "change",
+                      (0, s.default)((0, s.default)({}, t), {}, { index: e }),
+                    ),
+                  (this.innerCurrent = e),
+                  this.$nextTick(function () {
+                    i.resize();
+                  }));
+            },
+            init: function () {
+              var t = this;
+              this.$uv.sleep().then(function () {
+                t.resize();
+              });
+            },
+            setScrollLeft: function () {
+              var t = this.list[this.innerCurrent],
+                e = this.list.slice(0, this.innerCurrent).reduce(function (
+                  t,
+                  e,
+                ) {
+                  return t + e.rect.width;
+                }, 0),
+                i = this.$uv.sys().windowWidth,
+                a =
+                  e -
+                  (this.tabsRect.width - t.rect.width) / 2 -
+                  (i - this.tabsRect.right) / 2 +
+                  this.tabsRect.left / 2;
+              (a = Math.min(a, this.scrollViewWidth - this.tabsRect.width)),
+                (this.scrollLeft = Math.max(0, a));
+            },
+            resize: function () {
+              var t = this;
+              0 !== this.list.length &&
+                Promise.all([this.getTabsRect(), this.getAllItemRect()]).then(
+                  function (e) {
+                    var i = (0, n.default)(e, 2),
+                      a = i[0],
+                      s = i[1],
+                      r = void 0 === s ? [] : s;
+                    (t.tabsRect = a),
+                      (t.scrollViewWidth = 0),
+                      r.map(function (e, i) {
+                        (t.scrollViewWidth += e.width), (t.list[i].rect = e);
+                      }),
+                      t.setLineLeft(),
+                      t.setScrollLeft();
+                  },
+                );
+            },
+            getTabsRect: function () {
+              var t = this;
+              return new Promise(function (e) {
+                t.queryRect("uv-tabs__wrapper__scroll-view").then(function (t) {
+                  return e(t);
+                });
+              });
+            },
+            getAllItemRect: function () {
+              var t = this;
+              return new Promise(function (e) {
+                var i = t.list.map(function (e, i) {
+                  return t.queryRect(
+                    "uv-tabs__wrapper__nav__item-".concat(i),
+                    !0,
+                  );
+                });
+                Promise.all(i).then(function (t) {
+                  return e(t);
+                });
+              });
+            },
+            queryRect: function (t, e) {
+              var i = this;
+              return new Promise(function (e) {
+                i.$uvGetRect(".".concat(t)).then(function (t) {
+                  e(t);
+                });
+              });
+            },
+          },
+        };
+      e.default = f;
+    },
+    2517: function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("04e3"),
+        n = i.n(a);
+      for (var s in a)
+        ["default"].indexOf(s) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(s);
+      e["default"] = n.a;
+    },
+    "28f5": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return s;
+        }),
+        i.d(e, "a", function () {
+          return a;
+        });
+      var a = { uvBadge: i("0261").default },
+        n = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return i(
+            "v-uni-view",
+            { staticClass: "uv-tabs", style: [t.$uv.addStyle(t.customStyle)] },
+            [
+              i(
+                "v-uni-view",
+                { staticClass: "uv-tabs__wrapper" },
+                [
+                  t._t("left"),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "uv-tabs__wrapper__scroll-view-wrapper" },
+                    [
+                      i(
+                        "v-uni-scroll-view",
+                        {
+                          ref: "uv-tabs__wrapper__scroll-view",
+                          staticClass: "uv-tabs__wrapper__scroll-view",
+                          attrs: {
+                            "scroll-x": t.scrollable,
+                            "scroll-left": t.scrollLeft,
+                            "scroll-with-animation": !0,
+                            "show-scrollbar": !1,
+                          },
+                        },
+                        [
+                          i(
+                            "v-uni-view",
+                            {
+                              ref: "uv-tabs__wrapper__nav",
+                              staticClass: "uv-tabs__wrapper__nav",
+                              style: { flex: t.scrollable ? "" : 1 },
+                            },
+                            [
+                              t._l(t.list, function (e, a) {
+                                return i(
+                                  "v-uni-view",
+                                  {
+                                    key: a,
+                                    ref: "uv-tabs__wrapper__nav__item-" + a,
+                                    refInFor: !0,
+                                    staticClass: "uv-tabs__wrapper__nav__item",
+                                    class: [
+                                      "uv-tabs__wrapper__nav__item-" + a,
+                                      e.disabled &&
+                                        "uv-tabs__wrapper__nav__item--disabled",
+                                    ],
+                                    style: [
+                                      { flex: t.scrollable ? "" : 1 },
+                                      t.$uv.addStyle(t.itemStyle),
+                                    ],
+                                    on: {
+                                      click: function (i) {
+                                        (arguments[0] = i = t.$handleEvent(i)),
+                                          t.clickHandler(e, a);
+                                      },
+                                    },
+                                  },
+                                  [
+                                    i(
+                                      "v-uni-text",
+                                      {
+                                        staticClass:
+                                          "uv-tabs__wrapper__nav__item__text",
+                                        class: [
+                                          e.disabled &&
+                                            "uv-tabs__wrapper__nav__item__text--disabled",
+                                        ],
+                                        style: [t.textStyle(a)],
+                                      },
+                                      [t._v(t._s(e[t.keyName]))],
+                                    ),
+                                    i("uv-badge", {
+                                      attrs: {
+                                        show: !(
+                                          !e.badge ||
+                                          !(
+                                            e.badge.show ||
+                                            e.badge.isDot ||
+                                            e.badge.value
+                                          )
+                                        ),
+                                        isDot:
+                                          (e.badge && e.badge.isDot) ||
+                                          t.propsBadge.isDot,
+                                        value:
+                                          (e.badge && e.badge.value) ||
+                                          t.propsBadge.value,
+                                        max:
+                                          (e.badge && e.badge.max) ||
+                                          t.propsBadge.max,
+                                        type:
+                                          (e.badge && e.badge.type) ||
+                                          t.propsBadge.type,
+                                        showZero:
+                                          (e.badge && e.badge.showZero) ||
+                                          t.propsBadge.showZero,
+                                        bgColor:
+                                          (e.badge && e.badge.bgColor) ||
+                                          t.propsBadge.bgColor,
+                                        color:
+                                          (e.badge && e.badge.color) ||
+                                          t.propsBadge.color,
+                                        shape:
+                                          (e.badge && e.badge.shape) ||
+                                          t.propsBadge.shape,
+                                        numberType:
+                                          (e.badge && e.badge.numberType) ||
+                                          t.propsBadge.numberType,
+                                        inverted:
+                                          (e.badge && e.badge.inverted) ||
+                                          t.propsBadge.inverted,
+                                        customStyle: "margin-left: 4px;",
+                                      },
+                                    }),
+                                  ],
+                                  1,
+                                );
+                              }),
+                              i("v-uni-view", {
+                                ref: "uv-tabs__wrapper__nav__line",
+                                staticClass: "uv-tabs__wrapper__nav__line",
+                                style: [
+                                  {
+                                    width: t.$uv.addUnit(t.lineWidth),
+                                    transform:
+                                      "translate(" + t.lineOffsetLeft + "px)",
+                                    transitionDuration:
+                                      (t.firstTime ? 0 : t.duration) + "ms",
+                                    height: t.firstTime
+                                      ? 0
+                                      : t.$uv.addUnit(t.lineHeight),
+                                    background: t.lineColor,
+                                    backgroundSize: t.lineBgSize,
+                                  },
+                                ],
+                              }),
+                            ],
+                            2,
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  t._t("right"),
+                ],
+                2,
+              ),
+            ],
+            1,
+          );
+        },
+        s = [];
+    },
+    "2b48": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("28f5"),
+        n = i("39c1");
+      for (var s in n)
+        ["default"].indexOf(s) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(s);
+      i("45c0");
+      var r = i("828b"),
+        o = Object(r["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "6f5b1fc6",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = o.exports;
+    },
+    3105: function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-6f5b1fc6], uni-scroll-view[data-v-6f5b1fc6], uni-swiper-item[data-v-6f5b1fc6]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-tabs__wrapper[data-v-6f5b1fc6]{display:flex;flex-direction:row;align-items:center}.uv-tabs__wrapper__scroll-view-wrapper[data-v-6f5b1fc6]{flex:1;overflow:auto hidden}.uv-tabs__wrapper__scroll-view[data-v-6f5b1fc6]{display:flex;flex-direction:row;flex:1}.uv-tabs__wrapper__nav[data-v-6f5b1fc6]{display:flex;flex-direction:row;position:relative}.uv-tabs__wrapper__nav__item[data-v-6f5b1fc6]{padding:0 11px;display:flex;flex-direction:row;align-items:center;justify-content:center}.uv-tabs__wrapper__nav__item--disabled[data-v-6f5b1fc6]{cursor:not-allowed}.uv-tabs__wrapper__nav__item__text[data-v-6f5b1fc6]{font-size:15px;color:#606266}.uv-tabs__wrapper__nav__item__text--disabled[data-v-6f5b1fc6]{color:#c8c9cc!important}.uv-tabs__wrapper__nav__line[data-v-6f5b1fc6]{height:3px;background:#3c9cff;width:30px;position:absolute;bottom:2px;border-radius:100px;transition-property:-webkit-transform;transition-property:transform;transition-property:transform,-webkit-transform;transition-duration:.3s}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "39c1": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("05c2"),
+        n = i.n(a);
+      for (var s in a)
+        ["default"].indexOf(s) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(s);
+      e["default"] = n.a;
+    },
+    "412d": function (t, e, i) {
+      t.exports = i.p + "static/service2.png";
+    },
+    "45c0": function (t, e, i) {
+      "use strict";
+      var a = i("62a9"),
+        n = i.n(a);
+      n.a;
+    },
+    "53a5": function (t, e, i) {
+      "use strict";
+      var a = i("7121"),
+        n = i.n(a);
+      n.a;
+    },
+    "5ec3": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return s;
+        }),
+        i.d(e, "a", function () {
+          return a;
+        });
+      var a = {
+          uvIcon: i("1a07").default,
+          uvTabs: i("2b48").default,
+          uvEmpty: i("caef").default,
+        },
+        n = function () {
+          var t = this,
+            e = t.$createElement,
+            a = t._self._c || e;
+          return a(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              a(
+                "v-uni-view",
+                { staticClass: "notice_box" },
+                [
+                  a(
+                    "v-uni-view",
+                    {
+                      staticClass: "notice flex_box",
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.jump("/pages_sub1/chat/notice");
+                        },
+                      },
+                    },
+                    [
+                      a(
+                        "v-uni-view",
+                        { staticClass: "img" },
+                        [
+                          a("uv-icon", {
+                            attrs: {
+                              name: "bell-fill",
+                              color: "#000",
+                              size: "28",
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "tit" },
+                        [
+                          a(
+                            "v-uni-view",
+                            { staticClass: "name_box flex_box" },
+                            [
+                              a("v-uni-view", { staticClass: "name" }, [
+                                t._v("系统通知"),
+                              ]),
+                              t.notice.num > 0
+                                ? a("v-uni-view", { staticClass: "num" }, [
+                                    t._v(t._s(t.notice.num)),
+                                  ])
+                                : t._e(),
+                            ],
+                            1,
+                          ),
+                          a(
+                            "v-uni-view",
+                            { staticClass: "flex_box" },
+                            [
+                              a("v-uni-view", { staticClass: "des" }, [
+                                t._v(t._s(t.notice.title)),
+                              ]),
+                              a("v-uni-view", [t._v(t._s(t.notice.time))]),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a(
+                "v-uni-view",
+                {
+                  staticClass: "kefu_box",
+                  on: {
+                    click: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)), t.matchKefu1();
+                    },
+                  },
+                },
+                [
+                  a("img", {
+                    staticClass: "kefu",
+                    attrs: { src: i("412d"), alt: "" },
+                  }),
+                  a(
+                    "v-uni-view",
+                    { staticClass: "intro_box" },
+                    [
+                      a("v-uni-view", { staticClass: "item" }, [
+                        t._v("平台人工客服"),
+                      ]),
+                      a("v-uni-view", { staticClass: "des" }, [
+                        t._v("有问题点我联系人工客服!"),
+                      ]),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a(
+                "v-uni-view",
+                { staticClass: "tabs_status_box1" },
+                [
+                  a(
+                    "v-uni-view",
+                    { staticClass: "tabs_box" },
+                    [
+                      a("uv-tabs", {
+                        attrs: {
+                          current: 0,
+                          list: t.tabs,
+                          lineColor: "#000",
+                          activeStyle: {
+                            color: "#000",
+                            fontWeight: "bold",
+                            transform: "scale(1.02)",
+                            background: "#ffe610",
+                          },
+                          scrollable: !0,
+                        },
+                        on: {
+                          change: function (e) {
+                            (arguments[0] = e = t.$handleEvent(e)),
+                              t.changeChatStatus.apply(void 0, arguments);
+                          },
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  2 == t.user.user_type
+                    ? a(
+                        "v-uni-view",
+                        {
+                          class: { status_box: !0, offline: !t.online },
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.changeMobileKefuStatus();
+                            },
+                          },
+                        },
+                        [
+                          a("v-uni-view", { staticClass: "circle" }),
+                          a("v-uni-view", { staticClass: "status" }, [
+                            t._v(t._s(t.online ? "上班" : "下班")),
+                          ]),
+                        ],
+                        1,
+                      )
+                    : t._e(),
+                  1 == t.user.seller && 2 != t.user.user_type
+                    ? a(
+                        "v-uni-view",
+                        {
+                          class: {
+                            status_box: !0,
+                            offline: 1 == t.user.user_type,
+                          },
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.changeUserType();
+                            },
+                          },
+                        },
+                        [
+                          a("v-uni-view", { staticClass: "circle" }),
+                          a("v-uni-view", { staticClass: "status" }, [
+                            t._v(t._s(3 == t.user.user_type ? "打手" : "用户")),
+                          ]),
+                        ],
+                        1,
+                      )
+                    : t._e(),
+                ],
+                1,
+              ),
+              a(
+                "v-uni-view",
+                { staticClass: "tabs_status_box2" },
+                [
+                  a(
+                    "v-uni-view",
+                    { staticClass: "tabs_box" },
+                    [
+                      a("uv-tabs", {
+                        attrs: {
+                          current: t.current,
+                          list: t.order_status_list,
+                          lineColor: "#000",
+                          activeStyle: {
+                            color: "#000",
+                            fontWeight: "bold",
+                            transform: "scale(1.02)",
+                          },
+                          scrollable: !0,
+                        },
+                        on: {
+                          change: function (e) {
+                            (arguments[0] = e = t.$handleEvent(e)),
+                              t.changeTabs.apply(void 0, arguments);
+                          },
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              t.list.length > 0
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "list" },
+                    t._l(t.list, function (e, i) {
+                      return a(
+                        "v-uni-view",
+                        {
+                          key: i,
+                          staticClass: "col flex_box",
+                          attrs: { text: e },
+                          on: {
+                            click: function (i) {
+                              (arguments[0] = i = t.$handleEvent(i)),
+                                t.jump("/pages_sub1/chat/info?id=" + e.id);
+                            },
+                          },
+                        },
+                        [
+                          a(
+                            "v-uni-view",
+                            { staticClass: "head_box" },
+                            [
+                              e.avatar_frame
+                                ? a("img", {
+                                    staticClass: "head_frame",
+                                    attrs: { src: e.avatar_frame },
+                                  })
+                                : t._e(),
+                              a("img", {
+                                staticClass: "img",
+                                attrs: { src: e.avatar },
+                              }),
+                              e.new_num > 0
+                                ? a("v-uni-view", { staticClass: "num" }, [
+                                    t._v(t._s(e.new_num)),
+                                  ])
+                                : t._e(),
+                            ],
+                            1,
+                          ),
+                          a(
+                            "v-uni-view",
+                            { staticClass: "tit" },
+                            [
+                              a(
+                                "v-uni-view",
+                                { staticClass: "name_box flex_box" },
+                                [
+                                  a(
+                                    "v-uni-view",
+                                    { staticClass: "shenfen_box flex_box" },
+                                    [
+                                      a("v-uni-view", { staticClass: "name" }, [
+                                        t._v(t._s(e.nickname)),
+                                      ]),
+                                      e.user_level_icon
+                                        ? a("img", {
+                                            staticClass: "level",
+                                            attrs: { src: e.user_level_icon },
+                                          })
+                                        : t._e(),
+                                      1 == e.chat_type
+                                        ? a(
+                                            "v-uni-view",
+                                            { staticClass: "user_label1" },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  1 == t.user.user_type
+                                                    ? "客服"
+                                                    : "用户",
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : t._e(),
+                                      2 == e.chat_type
+                                        ? a(
+                                            "v-uni-view",
+                                            { staticClass: "user_label1" },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  1 == t.user.user_type
+                                                    ? "打手"
+                                                    : "用户",
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : t._e(),
+                                      3 == e.chat_type
+                                        ? a(
+                                            "v-uni-view",
+                                            { staticClass: "user_label2" },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  3 == t.user.user_type
+                                                    ? "客服"
+                                                    : "打手",
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : t._e(),
+                                    ],
+                                    1,
+                                  ),
+                                  a("v-uni-view", { staticClass: "status" }, [
+                                    t._v(t._s(e.order_status_text)),
+                                  ]),
+                                ],
+                                1,
+                              ),
+                              a(
+                                "v-uni-view",
+                                { staticClass: "flex_box" },
+                                [
+                                  a("v-uni-view", { staticClass: "des" }, [
+                                    t._v(t._s(e.content_text)),
+                                  ]),
+                                  a("v-uni-view", [t._v(t._s(e.time_text))]),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      );
+                    }),
+                    1,
+                  )
+                : a("uv-empty", {
+                    attrs: {
+                      mode: "data",
+                      text: "暂无聊天对话",
+                      icon: "/static/imgs/no-data.png",
+                    },
+                  }),
+              a("tab-bar", { attrs: { selected: t.selected } }),
+            ],
+            1,
+          );
+        },
+        s = [];
+    },
+    "62a9": function (t, e, i) {
+      var a = i("3105");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("0bdeecc7", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    7121: function (t, e, i) {
+      var a = i("d878");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("71e009b1", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    7689: function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var a = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("64aa");
+      var n,
+        s,
+        r = a(i("9b1b")),
+        o = {
+          props: (0, r.default)(
+            {
+              duration: { type: Number, default: 300 },
+              list: {
+                type: Array,
+                default: function () {
+                  return [];
+                },
+              },
+              lineColor: { type: String, default: "#3c9cff" },
+              activeStyle: {
+                type: [String, Object],
+                default: function () {
+                  return { color: "#303133" };
+                },
+              },
+              inactiveStyle: {
+                type: [String, Object],
+                default: function () {
+                  return { color: "#606266" };
+                },
+              },
+              lineWidth: { type: [String, Number], default: 20 },
+              lineHeight: { type: [String, Number], default: 3 },
+              lineBgSize: { type: String, default: "cover" },
+              itemStyle: {
+                type: [String, Object],
+                default: function () {
+                  return { height: "44px" };
+                },
+              },
+              scrollable: { type: Boolean, default: !0 },
+              current: { type: [Number, String], default: 0 },
+              keyName: { type: String, default: "name" },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (s = n.props) ||
+              void 0 === s
+              ? void 0
+              : s.tabs,
+          ),
+        };
+      e.default = o;
+    },
+    d878: function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.content[data-v-37df5664]{padding:%?30?%}.notice_box[data-v-37df5664]{margin-bottom:%?30?%;border-radius:%?25?%;padding:0 %?25?%;border:%?4?% solid #000;background:#fff}.notice_box .notice[data-v-37df5664]{border-bottom:%?2?% solid #dedede}.notice_box .notice[data-v-37df5664]:last-child{border-bottom:none}.notice_box .notice.notice .img[data-v-37df5664]{background:#ffe610;display:flex;align-items:center;justify-content:center;border:%?4?% solid #000}.notice_box .notice .img[data-v-37df5664]{width:%?90?%;height:%?90?%;border-radius:100%;margin:0}.notice_box .notice .tit[data-v-37df5664]{width:calc(100% - %?125?%);padding:%?27?% 0}.notice_box .notice .tit uni-view[data-v-37df5664]{color:#999;font-size:12px;white-space:nowrap;text-overflow:ellipsis}.notice_box .notice .tit .name_box[data-v-37df5664]{margin-bottom:%?15?%}.notice_box .notice .tit .name_box .name[data-v-37df5664]{max-width:calc(100% - %?100?%);font-weight:700;font-size:16px;color:#333}.notice_box .notice .tit .name_box .num[data-v-37df5664]{color:#fff;background-color:red;width:%?29?%;height:%?29?%;font-size:12px;text-align:center;border-radius:10px}.notice_box .notice .tit .des[data-v-37df5664]{max-width:calc(100% - %?200?%)}.kefu_box[data-v-37df5664]{box-shadow:0 0 %?10?% #ddd;padding:%?30?%;border-radius:%?30?%;display:flex;justify-content:flex-start;align-items:center}.kefu_box .kefu[data-v-37df5664]{width:%?80?%;height:%?80?%;margin-right:%?30?%}.kefu_box .intro_box .item[data-v-37df5664]{font-weight:700}.kefu_box .intro_box .des[data-v-37df5664]{color:#999;font-size:12px;margin-top:%?4?%}.tabs_status_box1[data-v-37df5664]{display:flex;justify-content:space-between;align-items:center;margin:%?50?% auto %?8?%}.tabs_status_box1 .tabs_box[data-v-37df5664]{flex:1}.tabs_status_box1 .tabs_box[data-v-37df5664] .uv-tabs{width:60%;margin:0 auto!important;border-radius:%?100?%;border:%?4?% solid #000}.tabs_status_box1 .tabs_box[data-v-37df5664] .uv-tabs__wrapper__nav__item{flex:1!important;height:36px!important;padding:0!important}.tabs_status_box1 .tabs_box[data-v-37df5664] .uv-tabs__wrapper__nav__item__text{font-size:14px!important;width:100%!important;height:36px!important;line-height:36px!important;text-align:center!important}.tabs_status_box1 .tabs_box[data-v-37df5664] .uv-tabs__wrapper__nav__line{display:none!important}.tabs_status_box1 .status_box[data-v-37df5664]{display:flex;justify-content:flex-start;align-items:center;border:%?4?% solid #000;border-radius:%?50?%;padding:%?8?% %?25?%;margin-left:%?20?%}.tabs_status_box1 .status_box .circle[data-v-37df5664]{width:%?16?%;height:%?16?%;border-radius:100%;margin-right:%?15?%;background-color:#53c21d}.tabs_status_box1 .status_box.offline[data-v-37df5664]{border:%?4?% solid #999}.tabs_status_box1 .status_box.offline .circle[data-v-37df5664]{background-color:#999}.tabs_status_box1 .status_box.offline .status[data-v-37df5664]{color:#999}.tabs_status_box2[data-v-37df5664]{display:flex;justify-content:space-between;align-items:center}.tabs_status_box2 .tabs_box[data-v-37df5664]{margin-bottom:%?30?%;flex:1}.tabs_status_box2 .status_box[data-v-37df5664]{display:flex;justify-content:flex-start;align-items:center;border:%?4?% solid #000;border-radius:%?50?%;padding:%?8?% %?25?%;margin-left:%?20?%;margin-bottom:%?12?%}.tabs_status_box2 .status_box .circle[data-v-37df5664]{width:%?16?%;height:%?16?%;border-radius:100%;margin-right:%?15?%;background-color:#53c21d}.tabs_status_box2 .status_box.offline[data-v-37df5664]{border:%?4?% solid #999}.tabs_status_box2 .status_box.offline .circle[data-v-37df5664]{background-color:#999}.tabs_status_box2 .status_box.offline .status[data-v-37df5664]{color:#999}.list[data-v-37df5664]{box-shadow:0 0 %?10?% #ddd;padding:0 %?30?%;border-radius:%?30?%}.list .col[data-v-37df5664]{padding:%?28?% 0;border-bottom:%?2?% solid #dedede}.list .col[data-v-37df5664]:last-child{border-bottom:none}.list .col .head_box[data-v-37df5664]{position:relative;overflow:visible;display:flex;align-items:center;justify-content:center;width:%?130?%;height:%?130?%}.list .col .head_box .head_frame[data-v-37df5664]{position:absolute;z-index:10;pointer-events:none}.list .col .head_box .img[data-v-37df5664]{position:absolute;z-index:9;width:%?94?%;height:%?94?%;border-radius:100%}.list .col .head_box .num[data-v-37df5664]{position:absolute;z-index:11;top:%?16?%;right:%?4?%;font-size:10.4px;background:red;color:#fff;min-width:%?32?%;height:%?32?%;padding:0 %?8?%;line-height:%?32?%;text-align:center;border-radius:%?100?%}.list .col .tit[data-v-37df5664]{width:calc(100% - %?130?% - %?24?%)}.list .col .tit uni-view[data-v-37df5664]{color:#999;font-size:12px;white-space:nowrap;text-overflow:ellipsis}.list .col .tit .name_box[data-v-37df5664]{margin-bottom:%?15?%}.list .col .tit .name_box .shenfen_box[data-v-37df5664]{justify-content:flex-start;max-width:calc(100% - %?100?%)}.list .col .tit .name_box .name[data-v-37df5664]{flex:1;font-weight:700;font-size:16px;color:#333;height:%?40?%;line-height:%?38?%}.list .col .tit .name_box .level[data-v-37df5664]{width:%?94?%;height:%?40?%;object-fit:contain;margin:0 %?0?% 0 %?15?%}.list .col .tit .name_box .user_label1[data-v-37df5664], .list .col .tit .name_box .user_label2[data-v-37df5664]{border-radius:%?10?%;width:%?72?%;height:%?40?%;line-height:%?40?%;text-align:center;text-overflow:clip;margin-left:%?15?%;font-size:12px}.list .col .tit .name_box .user_label1[data-v-37df5664]{background-color:#e7f8ec;color:#4cd964}.list .col .tit .name_box .user_label2[data-v-37df5664]{background-color:#e1eefd;color:#007aff}.list .col .tit .des[data-v-37df5664]{max-width:calc(100% - %?200?%)}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    f19d: function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("5ec3"),
+        n = i("2517");
+      for (var s in n)
+        ["default"].indexOf(s) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(s);
+      i("53a5");
+      var r = i("828b"),
+        o = Object(r["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "37df5664",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = o.exports;
+    },
+  },
+]);
+//# sourceMappingURL=pages-chat-list.85333525.js.map

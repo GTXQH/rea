@@ -1,0 +1,857 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages-index-index~pages_sub1-chat-info"],
+  {
+    "0c54": function (t, e, n) {
+      var i = n("f83f");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[t.i, i, ""]]),
+        i.locals && (t.exports = i.locals);
+      var a = n("967d").default;
+      a("652ddff8", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "1d85": function (t, e, n) {
+      "use strict";
+      n.d(e, "b", function () {
+        return a;
+      }),
+        n.d(e, "c", function () {
+          return o;
+        }),
+        n.d(e, "a", function () {
+          return i;
+        });
+      var i = { uvIcon: n("1a07").default },
+        a = function () {
+          var t = this,
+            e = t.$createElement,
+            n = t._self._c || e;
+          return n(
+            "v-uni-view",
+            {
+              staticClass: "uv-notice",
+              on: {
+                click: function (e) {
+                  (arguments[0] = e = t.$handleEvent(e)),
+                    t.clickHandler.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              t._t("icon", [
+                t.icon
+                  ? n(
+                      "v-uni-view",
+                      { staticClass: "uv-notice__left-icon" },
+                      [
+                        n("uv-icon", {
+                          attrs: { name: t.icon, color: t.color, size: "19" },
+                        }),
+                      ],
+                      1,
+                    )
+                  : t._e(),
+              ]),
+              n(
+                "v-uni-swiper",
+                {
+                  staticClass: "uv-notice__swiper",
+                  style: [t.swiperStyle],
+                  attrs: {
+                    "disable-touch": t.disableTouch,
+                    vertical: !t.step,
+                    circular: !0,
+                    interval: t.duration,
+                    autoplay: !t.disableScroll,
+                  },
+                  on: {
+                    change: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.noticeChange.apply(void 0, arguments);
+                    },
+                  },
+                },
+                t._l(t.text, function (e, i) {
+                  return n(
+                    "v-uni-swiper-item",
+                    { key: i, staticClass: "uv-notice__swiper__item" },
+                    [
+                      n(
+                        "v-uni-text",
+                        {
+                          staticClass:
+                            "uv-notice__swiper__item__text uv-line-1",
+                          style: [t.textStyle],
+                        },
+                        [t._v(t._s(e))],
+                      ),
+                    ],
+                    1,
+                  );
+                }),
+                1,
+              ),
+              ["link", "closable"].includes(t.mode)
+                ? n(
+                    "v-uni-view",
+                    { staticClass: "uv-notice__right-icon" },
+                    [
+                      "link" === t.mode
+                        ? n("uv-icon", {
+                            attrs: {
+                              name: "arrow-right",
+                              size: 17,
+                              color: t.color,
+                            },
+                          })
+                        : t._e(),
+                      "closable" === t.mode
+                        ? n("uv-icon", {
+                            attrs: { name: "close", size: 16, color: t.color },
+                            on: {
+                              click: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  t.close.apply(void 0, arguments);
+                              },
+                            },
+                          })
+                        : t._e(),
+                    ],
+                    1,
+                  )
+                : t._e(),
+            ],
+            2,
+          );
+        },
+        o = [];
+    },
+    "25b2": function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("fce2"),
+        a = n("cee4");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      n("6ed5");
+      var r = n("828b"),
+        l = Object(r["a"])(
+          a["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "8c8f0464",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = l.exports;
+    },
+    2657: function (t, e, n) {
+      var i = n("c86c");
+      (e = i(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-5c490638], uni-scroll-view[data-v-5c490638], uni-swiper-item[data-v-5c490638]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-notice-bar[data-v-5c490638]{overflow:hidden;padding:9px 12px;flex:1}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    2733: function (t, e, n) {
+      var i = n("c86c");
+      (e = i(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-8c8f0464], uni-scroll-view[data-v-8c8f0464], uni-swiper-item[data-v-8c8f0464]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-notice[data-v-8c8f0464]{display:flex;flex-direction:row;align-items:center;justify-content:space-between}.uv-notice__left-icon[data-v-8c8f0464]{align-items:center;margin-right:5px}.uv-notice__right-icon[data-v-8c8f0464]{margin-left:5px;align-items:center}.uv-notice__content[data-v-8c8f0464]{text-align:right;flex:1;display:flex;flex-direction:row;flex-wrap:nowrap;overflow:hidden}.uv-notice__content__text[data-v-8c8f0464]{font-size:14px;color:#f9ae3d;padding-left:100%;word-break:keep-all;white-space:nowrap;-webkit-animation:uv-loop-animation-data-v-8c8f0464 10s linear infinite both;animation:uv-loop-animation-data-v-8c8f0464 10s linear infinite both;display:flex;flex-direction:row}@-webkit-keyframes uv-loop-animation-data-v-8c8f0464{0%{-webkit-transform:translateZ(0);transform:translateZ(0)}100%{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0)}}@keyframes uv-loop-animation-data-v-8c8f0464{0%{-webkit-transform:translateZ(0);transform:translateZ(0)}100%{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0)}}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    4940: function (t, e, n) {
+      "use strict";
+      var i = n("fe5a"),
+        a = n.n(i);
+      a.a;
+    },
+    "5a96": function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        n("64aa");
+      var a,
+        o,
+        r = i(n("9b1b")),
+        l = {
+          props: (0, r.default)(
+            {
+              text: {
+                type: [Array, String],
+                default: function () {
+                  return [];
+                },
+              },
+              direction: { type: String, default: "row" },
+              step: { type: Boolean, default: !1 },
+              icon: { type: [String, Boolean, null], default: "volume" },
+              mode: { type: String, default: "" },
+              color: { type: String, default: "#f9ae3d" },
+              bgColor: { type: String, default: "#fdf6ec" },
+              speed: { type: [String, Number], default: 80 },
+              fontSize: { type: [String, Number], default: 14 },
+              duration: { type: [String, Number], default: 2e3 },
+              url: { type: String, default: "" },
+              linkType: { type: String, default: "navigateTo" },
+              disableTouch: { type: Boolean, default: !0 },
+              disableScroll: { type: Boolean, default: !1 },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (o = a.props) ||
+              void 0 === o
+              ? void 0
+              : o.noticeBar,
+          ),
+        };
+      e.default = l;
+    },
+    "680c": function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("c31c"),
+        a = n.n(i);
+      for (var o in i)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return i[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    "685d": function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var a = i(n("4d8f0")),
+        o = i(n("9463")),
+        r = i(n("5a96")),
+        l = {
+          name: "uv-notice-bar",
+          emits: ["click", "close", "change"],
+          mixins: [a.default, o.default, r.default],
+          data: function () {
+            return { show: !0 };
+          },
+          methods: {
+            click: function (t) {
+              this.$emit("click", t),
+                this.url && this.linkType && this.openPage();
+            },
+            close: function () {
+              (this.show = !1), this.$emit("close");
+            },
+            change: function (t) {
+              this.$emit("change", t);
+            },
+          },
+        };
+      e.default = l;
+    },
+    "6ed5": function (t, e, n) {
+      "use strict";
+      var i = n("7f52"),
+        a = n.n(i);
+      a.a;
+    },
+    "7f52": function (t, e, n) {
+      var i = n("2733");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[t.i, i, ""]]),
+        i.locals && (t.exports = i.locals);
+      var a = n("967d").default;
+      a("c9333750", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "8cdf": function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        n("64aa");
+      var a,
+        o,
+        r = i(n("9b1b")),
+        l = {
+          props: (0, r.default)(
+            {
+              text: { type: [Array], default: "" },
+              icon: { type: [String, Boolean, null], default: "volume" },
+              mode: { type: String, default: "" },
+              color: { type: String, default: "#f9ae3d" },
+              bgColor: { type: String, default: "#fdf6ec" },
+              fontSize: { type: [String, Number], default: 14 },
+              speed: { type: [String, Number], default: 80 },
+              step: { type: Boolean, default: !1 },
+              duration: { type: [String, Number], default: 1500 },
+              disableTouch: { type: Boolean, default: !0 },
+              disableScroll: { type: Boolean, default: !1 },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (o = a.props) ||
+              void 0 === o
+              ? void 0
+              : o.columnNotice,
+          ),
+        };
+      e.default = l;
+    },
+    9054: function (t, e, n) {
+      "use strict";
+      var i = n("0c54"),
+        a = n.n(i);
+      a.a;
+    },
+    9327: function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("1d85"),
+        a = n("680c");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      n("9054");
+      var r = n("828b"),
+        l = Object(r["a"])(
+          a["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "14a7a885",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = l.exports;
+    },
+    a922: function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var a = i(n("2634")),
+        o = i(n("2fdc"));
+      n("5c47"), n("0506"), n("aa9c"), n("f7a5");
+      var r = i(n("4d8f0")),
+        l = i(n("9463")),
+        c = i(n("c000")),
+        u = {
+          name: "uv-row-notice",
+          emits: ["click", "close"],
+          mixins: [r.default, l.default, c.default],
+          data: function () {
+            return {
+              animationDuration: "0",
+              animationPlayState: "paused",
+              nvueInit: !0,
+              show: !0,
+            };
+          },
+          watch: {
+            text: {
+              immediate: !0,
+              handler: function (t, e) {
+                this.vue(),
+                  this.$uv.test.string(t) ||
+                    this.$uv.error(
+                      "noticebar组件direction为row时，要求text参数为字符串形式",
+                    );
+              },
+            },
+            fontSize: function () {
+              this.vue();
+            },
+            speed: function () {
+              this.vue();
+            },
+          },
+          computed: {
+            textStyle: function () {
+              var t = {};
+              return (
+                (t.color = this.color),
+                (t.fontSize = this.$uv.addUnit(this.fontSize)),
+                t
+              );
+            },
+            animationStyle: function () {
+              var t = {};
+              return (
+                (t.animationDuration = this.animationDuration),
+                (t.animationPlayState = this.animationPlayState),
+                t
+              );
+            },
+            innerText: function () {
+              for (
+                var t = [], e = this.text ? this.text.split("") : [], n = 0;
+                n < e.length;
+                n += 20
+              )
+                t.push(e.slice(n, n + 20).join(""));
+              return t;
+            },
+          },
+          mounted: function () {
+            this.init();
+          },
+          methods: {
+            init: function () {
+              this.vue(),
+                this.$uv.test.string(this.text) ||
+                  this.$uv.error(
+                    "noticebar组件direction为row时，要求text参数为字符串形式",
+                  );
+            },
+            vue: function () {
+              var t = this;
+              return (0, o.default)(
+                (0, a.default)().mark(function e() {
+                  var n;
+                  return (0, a.default)().wrap(function (e) {
+                    while (1)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          return 0, (n = 0), (e.next = 3), t.$uv.sleep();
+                        case 3:
+                          return (
+                            (e.next = 5),
+                            t.$uvGetRect(".uv-notice__content__text")
+                          );
+                        case 5:
+                          return (
+                            (n = e.sent.width),
+                            (e.next = 8),
+                            t.$uvGetRect(".uv-notice__content")
+                          );
+                        case 8:
+                          e.sent.width,
+                            (t.animationDuration = "".concat(
+                              n / t.$uv.getPx(t.speed),
+                              "s",
+                            )),
+                            (t.animationPlayState = "paused"),
+                            setTimeout(function () {
+                              t.animationPlayState = "running";
+                            }, 10);
+                        case 12:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                }),
+              )();
+            },
+            nvue: function () {
+              return (0, o.default)(
+                (0, a.default)().mark(function t() {
+                  return (0, a.default)().wrap(function (t) {
+                    while (1)
+                      switch ((t.prev = t.next)) {
+                        case 0:
+                        case "end":
+                          return t.stop();
+                      }
+                  }, t);
+                }),
+              )();
+            },
+            loopAnimation: function (t, e) {},
+            getNvueRect: function (t) {},
+            clickHandler: function (t) {
+              this.$emit("click");
+            },
+            close: function () {
+              this.$emit("close");
+            },
+          },
+        };
+      e.default = u;
+    },
+    bde6: function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("685d"),
+        a = n.n(i);
+      for (var o in i)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return i[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    c000: function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        n("64aa");
+      var a,
+        o,
+        r = i(n("9b1b")),
+        l = {
+          props: (0, r.default)(
+            {
+              text: { type: String, default: "" },
+              icon: { type: [String, Boolean, null], default: "volume" },
+              mode: { type: String, default: "" },
+              color: { type: String, default: "#f9ae3d" },
+              bgColor: { type: String, default: "#fdf6ec" },
+              fontSize: { type: [String, Number], default: 14 },
+              speed: { type: [String, Number], default: 80 },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (o = a.props) ||
+              void 0 === o
+              ? void 0
+              : o.rowNotice,
+          ),
+        };
+      e.default = l;
+    },
+    c31c: function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        n("5c47"),
+        n("0506");
+      var a = i(n("4d8f0")),
+        o = i(n("9463")),
+        r = i(n("8cdf")),
+        l = {
+          emits: ["click", "close", "change"],
+          mixins: [a.default, o.default, r.default],
+          watch: {
+            text: {
+              immediate: !0,
+              handler: function (t, e) {
+                this.$uv.test.array(t) ||
+                  this.$uv.error(
+                    "noticebar组件direction为column时，要求text参数为数组形式",
+                  );
+              },
+            },
+          },
+          computed: {
+            textStyle: function () {
+              var t = {};
+              return (
+                (t.color = this.color),
+                (t.fontSize = this.$uv.addUnit(this.fontSize)),
+                t
+              );
+            },
+            vertical: function () {
+              return "horizontal" != this.mode;
+            },
+            swiperStyle: function () {
+              return {};
+            },
+          },
+          data: function () {
+            return { index: 0 };
+          },
+          methods: {
+            noticeChange: function (t) {
+              (this.index = t.detail.current), this.$emit("change", this.index);
+            },
+            clickHandler: function () {
+              this.$emit("click", this.index);
+            },
+            close: function () {
+              this.$emit("close");
+            },
+          },
+        };
+      e.default = l;
+    },
+    cec2: function (t, e, n) {
+      "use strict";
+      n.d(e, "b", function () {
+        return a;
+      }),
+        n.d(e, "c", function () {
+          return o;
+        }),
+        n.d(e, "a", function () {
+          return i;
+        });
+      var i = {
+          uvColumnNotice: n("9327").default,
+          uvRowNotice: n("25b2").default,
+        },
+        a = function () {
+          var t = this,
+            e = t.$createElement,
+            n = t._self._c || e;
+          return t.show
+            ? n(
+                "v-uni-view",
+                {
+                  staticClass: "uv-notice-bar",
+                  style: [
+                    { backgroundColor: t.bgColor },
+                    t.$uv.addStyle(t.customStyle),
+                  ],
+                },
+                [
+                  "column" === t.direction || ("row" === t.direction && t.step)
+                    ? [
+                        n("uv-column-notice", {
+                          attrs: {
+                            color: t.color,
+                            bgColor: t.bgColor,
+                            text: t.text,
+                            mode: t.mode,
+                            step: t.step,
+                            icon: t.icon,
+                            "disable-touch": t.disableTouch,
+                            "disable-scroll": t.disableScroll,
+                            fontSize: t.fontSize,
+                            duration: t.duration,
+                          },
+                          on: {
+                            close: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.close.apply(void 0, arguments);
+                            },
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.click.apply(void 0, arguments);
+                            },
+                            change: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.change.apply(void 0, arguments);
+                            },
+                          },
+                        }),
+                      ]
+                    : [
+                        n("uv-row-notice", {
+                          attrs: {
+                            color: t.color,
+                            bgColor: t.bgColor,
+                            text: t.text,
+                            mode: t.mode,
+                            fontSize: t.fontSize,
+                            speed: t.speed,
+                            url: t.url,
+                            linkType: t.linkType,
+                            icon: t.icon,
+                          },
+                          on: {
+                            close: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.close.apply(void 0, arguments);
+                            },
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.click.apply(void 0, arguments);
+                            },
+                          },
+                        }),
+                      ],
+                ],
+                2,
+              )
+            : t._e();
+        },
+        o = [];
+    },
+    cee4: function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("a922"),
+        a = n.n(i);
+      for (var o in i)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return i[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    ee8c: function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("cec2"),
+        a = n("bde6");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      n("4940");
+      var r = n("828b"),
+        l = Object(r["a"])(
+          a["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "5c490638",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = l.exports;
+    },
+    f83f: function (t, e, n) {
+      var i = n("c86c");
+      (e = i(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.uv-line-1[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:1;-webkit-box-orient:vertical!important}.uv-line-2[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:2;-webkit-box-orient:vertical!important}.uv-line-3[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:3;-webkit-box-orient:vertical!important}.uv-line-4[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:4;-webkit-box-orient:vertical!important}.uv-line-5[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:5;-webkit-box-orient:vertical!important}uni-view[data-v-14a7a885], uni-scroll-view[data-v-14a7a885], uni-swiper-item[data-v-14a7a885]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-notice[data-v-14a7a885]{display:flex;flex-direction:row;align-items:center;justify-content:space-between}.uv-notice__left-icon[data-v-14a7a885]{align-items:center;margin-right:5px}.uv-notice__right-icon[data-v-14a7a885]{margin-left:5px;align-items:center}.uv-notice__swiper[data-v-14a7a885]{height:16px;display:flex;flex-direction:row;align-items:center;flex:1}.uv-notice__swiper__item[data-v-14a7a885]{display:flex;flex-direction:row;align-items:center;overflow:hidden}.uv-notice__swiper__item__text[data-v-14a7a885]{font-size:14px;color:#f9ae3d}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    fce2: function (t, e, n) {
+      "use strict";
+      n.d(e, "b", function () {
+        return a;
+      }),
+        n.d(e, "c", function () {
+          return o;
+        }),
+        n.d(e, "a", function () {
+          return i;
+        });
+      var i = { uvIcon: n("1a07").default },
+        a = function () {
+          var t = this,
+            e = t.$createElement,
+            n = t._self._c || e;
+          return n(
+            "v-uni-view",
+            {
+              staticClass: "uv-notice",
+              on: {
+                click: function (e) {
+                  (arguments[0] = e = t.$handleEvent(e)),
+                    t.clickHandler.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              t._t("icon", [
+                t.icon
+                  ? n(
+                      "v-uni-view",
+                      { staticClass: "uv-notice__left-icon" },
+                      [
+                        n("uv-icon", {
+                          attrs: { name: t.icon, color: t.color, size: "19" },
+                        }),
+                      ],
+                      1,
+                    )
+                  : t._e(),
+              ]),
+              n(
+                "v-uni-view",
+                {
+                  ref: "uv-notice__content",
+                  staticClass: "uv-notice__content",
+                },
+                [
+                  n(
+                    "v-uni-view",
+                    {
+                      ref: "uv-notice__content__text",
+                      staticClass: "uv-notice__content__text",
+                      style: [t.animationStyle],
+                    },
+                    t._l(t.innerText, function (e, i) {
+                      return n("v-uni-text", { key: i, style: [t.textStyle] }, [
+                        t._v(t._s(e)),
+                      ]);
+                    }),
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              ["link", "closable"].includes(t.mode)
+                ? n(
+                    "v-uni-view",
+                    { staticClass: "uv-notice__right-icon" },
+                    [
+                      "link" === t.mode
+                        ? n("uv-icon", {
+                            attrs: {
+                              name: "arrow-right",
+                              size: 17,
+                              color: t.color,
+                            },
+                          })
+                        : t._e(),
+                      "closable" === t.mode
+                        ? n("uv-icon", {
+                            attrs: { name: "close", size: 16, color: t.color },
+                            on: {
+                              click: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  t.close.apply(void 0, arguments);
+                              },
+                            },
+                          })
+                        : t._e(),
+                    ],
+                    1,
+                  )
+                : t._e(),
+            ],
+            2,
+          );
+        },
+        o = [];
+    },
+    fe5a: function (t, e, n) {
+      var i = n("2657");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[t.i, i, ""]]),
+        i.locals && (t.exports = i.locals);
+      var a = n("967d").default;
+      a("570ded6e", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+  },
+]);
+//# sourceMappingURL=pages-index-index~pages_sub1-chat-info.677e3086.js.map

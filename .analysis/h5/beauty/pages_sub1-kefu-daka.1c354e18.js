@@ -1,0 +1,418 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages_sub1-kefu-daka"],
+  {
+    "12f2": function (t, a, n) {
+      "use strict";
+      var i = n("1a77"),
+        e = n.n(i);
+      e.a;
+    },
+    1515: function (t, a, n) {
+      t.exports = n.p + "static/head.png";
+    },
+    "1a77": function (t, a, n) {
+      var i = n("a7a2");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[t.i, i, ""]]),
+        i.locals && (t.exports = i.locals);
+      var e = n("967d").default;
+      e("79e671e1", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "35ec": function (t, a, n) {
+      "use strict";
+      n.r(a);
+      var i = n("70a8"),
+        e = n.n(i);
+      for (var o in i)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(a, t, function () {
+              return i[t];
+            });
+          })(o);
+      a["default"] = e.a;
+    },
+    "70a8": function (t, a, n) {
+      "use strict";
+      n("6a54"),
+        Object.defineProperty(a, "__esModule", { value: !0 }),
+        (a.default = void 0),
+        n("795c"),
+        n("c223");
+      var i = n("e74a"),
+        e = {
+          data: function () {
+            return {
+              online: null,
+              info: [],
+              start: 0,
+              user_id: 0,
+              currentDateTime: "",
+              start_time: null,
+              now_time: new Date().toISOString(),
+              timeElapsed: "",
+              selected: 0,
+            };
+          },
+          computed: {},
+          onLoad: function () {
+            this.getCardInfo(),
+              this.updateDateTime(),
+              (this.timer1 = setInterval(this.updateDateTime, 1e3)),
+              (this.timer2 = setInterval(this.updateTimeElapsed, 1e3));
+          },
+          onUnload: function () {
+            clearInterval(this.timer1), clearInterval(this.timer2);
+          },
+          onPullDownRefresh: function () {
+            uni.showLoading({ title: "刷新中" }),
+              setTimeout(function () {
+                uni.hideLoading(),
+                  uni.showToast({ title: "刷新成功", duration: 1e3 }),
+                  uni.stopPullDownRefresh();
+              }, 300);
+          },
+          onReachBottom: function (t) {},
+          methods: {
+            getCardInfo: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, i.send)(
+                  "/wechat/Kefu/getCardInfo",
+                  { id: this.id },
+                  !1,
+                ).then(function (a) {
+                  uni.hideLoading();
+                  var n = a.status,
+                    i = a.msg,
+                    e = a.data;
+                  if (1 != n) return uni.$uv.toast(i);
+                  (t.online = e.online),
+                    (t.info = e.info),
+                    (t.user_id = e.user_id),
+                    t.info &&
+                      ((t.start_time = t.info.start),
+                      (t.start = t.info.status),
+                      t.calculateTimeElapsed());
+                });
+            },
+            addCard: function () {
+              var t = this;
+              uni.showModal({
+                title: "温馨提示",
+                content: "确认开始上班打卡么?",
+                success: function (a) {
+                  a.confirm &&
+                    (0, i.send)(
+                      "/wechat/KefuDate/addCard",
+                      { label: "addCard" },
+                      !1,
+                    ).then(function (a) {
+                      uni.hideLoading();
+                      var n = a.status,
+                        i = a.msg;
+                      a.data;
+                      if (1 != n) return uni.$uv.toast(i);
+                      t.getCardInfo();
+                    });
+                },
+              });
+            },
+            endCard: function () {
+              var t = this;
+              uni.showModal({
+                title: "温馨提示",
+                content: "确认结束上班打卡么?",
+                success: function (a) {
+                  a.confirm &&
+                    (0, i.send)(
+                      "/wechat/KefuDate/endCard",
+                      { label: "endCard" },
+                      !1,
+                    ).then(function (a) {
+                      uni.hideLoading();
+                      var n = a.status,
+                        i = a.msg;
+                      a.data;
+                      if (1 != n) return uni.$uv.toast(i);
+                      t.getCardInfo();
+                    });
+                },
+              });
+            },
+            updateDateTime: function () {
+              var t = new Date(),
+                a = t.getFullYear(),
+                n = String(t.getMonth() + 1).padStart(2, "0"),
+                i = String(t.getDate()).padStart(2, "0"),
+                e = String(t.getHours()).padStart(2, "0"),
+                o = String(t.getMinutes()).padStart(2, "0"),
+                s = String(t.getSeconds()).padStart(2, "0");
+              this.currentDateTime = ""
+                .concat(a, "-")
+                .concat(n, "-")
+                .concat(i, " ")
+                .concat(e, ":")
+                .concat(o, ":")
+                .concat(s);
+            },
+            calculateTimeElapsed: function () {
+              var t = new Date(this.start_time),
+                a = new Date(this.now_time),
+                n = a - t,
+                i = Math.floor(n / 36e5),
+                e = Math.floor((n % 36e5) / 6e4),
+                o = Math.floor((n % 6e4) / 1e3),
+                s = String(i).padStart(2, "0"),
+                r = String(e).padStart(2, "0"),
+                c = String(o).padStart(2, "0");
+              this.timeElapsed = "".concat(s, ":").concat(r, ":").concat(c);
+            },
+            updateTimeElapsed: function () {
+              (this.now_time = new Date().toISOString()),
+                this.calculateTimeElapsed();
+            },
+            jump: function (t) {
+              uni.navigateTo({ url: t });
+            },
+          },
+        };
+      a.default = e;
+    },
+    9599: function (t, a, n) {
+      "use strict";
+      n.d(a, "b", function () {
+        return e;
+      }),
+        n.d(a, "c", function () {
+          return o;
+        }),
+        n.d(a, "a", function () {
+          return i;
+        });
+      var i = { uvIcon: n("1a07").default },
+        e = function () {
+          var t = this,
+            a = t.$createElement,
+            i = t._self._c || a;
+          return i(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              null == t.online
+                ? i(
+                    "v-uni-view",
+                    { staticClass: "kefu_box" },
+                    [
+                      i("img", {
+                        staticClass: "pic",
+                        attrs: { src: n("1515"), alt: "" },
+                      }),
+                      i(
+                        "v-uni-view",
+                        { staticClass: "nickname_box" },
+                        [
+                          i("v-uni-view", { staticClass: "nickname" }, [
+                            t._v("-"),
+                          ]),
+                          i("v-uni-view", { staticClass: "online" }, [
+                            t._v("暂无在线客服"),
+                          ]),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : i(
+                    "v-uni-view",
+                    { staticClass: "kefu_box" },
+                    [
+                      i("img", {
+                        staticClass: "pic",
+                        attrs: { src: t.online.avatar, alt: "" },
+                      }),
+                      i(
+                        "v-uni-view",
+                        { staticClass: "nickname_box" },
+                        [
+                          i("v-uni-view", { staticClass: "nickname" }, [
+                            t._v(t._s(t.online.nickname)),
+                          ]),
+                          i("v-uni-view", { staticClass: "online" }, [
+                            t._v("当前在线客服"),
+                          ]),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+              i(
+                "v-uni-view",
+                { staticClass: "daka_box" },
+                [
+                  i(
+                    "v-uni-view",
+                    { staticClass: "on_off_box" },
+                    [
+                      i(
+                        "v-uni-view",
+                        { staticClass: "work_box" },
+                        [
+                          i("v-uni-view", { staticClass: "work" }, [
+                            t._v("上班"),
+                          ]),
+                          i(
+                            "v-uni-view",
+                            { staticClass: "daka_time_box" },
+                            [
+                              t.start >= 1
+                                ? i("uv-icon", {
+                                    attrs: {
+                                      name: "checkmark-circle-fill",
+                                      color: "#2979ff",
+                                      size: "20",
+                                    },
+                                  })
+                                : t._e(),
+                              i("v-uni-view", { staticClass: "time" }, [
+                                t._v(t._s(t.info.start_show)),
+                              ]),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                      i(
+                        "v-uni-view",
+                        { staticClass: "work_box" },
+                        [
+                          i("v-uni-view", { staticClass: "work" }, [
+                            t._v("下班"),
+                          ]),
+                          i(
+                            "v-uni-view",
+                            { staticClass: "daka_time_box" },
+                            [
+                              t.start >= 2
+                                ? i("uv-icon", {
+                                    attrs: {
+                                      name: "checkmark-circle-fill",
+                                      color: "#2979ff",
+                                      size: "20",
+                                    },
+                                  })
+                                : t._e(),
+                              i("v-uni-view", { staticClass: "time" }, [
+                                t._v(t._s(t.info.end_show)),
+                              ]),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  0 == t.start || 2 == t.start
+                    ? i(
+                        "v-uni-view",
+                        {
+                          staticClass: "offwork_box",
+                          on: {
+                            click: function (a) {
+                              (arguments[0] = a = t.$handleEvent(a)),
+                                t.addCard.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [
+                          i("v-uni-view", { staticClass: "offwork" }, [
+                            t._v("上班打卡"),
+                          ]),
+                          i("v-uni-view", { staticClass: "hour" }),
+                        ],
+                        1,
+                      )
+                    : t._e(),
+                  1 == t.start
+                    ? i(
+                        "v-uni-view",
+                        {
+                          staticClass: "offwork_box",
+                          staticStyle: { "background-color": "#f75a57" },
+                          on: {
+                            click: function (a) {
+                              (arguments[0] = a = t.$handleEvent(a)),
+                                t.endCard.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [
+                          i("v-uni-view", { staticClass: "offwork" }, [
+                            t._v("下班打卡"),
+                          ]),
+                          i("v-uni-view", { staticClass: "hour" }, [
+                            t._v(t._s(t.timeElapsed)),
+                          ]),
+                        ],
+                        1,
+                      )
+                    : t._e(),
+                  i("v-uni-view", { staticClass: "date" }, [
+                    t._v(t._s(t.currentDateTime)),
+                  ]),
+                ],
+                1,
+              ),
+              i("kefu-bar", { attrs: { selected: t.selected } }),
+            ],
+            1,
+          );
+        },
+        o = [];
+    },
+    a7a2: function (t, a, n) {
+      var i = n("c86c");
+      (a = i(!1)),
+        a.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.kefu_box[data-v-0a27d96c]{padding:%?38?%;border-radius:%?35?%;margin:%?30?%;display:flex;justify-content:flex-start;align-items:center;box-shadow:0 %?2?% %?8?% rgba(0,0,0,.2)}.kefu_box .pic[data-v-0a27d96c]{width:%?120?%;height:%?120?%;border-radius:%?120?%;margin-right:%?40?%}.kefu_box .nickname_box[data-v-0a27d96c]{display:flex;flex-direction:column}.kefu_box .nickname_box .nickname[data-v-0a27d96c]{font-size:22px;margin-bottom:%?15?%}.kefu_box .nickname_box .online[data-v-0a27d96c]{color:#999;font-size:14px}.daka_box[data-v-0a27d96c]{box-shadow:0 %?2?% %?8?% rgba(0,0,0,.2);border-radius:%?35?%;margin:%?45?% %?30?% %?60?%;padding:%?20?%;display:flex;flex-direction:column;align-items:center}.daka_box .on_off_box[data-v-0a27d96c]{display:flex;justify-content:space-between;width:100%}.daka_box .on_off_box .work_box[data-v-0a27d96c]{background-color:#f6f6f6;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;margin:%?20?% %?10?%;padding:%?20?%;flex:1;border-radius:%?14?%}.daka_box .on_off_box .work_box[data-v-0a27d96c]:first-child{margin-right:%?12?%}.daka_box .on_off_box .work_box .work[data-v-0a27d96c]{font-size:22px;margin-bottom:%?15?%}.daka_box .on_off_box .work_box .daka_time_box[data-v-0a27d96c]{display:flex;justify-content:flex-start}.daka_box .on_off_box .work_box .daka_time_box .time[data-v-0a27d96c]{color:#999;font-size:14px;margin-left:%?10?%;white-space:nowrap}.daka_box .offwork_box[data-v-0a27d96c]{padding:%?80?% 0;height:%?360?%;width:%?360?%;text-align:center;margin:%?240?% auto %?100?%;background-color:#009ffd;border-radius:50%}.daka_box .offwork_box .offwork[data-v-0a27d96c]{color:#fff;font-size:25px;margin-top:%?50?%;margin-bottom:%?10?%}.daka_box .offwork_box .hour[data-v-0a27d96c]{color:#d2e7f5;font-size:16px}.daka_box .date[data-v-0a27d96c]{margin-bottom:%?160?%;color:#999;width:100%;text-align:center}',
+          "",
+        ]),
+        (t.exports = a);
+    },
+    ea19: function (t, a, n) {
+      "use strict";
+      n.r(a);
+      var i = n("9599"),
+        e = n("35ec");
+      for (var o in e)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(a, t, function () {
+              return e[t];
+            });
+          })(o);
+      n("12f2");
+      var s = n("828b"),
+        r = Object(s["a"])(
+          e["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "0a27d96c",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      a["default"] = r.exports;
+    },
+  },
+]);
+//# sourceMappingURL=pages_sub1-kefu-daka.1c354e18.js.map

@@ -1,0 +1,560 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages-user-login_old"],
+  {
+    1515: function (t, e, n) {
+      t.exports = n.p + "static/head.png";
+    },
+    "648a": function (t, e, n) {
+      "use strict";
+      var i = n("f6c0"),
+        a = n.n(i);
+      a.a;
+    },
+    "739c": function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("c48f"),
+        a = n.n(i);
+      for (var o in i)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return i[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    "8fe0": function (t, e, n) {
+      "use strict";
+      n.d(e, "b", function () {
+        return a;
+      }),
+        n.d(e, "c", function () {
+          return o;
+        }),
+        n.d(e, "a", function () {
+          return i;
+        });
+      var i = {
+          uvInput: n("f723").default,
+          uvToast: n("399c").default,
+          uvCode: n("406f").default,
+          uvButton: n("7a03").default,
+          uvIcon: n("1a07").default,
+        },
+        a = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return i(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              t.user.avatar
+                ? i("img", {
+                    staticClass: "head",
+                    attrs: { src: t.user.avatar },
+                  })
+                : i("img", { staticClass: "head", attrs: { src: n("1515") } }),
+              i("uv-input", {
+                attrs: {
+                  placeholder: "请输入手机号",
+                  maxlength: "11",
+                  type: "number",
+                  border: "bottom",
+                  shape: "none",
+                  clearable: !0,
+                  fontSize: "14px",
+                },
+                model: {
+                  value: t.mobile,
+                  callback: function (e) {
+                    t.mobile = e;
+                  },
+                  expression: "mobile",
+                },
+              }),
+              i(
+                "v-uni-view",
+                { staticClass: "pic_box flex_box" },
+                [
+                  i("uv-input", {
+                    attrs: {
+                      placeholder: "请输入右侧验证码",
+                      border: "bottom",
+                      shape: "none",
+                      clearable: !0,
+                      fontSize: "14px",
+                    },
+                    model: {
+                      value: t.code,
+                      callback: function (e) {
+                        t.code = e;
+                      },
+                      expression: "code",
+                    },
+                  }),
+                  i("img", {
+                    attrs: { src: t.captcha },
+                    on: {
+                      click: function (e) {
+                        (arguments[0] = e = t.$handleEvent(e)),
+                          t.getCaptchaCode.apply(void 0, arguments);
+                      },
+                    },
+                  }),
+                ],
+                1,
+              ),
+              i("uv-input", {
+                staticClass: "code_box",
+                attrs: {
+                  placeholder: "请输入短信验证码",
+                  border: "bottom",
+                  shape: "none",
+                  clearable: !0,
+                  fontSize: "14px",
+                },
+                scopedSlots: t._u([
+                  {
+                    key: "suffix",
+                    fn: function () {
+                      return [
+                        i(
+                          "v-uni-view",
+                          { staticClass: "wrap" },
+                          [
+                            i("uv-toast", { ref: "toast" }),
+                            i("uv-code", {
+                              ref: "code",
+                              attrs: { seconds: t.seconds, "keep-running": !0 },
+                              on: {
+                                end: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.end.apply(void 0, arguments);
+                                },
+                                start: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.start.apply(void 0, arguments);
+                                },
+                                change: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.codeChange.apply(void 0, arguments);
+                                },
+                              },
+                            }),
+                            i(
+                              "uv-button",
+                              {
+                                attrs: { type: "success" },
+                                on: {
+                                  click: function (e) {
+                                    (arguments[0] = e = t.$handleEvent(e)),
+                                      t.getCode.apply(void 0, arguments);
+                                  },
+                                },
+                              },
+                              [t._v(t._s(t.tips))],
+                            ),
+                          ],
+                          1,
+                        ),
+                      ];
+                    },
+                    proxy: !0,
+                  },
+                ]),
+                model: {
+                  value: t.msgCode,
+                  callback: function (e) {
+                    t.msgCode = e;
+                  },
+                  expression: "msgCode",
+                },
+              }),
+              i(
+                "v-uni-view",
+                {
+                  staticClass: "sub_btn",
+                  on: {
+                    click: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.loginUser.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [t._v("登录")],
+              ),
+              i(
+                "v-uni-view",
+                {
+                  staticClass: "xiyi_box flex_box",
+                  on: {
+                    click: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.agreeXieyi.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  i(
+                    "v-uni-view",
+                    { staticClass: "check_box flex_box" },
+                    [
+                      t.agree
+                        ? i("uv-icon", {
+                            attrs: {
+                              name: "checkbox-mark",
+                              color: "#2979ff",
+                              size: "16",
+                            },
+                          })
+                        : t._e(),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "tit" },
+                    [
+                      t._v("我已阅读并同意"),
+                      i(
+                        "v-uni-text",
+                        {
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.jump("/pages/user/article?id=3");
+                            },
+                          },
+                        },
+                        [t._v("《用户服务协议》")],
+                      ),
+                      i(
+                        "v-uni-text",
+                        {
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.jump("/pages/user/article?id=2");
+                            },
+                          },
+                        },
+                        [t._v("《隐私权政策》")],
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+            ],
+            1,
+          );
+        },
+        o = [];
+    },
+    "9bd4": function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("8fe0"),
+        a = n("739c");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      n("648a");
+      var s = n("828b"),
+        u = Object(s["a"])(
+          a["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "1d282df6",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = u.exports;
+    },
+    c48f: function (t, e, n) {
+      "use strict";
+      n("6a54"),
+        Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        n("5ef2"),
+        n("5c47"),
+        n("af8f"),
+        n("c223"),
+        n("0506"),
+        n("4626");
+      var i = n("e74a"),
+        a = n("15b8"),
+        o = {
+          data: function () {
+            return {
+              user: [],
+              captcha: "",
+              cap_num: 1,
+              mobile: "",
+              code: "",
+              msgCode: "",
+              tips: "",
+              seconds: 60,
+              agree: 1,
+            };
+          },
+          computed: {},
+          onLoad: function (t) {
+            this.login(), this.getCaptchaCode();
+          },
+          methods: {
+            codeChange: function (t) {
+              this.tips = t;
+            },
+            getCode: function () {
+              var t = this;
+              return "" == this.mobile
+                ? uni.showModal({ content: "请输入手机号" })
+                : this.verifyMobile()
+                  ? "" == this.code
+                    ? uni.showModal({ content: "请输入图形验证码" })
+                    : void (this.$refs.code.canGetCode
+                        ? (uni.showLoading({ title: "正在获取验证码" }),
+                          setTimeout(function () {
+                            uni.hideLoading(),
+                              uni.$uv.throttle(t.sendCode, 1500);
+                          }, 500))
+                        : uni.$uv.toast("倒计时结束后再发送"))
+                  : uni.showModal({ content: "请输入正确的手机号" });
+            },
+            sendCode: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, i.send)(
+                  "/wechat/MsgCode/sendCode",
+                  {
+                    mobile: this.mobile,
+                    code: this.code,
+                    cap_num: this.cap_num,
+                  },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var n = e.status,
+                    i = e.msg;
+                  e.data;
+                  if (1 != n) return t.getCaptchaCodeFun(), uni.$uv.toast(i);
+                  uni.$uv.toast("验证码已发送"), t.$refs.code.start();
+                });
+            },
+            end: function () {
+              this.getCaptchaCodeFun();
+            },
+            start: function () {},
+            isWeChatBrowser: function () {
+              var t = navigator.userAgent.toLowerCase();
+              return -1 !== t.indexOf("micromessenger");
+            },
+            login: function () {
+              var t = this,
+                e = uni.getStorageSync("token");
+              if ((null != e && "" !== e && "undefined" != e) || 0 != a.dubug)
+                this.getLastPath(),
+                  uni.showLoading({ title: "加载中.." }),
+                  (0, i.send)(
+                    "/wechat/User/getLoginInfo",
+                    { label: "user" },
+                    !1,
+                  ).then(function (e) {
+                    uni.hideLoading();
+                    var n = e.status,
+                      i = e.msg,
+                      a = e.data;
+                    if (1 != n) return uni.$uv.toast(i);
+                    (t.user = a),
+                      "" != t.user.mobile &&
+                        null != t.user.mobile &&
+                        t.returnBack();
+                  });
+              else {
+                var n = this.isWeChatBrowser();
+                1 == n && this.userLogin();
+              }
+            },
+            getCaptchaCode: function () {
+              uni.$uv.throttle(this.getCaptchaCodeFun, 800);
+            },
+            getCaptchaCodeFun: function () {
+              var t = this;
+              (this.cap_num = 1 == this.cap_num ? 2 : 1),
+                uni.showLoading({ title: "加载中.." }),
+                (0, i.send)(
+                  "/wechat/User/getCaptchaCode",
+                  { cap_num: this.cap_num },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var n = e.status,
+                    i = e.msg,
+                    a = e.data;
+                  if (1 != n) return uni.$uv.toast(i);
+                  t.captcha = a.captcha;
+                });
+            },
+            jump: function (t) {
+              uni.navigateTo({ url: t });
+            },
+            getUrlCode: function () {
+              var t = location.search,
+                e = new Object();
+              if (-1 != t.indexOf("?"))
+                for (
+                  var n = t.substr(1), i = n.split("&"), a = 0;
+                  a < i.length;
+                  a++
+                )
+                  e[i[a].split("=")[0]] = i[a].split("=")[1];
+              return e;
+            },
+            userLogin: function () {
+              var t = this,
+                e = window.location.href,
+                n = this.getUrlCode().code,
+                o = uni.getStorageSync("wechatCode");
+              if (null == n || "" === n || "undefined" == n || n == o)
+                (0, i.send)(
+                  "/wechat/Wechat/getConfigInfo",
+                  { label: "config" },
+                  !1,
+                ).then(function (n) {
+                  uni.hideLoading();
+                  var i = n.status,
+                    a = n.msg,
+                    o = n.data;
+                  if (1 != i) return uni.$uv.toast(a);
+                  var s = o.appid,
+                    u = encodeURIComponent(e);
+                  uni.setStorageSync("wechatCode", 0), t.getLastPath();
+                  window.location.href =
+                    "https://open.weixin.qq.com/connect/oauth2/authorize" +
+                    "?appid="
+                      .concat(s, "&redirect_uri=")
+                      .concat(
+                        u,
+                        "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect",
+                      );
+                });
+              else {
+                uni.setStorageSync("wechatCode", n);
+                var s = uni.getStorageSync("share_code");
+                uni.showLoading({ title: "加载中.." }),
+                  (0, a.sendPost)({
+                    url: "/wechat/user/login",
+                    method: "POST",
+                    data: { code: n, share_code: s },
+                  }).then(function (e) {
+                    uni.hideLoading();
+                    var n = e.status,
+                      i = (e.msg, e.data);
+                    if (1 != n) return console.log("获取用户信息失败"), !0;
+                    uni.setStorageSync("token", i.token),
+                      (t.user = i),
+                      "" != t.user.mobile && t.returnBack();
+                  });
+              }
+            },
+            verifyMobile: function () {
+              return !!/^1[3-9]\d{9}$/.test(this.mobile);
+            },
+            agreeXieyi: function () {
+              this.agree = this.agree ? 0 : 1;
+            },
+            loginUser: function () {
+              return "" == this.mobile
+                ? uni.showModal({ content: "请输入手机号" })
+                : this.verifyMobile()
+                  ? "" == this.msgCode
+                    ? uni.showModal({ content: "请输入短信验证码" })
+                    : 0 == this.agree
+                      ? uni.showModal({ content: "请先同意用户协议和隐私政策" })
+                      : void uni.$uv.throttle(this.loginUserFun, 1500)
+                  : uni.showModal({ content: "请输入正确的手机号" });
+            },
+            loginUserFun: function () {
+              var t = this;
+              uni.showLoading({ title: "正在登录中.." }),
+                (0, i.send)(
+                  "/wechat/User/loginUser",
+                  { mobile: this.mobile, msgCode: this.msgCode },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var n = e.status,
+                    i = e.msg,
+                    a = e.data;
+                  if (1 != n) return uni.$uv.toast(i);
+                  uni.setStorageSync("token", a.token), t.returnBack();
+                });
+            },
+            getLastPath: function () {
+              var t = getCurrentPages(),
+                e = t[t.length - 2];
+              if (null != e) {
+                var n = e.$page.fullPath,
+                  i = e.route;
+                uni.setStorageSync("backFullPath", n),
+                  uni.setStorageSync("backPath", i);
+              } else
+                uni.setStorageSync("backFullPath", ""),
+                  uni.setStorageSync("backPath", "");
+            },
+            returnBack: function () {
+              uni.$uv.toast("登录成功");
+              var t = uni.getStorageSync("backFullPath"),
+                e = uni.getStorageSync("backPath"),
+                n = [
+                  "pages/index/index",
+                  "pages/cat/index",
+                  "pages/follow/index",
+                  "pages/user/index",
+                ];
+              console.log(e),
+                setTimeout(function () {
+                  "" == e || null == e || void 0 == e || "pages/user/login" == e
+                    ? uni.switchTab({ url: "/pages/user/index" })
+                    : n.includes(e)
+                      ? uni.switchTab({ url: t })
+                      : uni.redirectTo({ url: t });
+                }, 2e3);
+            },
+          },
+        };
+      e.default = o;
+    },
+    cf68: function (t, e, n) {
+      var i = n("c86c");
+      (e = i(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.content[data-v-1d282df6]{height:100vh;padding:21.5% 10% 10%}.head[data-v-1d282df6]{width:%?155?%;height:%?155?%;border-radius:100%;margin:0 auto %?80?%}[data-v-1d282df6] .uv-input{margin:%?58?% auto}.pic_box[data-v-1d282df6]{margin:%?58?% auto}.pic_box[data-v-1d282df6] .uv-input{margin:%?0?%}.pic_box img[data-v-1d282df6]{width:%?140?%;height:%?70?%;border:%?2?% solid #ddd;margin-left:%?30?%}.code_box .get_code_btn[data-v-1d282df6]{margin-left:%?10?%;font-size:13px}.sub_btn[data-v-1d282df6]{background:#ffe610;height:%?90?%;line-height:%?90?%;border-radius:%?90?%;font-size:15px;font-weight:700;text-align:center;margin:%?106?% auto %?26?%}.xiyi_box[data-v-1d282df6]{justify-content:center;align-items:flex-start}.xiyi_box .check_box[data-v-1d282df6]{width:%?40?%;height:%?40?%;border-radius:%?40?%;justify-content:center;border:%?2?% solid #ccc;margin-right:%?15?%}.xiyi_box .tit[data-v-1d282df6]{max-width:calc(100% - %?55?%);text-align:center;font-size:12px;color:#999}.xiyi_box .tit uni-text[data-v-1d282df6]{font-size:12px;color:#2979ff}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    f6c0: function (t, e, n) {
+      var i = n("cf68");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[t.i, i, ""]]),
+        i.locals && (t.exports = i.locals);
+      var a = n("967d").default;
+      a("2aeb7cb0", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+  },
+]);
+//# sourceMappingURL=pages-user-login_old.68382c87.js.map

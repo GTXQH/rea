@@ -1,0 +1,4073 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  [
+    "pages-pay-submit",
+    "pages-pay-raffle~pages-user-huifu~pages_sub1-kefu-service~pages_sub1-seller-index",
+  ],
+  {
+    "0d9c": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("fd3c");
+      var a = n(i("4d8f0")),
+        o = n(i("9463")),
+        r = n(i("7702")),
+        s = {
+          name: "uv-radio-group",
+          mixins: [a.default, o.default, r.default],
+          computed: {
+            parentData: function () {
+              var t = this.value || this.modelValue;
+              return [
+                t,
+                this.disabled,
+                this.inactiveColor,
+                this.activeColor,
+                this.size,
+                this.labelDisabled,
+                this.shape,
+                this.iconSize,
+                this.borderBottom,
+                this.placement,
+              ];
+            },
+            bemClass: function () {
+              return this.bem("radio-group", ["placement"]);
+            },
+          },
+          watch: {
+            parentData: function () {
+              this.children.length &&
+                this.children.map(function (t) {
+                  "function" === typeof t.init && t.init();
+                });
+            },
+          },
+          data: function () {
+            return {};
+          },
+          created: function () {
+            this.children = [];
+          },
+          methods: {
+            unCheckedOther: function (t) {
+              this.children.map(function (e) {
+                t !== e && (e.checked = !1);
+              });
+              var e = t.name;
+              this.$emit("input", e), this.$emit("change", e);
+            },
+          },
+        };
+      e.default = s;
+    },
+    1173: function (t, e, i) {
+      "use strict";
+      i("6a54"),
+        Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var n = i("e74a"),
+        a = {
+          data: function () {
+            return { show: !1, isPlaying: !1 };
+          },
+          mounted: function () {
+            (this.isPlaying = !!uni.$audioPlaying),
+              uni.$on("audioPlayStateChange", this.onPlayStateChange),
+              this.loadConfig();
+          },
+          beforeDestroy: function () {
+            uni.$off("audioPlayStateChange", this.onPlayStateChange);
+          },
+          methods: {
+            onPlayStateChange: function (t) {
+              this.isPlaying = t;
+            },
+            loadConfig: function () {
+              var t = this;
+              uni.$audioConfig
+                ? this.applyConfig(uni.$audioConfig)
+                : (0, n.send)("/wechat/Wechat/getAudioConfig", {}, !1)
+                    .then(function (e) {
+                      var i = e.data || {};
+                      (uni.$audioConfig = i), t.applyConfig(i);
+                    })
+                    .catch(function () {});
+            },
+            applyConfig: function (t) {
+              t && t.audio_play_switch && t.audio_url
+                ? ((this.show = !0),
+                  uni.$audioCtx &&
+                    !uni.$audioCtx.src &&
+                    ((uni.$audioCtx.src = t.audio_url),
+                    uni.$audioWantPlay && uni.$audioCtx.play()))
+                : (this.show = !1);
+            },
+            togglePlay: function () {
+              uni.$audioCtx &&
+                (this.isPlaying
+                  ? uni.$audioCtx.pause()
+                  : ((uni.$audioWantPlay = !0), uni.$audioCtx.play()));
+            },
+          },
+        };
+      e.default = a;
+    },
+    "12dc": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("64aa"),
+        i("e062");
+      var a,
+        o,
+        r = n(i("9b1b")),
+        s = {
+          props: (0, r.default)(
+            {
+              value: { type: [String, Number], default: 0 },
+              modelValue: { type: [String, Number], default: 0 },
+              name: { type: [String, Number], default: "" },
+              min: { type: [String, Number], default: 1 },
+              max: { type: [String, Number], default: Number.MAX_SAFE_INTEGER },
+              step: { type: [String, Number], default: 1 },
+              integer: { type: Boolean, default: !1 },
+              disabled: { type: Boolean, default: !1 },
+              disabledInput: { type: Boolean, default: !1 },
+              asyncChange: { type: Boolean, default: !1 },
+              inputWidth: { type: [String, Number], default: 35 },
+              showMinus: { type: Boolean, default: !0 },
+              showPlus: { type: Boolean, default: !0 },
+              decimalLength: { type: [String, Number, null], default: null },
+              longPress: { type: Boolean, default: !0 },
+              color: { type: String, default: "#323233" },
+              buttonSize: { type: [String, Number], default: 30 },
+              bgColor: { type: String, default: "#EBECEE" },
+              cursorSpacing: { type: [String, Number], default: 100 },
+              disablePlus: { type: Boolean, default: !1 },
+              disableMinus: { type: Boolean, default: !1 },
+              iconStyle: { type: [Object, String], default: "" },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (o = a.props) ||
+              void 0 === o
+              ? void 0
+              : o.numberBox,
+          ),
+        };
+      e.default = s;
+    },
+    "17bc": function (t, e, i) {
+      var n = i("b525");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[t.i, n, ""]]),
+        n.locals && (t.exports = n.locals);
+      var a = i("967d").default;
+      a("18b7d627", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "19f3": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("fbef"),
+        a = i("924f");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      i("7d03");
+      var r = i("828b"),
+        s = Object(r["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "257def90",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      e["default"] = s.exports;
+    },
+    "20f3": function (t, e, i) {
+      "use strict";
+      var n = i("8bdb"),
+        a = i("5145");
+      n(
+        { target: "Array", proto: !0, forced: a !== [].lastIndexOf },
+        { lastIndexOf: a },
+      );
+    },
+    "2b4e": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("8fcd"),
+        a = i("8cb7");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      i("506a");
+      var r = i("828b"),
+        s = Object(r["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "6a509d70",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      e["default"] = s.exports;
+    },
+    "2f40": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("0d9c"),
+        a = i.n(n);
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    "31a6": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return a;
+        }),
+        i.d(e, "a", function () {});
+      var n = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return i(
+            "v-uni-view",
+            {
+              staticClass: "uv-textarea",
+              class: t.textareaClass,
+              style: [t.textareaStyle],
+            },
+            [
+              i("v-uni-textarea", {
+                staticClass: "uv-textarea__field",
+                style: [
+                  { height: t.autoHeight ? "auto" : t.$uv.addUnit(t.height) },
+                  t.$uv.addStyle(t.textStyle),
+                ],
+                attrs: {
+                  value: t.innerValue,
+                  placeholder: t.placeholder,
+                  "placeholder-style": t.$uv.addStyle(
+                    t.placeholderStyle,
+                    "string",
+                  ),
+                  "placeholder-class": t.placeholderClass,
+                  disabled: t.disabled,
+                  focus: t.focus,
+                  autoHeight: t.autoHeight,
+                  fixed: t.fixed,
+                  cursorSpacing: t.cursorSpacing,
+                  cursor: t.cursor,
+                  showConfirmBar: t.showConfirmBar,
+                  selectionStart: t.selectionStart,
+                  selectionEnd: t.selectionEnd,
+                  adjustPosition: t.adjustPosition,
+                  disableDefaultPadding: t.disableDefaultPadding,
+                  holdKeyboard: t.holdKeyboard,
+                  maxlength: t.maxlen,
+                  confirmType: t.confirmType,
+                  ignoreCompositionEvent: t.ignoreCompositionEvent,
+                  "confirm-hold": t.confirmHold,
+                },
+                on: {
+                  focus: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onFocus.apply(void 0, arguments);
+                  },
+                  blur: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onBlur.apply(void 0, arguments);
+                  },
+                  linechange: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onLinechange.apply(void 0, arguments);
+                  },
+                  input: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onInput.apply(void 0, arguments);
+                  },
+                  confirm: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onConfirm.apply(void 0, arguments);
+                  },
+                  keyboardheightchange: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onKeyboardheightchange.apply(void 0, arguments);
+                  },
+                },
+              }),
+              t.count && -1 != t.maxlen
+                ? i(
+                    "v-uni-text",
+                    {
+                      staticClass: "uv-textarea__count",
+                      style: [
+                        {
+                          "background-color": t.disabled
+                            ? "transparent"
+                            : "#fff",
+                        },
+                        t.$uv.addStyle(t.countStyle),
+                      ],
+                    },
+                    [t._v(t._s(t.getCount) + "/" + t._s(t.maxlen))],
+                  )
+                : t._e(),
+            ],
+            1,
+          );
+        },
+        a = [];
+    },
+    3345: function (t, e, i) {
+      "use strict";
+      var n = i("17bc"),
+        a = i.n(n);
+      a.a;
+    },
+    3603: function (t, e, i) {
+      var n = i("e357");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[t.i, n, ""]]),
+        n.locals && (t.exports = n.locals);
+      var a = i("967d").default;
+      a("470340b0", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "3e65": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("31a6"),
+        a = i("96f8");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      i("b24f");
+      var r = i("828b"),
+        s = Object(r["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "26fd47e8",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      e["default"] = s.exports;
+    },
+    "431d": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("aa9c");
+      var a = n(i("4d8f0")),
+        o = n(i("9463")),
+        r = n(i("9b82")),
+        s = {
+          name: "uv-radio",
+          mixins: [a.default, o.default, r.default],
+          data: function () {
+            return {
+              checked: !1,
+              parentData: {
+                iconSize: 12,
+                labelSize: 14,
+                labelColor: "#303133",
+                labelDisabled: null,
+                disabled: null,
+                shape: null,
+                activeColor: null,
+                inactiveColor: null,
+                size: 18,
+                value: null,
+                modelValue: null,
+                iconColor: null,
+                placement: "row",
+                borderBottom: !1,
+                iconPlacement: "left",
+              },
+            };
+          },
+          computed: {
+            elDisabled: function () {
+              return "" !== this.disabled
+                ? this.disabled
+                : null !== this.parentData.disabled && this.parentData.disabled;
+            },
+            elLabelDisabled: function () {
+              return "" !== this.labelDisabled
+                ? this.labelDisabled
+                : null !== this.parentData.labelDisabled &&
+                    this.parentData.labelDisabled;
+            },
+            elSize: function () {
+              return this.size
+                ? this.size
+                : this.parentData.size
+                  ? this.parentData.size
+                  : 21;
+            },
+            elIconSize: function () {
+              return this.iconSize
+                ? this.iconSize
+                : this.parentData.iconSize
+                  ? this.parentData.iconSize
+                  : 12;
+            },
+            elActiveColor: function () {
+              return this.activeColor
+                ? this.activeColor
+                : this.parentData.activeColor
+                  ? this.parentData.activeColor
+                  : "#2979ff";
+            },
+            elInactiveColor: function () {
+              return this.inactiveColor
+                ? this.inactiveColor
+                : this.parentData.inactiveColor
+                  ? this.parentData.inactiveColor
+                  : "#c8c9cc";
+            },
+            elLabelColor: function () {
+              return this.labelColor
+                ? this.labelColor
+                : this.parentData.labelColor
+                  ? this.parentData.labelColor
+                  : "#606266";
+            },
+            elShape: function () {
+              return this.shape
+                ? this.shape
+                : this.parentData.shape
+                  ? this.parentData.shape
+                  : "circle";
+            },
+            elLabelSize: function () {
+              return this.$uv.addUnit(
+                this.labelSize
+                  ? this.labelSize
+                  : this.parentData.labelSize
+                    ? this.parentData.labelSize
+                    : "15",
+              );
+            },
+            elIconColor: function () {
+              var t = this.iconColor
+                ? this.iconColor
+                : this.parentData.iconColor
+                  ? this.parentData.iconColor
+                  : "#ffffff";
+              return this.elDisabled
+                ? this.checked
+                  ? this.elInactiveColor
+                  : "transparent"
+                : this.checked
+                  ? t
+                  : "transparent";
+            },
+            iconClasses: function () {
+              var t = [];
+              return (
+                t.push("uv-radio__icon-wrap--" + this.elShape),
+                this.elDisabled && t.push("uv-radio__icon-wrap--disabled"),
+                this.checked &&
+                  this.elDisabled &&
+                  t.push("uv-radio__icon-wrap--disabled--checked"),
+                t
+              );
+            },
+            iconWrapStyle: function () {
+              var t = {};
+              return (
+                (t.backgroundColor =
+                  this.checked && !this.elDisabled
+                    ? this.elActiveColor
+                    : "#ffffff"),
+                (t.borderColor =
+                  this.checked && !this.elDisabled
+                    ? this.elActiveColor
+                    : this.elInactiveColor),
+                (t.width = this.$uv.addUnit(this.elSize)),
+                (t.height = this.$uv.addUnit(this.elSize)),
+                "right" === this.parentData.iconPlacement &&
+                  (t.marginRight = 0),
+                t
+              );
+            },
+            radioStyle: function () {
+              var t = {};
+              return (
+                this.parentData.borderBottom &&
+                  "row" === this.parentData.placement &&
+                  this.$uv.error(
+                    "检测到您将borderBottom设置为true，需要同时将uv-radio-group的placement设置为column才有效",
+                  ),
+                this.parentData.borderBottom &&
+                  "column" === this.parentData.placement &&
+                  (t.paddingBottom = "ios" === this.$uv.os() ? "12px" : "8px"),
+                this.$uv.deepMerge(t, this.$uv.addStyle(this.customStyle))
+              );
+            },
+          },
+          created: function () {
+            this.init();
+          },
+          methods: {
+            init: function () {
+              var t = this;
+              this.updateParentData(),
+                this.parent ||
+                  this.$uv.error("uv-radio必须搭配uv-radio-group组件使用"),
+                this.$nextTick(function () {
+                  var e;
+                  (e = t.parentData.value), (t.checked = t.name === e);
+                });
+            },
+            updateParentData: function () {
+              this.getParentData("uv-radio-group");
+            },
+            iconClickHandler: function (t) {
+              this.preventEvent(t),
+                this.elDisabled || this.setRadioCheckedStatus();
+            },
+            wrapperClickHandler: function (t) {
+              "right" === this.parentData.iconPlacement &&
+                this.iconClickHandler(t);
+            },
+            labelClickHandler: function (t) {
+              this.preventEvent(t),
+                this.elLabelDisabled ||
+                  this.elDisabled ||
+                  this.setRadioCheckedStatus();
+            },
+            emitEvent: function () {
+              var t = this;
+              this.checked ||
+                (this.$emit("change", this.name),
+                this.$nextTick(function () {
+                  t.$uv.formValidate(t, "change");
+                }));
+            },
+            setRadioCheckedStatus: function () {
+              this.emitEvent(),
+                (this.checked = !0),
+                "function" === typeof this.parent.unCheckedOther &&
+                  this.parent.unCheckedOther(this);
+            },
+          },
+        };
+      e.default = s;
+    },
+    "4bc9": function (t, e, i) {
+      var n = i("c86c");
+      (e = n(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.uv-border[data-v-26fd47e8]{border-width:.5px!important;border-color:#dadbde!important;border-style:solid}.uv-border-bottom[data-v-26fd47e8]{border-bottom-width:.5px!important;border-color:#dadbde!important;border-bottom-style:solid}uni-view[data-v-26fd47e8], uni-scroll-view[data-v-26fd47e8], uni-swiper-item[data-v-26fd47e8]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-textarea[data-v-26fd47e8]{border-radius:4px;background-color:#fff;position:relative;display:flex;flex-direction:row;flex:1;padding:9px}.uv-textarea--radius[data-v-26fd47e8]{border-radius:4px}.uv-textarea--no-radius[data-v-26fd47e8]{border-radius:0}.uv-textarea--disabled[data-v-26fd47e8]{background-color:#f5f7fa}.uv-textarea__field[data-v-26fd47e8]{flex:1;font-size:15px;color:#606266;width:100%}.uv-textarea__count[data-v-26fd47e8]{position:absolute;right:5px;bottom:2px;font-size:12px;color:#909193;background-color:#fff;padding:1px 4px}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "4bf4": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("dc5e"),
+        a = i.n(n);
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    "506a": function (t, e, i) {
+      "use strict";
+      var n = i("c954"),
+        a = i.n(n);
+      a.a;
+    },
+    "56da": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("64aa");
+      var a,
+        o,
+        r = n(i("9b1b")),
+        s = {
+          props: (0, r.default)(
+            {
+              value: { type: [String, Number], default: "" },
+              modelValue: { type: [String, Number], default: "" },
+              placeholder: { type: [String, Number], default: "" },
+              placeholderClass: {
+                type: String,
+                default: "textarea-placeholder",
+              },
+              placeholderStyle: {
+                type: [String, Object],
+                default: "color: #c0c4cc",
+              },
+              height: { type: [String, Number], default: 70 },
+              confirmType: { type: String, default: "return" },
+              disabled: { type: Boolean, default: !1 },
+              count: { type: Boolean, default: !1 },
+              focus: { type: Boolean, default: !1 },
+              autoHeight: { type: Boolean, default: !1 },
+              fixed: { type: Boolean, default: !1 },
+              cursorSpacing: { type: Number, default: 0 },
+              cursor: { type: [String, Number], default: "" },
+              showConfirmBar: { type: Boolean, default: !0 },
+              selectionStart: { type: Number, default: -1 },
+              selectionEnd: { type: Number, default: -1 },
+              adjustPosition: { type: Boolean, default: !0 },
+              disableDefaultPadding: { type: Boolean, default: !1 },
+              holdKeyboard: { type: Boolean, default: !1 },
+              maxlength: { type: [String, Number], default: 140 },
+              border: { type: String, default: "surround" },
+              formatter: { type: [Function, null], default: null },
+              ignoreCompositionEvent: { type: Boolean, default: !0 },
+              confirmHold: { type: Boolean, default: !1 },
+              textStyle: { type: [Object, String], default: function () {} },
+              countStyle: { type: [Object, String], default: function () {} },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (o = a.props) ||
+              void 0 === o
+              ? void 0
+              : o.textarea,
+          ),
+        };
+      e.default = s;
+    },
+    "5d1a": function (t, e, i) {
+      "use strict";
+      var n = i("3603"),
+        a = i.n(n);
+      a.a;
+    },
+    "5dba": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("6aad"),
+        a = i("4bf4");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      i("3345");
+      var r = i("828b"),
+        s = Object(r["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "18b619e9",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      e["default"] = s.exports;
+    },
+    6321: function (t, e, i) {
+      var n = i("c86c");
+      (e = n(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.audio_player_box[data-v-6a509d70]{position:fixed;right:10px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);z-index:999;width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,#ffd9a8,#ffb877 45%,#ff8c2e);display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(255,140,46,.45),0 0 26px rgba(255,184,119,.25),inset 0 0 8px hsla(0,0%,100%,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}.halo[data-v-6a509d70]{position:absolute;left:-5px;top:-5px;right:-5px;bottom:-5px;border-radius:50%;border:1.8px solid rgba(255,184,119,.65);opacity:0;pointer-events:none}.halo2[data-v-6a509d70]{left:-11px;top:-11px;right:-11px;bottom:-11px;border-color:rgba(255,140,46,.45)}.audio_player_box.playing .halo[data-v-6a509d70]{opacity:1;-webkit-animation:haloBreath-data-v-6a509d70 2s ease-in-out infinite;animation:haloBreath-data-v-6a509d70 2s ease-in-out infinite}.audio_player_box.playing .halo2[data-v-6a509d70]{-webkit-animation:haloBreath-data-v-6a509d70 2s ease-in-out .6s infinite;animation:haloBreath-data-v-6a509d70 2s ease-in-out .6s infinite}@-webkit-keyframes haloBreath-data-v-6a509d70{0%, 100%{-webkit-transform:scale(1);transform:scale(1);opacity:.8}50%{-webkit-transform:scale(1.2);transform:scale(1.2);opacity:.1}}@keyframes haloBreath-data-v-6a509d70{0%, 100%{-webkit-transform:scale(1);transform:scale(1);opacity:.8}50%{-webkit-transform:scale(1.2);transform:scale(1.2);opacity:.1}}.audio_inner[data-v-6a509d70]{width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,hsla(0,0%,100%,.3),hsla(0,0%,100%,.08));box-shadow:inset 0 0 10px hsla(0,0%,100%,.2)}.audio_svg[data-v-6a509d70]{width:20px;height:18px;display:flex;align-items:center;justify-content:space-between;gap:2px}.audio_svg .bar[data-v-6a509d70]{width:2.5px;background:#fff;border-radius:2px;box-shadow:0 0 5px hsla(0,0%,100%,.85);-webkit-animation:barJump-data-v-6a509d70 .9s ease-in-out infinite;animation:barJump-data-v-6a509d70 .9s ease-in-out infinite}.audio_svg .bar1[data-v-6a509d70]{-webkit-animation-delay:0s;animation-delay:0s}.audio_svg .bar2[data-v-6a509d70]{-webkit-animation-delay:.18s;animation-delay:.18s}.audio_svg .bar3[data-v-6a509d70]{-webkit-animation-delay:.36s;animation-delay:.36s}.audio_svg .bar4[data-v-6a509d70]{-webkit-animation-delay:.54s;animation-delay:.54s}@-webkit-keyframes barJump-data-v-6a509d70{0%, 100%{height:4px}50%{height:16px}}@keyframes barJump-data-v-6a509d70{0%, 100%{height:4px}50%{height:16px}}.play_icon[data-v-6a509d70]{width:20px;height:18px;display:flex;align-items:center;justify-content:center}.play_icon .triangle[data-v-6a509d70]{width:0;height:0;margin-left:2px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:12px solid #fff;-webkit-filter:drop-shadow(0 0 4px hsla(0,0%,100%,.8));filter:drop-shadow(0 0 4px rgba(255,255,255,.8))}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "636d": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("ac37"),
+        a = i("92ad");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      i("5d1a");
+      var r = i("828b"),
+        s = Object(r["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "21c4bd17",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      e["default"] = s.exports;
+    },
+    "647a": function (t, e, i) {
+      var n = i("c86c");
+      (e = n(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.zd_seller_box[data-v-257def90]{justify-content:flex-start}.zd_seller_box .head[data-v-257def90]{width:%?64?%;height:%?64?%;border-radius:100%;margin-right:%?18?%}.game-con[data-v-257def90]{display:flex;justify-content:flex-end;padding-right:%?20?%}.game-con .game-id[data-v-257def90]{font-size:12px;color:#2979ff}[data-v-257def90] .uv-form-item{margin:%?35?% %?30?%}[data-v-257def90] .uv-form-item__body{padding:%?0?%!important}[data-v-257def90] .uv-form-item__body__left{width:auto!important;margin-right:%?24?%!important;position:relative;font-weight:700;width:%?145?%!important;white-space:nowrap}[data-v-257def90] .uv-form-item__body__left__content{padding:0!important}[data-v-257def90] .uv-form-item__body__left__content__label{display:inline-block;position:relative;z-index:10;flex:0!important}[data-v-257def90] .uv-form-item__body__left__content__label::before{z-index:-1;display:block;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?6?%;-webkit-transform:translate(-50%);transform:translate(-50%)}[data-v-257def90] .uv-form-item__body__right__message{margin-left:%?170?%!important;margin-top:%?4?%!important}[data-v-257def90] .uv-form-item .uv-radio-label--left{margin:%?8?% 0 %?3?% 0;margin-right:%?34?%;padding-bottom:%?5?%}[data-v-257def90] .uv-form-item__body__left{align-items:flex-start!important;margin-top:%?18?%!important}[data-v-257def90] .uv-form-item__body__left__content__label span{white-space:nowrap!important}.rem_form_item[data-v-257def90]{margin:%?-20?% auto}.rem_form_item[data-v-257def90] .uv-form-item__body__left{align-items:flex-start!important;margin-top:%?18?%!important}.rem_form_item[data-v-257def90] .uv-form-item__body__right__content__slot{display:block;background:#f8f8f8;border-radius:%?8?%}.rem_form_item .rem_list[data-v-257def90]{max-height:%?190?%;overflow-y:scroll;padding:%?4?% 0}.rem_form_item .rem_list .item[data-v-257def90]{height:%?60?%;line-height:%?60?%;padding:0 %?20?%}[data-v-257def90] .uv-textarea__count{bottom:%?2?%;-webkit-transform:translateY(-50%);transform:translateY(-50%);z-index:10!important}.content[data-v-257def90]{padding-bottom:%?140?%}.msg_box[data-v-257def90]{padding:0 %?30?%}.msg_box .goods_msg[data-v-257def90]{margin:%?35?% auto %?5?%}.msg_box .goods_msg .img[data-v-257def90]{width:%?120?%;height:%?120?%;border-radius:%?10?%}.msg_box .goods_msg .txt[data-v-257def90]{width:calc(100% - %?145?%)}.msg_box .goods_msg .txt .name[data-v-257def90]{font-size:16px}.msg_box .goods_msg .txt .price_box[data-v-257def90]{margin-top:%?14?%}.msg_box .goods_msg .txt .price_box .price[data-v-257def90]{color:#fd2c28;font-weight:700;font-size:17px}.msg_box .goods_msg .txt .price_box .price .unit[data-v-257def90]{font-size:12px}.msg_box .goods_msg .txt .price_box .num[data-v-257def90]{font-size:15px}.msg_box .goods_msg .zhangjia_box[data-v-257def90]{border-top:%?2?% solid #eee;margin-top:%?30?%;padding-top:%?25?%}.msg_box .goods_msg .zhangjia_box .zhangjia[data-v-257def90]{width:%?120?%;text-align:center}.msg_box .goods_msg .zhangjia_box .zhangjia uni-view[data-v-257def90]{color:#999;font-size:12.4px;white-space:nowrap}.msg_box .goods_msg .zhangjia_box .zhangjia .price[data-v-257def90]{color:#fd2c28;font-size:14.4px;margin-top:%?2?%}.msg_box .goods_msg .zhangjia_box .tit[data-v-257def90]{width:calc(100% - %?145?%)}.tip_box[data-v-257def90]{margin-top:%?20?%;background:rgba(0,0,0,.045);border-radius:%?8?%;padding:%?12?% %?12?% %?12?% %?14?%;box-sizing:border-box;align-items:flex-start}.tip_box .tips[data-v-257def90]{width:calc(100% - %?45?%)}.tip_box .tips .tit[data-v-257def90]{width:calc(100% - %?50?%);font-size:12.4px;color:#666}.rich_box[data-v-257def90]{margin:%?35?% %?30?%}.rich_box .tit[data-v-257def90]{font-weight:700;margin-bottom:%?30?%;font-size:14.4px}.cash_box[data-v-257def90]{background:#fff;position:fixed;left:0;right:0;bottom:0;max-width:480px;width:100%;margin:0 auto;box-shadow:0 0 %?10?% #ddd;padding:%?20?% %?30?%;z-index:990}.cash_box .total_box uni-view[data-v-257def90],\r\n.cash_box .total_box uni-text[data-v-257def90]{white-space:nowrap}.cash_box .total_box .tit[data-v-257def90]{font-size:12.4px;color:#666}.cash_box .total_box .price[data-v-257def90]{color:#fd2c28;font-weight:700;font-size:17px}.cash_box .total_box .price .unit[data-v-257def90]{font-size:12px}.cash_box .btn_box[data-v-257def90]{position:relative;width:50%;background:#ffe610;height:%?90?%;line-height:%?90?%;border-radius:%?90?%;font-size:15px;text-align:center;font-weight:700;overflow:hidden}.cash_box .btn_box.cancle[data-v-257def90]{background:#eee;color:#666}[data-v-257def90] .uv-popup__content{max-width:480px;width:100%}.worker_pop[data-v-257def90]{padding:%?0?% %?30?%;background:#fff;position:relative}.worker_pop .title_box .title[data-v-257def90]{height:%?90?%;line-height:%?90?%;font-weight:700;text-align:center;border-bottom:%?2?% solid #eee;margin-bottom:%?32?%}.worker_pop .title_box[data-v-257def90] .uv-icon{position:absolute;top:%?20?%;right:%?20?%}.worker_pop .new_search_box[data-v-257def90] .uv-input{background:#fff!important;padding:%?4?%!important;padding-left:%?18?%!important}.worker_pop .new_search_box[data-v-257def90] .uv-input.uv-border{border:%?4?% solid #000!important}.worker_pop .new_search_box[data-v-257def90] .uv-input .uv-input__content__clear{margin-right:%?8?%!important}.worker_pop .new_search_box[data-v-257def90] .uv-input .btn{width:%?88?%!important;height:%?56?%!important;border-radius:%?56?%!important;background:#000!important;justify-content:center!important}.worker_pop .new_search_box[data-v-257def90] .uv-input .btn .uv-icon__icon{font-weight:700!important}.worker_pop .list[data-v-257def90]{margin:%?20?% auto %?25?%;height:%?800?%;overflow-x:hidden;overflow-y:scroll}.worker_pop .list .col[data-v-257def90]{padding:%?20?% %?10?%}.worker_pop .list .col .head_box[data-v-257def90]{width:calc(100% - %?120?%);justify-content:flex-start}.worker_pop .list .col .head_box .head_wrap[data-v-257def90]{position:relative;width:%?94?%;height:%?94?%;margin-right:%?20?%}.worker_pop .list .col .head_box .head_wrap .head[data-v-257def90]{width:100%;height:100%;border-radius:100%;margin:0}.worker_pop .list .col .head_box .head_wrap .online_dot[data-v-257def90]{position:absolute;right:0;top:0;width:%?18?%;height:%?18?%;border-radius:100%;border:%?2?% solid #fff;z-index:2}.worker_pop .list .col .head_box .head_wrap .online_dot.on[data-v-257def90]{background:#6dff26}.worker_pop .list .col .head_box .head_wrap .online_dot.off[data-v-257def90]{background:#ccc}.worker_pop .list .col .head_box .nickname[data-v-257def90]{text-overflow:ellipsis;white-space:nowrap;color:#444!important}.worker_pop .list .col .check[data-v-257def90]{width:%?42?%;height:%?42?%;border-radius:%?42?%;border:%?2?% solid #bbb;align-items:center;justify-content:center}.worker_pop .list .col .check[data-v-257def90] .uv-icon__icon span{font-weight:700}.gameShow[data-v-257def90]{background:#fff;border-radius:%?30?%;padding:%?0?% %?46?% %?30?%;text-align:center;margin:0 %?30?%}.gameShow .tit[data-v-257def90]{font-weight:700;padding:%?40?% 0;font-size:17px}.gameShow .prompt[data-v-257def90]{margin:%?6?% auto;line-height:1.5;color:#999}.gameShow .red[data-v-257def90]{color:#fd2c28}.gameShow .btn[data-v-257def90]{background:#ffe610;width:40%;font-size:13px;font-weight:700;height:%?60?%;line-height:%?60?%;border-radius:%?60?%;margin:%?62?% auto %?5?%}\r\n/* 增值服务弹窗样式 */.service_pop[data-v-257def90]{padding:%?0?% %?30?% %?30?%;background:#fff;position:relative}.service_pop .title_box .title[data-v-257def90]{height:%?90?%;line-height:%?90?%;font-weight:700;text-align:center;border-bottom:%?2?% solid #eee}.service_pop .title_box[data-v-257def90] .uv-icon{position:absolute;top:%?20?%;right:%?20?%}.service_pop .service_sub[data-v-257def90]{font-size:12.4px;color:#999;margin-top:%?20?%}.service_pop .service_status[data-v-257def90]{display:flex;align-items:center;margin-top:%?16?%;padding:%?16?% %?20?%;border-radius:%?12?%;background:#f8f8f8}.service_pop .service_status .s_check[data-v-257def90]{width:%?42?%;height:%?42?%;border-radius:%?42?%;border:%?2?% solid #bbb;align-items:center;justify-content:center;flex-shrink:0}.service_pop .service_status .ss_info[data-v-257def90]{margin-left:%?16?%;flex:1;min-width:0}.service_pop .service_status .ss_info .ss_tit[data-v-257def90]{font-size:14px;font-weight:700;color:#333}.service_pop .service_status .ss_info .ss_tip[data-v-257def90]{font-size:12px;color:#999;margin-top:%?6?%}.service_pop .service_status .ss_reset[data-v-257def90]{flex-shrink:0;margin-left:%?16?%;padding:%?8?% %?24?%;border-radius:%?30?%;border:%?2?% solid #007aff;color:#007aff;font-size:12.4px}.service_pop .service_list[data-v-257def90]{max-height:%?600?%;margin-top:%?16?%}.service_pop .service_footer[data-v-257def90]{justify-content:space-between;margin-top:%?24?%;padding-top:%?24?%;border-top:%?2?% solid #eee}.service_pop .service_footer .service_total[data-v-257def90]{font-size:13px;color:#666}.service_pop .service_footer .service_total .price[data-v-257def90]{color:#fd2c28;font-weight:700;font-size:17px}.service_pop .service_footer .service_total.none[data-v-257def90]{color:#999}.service_pop .service_footer .service_pay_btn[data-v-257def90]{width:%?260?%;height:%?80?%;line-height:%?80?%;text-align:center;border-radius:%?80?%;background:#ffe610;font-weight:700;font-size:15px}.service_item[data-v-257def90]{display:flex;align-items:flex-start;padding:%?24?% %?24?%;border-radius:%?16?%;background:#f8f8f8;border:%?2?% solid #eee;margin-top:%?16?%}.service_item.active[data-v-257def90]{border-color:#007aff;background:#f0f7ff}.service_item .s_img[data-v-257def90]{width:%?128?%;height:%?128?%;border-radius:%?12?%;flex-shrink:0}.service_item .s_info[data-v-257def90]{flex:1;width:calc(100% - %?380?%);margin-left:%?20?%}.service_item .s_info .s_name[data-v-257def90]{font-size:14.4px;font-weight:700;color:#333}.service_item .s_info .s_intro[data-v-257def90]{font-size:12px;color:#999;margin-top:%?6?%;line-height:1.5;word-break:break-all}.service_item .s_right[data-v-257def90]{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0}.service_item .s_right .s_price[data-v-257def90]{color:#fd2c28;font-weight:700;font-size:15px}.service_item .s_right .s_price .s_unit[data-v-257def90]{font-size:11px;font-weight:400}.service_item .s_right .s_num_box[data-v-257def90]{margin-top:%?12?%}.service_item .s_right .s_num_box .s_btn[data-v-257def90]{width:%?44?%;height:%?44?%;border-radius:%?44?%;background:#fff;border:%?2?% solid #007aff;align-items:center;justify-content:center}.service_item .s_right .s_num_box .s_btn.disabled[data-v-257def90]{border-color:#ddd;opacity:.4}.service_item .s_right .s_num_box .s_val[data-v-257def90]{min-width:%?56?%;height:%?44?%;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;color:#333}.service_item .s_right .s_check[data-v-257def90]{width:%?42?%;height:%?42?%;border-radius:%?42?%;border:%?2?% solid #bbb;align-items:center;justify-content:center;margin-top:%?10?%}\r\n/* 优惠活动样式 */.discount_box[data-v-257def90]{margin:%?20?% %?30?%}.discount_box.goods_discount[data-v-257def90]{margin:%?25?% 0 0 0}.discount_item[data-v-257def90]{display:flex;align-items:center;padding:%?24?%;border-radius:%?16?%;background:#f8f8f8;border:%?2?% solid #eee;position:relative;overflow:hidden}.discount_item.gift[data-v-257def90]{border-color:#ffe066;background:linear-gradient(135deg,#fffef0,#fff9e6)}.discount_item.gift .icon_box[data-v-257def90]{background:rgba(255,230,0,.2)}.discount_item.gift .icon_box .iconfont[data-v-257def90]{color:#e6a23c}.discount_item.gift .highlight[data-v-257def90]{color:#e6a23c}.discount_item.discount[data-v-257def90]{border-color:#ffd9b3;background:linear-gradient(135deg,#fff8f0,#fff4e8)}.discount_item.discount .icon_box[data-v-257def90]{background:rgba(253,100,0,.12)}.discount_item.discount .icon_box .iconfont[data-v-257def90]{color:#fd6400}.discount_item.discount .highlight[data-v-257def90]{color:#fd6400}.discount_item.active[data-v-257def90]{border-width:%?2?%}.discount_item.active.gift[data-v-257def90]{box-shadow:0 %?4?% %?20?% rgba(255,200,0,.3)}.discount_item.active.discount[data-v-257def90]{box-shadow:0 %?4?% %?20?% rgba(253,100,0,.25)}.discount_item .icon_box[data-v-257def90]{width:%?72?%;height:%?72?%;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:%?24?%;flex-shrink:0}.discount_item .icon_box .iconfont[data-v-257def90]{font-size:%?32?%}.discount_item .info[data-v-257def90]{flex:1}.discount_item .info .tit[data-v-257def90]{font-size:15px;font-weight:700;color:#333;margin-bottom:%?8?%}.discount_item .info .desc[data-v-257def90]{font-size:12.5px;color:#666}.discount_item .info .desc.gray[data-v-257def90]{color:#999}.discount_item .highlight[data-v-257def90]{font-weight:700}.discount_item .status_tag[data-v-257def90]{position:absolute;top:0;right:0;background:#6dff26;color:#fff;font-size:10px;padding:%?6?% %?16?%;border-radius:0 %?14?% 0 %?12?%;font-weight:700}.discount_item .status_tag.yellow[data-v-257def90]{background:#e6a23c}.discount_item.discount .status_tag[data-v-257def90]{background:#fd6400}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "64d8": function (t, e, i) {
+      var n = i("4bc9");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[t.i, n, ""]]),
+        n.locals && (t.exports = n.locals);
+      var a = i("967d").default;
+      a("52a068ac", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "6aad": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return a;
+      }),
+        i.d(e, "c", function () {
+          return o;
+        }),
+        i.d(e, "a", function () {
+          return n;
+        });
+      var n = { uvIcon: i("1a07").default },
+        a = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return i(
+            "v-uni-view",
+            { staticClass: "uv-number-box" },
+            [
+              t.showMinus && t.$slots.minus
+                ? i(
+                    "v-uni-view",
+                    {
+                      staticClass: "uv-number-box__slot",
+                      on: {
+                        touchstart: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.onTouchStart("minus");
+                        },
+                        touchend: function (e) {
+                          e.stopPropagation(),
+                            (arguments[0] = e = t.$handleEvent(e)),
+                            t.clearTimeout.apply(void 0, arguments);
+                        },
+                        click: function (e) {
+                          e.stopPropagation(),
+                            (arguments[0] = e = t.$handleEvent(e)),
+                            t.clickHandler("minus");
+                        },
+                      },
+                    },
+                    [t._t("minus")],
+                    2,
+                  )
+                : t.showMinus
+                  ? i(
+                      "v-uni-view",
+                      {
+                        staticClass: "uv-number-box__minus",
+                        class: {
+                          "uv-number-box__minus--disabled":
+                            t.isDisabled("minus"),
+                        },
+                        style: [t.buttonStyle("minus")],
+                        attrs: {
+                          "hover-class": "uv-number-box__minus--hover",
+                          "hover-stay-time": "150",
+                        },
+                        on: {
+                          touchstart: function (e) {
+                            (arguments[0] = e = t.$handleEvent(e)),
+                              t.onTouchStart("minus");
+                          },
+                          touchend: function (e) {
+                            e.stopPropagation(),
+                              (arguments[0] = e = t.$handleEvent(e)),
+                              t.clearTimeout.apply(void 0, arguments);
+                          },
+                          click: function (e) {
+                            e.stopPropagation(),
+                              (arguments[0] = e = t.$handleEvent(e)),
+                              t.clickHandler("minus");
+                          },
+                        },
+                      },
+                      [
+                        i("uv-icon", {
+                          attrs: {
+                            name: "minus",
+                            color: t.isDisabled("minus")
+                              ? "#c8c9cc"
+                              : "#323233",
+                            size: "15",
+                            bold: !0,
+                            customStyle: t.iconStyle,
+                          },
+                        }),
+                      ],
+                      1,
+                    )
+                  : t._e(),
+              t._t("input", [
+                i("v-uni-input", {
+                  staticClass: "uv-number-box__input",
+                  class: {
+                    "uv-number-box__input--disabled":
+                      t.disabled || t.disabledInput,
+                  },
+                  style: [t.inputStyle],
+                  attrs: {
+                    disabled: t.disabledInput || t.disabled,
+                    "cursor-spacing": t.getCursorSpacing,
+                    type: "number",
+                  },
+                  on: {
+                    blur: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.onBlur.apply(void 0, arguments);
+                    },
+                    focus: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.onFocus.apply(void 0, arguments);
+                    },
+                    input: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.onInput.apply(void 0, arguments);
+                    },
+                  },
+                  model: {
+                    value: t.currentValue,
+                    callback: function (e) {
+                      t.currentValue = e;
+                    },
+                    expression: "currentValue",
+                  },
+                }),
+              ]),
+              t.showPlus && t.$slots.plus
+                ? i(
+                    "v-uni-view",
+                    {
+                      staticClass: "uv-number-box__slot",
+                      on: {
+                        touchstart: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.onTouchStart("plus");
+                        },
+                        touchend: function (e) {
+                          e.stopPropagation(),
+                            (arguments[0] = e = t.$handleEvent(e)),
+                            t.clearTimeout.apply(void 0, arguments);
+                        },
+                        click: function (e) {
+                          e.stopPropagation(),
+                            (arguments[0] = e = t.$handleEvent(e)),
+                            t.clickHandler("plus");
+                        },
+                      },
+                    },
+                    [t._t("plus")],
+                    2,
+                  )
+                : t.showPlus
+                  ? i(
+                      "v-uni-view",
+                      {
+                        staticClass: "uv-number-box__plus",
+                        class: {
+                          "uv-number-box__minus--disabled":
+                            t.isDisabled("plus"),
+                        },
+                        style: [t.buttonStyle("plus")],
+                        attrs: {
+                          "hover-class": "uv-number-box__plus--hover",
+                          "hover-stay-time": "150",
+                        },
+                        on: {
+                          touchstart: function (e) {
+                            (arguments[0] = e = t.$handleEvent(e)),
+                              t.onTouchStart("plus");
+                          },
+                          touchend: function (e) {
+                            e.stopPropagation(),
+                              (arguments[0] = e = t.$handleEvent(e)),
+                              t.clearTimeout.apply(void 0, arguments);
+                          },
+                          click: function (e) {
+                            e.stopPropagation(),
+                              (arguments[0] = e = t.$handleEvent(e)),
+                              t.clickHandler("plus");
+                          },
+                        },
+                      },
+                      [
+                        i("uv-icon", {
+                          attrs: {
+                            name: "plus",
+                            color: t.isDisabled("plus") ? "#c8c9cc" : "#323233",
+                            size: "15",
+                            bold: !0,
+                            customStyle: t.iconStyle,
+                          },
+                        }),
+                      ],
+                      1,
+                    )
+                  : t._e(),
+            ],
+            2,
+          );
+        },
+        o = [];
+    },
+    "6c27": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("c223"),
+        i("aa9c");
+      var a = n(i("4d8f0")),
+        o = n(i("9463")),
+        r = n(i("56da")),
+        s = {
+          name: "uv-textarea",
+          mixins: [a.default, o.default, r.default],
+          data: function () {
+            return {
+              innerValue: "",
+              focused: !1,
+              innerFormatter: function (t) {
+                return t;
+              },
+            };
+          },
+          created: function () {
+            this.innerValue = this.value;
+          },
+          watch: {
+            value: function (t) {
+              this.innerValue = t;
+            },
+            modelValue: function (t) {
+              this.innerValue = t;
+            },
+          },
+          computed: {
+            textareaClass: function () {
+              var t = [],
+                e = this.border,
+                i = this.disabled;
+              return (
+                "surround" === e &&
+                  (t = t.concat(["uv-border", "uv-textarea--radius"])),
+                "bottom" === e &&
+                  (t = t.concat([
+                    "uv-border-bottom",
+                    "uv-textarea--no-radius",
+                  ])),
+                i && t.push("uv-textarea--disabled"),
+                t.join(" ")
+              );
+            },
+            textareaStyle: function () {
+              return this.$uv.deepMerge(
+                {},
+                this.$uv.addStyle(this.customStyle),
+              );
+            },
+            maxlen: function () {
+              return this.maxlength < 0
+                ? this.maxlength < 0
+                  ? -1
+                  : 140
+                : this.maxlength;
+            },
+            getCount: function () {
+              try {
+                return this.innerValue.length > this.maxlen
+                  ? this.maxlen
+                  : this.innerValue.length;
+              } catch (t) {
+                return 0;
+              }
+            },
+          },
+          methods: {
+            setFormatter: function (t) {
+              this.innerFormatter = t;
+            },
+            onFocus: function (t) {
+              this.$emit("focus", t);
+            },
+            onBlur: function (t) {
+              this.$emit("blur", t), this.$uv.formValidate(this, "blur");
+            },
+            onLinechange: function (t) {
+              this.$emit("linechange", t);
+            },
+            onInput: function (t) {
+              var e = this,
+                i = t.detail || {},
+                n = i.value,
+                a = void 0 === n ? "" : n,
+                o = this.formatter || this.innerFormatter,
+                r = o(a);
+              (this.innerValue = a),
+                this.$nextTick(function () {
+                  (e.innerValue = r), e.valueChange();
+                });
+            },
+            valueChange: function () {
+              var t = this,
+                e = this.innerValue;
+              this.$nextTick(function () {
+                t.$emit("input", e),
+                  t.$emit("update:modelValue", e),
+                  t.$emit("change", e),
+                  t.$uv.formValidate(t, "change");
+              });
+            },
+            onConfirm: function (t) {
+              this.$emit("confirm", t);
+            },
+            onKeyboardheightchange: function (t) {
+              this.$emit("keyboardheightchange", t);
+            },
+          },
+        };
+      e.default = s;
+    },
+    7200: function (t, e, i) {
+      "use strict";
+      var n = i("8bdb"),
+        a = i("f221");
+      n({ target: "Number", stat: !0 }, { isInteger: a });
+    },
+    7702: function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("64aa");
+      var a,
+        o,
+        r = n(i("9b1b")),
+        s = {
+          props: (0, r.default)(
+            {
+              value: { type: [String, Number, Boolean], default: "" },
+              modelValue: { type: [String, Number, Boolean], default: "" },
+              disabled: { type: Boolean, default: !1 },
+              shape: { type: String, default: "circle" },
+              activeColor: { type: String, default: "#2979ff" },
+              inactiveColor: { type: String, default: "#c8c9cc" },
+              name: { type: String, default: "" },
+              size: { type: [String, Number], default: 18 },
+              placement: { type: String, default: "row" },
+              label: { type: [String], default: "" },
+              labelColor: { type: [String], default: "#303133" },
+              labelSize: { type: [String, Number], default: 14 },
+              labelDisabled: { type: Boolean, default: !1 },
+              iconColor: { type: String, default: "#fff" },
+              iconSize: { type: [String, Number], default: 12 },
+              borderBottom: { type: Boolean, default: !1 },
+              iconPlacement: { type: String, default: "left" },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (o = a.props) ||
+              void 0 === o
+              ? void 0
+              : o.radioGroup,
+          ),
+        };
+      e.default = s;
+    },
+    "7d03": function (t, e, i) {
+      "use strict";
+      var n = i("e506"),
+        a = i.n(n);
+      a.a;
+    },
+    8322: function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return a;
+        }),
+        i.d(e, "a", function () {});
+      var n = function () {
+          var t = this.$createElement,
+            e = this._self._c || t;
+          return e(
+            "v-uni-view",
+            {
+              staticClass: "uv-radio-group",
+              class: this.bemClass,
+              style: [this.$uv.addStyle(this.customStyle)],
+            },
+            [this._t("default")],
+            2,
+          );
+        },
+        a = [];
+    },
+    "868a": function (t, e, i) {
+      "use strict";
+      var n = i("b342"),
+        a = i.n(n);
+      a.a;
+    },
+    "8cb7": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("1173"),
+        a = i.n(n);
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    "8fcd": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return a;
+        }),
+        i.d(e, "a", function () {});
+      var n = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return t.show
+            ? i(
+                "v-uni-view",
+                {
+                  staticClass: "audio_player_box",
+                  class: { playing: t.isPlaying },
+                  on: {
+                    click: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.togglePlay.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  i("v-uni-view", { staticClass: "halo" }),
+                  i("v-uni-view", { staticClass: "halo halo2" }),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "audio_inner" },
+                    [
+                      t.isPlaying
+                        ? i(
+                            "v-uni-view",
+                            { staticClass: "audio_svg" },
+                            [
+                              i("v-uni-view", { staticClass: "bar bar1" }),
+                              i("v-uni-view", { staticClass: "bar bar2" }),
+                              i("v-uni-view", { staticClass: "bar bar3" }),
+                              i("v-uni-view", { staticClass: "bar bar4" }),
+                            ],
+                            1,
+                          )
+                        : i(
+                            "v-uni-view",
+                            { staticClass: "play_icon" },
+                            [i("v-uni-view", { staticClass: "triangle" })],
+                            1,
+                          ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              )
+            : t._e();
+        },
+        a = [];
+    },
+    "924f": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("9481"),
+        a = i.n(n);
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    "92ad": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("431d"),
+        a = i.n(n);
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    9481: function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var a = n(i("b7c7"));
+      i("5c47"),
+        i("0506"),
+        i("8f71"),
+        i("bf0f"),
+        i("4100"),
+        i("7200"),
+        i("64aa"),
+        i("2797"),
+        i("aa9c"),
+        i("c223"),
+        i("fd3c"),
+        i("5ef2"),
+        i("dd2b");
+      var o = i("e74a"),
+        r = i("4fbd"),
+        s = n(i("2b4e")),
+        u = {
+          components: { audioPlayer: s.default },
+          data: function () {
+            return {
+              id: 0,
+              info: [],
+              price: 0,
+              form: {
+                id: 0,
+                num_id: "",
+                game_area: 0,
+                text_id: "",
+                workerType: 1,
+                seller_id: 0,
+                remark: "",
+                num: 1,
+                invite: "",
+                mobile: "",
+                service_ids: [],
+                service_nums: {},
+              },
+              service_list: [],
+              area_list: [],
+              worker_list: [
+                { label: "随机分配", name: 1 },
+                { label: "指定陪玩", name: 2 },
+              ],
+              rules: {
+                num_id: {
+                  type: "string",
+                  required: !0,
+                  message: "请输入游戏数字编号",
+                  trigger: ["blur", "change"],
+                },
+                game_area: {
+                  type: "integer",
+                  required: !1,
+                  message: "请选择游戏区服",
+                  trigger: ["blur", "change"],
+                },
+                workerType: {
+                  type: "integer",
+                  required: !1,
+                  message: "请选择接单陪玩",
+                  trigger: ["blur", "change"],
+                },
+                num: {
+                  type: "integer",
+                  required: !1,
+                  message: "请选择商品数量",
+                  trigger: ["blur", "change"],
+                },
+                mobile: [
+                  {
+                    required: !0,
+                    message: "请输入手机号",
+                    trigger: ["blur", "change"],
+                  },
+                  {
+                    validator: function (t, e, i) {
+                      return /^1[3-9]\d{9}$/.test(e);
+                    },
+                    message: "请输入正确的手机号",
+                    trigger: ["blur"],
+                  },
+                ],
+              },
+              closeGamequfu: 0,
+              content: "<p>下单后陪玩会在10分钟之内加您好友,请您上号等待.</p>",
+              shuziShow: !1,
+              wenziShow: !1,
+              num_ids: [],
+              text_ids: [],
+              keyword: "",
+              workerList: [],
+              page: 1,
+              no_more: 0,
+              status: "loading",
+              worker: [],
+              total_money: 0,
+              cat1: [],
+              user: { mobile_type: 0 },
+              area_price: 0,
+              show_text_id: 0,
+              input_mobile: 0,
+              weapp_tpl: [],
+              palte: "h5",
+              kefu: [],
+              child_alert: 0,
+              num_tips: "",
+              fee_detail: [],
+              service_detail: [],
+              can_buy_num: -1,
+              seckill_left_num: -1,
+              numMax: 99,
+              minNum: 1,
+              zhiding_to_rand: "",
+              promotions: [],
+            };
+          },
+          computed: {
+            currentPromotion: function () {
+              var t = this;
+              if (!this.promotions || 0 == this.promotions.length) return null;
+              var e = this.promotions.filter(function (e) {
+                return t.form.num >= e.buy_num;
+              });
+              if (e.length > 0)
+                return (
+                  e.sort(function (t, e) {
+                    return e.buy_num != t.buy_num
+                      ? e.buy_num - t.buy_num
+                      : t.priority - e.priority;
+                  }),
+                  e[0]
+                );
+              var i = (0, a.default)(this.promotions).sort(function (t, e) {
+                return t.buy_num - e.buy_num;
+              });
+              return i[0];
+            },
+          },
+          onLoad: function (t) {
+            (this.id = t.id),
+              (this.form.id = t.id),
+              Number.isInteger(Number(t.seller_id)) &&
+                t.seller_id > 0 &&
+                ((this.form.workerType = 2),
+                (this.form.seller_id = t.seller_id)),
+              this.getSubmitInfo();
+          },
+          onPullDownRefresh: function () {
+            var t = this;
+            uni.showLoading({ title: "刷新中" }),
+              setTimeout(function () {
+                uni.hideLoading(),
+                  t.resetList(),
+                  t.getSubmitInfo(),
+                  uni.showToast({ title: "刷新成功", duration: 1e3 }),
+                  uni.stopPullDownRefresh();
+              }, 300);
+          },
+          mounted: function () {},
+          methods: {
+            getWorkMsg: function () {
+              this.workerList.forEach(function (t) {});
+            },
+            getSubmitInfo: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, o.send)(
+                  "/wechat/Goods/getSubmitInfo",
+                  { id: this.id, seller_id: this.form.seller_id },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var i = e.status,
+                    n = e.msg,
+                    a = e.data;
+                  1 == i
+                    ? ((t.info = a.goods),
+                      (t.price = t.info.price),
+                      (t.content = a.buy_tips),
+                      (t.num_ids = a.num_ids),
+                      (t.text_ids = a.text_ids),
+                      (t.can_buy_num = a.can_buy_num),
+                      (t.seckill_left_num =
+                        void 0 != a.seckill_left_num ? a.seckill_left_num : -1),
+                      (t.minNum = t.info.min_num > 0 ? t.info.min_num : 1),
+                      t.seckill_left_num > 0 &&
+                        t.form.num > t.seckill_left_num &&
+                        (t.form.num = t.seckill_left_num),
+                      0 == t.seckill_left_num && (t.form.num = t.minNum),
+                      t.seckill_left_num > 0 &&
+                        t.form.num < t.minNum &&
+                        (t.form.num = t.minNum),
+                      -1 == t.seckill_left_num && (t.form.num = t.minNum),
+                      -1 != t.seckill_left_num &&
+                        (t.numMax = t.seckill_left_num),
+                      (t.form.num_id = t.num_ids[0]),
+                      (t.input_mobile = a.input_mobile),
+                      (t.show_text_id = a.show_text_id),
+                      (t.zhiding_to_rand = a.zhiding_to_rand),
+                      1 == t.show_text_id && (t.form.text_id = t.text_ids[0]),
+                      (t.worker = a.seller),
+                      (t.cat1 = a.cat1),
+                      (t.user = a.user),
+                      (t.area_list = a.area_list),
+                      (t.form.mobile = t.user.mobile),
+                      (t.weapp_tpl = a.weapp_tpl),
+                      (t.kefu = a.kefu),
+                      (t.child_alert = a.child_alert),
+                      (t.promotions = a.promotions || []),
+                      (t.service_list = a.service_list || []),
+                      t.selectRegion())
+                    : uni.showModal({
+                        title: "温馨提示",
+                        content: n,
+                        showCancel: !1,
+                        confirmText: "确认",
+                        success: function (t) {
+                          t.confirm && uni.navigateBack({ delta: 1 });
+                        },
+                      });
+                });
+            },
+            close: function () {
+              this.$refs.worker_pop.close(),
+                (this.shuziShow = !1),
+                (this.wenziShow = !1);
+            },
+            changeWorkerId: function (t) {
+              console.log(t),
+                (this.form.seller_id = t.id),
+                (this.worker = t),
+                this.close();
+            },
+            searchFun: function () {
+              this.resetList(), uni.$uv.throttle(this.getWorkerList, 1500);
+            },
+            resetList: function () {
+              (this.workerList = []),
+                (this.page = 1),
+                (this.no_more = 0),
+                (this.status = "loading");
+            },
+            getWorkerList: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, o.send)(
+                  "/wechat/Seller/getWorkerList",
+                  {
+                    keyword: this.keyword,
+                    page: this.page,
+                    cat1_id: this.info.cat1_id,
+                  },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var i,
+                    n = e.status,
+                    o = e.msg,
+                    r = e.data;
+                  if (1 != n) return uni.$uv.toast(o);
+                  t.page > 1
+                    ? (i = t.workerList).push.apply(i, (0, a.default)(r.list))
+                    : (t.workerList = r.list);
+                  1 == r.no_more &&
+                    ((t.status = "nomore"), (t.no_more = r.no_more));
+                });
+            },
+            selectWorker: function (t) {
+              2 == t
+                ? (this.$refs.worker_pop.open(), this.getWorkerList())
+                : ((this.form.seller_id = 0), (this.worker = [])),
+                (this.shuziShow = !1),
+                (this.wenziShow = !1);
+            },
+            selectRegion: function () {
+              (this.shuziShow = !1),
+                (this.wenziShow = !1),
+                null != this.info.area_price &&
+                  ((this.area_price =
+                    this.info.area_price[this.form.game_area]),
+                  this.area_price || (this.area_price = 0),
+                  (this.info.price = r.cal.jia(
+                    this.price,
+                    this.area_price,
+                    2,
+                  ))),
+                0 != this.info.rise_price &&
+                  (null == this.info.area_price &&
+                    (this.info.price = this.price),
+                  (this.info.price = r.cal.jia(
+                    this.info.price,
+                    this.info.rise_price,
+                    2,
+                  ))),
+                this.upTotalMoney();
+            },
+            closeGamequfuFun: function () {
+              this.closeGamequfu = 1;
+            },
+            submit: function () {
+              var t = this;
+              if (
+                "mp-weixin" != this.palte ||
+                1 != this.kefu.order_kefu_send_link
+              ) {
+                if (2 == this.form.workerType) {
+                  if (!this.form.seller_id)
+                    return uni.$uv.toast("请选择指定打手");
+                  if (
+                    this.worker &&
+                    void 0 !== this.worker.online &&
+                    0 == this.worker.online
+                  )
+                    return uni.showToast({
+                      title: "当前达人休息中，欢迎稍后再来下单～",
+                      icon: "none",
+                      duration: 2500,
+                    });
+                }
+                if (0 == this.form.game_area)
+                  return uni.$uv.toast("请选择区服");
+                if (this.form.num < this.minNum)
+                  return uni.$uv.toast(
+                    "该商品起购数量至少为".concat(this.minNum, "单"),
+                  );
+                if (0 == this.seckill_left_num)
+                  return uni.$uv.toast("本轮限购数量已买满, 等待下一轮补货");
+                if (-1 != this.can_buy_num && this.can_buy_num < this.form.num)
+                  return uni.showModal({
+                    content: "当前商品限购可购买数量为: ".concat(
+                      this.can_buy_num,
+                    ),
+                    confirmText: "确定",
+                    cancelText: "取消",
+                  });
+                this.$refs.form
+                  .validate()
+                  .then(function (e) {
+                    (0, o.send)(
+                      "/wechat/Goods/getGoodsInfo",
+                      {
+                        id: t.id,
+                        seller_id: t.form.seller_id,
+                        num: t.form.num,
+                      },
+                      !1,
+                    ).then(function (e) {
+                      var i = e.status,
+                        n = e.msg,
+                        a = e.data;
+                      return 1 != i
+                        ? uni.$uv.toast(n)
+                        : 1 == a.sold
+                          ? uni.$uv.toast("手慢了, 当前商品已售出")
+                          : void (1 == t.child_alert
+                              ? uni.showModal({
+                                  title: "温馨提示",
+                                  content:
+                                    "本订单需年满18周岁方可购买，继续支付即代表您符合年龄要求 !",
+                                  confirmText: "我已成年",
+                                  cancelText: "取消",
+                                  confirmColor: "#FF3B30",
+                                  success: function (e) {
+                                    e.confirm && t.subOrderInfo();
+                                  },
+                                })
+                              : t.subOrderInfo());
+                    });
+                  })
+                  .catch(function (t) {});
+              }
+            },
+            subOrderInfo: function () {
+              this.service_list.length > 0
+                ? this.$refs.service_pop.open()
+                : this.doSubOrderInfo();
+            },
+            confirmServicePay: function () {
+              (this.form.service_money = this.calcServiceMoney()),
+                this.closeServicePop(),
+                this.doSubOrderInfo();
+            },
+            doSubOrderInfo: function () {
+              this.subscribeMessage(),
+                this.buildFeeDetail(),
+                uni.setStorageSync("goodsSubmit", this.form),
+                uni.setStorageSync("fee_detail", this.fee_detail),
+                uni.setStorageSync("service_detail", this.service_detail),
+                uni.navigateTo({
+                  url: "/pages/pay/index?type=1&id=" + this.id,
+                });
+            },
+            jump: function (t) {
+              uni.navigateTo({ url: t });
+            },
+            selectHistory1: function (t) {
+              var e = this;
+              (this.form.num_id = t),
+                this.$nextTick(function () {
+                  e.$refs.form.validate();
+                }),
+                (this.shuziShow = !1);
+            },
+            selectHistory2: function (t) {
+              var e = this;
+              (this.form.text_id = t),
+                this.$nextTick(function () {
+                  e.$refs.form.validate();
+                }),
+                (this.wenziShow = !1);
+            },
+            loadMore: function (t) {
+              0 == this.no_more && (this.page++, this.getWorkerList()),
+                console.log("到底了");
+            },
+            changeNum: function (t) {
+              var e = this;
+              (this.form.num = t.value),
+                this.form.service_ids.length > 0 &&
+                  this.form.service_ids.forEach(function (t) {
+                    e.form.service_nums[t] &&
+                      e.form.service_nums[t] > e.form.num &&
+                      e.$set(e.form.service_nums, t, e.form.num);
+                  }),
+                this.upTotalMoney();
+            },
+            isTriggerActive: function () {
+              this.currentPromotion &&
+              this.form.num >= this.currentPromotion.buy_num
+                ? 1 == this.currentPromotion.type &&
+                  this.currentPromotion.gift_num > 0
+                  ? (this.num_tips = "已满足满"
+                      .concat(this.currentPromotion.buy_num, "单送")
+                      .concat(
+                        this.currentPromotion.gift_num,
+                        "单条件,下单成功之后的商品数量是: ",
+                      )
+                      .concat(this.form.num + this.currentPromotion.gift_num))
+                  : 2 == this.currentPromotion.type &&
+                    this.currentPromotion.discount > 0 &&
+                    ((this.num_tips = "已满足满"
+                      .concat(this.currentPromotion.buy_num, "单打")
+                      .concat(
+                        this.currentPromotion.discount,
+                        "折条件,当前商品价格已打",
+                      )
+                      .concat(this.currentPromotion.discount, "折")),
+                    (this.total_money =
+                      Math.round(
+                        this.total_money * this.currentPromotion.discount * 10,
+                      ) / 100))
+                : ((this.num_tips = ""),
+                  1 == this.info.buy_type &&
+                    this.info.buy_num2 > 0 &&
+                    this.form.num >= this.info.buy_num1 &&
+                    (this.num_tips = "已满足满"
+                      .concat(this.info.buy_num1, "单送")
+                      .concat(
+                        this.info.buy_num2,
+                        "单条件,下单成功之后的商品数量是: ",
+                      )
+                      .concat(this.form.num + this.info.buy_num2)),
+                  2 == this.info.buy_type &&
+                    this.info.buy_dis2 > 0 &&
+                    this.form.num >= this.info.buy_dis1 &&
+                    ((this.num_tips = "已满足满"
+                      .concat(this.info.buy_dis1, "单打")
+                      .concat(this.info.buy_dis2, "折条件,当前商品价格已打")
+                      .concat(this.info.buy_dis2, "折")),
+                    (this.total_money =
+                      Math.round(this.total_money * this.info.buy_dis2 * 10) /
+                      100)));
+            },
+            upTotalMoney: function () {
+              (this.total_money = r.cal.cheng(
+                this.info.price,
+                this.form.num,
+                2,
+              )),
+                this.isTriggerActive(),
+                this.buildFeeDetail();
+            },
+            buildFeeDetail: function () {
+              var t = this,
+                e = [],
+                i = Number(this.price) || 0,
+                n = Number(this.info.price) || i;
+              e.push({
+                tit: "商品单价",
+                val: "￥" + i + (this.form.num > 1 ? "×" + this.form.num : ""),
+                type: "base",
+              }),
+                this.area_price &&
+                  0 != this.area_price &&
+                  (this.area_price > 0
+                    ? e.push({
+                        tit: "区服差价",
+                        val: "+" + this.area_price + "元/单",
+                        type: "rise",
+                      })
+                    : e.push({
+                        tit: "区服差价",
+                        val: this.area_price + "元/单",
+                        type: "discount",
+                      })),
+                this.info.rise_price &&
+                  0 != this.info.rise_price &&
+                  (this.info.rise_price > 0
+                    ? e.push({
+                        tit: "商品涨价",
+                        val: "+" + this.info.rise_price + "元/单",
+                        type: "rise",
+                      })
+                    : e.push({
+                        tit: "商品降价",
+                        val: this.info.rise_price + "元/单",
+                        type: "discount",
+                      }));
+              var a = this.currentPromotion;
+              if (a && this.form.num >= a.buy_num) {
+                if (1 == a.type && a.gift_num > 0) {
+                  var o = Math.round(100 * r.cal.cheng(n, a.gift_num, 2)) / 100;
+                  e.push({
+                    tit: "优惠活动 满"
+                      .concat(a.buy_num, "送")
+                      .concat(a.gift_num),
+                    val: "-" + o.toFixed(2) + "元",
+                    type: "discount",
+                  });
+                } else if (2 == a.type && a.discount > 0) {
+                  var s =
+                    Math.round(this.total_money * (1 - a.discount / 10) * 100) /
+                    100;
+                  e.push({
+                    tit: "优惠活动 满"
+                      .concat(a.buy_num, "打")
+                      .concat(a.discount, "折"),
+                    val: "-" + s.toFixed(2) + "元",
+                    type: "discount",
+                  });
+                }
+              } else {
+                if (
+                  1 == this.info.buy_type &&
+                  this.info.buy_num2 > 0 &&
+                  this.form.num >= this.info.buy_num1
+                ) {
+                  var u =
+                    Math.round(100 * r.cal.cheng(n, this.info.buy_num2, 2)) /
+                    100;
+                  e.push({
+                    tit: "满"
+                      .concat(this.info.buy_num1, "送")
+                      .concat(this.info.buy_num2),
+                    val: "-" + u.toFixed(2) + "元",
+                    type: "discount",
+                  });
+                }
+                if (
+                  2 == this.info.buy_type &&
+                  this.info.buy_dis2 > 0 &&
+                  this.form.num >= this.info.buy_dis1
+                ) {
+                  var l =
+                    Math.round(
+                      this.total_money * (1 - this.info.buy_dis2 / 10) * 100,
+                    ) / 100;
+                  e.push({
+                    tit: "满"
+                      .concat(this.info.buy_dis1, "打")
+                      .concat(this.info.buy_dis2, "折"),
+                    val: "-" + l.toFixed(2) + "元",
+                    type: "discount",
+                  });
+                }
+              }
+              var c = this.calcServiceMoney();
+              this.form.service_ids.length > 0 && c > 0
+                ? (e.push({
+                    tit: "增值费用",
+                    val: "+" + c + "元",
+                    type: "service",
+                  }),
+                  (this.service_detail = this.service_list
+                    .filter(function (e) {
+                      return t.form.service_ids.indexOf(e.id) > -1;
+                    })
+                    .map(function (e) {
+                      var i = t.getServiceNum(e.id);
+                      return {
+                        name: e.name,
+                        num: i,
+                        money: r.cal.cheng(e.price, i, 2),
+                      };
+                    })))
+                : (this.service_detail = []),
+                (this.fee_detail = e);
+            },
+            calcServiceMoney: function () {
+              var t = this,
+                e = 0;
+              return (
+                this.service_list &&
+                  this.form.service_ids.length > 0 &&
+                  this.service_list.forEach(function (i) {
+                    t.form.service_ids.indexOf(i.id) > -1 &&
+                      (e = r.cal.jia(
+                        e,
+                        r.cal.cheng(i.price, t.getServiceNum(i.id), 2),
+                        2,
+                      ));
+                  }),
+                e
+              );
+            },
+            getServiceNum: function (t) {
+              var e = this.form.service_nums[t];
+              return !e || e < 1 ? 1 : Math.min(e, this.form.num);
+            },
+            stepServiceNum: function (t, e) {
+              var i = this.getServiceNum(t.id) + e;
+              return i < 1
+                ? uni.$uv.toast("最少选择1个")
+                : i > this.form.num
+                  ? uni.$uv.toast("不能超过商品数量")
+                  : void this.$set(this.form.service_nums, t.id, i);
+            },
+            toggleService: function (t) {
+              var e = this.form.service_ids.indexOf(t.id);
+              e > -1
+                ? this.form.service_ids.splice(e, 1)
+                : (this.form.service_ids.push(t.id),
+                  this.$set(this.form.service_nums, t.id, this.form.num));
+            },
+            toggleServiceNone: function () {
+              this.form.service_ids.length > 0 && (this.form.service_ids = []);
+            },
+            resetService: function () {
+              (this.form.service_ids = []), (this.form.service_nums = {});
+            },
+            closeServicePop: function () {
+              this.$refs.service_pop.close();
+            },
+            openGameNum: function () {
+              this.$refs.gameShow.open();
+            },
+            closeGameNum: function () {
+              this.$refs.gameShow.close();
+            },
+            subscribeMessage: function () {
+              if ("mp-weixin" != this.palte) return !0;
+              uni.requestSubscribeMessage({
+                tmplIds: this.weapp_tpl,
+                success: function (t) {
+                  console.log("订阅成功", t), t["TEMPLATE_ID_1"];
+                },
+                fail: function (t) {
+                  console.error("订阅失败", t);
+                },
+              });
+            },
+          },
+        };
+      e.default = u;
+    },
+    "96f8": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("6c27"),
+        a = i.n(n);
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      e["default"] = a.a;
+    },
+    "9b82": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("64aa");
+      var a,
+        o,
+        r = n(i("9b1b")),
+        s = {
+          props: (0, r.default)(
+            {
+              name: { type: [String, Number, Boolean], default: "" },
+              shape: { type: String, default: "" },
+              disabled: { type: [String, Boolean], default: "" },
+              labelDisabled: { type: [String, Boolean], default: "" },
+              activeColor: { type: String, default: "" },
+              inactiveColor: { type: String, default: "" },
+              iconSize: { type: [String, Number], default: "" },
+              labelSize: { type: [String, Number], default: "" },
+              label: { type: [String, Number, Boolean], default: "" },
+              size: { type: [String, Number], default: "" },
+              iconColor: { type: String, default: "" },
+              labelColor: { type: String, default: "" },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (o = a.props) ||
+              void 0 === o
+              ? void 0
+              : o.radio,
+          ),
+        };
+      e.default = s;
+    },
+    a621: function (t, e, i) {
+      var n = i("c86c");
+      (e = n(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-5eb2fa22], uni-scroll-view[data-v-5eb2fa22], uni-swiper-item[data-v-5eb2fa22]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-radio-group[data-v-5eb2fa22]{flex:1}.uv-radio-group--row[data-v-5eb2fa22]{display:flex;flex-direction:row;flex-wrap:wrap}.uv-radio-group--column[data-v-5eb2fa22]{display:flex;flex-direction:column}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    ac37: function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return a;
+      }),
+        i.d(e, "c", function () {
+          return o;
+        }),
+        i.d(e, "a", function () {
+          return n;
+        });
+      var n = { uvIcon: i("1a07").default },
+        a = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return i(
+            "v-uni-view",
+            {
+              staticClass: "uv-radio",
+              class: [
+                "uv-radio-label--" + t.parentData.iconPlacement,
+                t.parentData.borderBottom &&
+                  "column" === t.parentData.placement &&
+                  "uv-border-bottom",
+              ],
+              style: [t.radioStyle],
+              on: {
+                click: function (e) {
+                  e.stopPropagation(),
+                    (arguments[0] = e = t.$handleEvent(e)),
+                    t.wrapperClickHandler.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              i(
+                "v-uni-view",
+                {
+                  staticClass: "uv-radio__icon-wrap",
+                  class: t.iconClasses,
+                  style: [t.iconWrapStyle],
+                  on: {
+                    click: function (e) {
+                      e.stopPropagation(),
+                        (arguments[0] = e = t.$handleEvent(e)),
+                        t.iconClickHandler.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  t._t("icon", [
+                    i("uv-icon", {
+                      staticClass: "uv-radio__icon-wrap__icon",
+                      attrs: {
+                        name: "checkbox-mark",
+                        size: t.elIconSize,
+                        color: t.elIconColor,
+                      },
+                    }),
+                  ]),
+                ],
+                2,
+              ),
+              i(
+                "v-uni-view",
+                {
+                  staticClass: "uv-radio__label-wrap",
+                  on: {
+                    click: function (e) {
+                      e.stopPropagation(),
+                        (arguments[0] = e = t.$handleEvent(e)),
+                        t.labelClickHandler.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  t._t("default", [
+                    i(
+                      "v-uni-text",
+                      {
+                        style: {
+                          color: t.elDisabled
+                            ? t.elInactiveColor
+                            : t.elLabelColor,
+                          fontSize: t.elLabelSize,
+                          lineHeight: t.elLabelSize,
+                        },
+                      },
+                      [t._v(t._s(t.label))],
+                    ),
+                  ]),
+                ],
+                2,
+              ),
+            ],
+            1,
+          );
+        },
+        o = [];
+    },
+    af45: function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var n = i("8322"),
+        a = i("2f40");
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      i("868a");
+      var r = i("828b"),
+        s = Object(r["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "5eb2fa22",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      e["default"] = s.exports;
+    },
+    b24f: function (t, e, i) {
+      "use strict";
+      var n = i("64d8"),
+        a = i.n(n);
+      a.a;
+    },
+    b342: function (t, e, i) {
+      var n = i("a621");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[t.i, n, ""]]),
+        n.locals && (t.exports = n.locals);
+      var a = i("967d").default;
+      a("62268bf9", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    b525: function (t, e, i) {
+      var n = i("c86c");
+      (e = n(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-18b619e9], uni-scroll-view[data-v-18b619e9], uni-swiper-item[data-v-18b619e9]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-number-box[data-v-18b619e9]{display:flex;flex-direction:row;align-items:center}.uv-number-box__slot[data-v-18b619e9]{touch-action:none}.uv-number-box__plus[data-v-18b619e9], .uv-number-box__minus[data-v-18b619e9]{width:35px;display:flex;flex-direction:row;justify-content:center;align-items:center;touch-action:none}.uv-number-box__plus--hover[data-v-18b619e9], .uv-number-box__minus--hover[data-v-18b619e9]{background-color:#e6e6e6!important}.uv-number-box__plus--disabled[data-v-18b619e9], .uv-number-box__minus--disabled[data-v-18b619e9]{color:#c8c9cc;background-color:#f7f8fa}.uv-number-box__plus[data-v-18b619e9]{border-top-right-radius:4px;border-bottom-right-radius:4px}.uv-number-box__minus[data-v-18b619e9]{border-top-left-radius:4px;border-bottom-left-radius:4px}.uv-number-box__input[data-v-18b619e9]{position:relative;text-align:center;font-size:15px;padding:0;margin:0 2px;display:flex;flex-direction:row;align-items:center;justify-content:center}.uv-number-box__input--disabled[data-v-18b619e9]{color:#c8c9cc;background-color:#f2f3f5}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    c954: function (t, e, i) {
+      var n = i("6321");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[t.i, n, ""]]),
+        n.locals && (t.exports = n.locals);
+      var a = i("967d").default;
+      a("40af3152", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    dc5e: function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var a = n(i("9b1b"));
+      i("8f71"),
+        i("bf0f"),
+        i("5c47"),
+        i("a1c1"),
+        i("5ef2"),
+        i("c223"),
+        i("f7a5"),
+        i("c9b5"),
+        i("ab80");
+      var o = n(i("4d8f0")),
+        r = n(i("9463")),
+        s = n(i("12dc")),
+        u = {
+          name: "uv-number-box",
+          mixins: [o.default, r.default, s.default],
+          data: function () {
+            return { currentValue: "", longPressTimer: null };
+          },
+          watch: {
+            watchChange: function (t) {
+              this.check();
+            },
+            value: function (t) {
+              t !== this.currentValue &&
+                (this.currentValue = this.format(this.value));
+            },
+            modelValue: function (t) {
+              t !== this.currentValue &&
+                (this.currentValue = this.format(this.modelValue));
+            },
+          },
+          computed: {
+            getCursorSpacing: function () {
+              return this.$uv.getPx(this.cursorSpacing);
+            },
+            buttonStyle: function () {
+              var t = this;
+              return function (e) {
+                var i = {
+                  backgroundColor: t.bgColor,
+                  height: t.$uv.addUnit(t.buttonSize),
+                  color: t.color,
+                };
+                return t.isDisabled(e) && (i.backgroundColor = "#f7f8fa"), i;
+              };
+            },
+            inputStyle: function () {
+              this.disabled || this.disabledInput;
+              var t = {
+                color: this.color,
+                backgroundColor: this.bgColor,
+                height: this.$uv.addUnit(this.buttonSize),
+                width: this.$uv.addUnit(this.inputWidth),
+              };
+              return t;
+            },
+            watchChange: function () {
+              return [this.integer, this.decimalLength, this.min, this.max];
+            },
+            isDisabled: function () {
+              var t = this;
+              return function (e) {
+                return "plus" === e
+                  ? t.disabled || t.disablePlus || t.currentValue >= t.max
+                  : t.disabled || t.disableMinus || t.currentValue <= t.min;
+              };
+            },
+          },
+          created: function () {
+            this.init();
+          },
+          methods: {
+            init: function () {
+              var t = this.value || this.modelValue;
+              this.currentValue = this.format(t);
+            },
+            format: function (t) {
+              return (
+                (t = this.filter(t)),
+                (t = "" === t ? 0 : +t),
+                (t = Math.max(Math.min(this.max, t), this.min)),
+                null !== this.decimalLength &&
+                  (t = t.toFixed(this.decimalLength)),
+                t
+              );
+            },
+            filter: function (t) {
+              return (
+                (t = String(t).replace(/[^0-9.-]/g, "")),
+                this.integer && -1 !== t.indexOf(".") && (t = t.split(".")[0]),
+                t
+              );
+            },
+            check: function () {
+              var t = this.format(this.currentValue);
+              t !== this.currentValue && (this.currentValue = t);
+            },
+            onFocus: function (t) {
+              this.$emit(
+                "focus",
+                (0, a.default)(
+                  (0, a.default)({}, t.detail),
+                  {},
+                  { name: this.name },
+                ),
+              );
+            },
+            onBlur: function (t) {
+              this.format(t.detail.value);
+              this.$emit(
+                "blur",
+                (0, a.default)(
+                  (0, a.default)({}, t.detail),
+                  {},
+                  { name: this.name },
+                ),
+              );
+            },
+            onInput: function (t) {
+              var e = t.detail || {},
+                i = e.value,
+                n = void 0 === i ? "" : i;
+              if ("" !== n) {
+                var a = this.filter(n);
+                if (null !== this.decimalLength && -1 !== a.indexOf(".")) {
+                  var o = a.split(".");
+                  a = ""
+                    .concat(o[0], ".")
+                    .concat(o[1].slice(0, this.decimalLength));
+                }
+                (a = this.format(a)), this.emitChange(a);
+              }
+            },
+            emitChange: function (t) {
+              var e = this;
+              this.asyncChange ||
+                this.$nextTick(function () {
+                  e.$emit("input", t),
+                    e.$emit("update:modelValue", t),
+                    (e.currentValue = t),
+                    e.$forceUpdate();
+                }),
+                this.$emit("change", { value: t, name: this.name });
+            },
+            onChange: function () {
+              var t = this.type;
+              if (this.isDisabled(t)) return this.$emit("overlimit", t);
+              var e = "minus" === t ? -this.step : +this.step,
+                i = this.format(this.add(+this.currentValue, e));
+              this.emitChange(i), this.$emit(t);
+            },
+            add: function (t, e) {
+              var i = Math.pow(10, 10);
+              return Math.round((t + e) * i) / i;
+            },
+            clickHandler: function (t) {
+              (this.type = t), this.onChange();
+            },
+            longPressStep: function () {
+              var t = this;
+              this.clearTimeout(),
+                (this.longPressTimer = setTimeout(function () {
+                  t.onChange(), t.longPressStep();
+                }, 250));
+            },
+            onTouchStart: function (t) {
+              var e = this;
+              this.longPress &&
+                (this.clearTimeout(),
+                (this.type = t),
+                (this.longPressTimer = setTimeout(function () {
+                  e.onChange(), e.longPressStep();
+                }, 600)));
+            },
+            onTouchEnd: function () {
+              this.longPress && this.clearTimeout();
+            },
+            clearTimeout: (function (t) {
+              function e() {
+                return t.apply(this, arguments);
+              }
+              return (
+                (e.toString = function () {
+                  return t.toString();
+                }),
+                e
+              );
+            })(function () {
+              clearTimeout(this.longPressTimer), (this.longPressTimer = null);
+            }),
+          },
+        };
+      e.default = u;
+    },
+    e357: function (t, e, i) {
+      var n = i("c86c");
+      (e = n(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.uv-border-bottom[data-v-21c4bd17]{border-bottom-width:.5px!important;border-color:#dadbde!important;border-bottom-style:solid}uni-view[data-v-21c4bd17], uni-scroll-view[data-v-21c4bd17], uni-swiper-item[data-v-21c4bd17]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-radio[data-v-21c4bd17]{display:flex;flex-direction:row;overflow:hidden;flex-direction:row;align-items:center}.uv-radio-label--left[data-v-21c4bd17]{flex-direction:row}.uv-radio-label--right[data-v-21c4bd17]{flex-direction:row-reverse;justify-content:space-between}.uv-radio__icon-wrap[data-v-21c4bd17]{box-sizing:border-box;transition-property:border-color,background-color,color;transition-duration:.2s;color:#606266;display:flex;flex-direction:row;align-items:center;justify-content:center;color:transparent;text-align:center;font-size:20px;border-width:1px;border-color:#c8c9cc;border-style:solid}.uv-radio__icon-wrap--circle[data-v-21c4bd17]{border-radius:100%}.uv-radio__icon-wrap--square[data-v-21c4bd17]{border-radius:3px}.uv-radio__icon-wrap--checked[data-v-21c4bd17]{color:#fff;background-color:red;border-color:#2979ff}.uv-radio__icon-wrap--disabled[data-v-21c4bd17]{background-color:#ebedf0!important}.uv-radio__icon-wrap--disabled--checked[data-v-21c4bd17]{color:#c8c9cc!important}.uv-radio__label[data-v-21c4bd17]{word-wrap:break-word;margin-left:5px;margin-right:12px;color:#606266;font-size:15px}.uv-radio__label--disabled[data-v-21c4bd17]{color:#c8c9cc}.uv-radio__label-wrap[data-v-21c4bd17]{flex:1;padding-left:6px}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    e506: function (t, e, i) {
+      var n = i("647a");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[t.i, n, ""]]),
+        n.locals && (t.exports = n.locals);
+      var a = i("967d").default;
+      a("0a32eeea", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    fbef: function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return a;
+      }),
+        i.d(e, "c", function () {
+          return o;
+        }),
+        i.d(e, "a", function () {
+          return n;
+        });
+      var n = {
+          uvForm: i("0de9").default,
+          uvFormItem: i("05af").default,
+          uvTextarea: i("3e65").default,
+          uvRadioGroup: i("af45").default,
+          uvRadio: i("636d").default,
+          uvNumberBox: i("5dba").default,
+          uvParse: i("c96a").default,
+          uvPopup: i("ce8a").default,
+          uvIcon: i("1a07").default,
+          uvInput: i("f723").default,
+          uvEmpty: i("caef").default,
+        },
+        a = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return i(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              i(
+                "v-uni-view",
+                { staticClass: "msg_box" },
+                [
+                  i(
+                    "v-uni-view",
+                    { staticClass: "goods_msg" },
+                    [
+                      i(
+                        "v-uni-view",
+                        { staticClass: "flex_box" },
+                        [
+                          t.info.thumb
+                            ? i("img", {
+                                staticClass: "img",
+                                attrs: { src: t.info.thumb },
+                              })
+                            : t._e(),
+                          i(
+                            "v-uni-view",
+                            { staticClass: "txt" },
+                            [
+                              i(
+                                "v-uni-view",
+                                { staticClass: "name uv-line-1" },
+                                [t._v(t._s(t.info.title))],
+                              ),
+                              i(
+                                "v-uni-view",
+                                { staticClass: "price_box flex_box" },
+                                [
+                                  i(
+                                    "v-uni-view",
+                                    { staticClass: "price" },
+                                    [
+                                      i("v-uni-text", { staticClass: "unit" }, [
+                                        t._v("￥"),
+                                      ]),
+                                      i("v-uni-text", [t._v(t._s(t.price))]),
+                                    ],
+                                    1,
+                                  ),
+                                  i("v-uni-view", { staticClass: "num" }, [
+                                    t._v("x " + t._s(t.form.num)),
+                                  ]),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                      0 != t.info.rise_price
+                        ? i(
+                            "v-uni-view",
+                            { staticClass: "zhangjia_box flex_box" },
+                            [
+                              i(
+                                "v-uni-view",
+                                { staticClass: "zhangjia" },
+                                [
+                                  i("v-uni-view", [
+                                    t._v(
+                                      t._s(
+                                        t.info.rise_price > 0 ? "涨价" : "优惠",
+                                      ),
+                                    ),
+                                  ]),
+                                  i("v-uni-view", { staticClass: "price" }, [
+                                    t._v("¥" + t._s(t.info.rise_price)),
+                                  ]),
+                                ],
+                                1,
+                              ),
+                              i("v-uni-view", { staticClass: "tit" }, [
+                                t._v(t._s(t.info.rise_reason)),
+                              ]),
+                            ],
+                            1,
+                          )
+                        : t._e(),
+                      0 != t.area_price
+                        ? i(
+                            "v-uni-view",
+                            { staticClass: "zhangjia_box flex_box" },
+                            [
+                              i(
+                                "v-uni-view",
+                                { staticClass: "zhangjia" },
+                                [
+                                  i("v-uni-view", [
+                                    t._v(
+                                      "区服" +
+                                        t._s(
+                                          t.area_price > 0 ? "涨价" : "优惠",
+                                        ),
+                                    ),
+                                  ]),
+                                  i("v-uni-view", { staticClass: "price" }, [
+                                    t._v("¥" + t._s(t.area_price)),
+                                  ]),
+                                ],
+                                1,
+                              ),
+                              i("v-uni-view", { staticClass: "tit" }, [
+                                t._v("区服价格差异"),
+                              ]),
+                            ],
+                            1,
+                          )
+                        : t._e(),
+                      t.currentPromotion
+                        ? i(
+                            "v-uni-view",
+                            { staticClass: "discount_box goods_discount" },
+                            [
+                              i(
+                                "v-uni-view",
+                                {
+                                  staticClass: "discount_item",
+                                  class: {
+                                    active:
+                                      t.form.num >= t.currentPromotion.buy_num,
+                                    gift: 1 == t.currentPromotion.type,
+                                    discount: 2 == t.currentPromotion.type,
+                                  },
+                                },
+                                [
+                                  i(
+                                    "v-uni-view",
+                                    { staticClass: "icon_box" },
+                                    [
+                                      i(
+                                        "v-uni-text",
+                                        { staticClass: "iconfont" },
+                                        [
+                                          t._v(
+                                            t._s(
+                                              1 == t.currentPromotion.type
+                                                ? "🎁"
+                                                : "🏷️",
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                    1,
+                                  ),
+                                  i(
+                                    "v-uni-view",
+                                    { staticClass: "info" },
+                                    [
+                                      i(
+                                        "v-uni-view",
+                                        { staticClass: "tit" },
+                                        [
+                                          1 == t.currentPromotion.type
+                                            ? i(
+                                                "v-uni-text",
+                                                [
+                                                  t._v("满"),
+                                                  i(
+                                                    "v-uni-text",
+                                                    {
+                                                      staticClass: "highlight",
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        t._s(
+                                                          t.currentPromotion
+                                                            .buy_num,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  t._v("单送"),
+                                                  i(
+                                                    "v-uni-text",
+                                                    {
+                                                      staticClass: "highlight",
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        t._s(
+                                                          t.currentPromotion
+                                                            .gift_num,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  t._v("单"),
+                                                ],
+                                                1,
+                                              )
+                                            : i(
+                                                "v-uni-text",
+                                                [
+                                                  t._v("满"),
+                                                  i(
+                                                    "v-uni-text",
+                                                    {
+                                                      staticClass: "highlight",
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        t._s(
+                                                          t.currentPromotion
+                                                            .buy_num,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  t._v("单打"),
+                                                  i(
+                                                    "v-uni-text",
+                                                    {
+                                                      staticClass: "highlight",
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        t._s(
+                                                          t.currentPromotion
+                                                            .discount,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  t._v("折"),
+                                                ],
+                                                1,
+                                              ),
+                                        ],
+                                        1,
+                                      ),
+                                      t.form.num >= t.currentPromotion.buy_num
+                                        ? i(
+                                            "v-uni-view",
+                                            { staticClass: "desc" },
+                                            [
+                                              1 == t.currentPromotion.type
+                                                ? i(
+                                                    "v-uni-text",
+                                                    [
+                                                      t._v("已满足条件，购买"),
+                                                      i(
+                                                        "v-uni-text",
+                                                        {
+                                                          staticClass:
+                                                            "highlight",
+                                                        },
+                                                        [
+                                                          t._v(
+                                                            t._s(t.form.num),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      t._v("单 + 赠送"),
+                                                      i(
+                                                        "v-uni-text",
+                                                        {
+                                                          staticClass:
+                                                            "highlight",
+                                                        },
+                                                        [
+                                                          t._v(
+                                                            t._s(
+                                                              t.currentPromotion
+                                                                .gift_num,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      t._v("单 = 共得"),
+                                                      i(
+                                                        "v-uni-text",
+                                                        {
+                                                          staticClass:
+                                                            "highlight",
+                                                        },
+                                                        [
+                                                          t._v(
+                                                            t._s(
+                                                              t.form.num +
+                                                                t
+                                                                  .currentPromotion
+                                                                  .gift_num,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      t._v("单"),
+                                                    ],
+                                                    1,
+                                                  )
+                                                : i("v-uni-text", [
+                                                    t._v(
+                                                      "已满足条件，当前价格已打折",
+                                                    ),
+                                                  ]),
+                                            ],
+                                            1,
+                                          )
+                                        : i(
+                                            "v-uni-view",
+                                            { staticClass: "desc gray" },
+                                            [
+                                              t._v("再买"),
+                                              i(
+                                                "v-uni-text",
+                                                { staticClass: "highlight" },
+                                                [
+                                                  t._v(
+                                                    t._s(
+                                                      t.currentPromotion
+                                                        .buy_num - t.form.num,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              t._v("单即可参与"),
+                                            ],
+                                            1,
+                                          ),
+                                    ],
+                                    1,
+                                  ),
+                                  t.form.num >= t.currentPromotion.buy_num
+                                    ? i(
+                                        "v-uni-view",
+                                        {
+                                          staticClass: "status_tag",
+                                          class: {
+                                            yellow:
+                                              1 == t.currentPromotion.type,
+                                          },
+                                        },
+                                        [t._v("已满足")],
+                                      )
+                                    : t._e(),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          )
+                        : 1 == t.info.buy_type && t.info.buy_num2 > 0
+                          ? i(
+                              "v-uni-view",
+                              { staticClass: "discount_box goods_discount" },
+                              [
+                                i(
+                                  "v-uni-view",
+                                  {
+                                    staticClass: "discount_item gift",
+                                    class: {
+                                      active: t.form.num >= t.info.buy_num1,
+                                    },
+                                  },
+                                  [
+                                    i(
+                                      "v-uni-view",
+                                      { staticClass: "icon_box" },
+                                      [
+                                        i(
+                                          "v-uni-text",
+                                          { staticClass: "iconfont" },
+                                          [t._v("🎁")],
+                                        ),
+                                      ],
+                                      1,
+                                    ),
+                                    i(
+                                      "v-uni-view",
+                                      { staticClass: "info" },
+                                      [
+                                        i(
+                                          "v-uni-view",
+                                          { staticClass: "tit" },
+                                          [
+                                            t._v("满"),
+                                            i(
+                                              "v-uni-text",
+                                              { staticClass: "highlight" },
+                                              [t._v(t._s(t.info.buy_num1))],
+                                            ),
+                                            t._v("单送"),
+                                            i(
+                                              "v-uni-text",
+                                              { staticClass: "highlight" },
+                                              [t._v(t._s(t.info.buy_num2))],
+                                            ),
+                                            t._v("单"),
+                                          ],
+                                          1,
+                                        ),
+                                        t.form.num >= t.info.buy_num1
+                                          ? i(
+                                              "v-uni-view",
+                                              { staticClass: "desc" },
+                                              [
+                                                t._v("已满足条件，购买"),
+                                                i(
+                                                  "v-uni-text",
+                                                  { staticClass: "highlight" },
+                                                  [t._v(t._s(t.form.num))],
+                                                ),
+                                                t._v("单 + 赠送"),
+                                                i(
+                                                  "v-uni-text",
+                                                  { staticClass: "highlight" },
+                                                  [t._v(t._s(t.info.buy_num2))],
+                                                ),
+                                                t._v("单 = 共得"),
+                                                i(
+                                                  "v-uni-text",
+                                                  { staticClass: "highlight" },
+                                                  [
+                                                    t._v(
+                                                      t._s(
+                                                        t.form.num +
+                                                          t.info.buy_num2,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                t._v("单"),
+                                              ],
+                                              1,
+                                            )
+                                          : i(
+                                              "v-uni-view",
+                                              { staticClass: "desc gray" },
+                                              [
+                                                t._v("再买"),
+                                                i(
+                                                  "v-uni-text",
+                                                  { staticClass: "highlight" },
+                                                  [
+                                                    t._v(
+                                                      t._s(
+                                                        t.info.buy_num1 -
+                                                          t.form.num,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                t._v("单即可参与"),
+                                              ],
+                                              1,
+                                            ),
+                                      ],
+                                      1,
+                                    ),
+                                    t.form.num >= t.info.buy_num1
+                                      ? i(
+                                          "v-uni-view",
+                                          { staticClass: "status_tag yellow" },
+                                          [t._v("已满足")],
+                                        )
+                                      : t._e(),
+                                  ],
+                                  1,
+                                ),
+                              ],
+                              1,
+                            )
+                          : 2 == t.info.buy_type && t.info.buy_dis2 > 0
+                            ? i(
+                                "v-uni-view",
+                                { staticClass: "discount_box goods_discount" },
+                                [
+                                  i(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: "discount_item discount",
+                                      class: {
+                                        active: t.form.num >= t.info.buy_dis1,
+                                      },
+                                    },
+                                    [
+                                      i(
+                                        "v-uni-view",
+                                        { staticClass: "icon_box" },
+                                        [
+                                          i(
+                                            "v-uni-text",
+                                            { staticClass: "iconfont" },
+                                            [t._v("🏷️")],
+                                          ),
+                                        ],
+                                        1,
+                                      ),
+                                      i(
+                                        "v-uni-view",
+                                        { staticClass: "info" },
+                                        [
+                                          i(
+                                            "v-uni-view",
+                                            { staticClass: "tit" },
+                                            [
+                                              t._v("满"),
+                                              i(
+                                                "v-uni-text",
+                                                { staticClass: "highlight" },
+                                                [t._v(t._s(t.info.buy_dis1))],
+                                              ),
+                                              t._v("单打"),
+                                              i(
+                                                "v-uni-text",
+                                                { staticClass: "highlight" },
+                                                [t._v(t._s(t.info.buy_dis2))],
+                                              ),
+                                              t._v("折"),
+                                            ],
+                                            1,
+                                          ),
+                                          t.form.num >= t.info.buy_dis1
+                                            ? i(
+                                                "v-uni-view",
+                                                { staticClass: "desc" },
+                                                [
+                                                  t._v(
+                                                    "已满足条件，当前价格已打折",
+                                                  ),
+                                                ],
+                                              )
+                                            : i(
+                                                "v-uni-view",
+                                                { staticClass: "desc gray" },
+                                                [
+                                                  t._v("再买"),
+                                                  i(
+                                                    "v-uni-text",
+                                                    {
+                                                      staticClass: "highlight",
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        t._s(
+                                                          t.info.buy_dis1 -
+                                                            t.form.num,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  t._v("单即可参与"),
+                                                ],
+                                                1,
+                                              ),
+                                        ],
+                                        1,
+                                      ),
+                                      t.form.num >= t.info.buy_dis1
+                                        ? i(
+                                            "v-uni-view",
+                                            { staticClass: "status_tag" },
+                                            [t._v("已满足")],
+                                          )
+                                        : t._e(),
+                                    ],
+                                    1,
+                                  ),
+                                ],
+                                1,
+                              )
+                            : t._e(),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              i("v-uni-view", { staticClass: "line_box" }),
+              i(
+                "uv-form",
+                {
+                  ref: "form",
+                  attrs: {
+                    labelPosition: "left",
+                    model: t.form,
+                    rules: t.rules,
+                  },
+                },
+                [
+                  i(
+                    "v-uni-view",
+                    {
+                      staticClass: "game-con",
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.openGameNum.apply(void 0, arguments);
+                        },
+                      },
+                    },
+                    [
+                      i("v-uni-view", { staticClass: "game-id" }, [
+                        t._v("查看游戏编号"),
+                      ]),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "rem_form_item" },
+                    [
+                      i(
+                        "uv-form-item",
+                        { attrs: { label: "数字编号", prop: "num_id" } },
+                        [
+                          i("uv-textarea", {
+                            attrs: {
+                              placeholder: "请输入游戏数字编号",
+                              count: !0,
+                              height: 40,
+                              maxlength: "30",
+                              autoHeight: !0,
+                              customStyle: "max-height:200px",
+                            },
+                            on: {
+                              focus: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  (t.shuziShow = !0),
+                                  (t.wenziShow = !1);
+                              },
+                            },
+                            model: {
+                              value: t.form.num_id,
+                              callback: function (e) {
+                                t.$set(t.form, "num_id", e);
+                              },
+                              expression: "form.num_id",
+                            },
+                          }),
+                          t.shuziShow && t.num_ids
+                            ? i(
+                                "v-uni-view",
+                                { staticClass: "rem_list" },
+                                t._l(t.num_ids, function (e, n) {
+                                  return i(
+                                    "v-uni-view",
+                                    {
+                                      key: n,
+                                      staticClass: "item",
+                                      attrs: { text: e },
+                                      on: {
+                                        click: function (i) {
+                                          (arguments[0] = i =
+                                            t.$handleEvent(i)),
+                                            t.selectHistory1(e);
+                                        },
+                                      },
+                                    },
+                                    [t._v(t._s(e))],
+                                  );
+                                }),
+                                1,
+                              )
+                            : t._e(),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "rem_form_item" },
+                    [
+                      1 == t.show_text_id
+                        ? i(
+                            "uv-form-item",
+                            { attrs: { label: "文字ID", prop: "text_id" } },
+                            [
+                              i("uv-textarea", {
+                                attrs: {
+                                  placeholder: "请输入文字ID",
+                                  count: !0,
+                                  height: 40,
+                                  maxlength: "30",
+                                  autoHeight: !0,
+                                  customStyle: "max-height:200px",
+                                },
+                                on: {
+                                  focus: function (e) {
+                                    (arguments[0] = e = t.$handleEvent(e)),
+                                      (t.wenziShow = !0),
+                                      (t.shuziShow = !1);
+                                  },
+                                },
+                                model: {
+                                  value: t.form.text_id,
+                                  callback: function (e) {
+                                    t.$set(t.form, "text_id", e);
+                                  },
+                                  expression: "form.text_id",
+                                },
+                              }),
+                              t.wenziShow && t.text_ids
+                                ? i(
+                                    "v-uni-view",
+                                    { staticClass: "rem_list" },
+                                    t._l(t.text_ids, function (e, n) {
+                                      return i(
+                                        "v-uni-view",
+                                        {
+                                          key: n,
+                                          staticClass: "item",
+                                          attrs: { text: e },
+                                          on: {
+                                            click: function (i) {
+                                              (arguments[0] = i =
+                                                t.$handleEvent(i)),
+                                                t.selectHistory2(e);
+                                            },
+                                          },
+                                        },
+                                        [t._v(t._s(e))],
+                                      );
+                                    }),
+                                    1,
+                                  )
+                                : t._e(),
+                            ],
+                            1,
+                          )
+                        : t._e(),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "uv-form-item",
+                    { attrs: { label: "游戏区服", prop: "game_area" } },
+                    [
+                      i(
+                        "uv-radio-group",
+                        {
+                          on: {
+                            change: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.selectRegion.apply(void 0, arguments);
+                            },
+                          },
+                          model: {
+                            value: t.form.game_area,
+                            callback: function (e) {
+                              t.$set(t.form, "game_area", e);
+                            },
+                            expression: "form.game_area",
+                          },
+                        },
+                        t._l(t.area_list, function (t, e) {
+                          return i("uv-radio", {
+                            key: t.index,
+                            attrs: { label: t.name, name: t.index },
+                          });
+                        }),
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "uv-form-item",
+                    { attrs: { label: "接单方式", prop: "workerType" } },
+                    [
+                      i(
+                        "uv-radio-group",
+                        {
+                          on: {
+                            change: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.selectWorker.apply(void 0, arguments);
+                            },
+                          },
+                          model: {
+                            value: t.form.workerType,
+                            callback: function (e) {
+                              t.$set(t.form, "workerType", e);
+                            },
+                            expression: "form.workerType",
+                          },
+                        },
+                        t._l(t.worker_list, function (t, e) {
+                          return i("uv-radio", {
+                            key: e,
+                            attrs: { label: t.label, name: t.name },
+                          });
+                        }),
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  t.form.seller_id
+                    ? i(
+                        "uv-form-item",
+                        {
+                          staticStyle: {
+                            "margin-top": "55rpx",
+                            "margin-bottom": "25rpx",
+                          },
+                          attrs: { label: "指定陪玩" },
+                        },
+                        [
+                          i(
+                            "v-uni-view",
+                            { staticClass: "zd_seller_box flex_box" },
+                            [
+                              i("img", {
+                                staticClass: "head",
+                                attrs: { src: t.worker.avatar },
+                              }),
+                              i("v-uni-view", { staticClass: "nickname" }, [
+                                t._v(t._s(t.worker.nickname)),
+                              ]),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      )
+                    : t._e(),
+                  t.form.seller_id
+                    ? i(
+                        "v-uni-view",
+                        {
+                          staticStyle: {
+                            color: "red",
+                            "text-align": "center",
+                            "font-weight": "bold",
+                          },
+                          attrs: { label: "" },
+                        },
+                        [
+                          t._v(
+                            "（如" +
+                              t._s(t.zhiding_to_rand) +
+                              "分钟该陪玩未接单, 则自动匹配随机分配, 为您服务!）",
+                          ),
+                        ],
+                      )
+                    : t._e(),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "rem_form_item" },
+                    [
+                      i(
+                        "uv-form-item",
+                        { attrs: { label: "下单备注", prop: "remark" } },
+                        [
+                          i("uv-textarea", {
+                            staticStyle: { "padding-right": "18px" },
+                            attrs: {
+                              placeholder: "请填写下单备注(选填)",
+                              count: !0,
+                              maxlength: "58",
+                            },
+                            model: {
+                              value: t.form.remark,
+                              callback: function (e) {
+                                t.$set(t.form, "remark", e);
+                              },
+                              expression: "form.remark",
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  "h5" == t.palte
+                    ? i(
+                        "v-uni-view",
+                        { staticClass: "rem_form_item" },
+                        [
+                          1 == t.input_mobile && 0 == t.user.mobile_type
+                            ? i(
+                                "uv-form-item",
+                                { attrs: { label: "手机号", prop: "mobile" } },
+                                [
+                                  i("uv-textarea", {
+                                    staticStyle: { "padding-right": "18px" },
+                                    attrs: {
+                                      placeholder: "请填写手机号",
+                                      count: !0,
+                                      maxlength: "11",
+                                      height: "20",
+                                    },
+                                    model: {
+                                      value: t.form.mobile,
+                                      callback: function (e) {
+                                        t.$set(t.form, "mobile", e);
+                                      },
+                                      expression: "form.mobile",
+                                    },
+                                  }),
+                                ],
+                                1,
+                              )
+                            : t._e(),
+                        ],
+                        1,
+                      )
+                    : t._e(),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "rem_form_item" },
+                    [
+                      1 == t.user.show_inivite
+                        ? i(
+                            "uv-form-item",
+                            { attrs: { label: "邀请码", prop: "inivite" } },
+                            [
+                              i("uv-textarea", {
+                                staticStyle: { "padding-right": "18px" },
+                                attrs: {
+                                  placeholder: "请填写邀请码(选填)",
+                                  count: !0,
+                                  autoHeight: !0,
+                                  maxlength: "10",
+                                },
+                                model: {
+                                  value: t.form.invite,
+                                  callback: function (e) {
+                                    t.$set(t.form, "invite", e);
+                                  },
+                                  expression: "form.invite",
+                                },
+                              }),
+                            ],
+                            1,
+                          )
+                        : t._e(),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "uv-form-item",
+                    { attrs: { label: "商品数量", prop: "num" } },
+                    [
+                      i("uv-number-box", {
+                        attrs: {
+                          min: t.minNum,
+                          max: t.numMax,
+                          integer: !0,
+                          buttonSize: "26",
+                        },
+                        on: {
+                          change: function (e) {
+                            (arguments[0] = e = t.$handleEvent(e)),
+                              t.changeNum.apply(void 0, arguments);
+                          },
+                        },
+                        model: {
+                          value: t.form.num,
+                          callback: function (e) {
+                            t.$set(t.form, "num", e);
+                          },
+                          expression: "form.num",
+                        },
+                      }),
+                      t.seckill_left_num > 0
+                        ? i(
+                            "v-uni-text",
+                            {
+                              staticStyle: {
+                                color: "#e6a23c",
+                                "font-size": "24rpx",
+                                "margin-left": "16rpx",
+                              },
+                            },
+                            [
+                              t._v(
+                                "本轮限购, 最多" +
+                                  t._s(t.seckill_left_num) +
+                                  "单",
+                              ),
+                            ],
+                          )
+                        : t._e(),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              i("v-uni-view", { staticClass: "line_box" }),
+              i(
+                "v-uni-view",
+                { staticClass: "rich_box" },
+                [
+                  i("v-uni-view", { staticClass: "tit" }, [t._v("下单说明")]),
+                  i("uv-parse", { attrs: { content: t.content } }),
+                ],
+                1,
+              ),
+              i(
+                "v-uni-view",
+                { staticClass: "cash_box flex_box" },
+                [
+                  i(
+                    "v-uni-view",
+                    { staticClass: "total_box flex_box" },
+                    [
+                      i("v-uni-view", { staticClass: "tit" }, [t._v("合计:")]),
+                      i(
+                        "v-uni-view",
+                        { staticClass: "price" },
+                        [
+                          i("v-uni-text", { staticClass: "unit" }, [
+                            t._v("￥"),
+                          ]),
+                          i("v-uni-text", [t._v(t._s(t.total_money))]),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "v-uni-view",
+                    {
+                      staticClass: "btn_box",
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.submit.apply(void 0, arguments);
+                        },
+                      },
+                    },
+                    [
+                      t._v(
+                        t._s(
+                          "mp-weixin" == t.palte &&
+                            1 == t.kefu.order_kefu_send_link
+                            ? "联系客服下单"
+                            : "立即支付",
+                        ) + " ",
+                      ),
+                    ],
+                  ),
+                ],
+                1,
+              ),
+              i(
+                "uv-popup",
+                {
+                  ref: "worker_pop",
+                  attrs: {
+                    mode: "bottom",
+                    zIndex: "10075",
+                    bgColor: "none",
+                    round: "10",
+                  },
+                },
+                [
+                  i(
+                    "v-uni-view",
+                    { staticClass: "worker_pop" },
+                    [
+                      i(
+                        "v-uni-view",
+                        { staticClass: "title_box" },
+                        [
+                          i("v-uni-view", { staticClass: "title" }, [
+                            t._v("请选择指定陪玩"),
+                          ]),
+                          i("uv-icon", {
+                            staticClass: "close_btn",
+                            attrs: {
+                              name: "close-circle",
+                              color: "#000",
+                              size: "26",
+                            },
+                            on: {
+                              click: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  t.close.apply(void 0, arguments);
+                              },
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                      i(
+                        "v-uni-view",
+                        { staticClass: "new_search_box" },
+                        [
+                          i("uv-input", {
+                            staticClass: "new_search",
+                            attrs: {
+                              placeholder: "请输入打手昵称",
+                              border: "surround",
+                              shape: "circle",
+                              clearable: !0,
+                              fontSize: "14px",
+                            },
+                            on: {
+                              custom: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  t.searchFun.apply(void 0, arguments);
+                              },
+                              confirm: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  t.searchFun.apply(void 0, arguments);
+                              },
+                            },
+                            scopedSlots: t._u([
+                              {
+                                key: "suffix",
+                                fn: function () {
+                                  return [
+                                    i(
+                                      "v-uni-view",
+                                      {
+                                        staticClass: "btn flex_box",
+                                        on: {
+                                          click: function (e) {
+                                            (arguments[0] = e =
+                                              t.$handleEvent(e)),
+                                              t.searchFun.apply(
+                                                void 0,
+                                                arguments,
+                                              );
+                                          },
+                                        },
+                                      },
+                                      [
+                                        i("uv-icon", {
+                                          attrs: {
+                                            name: "search",
+                                            color: "#fff",
+                                            size: "20",
+                                          },
+                                        }),
+                                      ],
+                                      1,
+                                    ),
+                                  ];
+                                },
+                                proxy: !0,
+                              },
+                            ]),
+                            model: {
+                              value: t.keyword,
+                              callback: function (e) {
+                                t.keyword = e;
+                              },
+                              expression: "keyword",
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                      t.workerList.length > 0
+                        ? i(
+                            "v-uni-view",
+                            { staticClass: "list" },
+                            [
+                              i(
+                                "v-uni-scroll-view",
+                                {
+                                  staticStyle: { height: "100%" },
+                                  attrs: { "scroll-y": "true" },
+                                  on: {
+                                    scrolltolower: function (e) {
+                                      (arguments[0] = e = t.$handleEvent(e)),
+                                        t.loadMore.apply(void 0, arguments);
+                                    },
+                                  },
+                                },
+                                t._l(t.workerList, function (e, n) {
+                                  return i(
+                                    "v-uni-view",
+                                    {
+                                      key: n,
+                                      staticClass: "col flex_box",
+                                      attrs: { text: e },
+                                      on: {
+                                        click: function (i) {
+                                          (arguments[0] = i =
+                                            t.$handleEvent(i)),
+                                            t.changeWorkerId(e);
+                                        },
+                                      },
+                                    },
+                                    [
+                                      i(
+                                        "v-uni-view",
+                                        { staticClass: "head_box flex_box" },
+                                        [
+                                          i(
+                                            "v-uni-view",
+                                            { staticClass: "head_wrap" },
+                                            [
+                                              i("img", {
+                                                staticClass: "head",
+                                                attrs: { src: e.avatar },
+                                              }),
+                                              i("v-uni-view", {
+                                                staticClass: "online_dot",
+                                                class:
+                                                  1 == e.online ? "on" : "off",
+                                              }),
+                                            ],
+                                            1,
+                                          ),
+                                          i(
+                                            "v-uni-view",
+                                            { staticClass: "nickname" },
+                                            [t._v(t._s(e.nickname))],
+                                          ),
+                                        ],
+                                        1,
+                                      ),
+                                      i(
+                                        "v-uni-view",
+                                        {
+                                          class: {
+                                            check: !0,
+                                            flex_box: !0,
+                                            cur: t.form.seller_id == e.id,
+                                          },
+                                        },
+                                        [
+                                          t.form.seller_id == e.id
+                                            ? i("uv-icon", {
+                                                attrs: {
+                                                  name: "checkbox-mark",
+                                                  color: "#007aff",
+                                                  size: "18",
+                                                },
+                                              })
+                                            : t._e(),
+                                        ],
+                                        1,
+                                      ),
+                                    ],
+                                    1,
+                                  );
+                                }),
+                                1,
+                              ),
+                            ],
+                            1,
+                          )
+                        : i("uv-empty", {
+                            attrs: {
+                              mode: "data",
+                              text: "暂无数据",
+                              icon: "/static/imgs/no-data.png",
+                            },
+                          }),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              i(
+                "uv-popup",
+                {
+                  ref: "service_pop",
+                  attrs: {
+                    mode: "bottom",
+                    zIndex: "10075",
+                    bgColor: "none",
+                    round: "10",
+                  },
+                },
+                [
+                  i(
+                    "v-uni-view",
+                    { staticClass: "service_pop" },
+                    [
+                      i(
+                        "v-uni-view",
+                        { staticClass: "title_box" },
+                        [
+                          i("v-uni-view", { staticClass: "title" }, [
+                            t._v("增值服务"),
+                          ]),
+                          i("uv-icon", {
+                            staticClass: "close_btn",
+                            attrs: {
+                              name: "close-circle",
+                              color: "#000",
+                              size: "26",
+                            },
+                            on: {
+                              click: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  t.closeServicePop.apply(void 0, arguments);
+                              },
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                      i("v-uni-view", { staticClass: "service_sub" }, [
+                        t._v(
+                          "增值服务可不选也可多选，选择后将为您提供更多附加服务",
+                        ),
+                      ]),
+                      i(
+                        "v-uni-view",
+                        { staticClass: "service_status flex_box" },
+                        [
+                          0 == t.form.service_ids.length
+                            ? i(
+                                "v-uni-view",
+                                {
+                                  staticClass: "s_check flex_box",
+                                  on: {
+                                    click: function (e) {
+                                      (arguments[0] = e = t.$handleEvent(e)),
+                                        t.toggleServiceNone.apply(
+                                          void 0,
+                                          arguments,
+                                        );
+                                    },
+                                  },
+                                },
+                                [
+                                  i("uv-icon", {
+                                    attrs: {
+                                      name: "checkbox-mark",
+                                      color: "#007aff",
+                                      size: "18",
+                                    },
+                                  }),
+                                ],
+                                1,
+                              )
+                            : t._e(),
+                          i(
+                            "v-uni-view",
+                            {
+                              staticClass: "ss_info",
+                              on: {
+                                click: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.toggleServiceNone.apply(
+                                      void 0,
+                                      arguments,
+                                    );
+                                },
+                              },
+                            },
+                            [
+                              i("v-uni-view", { staticClass: "ss_tit" }, [
+                                t._v(
+                                  t._s(
+                                    0 == t.form.service_ids.length
+                                      ? "无附加增值服务"
+                                      : "已选 " +
+                                          t.form.service_ids.length +
+                                          " 项增值服务",
+                                  ),
+                                ),
+                              ]),
+                              0 == t.form.service_ids.length
+                                ? i("v-uni-view", { staticClass: "ss_tip" }, [
+                                    t._v(
+                                      "未选择增值服务，将不提供更多附加服务",
+                                    ),
+                                  ])
+                                : t._e(),
+                            ],
+                            1,
+                          ),
+                          t.form.service_ids.length > 0
+                            ? i(
+                                "v-uni-view",
+                                {
+                                  staticClass: "ss_reset flex_box",
+                                  on: {
+                                    click: function (e) {
+                                      e.stopPropagation(),
+                                        (arguments[0] = e = t.$handleEvent(e)),
+                                        t.resetService.apply(void 0, arguments);
+                                    },
+                                  },
+                                },
+                                [t._v("重置")],
+                              )
+                            : t._e(),
+                        ],
+                        1,
+                      ),
+                      i(
+                        "v-uni-scroll-view",
+                        {
+                          staticClass: "service_list",
+                          attrs: { "scroll-y": "true" },
+                        },
+                        t._l(t.service_list, function (e) {
+                          return i(
+                            "v-uni-view",
+                            {
+                              key: e.id,
+                              staticClass: "service_item",
+                              class: {
+                                active: t.form.service_ids.indexOf(e.id) > -1,
+                              },
+                              on: {
+                                click: function (i) {
+                                  (arguments[0] = i = t.$handleEvent(i)),
+                                    t.toggleService(e);
+                                },
+                              },
+                            },
+                            [
+                              e.image
+                                ? i("img", {
+                                    staticClass: "s_img",
+                                    attrs: { src: e.image },
+                                  })
+                                : t._e(),
+                              i(
+                                "v-uni-view",
+                                { staticClass: "s_info" },
+                                [
+                                  i("v-uni-view", { staticClass: "s_name" }, [
+                                    t._v(t._s(e.name)),
+                                  ]),
+                                  e.intro
+                                    ? i(
+                                        "v-uni-view",
+                                        { staticClass: "s_intro" },
+                                        [t._v(t._s(e.intro))],
+                                      )
+                                    : t._e(),
+                                ],
+                                1,
+                              ),
+                              i(
+                                "v-uni-view",
+                                { staticClass: "s_right" },
+                                [
+                                  i(
+                                    "v-uni-view",
+                                    { staticClass: "s_price" },
+                                    [
+                                      t._v("￥" + t._s(e.price)),
+                                      i(
+                                        "v-uni-text",
+                                        { staticClass: "s_unit" },
+                                        [t._v("/次")],
+                                      ),
+                                    ],
+                                    1,
+                                  ),
+                                  t.form.service_ids.indexOf(e.id) > -1
+                                    ? i(
+                                        "v-uni-view",
+                                        { staticClass: "s_num_box flex_box" },
+                                        [
+                                          i(
+                                            "v-uni-view",
+                                            {
+                                              staticClass: "s_btn flex_box",
+                                              class: {
+                                                disabled:
+                                                  t.getServiceNum(e.id) <= 1,
+                                              },
+                                              on: {
+                                                click: function (i) {
+                                                  i.stopPropagation(),
+                                                    (arguments[0] = i =
+                                                      t.$handleEvent(i)),
+                                                    t.stepServiceNum(e, -1);
+                                                },
+                                              },
+                                            },
+                                            [
+                                              i("uv-icon", {
+                                                attrs: {
+                                                  name: "minus",
+                                                  color: "#007aff",
+                                                  size: "13",
+                                                },
+                                              }),
+                                            ],
+                                            1,
+                                          ),
+                                          i(
+                                            "v-uni-view",
+                                            { staticClass: "s_val flex_box" },
+                                            [t._v(t._s(t.getServiceNum(e.id)))],
+                                          ),
+                                          i(
+                                            "v-uni-view",
+                                            {
+                                              staticClass: "s_btn flex_box",
+                                              class: {
+                                                disabled:
+                                                  t.getServiceNum(e.id) >=
+                                                  t.form.num,
+                                              },
+                                              on: {
+                                                click: function (i) {
+                                                  i.stopPropagation(),
+                                                    (arguments[0] = i =
+                                                      t.$handleEvent(i)),
+                                                    t.stepServiceNum(e, 1);
+                                                },
+                                              },
+                                            },
+                                            [
+                                              i("uv-icon", {
+                                                attrs: {
+                                                  name: "plus",
+                                                  color: "#007aff",
+                                                  size: "13",
+                                                },
+                                              }),
+                                            ],
+                                            1,
+                                          ),
+                                        ],
+                                        1,
+                                      )
+                                    : t._e(),
+                                  i(
+                                    "v-uni-view",
+                                    { staticClass: "s_check flex_box" },
+                                    [
+                                      t.form.service_ids.indexOf(e.id) > -1
+                                        ? i("uv-icon", {
+                                            attrs: {
+                                              name: "checkbox-mark",
+                                              color: "#007aff",
+                                              size: "18",
+                                            },
+                                          })
+                                        : t._e(),
+                                    ],
+                                    1,
+                                  ),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          );
+                        }),
+                        1,
+                      ),
+                      i(
+                        "v-uni-view",
+                        { staticClass: "service_footer flex_box" },
+                        [
+                          t.form.service_ids.length > 0
+                            ? i(
+                                "v-uni-view",
+                                { staticClass: "service_total" },
+                                [
+                                  i("v-uni-text", [t._v("增值费用: ")]),
+                                  i("v-uni-text", { staticClass: "price" }, [
+                                    t._v(t._s(t.calcServiceMoney()) + "元"),
+                                  ]),
+                                ],
+                                1,
+                              )
+                            : i(
+                                "v-uni-view",
+                                { staticClass: "service_total none" },
+                                [t._v("未选择增值服务")],
+                              ),
+                          i(
+                            "v-uni-view",
+                            {
+                              staticClass: "service_pay_btn",
+                              on: {
+                                click: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.confirmServicePay.apply(
+                                      void 0,
+                                      arguments,
+                                    );
+                                },
+                              },
+                            },
+                            [t._v("确认支付")],
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              i(
+                "uv-popup",
+                { ref: "gameShow", attrs: { mode: "center", bgColor: "none" } },
+                [
+                  i(
+                    "v-uni-view",
+                    { staticClass: "gameShow" },
+                    [
+                      i("v-uni-view", { staticClass: "tit" }, [
+                        t._v("如何查看" + t._s(t.cat1.name) + "游戏编号?"),
+                      ]),
+                      i("uv-parse", {
+                        attrs: { content: t.cat1.look_game_num },
+                      }),
+                      i(
+                        "v-uni-view",
+                        {
+                          staticClass: "btn",
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.closeGameNum.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [t._v("关闭")],
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              i("audio-player"),
+            ],
+            1,
+          );
+        },
+        o = [];
+    },
+  },
+]);
+//# sourceMappingURL=pages-pay-submit.d387d34c.js.map

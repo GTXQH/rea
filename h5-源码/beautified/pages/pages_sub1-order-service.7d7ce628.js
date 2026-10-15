@@ -1,0 +1,1297 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages_sub1-order-service"],
+  {
+    "06f9": function (t, e, a) {
+      "use strict";
+      a.d(e, "b", function () {
+        return n;
+      }),
+        a.d(e, "c", function () {
+          return r;
+        }),
+        a.d(e, "a", function () {
+          return i;
+        });
+      var i = {
+          uvDivider: a("4589").default,
+          uvForm: a("0de9").default,
+          uvFormItem: a("05af").default,
+          uvTextarea: a("3e65").default,
+          uvUpload: a("7447").default,
+        },
+        n = function () {
+          var t = this,
+            e = t.$createElement,
+            a = t._self._c || e;
+          return a(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              a(
+                "v-uni-view",
+                { staticClass: "top_box flex_box" },
+                [
+                  a(
+                    "v-uni-view",
+                    {
+                      staticClass: "order_num flex_box",
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.copyOrderNum(t.order.order_no);
+                        },
+                      },
+                    },
+                    [
+                      a("v-uni-view", {}, [t._v("订单编号：")]),
+                      a("v-uni-view", { staticClass: "num" }, [
+                        t._v(t._s(t.order.order_no)),
+                      ]),
+                      a("v-uni-view", { staticClass: "copy_btn" }, [
+                        t._v("复制"),
+                      ]),
+                    ],
+                    1,
+                  ),
+                  a("v-uni-view", { staticClass: "status" }, [
+                    t._v(t._s(t.order.status_text)),
+                  ]),
+                ],
+                1,
+              ),
+              a(
+                "v-uni-view",
+                {
+                  staticClass: "goods_msg flex_box",
+                  on: {
+                    click: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.jump("/pages/index/goods?id=" + t.order.goods_id);
+                    },
+                  },
+                },
+                [
+                  t.order.goods_thumb
+                    ? a("img", {
+                        staticClass: "img",
+                        attrs: { src: t.order.goods_thumb },
+                      })
+                    : a("img", {
+                        staticClass: "img",
+                        attrs: {
+                          src: t.order.goods ? t.order.goods.thumb : "",
+                        },
+                      }),
+                  a(
+                    "v-uni-view",
+                    { staticClass: "txt" },
+                    [
+                      a("v-uni-view", { staticClass: "name uv-line-2" }, [
+                        t._v(t._s(t.order.goods_name)),
+                      ]),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "price_box flex_box" },
+                        [
+                          a(
+                            "v-uni-view",
+                            { staticClass: "price" },
+                            [
+                              a("v-uni-text", { staticClass: "unit" }, [
+                                t._v("￥"),
+                              ]),
+                              a("v-uni-text", [t._v(t._s(t.order.money))]),
+                            ],
+                            1,
+                          ),
+                          a("v-uni-view", { staticClass: "num" }, [
+                            t._v("x " + t._s(t.order.num)),
+                          ]),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a("uv-divider", {
+                staticClass: "block_title",
+                attrs: { text: "打手服务证明", textSize: "13" },
+              }),
+              a(
+                "v-uni-view",
+                { staticClass: "reason_box flex_box" },
+                [
+                  a("v-uni-view", { staticClass: "tit" }, [t._v("证明文字")]),
+                  a("v-uni-view", { staticClass: "txt img_box" }, [
+                    t._v(" " + t._s(t.order.service_txt) + " "),
+                  ]),
+                ],
+                1,
+              ),
+              a(
+                "v-uni-view",
+                { staticClass: "reason_box flex_box" },
+                [
+                  a("v-uni-view", { staticClass: "tit" }, [t._v("证明图片")]),
+                  a(
+                    "v-uni-view",
+                    { staticClass: "txt img_box" },
+                    t._l(t.order.service_imgs, function (e, i) {
+                      return a("img", {
+                        key: i,
+                        attrs: { text: e, src: e },
+                        on: {
+                          click: function (a) {
+                            (arguments[0] = a = t.$handleEvent(a)),
+                              t.previewImage(e, t.order.service_imgs);
+                          },
+                        },
+                      });
+                    }),
+                    0,
+                  ),
+                ],
+                1,
+              ),
+              0 == t.status
+                ? a(
+                    "uv-form",
+                    {
+                      ref: "form",
+                      attrs: {
+                        labelPosition: "left",
+                        model: t.form,
+                        rules: t.rules,
+                      },
+                    },
+                    [
+                      a("uv-divider", {
+                        staticClass: "block_title",
+                        attrs: { text: "请输入申请信息", textSize: "13" },
+                      }),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "item" },
+                        [
+                          a(
+                            "uv-form-item",
+                            {
+                              staticClass: "remarks_box",
+                              attrs: { label: "申请理由", prop: "des" },
+                            },
+                            [
+                              a("uv-textarea", {
+                                attrs: {
+                                  placeholder: "请输入申请理由",
+                                  height: "70",
+                                  maxlength: "120",
+                                  count: !0,
+                                },
+                                model: {
+                                  value: t.form.des,
+                                  callback: function (e) {
+                                    t.$set(t.form, "des", e);
+                                  },
+                                  expression: "form.des",
+                                },
+                              }),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "item" },
+                        [
+                          a(
+                            "uv-form-item",
+                            { attrs: { label: "上传图片", prop: "pics" } },
+                            [
+                              a("uv-upload", {
+                                attrs: {
+                                  fileList: t.form.pics,
+                                  name: "4",
+                                  maxCount: 3,
+                                  multiple: !0,
+                                  previewFullImage: !0,
+                                  uploadText: "点击上传",
+                                  accept: "image",
+                                },
+                                on: {
+                                  afterRead: function (e) {
+                                    (arguments[0] = e = t.$handleEvent(e)),
+                                      t.selectPic.apply(void 0, arguments);
+                                  },
+                                  delete: function (e) {
+                                    (arguments[0] = e = t.$handleEvent(e)),
+                                      t.deletePic.apply(void 0, arguments);
+                                  },
+                                },
+                              }),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              t.status >= 1
+                ? a(
+                    "v-uni-view",
+                    [
+                      a("uv-divider", {
+                        staticClass: "block_title",
+                        attrs: { text: "买家申请信息", textSize: "13" },
+                      }),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "reason_box flex_box remarks_box" },
+                        [
+                          a("v-uni-view", { staticClass: "tit" }, [
+                            t._v("申请理由"),
+                          ]),
+                          a("v-uni-view", { staticClass: "txt" }, [
+                            t._v(t._s(t.service.des)),
+                          ]),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "reason_box flex_box" },
+                        [
+                          a("v-uni-view", { staticClass: "tit" }, [
+                            t._v("上传图片"),
+                          ]),
+                          a(
+                            "v-uni-view",
+                            { staticClass: "txt img_box" },
+                            t._l(t.service.pics, function (e, i) {
+                              return a("img", {
+                                key: i,
+                                attrs: { text: e, src: e },
+                                on: {
+                                  click: function (a) {
+                                    (arguments[0] = a = t.$handleEvent(a)),
+                                      t.previewImage(e, t.service.pics);
+                                  },
+                                },
+                              });
+                            }),
+                            0,
+                          ),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "reason_box flex_box remarks_box" },
+                        [
+                          a("v-uni-view", { staticClass: "tit" }, [
+                            t._v("申请时间"),
+                          ]),
+                          a("v-uni-view", { staticClass: "txt" }, [
+                            t._v(t._s(t.service.add_time)),
+                          ]),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              2 == t.status
+                ? a(
+                    "v-uni-view",
+                    [
+                      a("uv-divider", {
+                        staticClass: "block_title",
+                        attrs: { text: "客服审核信息", textSize: "13" },
+                      }),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "reason_box flex_box remarks_box" },
+                        [
+                          a("v-uni-view", { staticClass: "tit" }, [
+                            t._v("审核状态"),
+                          ]),
+                          a("v-uni-view", { staticClass: "txt" }, [
+                            t._v(
+                              t._s(
+                                1 == t.service.kefu_status
+                                  ? "已同意"
+                                  : "已拒绝",
+                              ),
+                            ),
+                          ]),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "reason_box flex_box remarks_box" },
+                        [
+                          a("v-uni-view", { staticClass: "tit" }, [
+                            t._v("审核理由"),
+                          ]),
+                          a("v-uni-view", { staticClass: "txt" }, [
+                            t._v(t._s(t.service.kefu_des)),
+                          ]),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "reason_box flex_box remarks_box" },
+                        [
+                          a("v-uni-view", { staticClass: "tit" }, [
+                            t._v("审核时间"),
+                          ]),
+                          a("v-uni-view", { staticClass: "txt" }, [
+                            t._v(
+                              t._s(
+                                t.service.kefu_time ? t.service.kefu_time : "-",
+                              ),
+                            ),
+                          ]),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              a(
+                "v-uni-view",
+                { staticClass: "btn_box" },
+                [
+                  0 == t.status
+                    ? a(
+                        "v-uni-view",
+                        {
+                          class: 0 == t.status ? "sub_btn" : "sub_btn dis",
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.submit.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [t._v("提交")],
+                      )
+                    : t._e(),
+                  1 == t.status
+                    ? a("v-uni-view", { staticClass: "sub_btn dis" }, [
+                        t._v("客服审核中"),
+                      ])
+                    : t._e(),
+                ],
+                1,
+              ),
+            ],
+            1,
+          );
+        },
+        r = [];
+    },
+    "0924": function (t, e, a) {
+      var i = a("c86c");
+      (e = i(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.uv-divider[data-v-2210d5da]{background:#f8f8f8!important;padding:%?36?% %?30?%}.content[data-v-2210d5da]{padding-bottom:%?155?%}.top_box[data-v-2210d5da]{padding:%?30?% 0;margin:0 %?30?%;border-bottom:%?2?% solid #eee}.top_box uni-view[data-v-2210d5da]{font-size:13px;white-space:nowrap}.top_box .order_num[data-v-2210d5da]{justify-content:flex-start;flex:1}.top_box .order_num .num[data-v-2210d5da]{font-weight:700}.top_box .order_num .copy_btn[data-v-2210d5da]{margin-left:%?12?%;color:#2979ff}.top_box .status[data-v-2210d5da]{font-size:12px;font-weight:700}.goods_msg[data-v-2210d5da]{padding:%?35?% %?30?% %?10?%}.goods_msg .img[data-v-2210d5da]{width:%?120?%;height:%?120?%;border-radius:%?10?%}.goods_msg .txt[data-v-2210d5da]{width:calc(100% - %?145?%)}.goods_msg .txt .name[data-v-2210d5da]{font-size:16px}.goods_msg .txt .price_box[data-v-2210d5da]{margin-top:%?14?%}.goods_msg .txt .price_box .price[data-v-2210d5da]{color:#fd2c28;font-weight:700;font-size:17px}.goods_msg .txt .price_box .price .unit[data-v-2210d5da]{font-size:12px}.goods_msg .txt .price_box .num[data-v-2210d5da]{font-size:15px}.item[data-v-2210d5da]{padding:%?30?%}[data-v-2210d5da] .uv-form-item .uni-textarea-textarea{font-size:14px}[data-v-2210d5da] .uv-form-item .uni-textarea-placeholder{font-size:14px}[data-v-2210d5da] .uv-form-item.remarks_box .uv-form-item__body__left{align-items:flex-start!important}[data-v-2210d5da] .uv-form-item__body{padding:%?0?%!important}[data-v-2210d5da] .uv-form-item__body__left{width:auto!important;margin-right:%?24?%!important;position:relative;font-weight:700;width:%?145?%!important;white-space:nowrap}[data-v-2210d5da] .uv-form-item__body__left__content{padding:0!important}[data-v-2210d5da] .uv-form-item__body__left__content__label{display:inline-block;position:relative;z-index:10;flex:0!important}[data-v-2210d5da] .uv-form-item__body__left__content__label::before{z-index:-1;display:block;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?6?%;-webkit-transform:translate(-50%);transform:translate(-50%)}[data-v-2210d5da] .uv-form-item__body__right__message{margin-left:%?170?%!important;margin-top:%?4?%!important}.btn_box[data-v-2210d5da]{position:fixed;max-width:480px;width:100%;margin:0 auto;box-shadow:0 0 %?10?% #ddd;left:0;right:0;bottom:0;background:#fff;z-index:20}.btn_box .sub_btn[data-v-2210d5da]{margin:%?20?% %?30?%;background:#ffe610;height:%?90?%;line-height:%?90?%;border-radius:%?90?%;font-size:15px;font-weight:700;text-align:center}.btn_box .sub_btn.dis[data-v-2210d5da]{background:#eee;color:#666}.reason_box[data-v-2210d5da]{padding:%?30?%}.reason_box.remarks_box[data-v-2210d5da]{align-items:flex-start}.reason_box .tit[data-v-2210d5da]{font-size:15px;font-weight:700;position:relative;z-index:10}.reason_box .tit[data-v-2210d5da]::before{z-index:-1;display:block;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?6?%;-webkit-transform:translate(-50%);transform:translate(-50%)}.reason_box .txt[data-v-2210d5da]{width:calc(100% - %?170?%)}.reason_box .txt.img_box[data-v-2210d5da]{display:grid;grid-template-columns:repeat(3,1fr);grid-gap:%?25?%}.reason_box .txt.img_box img[data-v-2210d5da]{border-radius:%?15?%;width:%?162?%;height:%?162?%}.line_box[data-v-2210d5da]{background:#f8f8f8;width:100%;height:%?14?%;margin:%?30?% auto}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "26c4": function (t, e, a) {
+      "use strict";
+      var i = a("5132"),
+        n = a.n(i);
+      n.a;
+    },
+    "31a6": function (t, e, a) {
+      "use strict";
+      a.d(e, "b", function () {
+        return i;
+      }),
+        a.d(e, "c", function () {
+          return n;
+        }),
+        a.d(e, "a", function () {});
+      var i = function () {
+          var t = this,
+            e = t.$createElement,
+            a = t._self._c || e;
+          return a(
+            "v-uni-view",
+            {
+              staticClass: "uv-textarea",
+              class: t.textareaClass,
+              style: [t.textareaStyle],
+            },
+            [
+              a("v-uni-textarea", {
+                staticClass: "uv-textarea__field",
+                style: [
+                  { height: t.autoHeight ? "auto" : t.$uv.addUnit(t.height) },
+                  t.$uv.addStyle(t.textStyle),
+                ],
+                attrs: {
+                  value: t.innerValue,
+                  placeholder: t.placeholder,
+                  "placeholder-style": t.$uv.addStyle(
+                    t.placeholderStyle,
+                    "string",
+                  ),
+                  "placeholder-class": t.placeholderClass,
+                  disabled: t.disabled,
+                  focus: t.focus,
+                  autoHeight: t.autoHeight,
+                  fixed: t.fixed,
+                  cursorSpacing: t.cursorSpacing,
+                  cursor: t.cursor,
+                  showConfirmBar: t.showConfirmBar,
+                  selectionStart: t.selectionStart,
+                  selectionEnd: t.selectionEnd,
+                  adjustPosition: t.adjustPosition,
+                  disableDefaultPadding: t.disableDefaultPadding,
+                  holdKeyboard: t.holdKeyboard,
+                  maxlength: t.maxlen,
+                  confirmType: t.confirmType,
+                  ignoreCompositionEvent: t.ignoreCompositionEvent,
+                  "confirm-hold": t.confirmHold,
+                },
+                on: {
+                  focus: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onFocus.apply(void 0, arguments);
+                  },
+                  blur: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onBlur.apply(void 0, arguments);
+                  },
+                  linechange: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onLinechange.apply(void 0, arguments);
+                  },
+                  input: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onInput.apply(void 0, arguments);
+                  },
+                  confirm: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onConfirm.apply(void 0, arguments);
+                  },
+                  keyboardheightchange: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.onKeyboardheightchange.apply(void 0, arguments);
+                  },
+                },
+              }),
+              t.count && -1 != t.maxlen
+                ? a(
+                    "v-uni-text",
+                    {
+                      staticClass: "uv-textarea__count",
+                      style: [
+                        {
+                          "background-color": t.disabled
+                            ? "transparent"
+                            : "#fff",
+                        },
+                        t.$uv.addStyle(t.countStyle),
+                      ],
+                    },
+                    [t._v(t._s(t.getCount) + "/" + t._s(t.maxlen))],
+                  )
+                : t._e(),
+            ],
+            1,
+          );
+        },
+        n = [];
+    },
+    "3a07": function (t, e, a) {
+      var i = a("c86c");
+      (e = i(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-c2d489ac], uni-scroll-view[data-v-c2d489ac], uni-swiper-item[data-v-c2d489ac]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-divider[data-v-c2d489ac]{display:flex;flex-direction:row;flex-direction:row;align-items:center;margin:15px 0}.uv-divider__text[data-v-c2d489ac]{margin:0 15px}.uv-divider__dot[data-v-c2d489ac]{font-size:12px;margin:0 12px;color:#c0c4cc}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "3e65": function (t, e, a) {
+      "use strict";
+      a.r(e);
+      var i = a("31a6"),
+        n = a("96f8");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (t) {
+            a.d(e, t, function () {
+              return n[t];
+            });
+          })(r);
+      a("b24f");
+      var o = a("828b"),
+        s = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "26fd47e8",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = s.exports;
+    },
+    4589: function (t, e, a) {
+      "use strict";
+      a.r(e);
+      var i = a("bc7d"),
+        n = a("4ab8");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (t) {
+            a.d(e, t, function () {
+              return n[t];
+            });
+          })(r);
+      a("26c4");
+      var o = a("828b"),
+        s = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "c2d489ac",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = s.exports;
+    },
+    "4ab8": function (t, e, a) {
+      "use strict";
+      a.r(e);
+      var i = a("6811"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (t) {
+            a.d(e, t, function () {
+              return i[t];
+            });
+          })(r);
+      e["default"] = n.a;
+    },
+    "4bc9": function (t, e, a) {
+      var i = a("c86c");
+      (e = i(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.uv-border[data-v-26fd47e8]{border-width:.5px!important;border-color:#dadbde!important;border-style:solid}.uv-border-bottom[data-v-26fd47e8]{border-bottom-width:.5px!important;border-color:#dadbde!important;border-bottom-style:solid}uni-view[data-v-26fd47e8], uni-scroll-view[data-v-26fd47e8], uni-swiper-item[data-v-26fd47e8]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-textarea[data-v-26fd47e8]{border-radius:4px;background-color:#fff;position:relative;display:flex;flex-direction:row;flex:1;padding:9px}.uv-textarea--radius[data-v-26fd47e8]{border-radius:4px}.uv-textarea--no-radius[data-v-26fd47e8]{border-radius:0}.uv-textarea--disabled[data-v-26fd47e8]{background-color:#f5f7fa}.uv-textarea__field[data-v-26fd47e8]{flex:1;font-size:15px;color:#606266;width:100%}.uv-textarea__count[data-v-26fd47e8]{position:absolute;right:5px;bottom:2px;font-size:12px;color:#909193;background-color:#fff;padding:1px 4px}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    5132: function (t, e, a) {
+      var i = a("3a07");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[t.i, i, ""]]),
+        i.locals && (t.exports = i.locals);
+      var n = a("967d").default;
+      n("71a84af6", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "56da": function (t, e, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        a("64aa");
+      var n,
+        r,
+        o = i(a("9b1b")),
+        s = {
+          props: (0, o.default)(
+            {
+              value: { type: [String, Number], default: "" },
+              modelValue: { type: [String, Number], default: "" },
+              placeholder: { type: [String, Number], default: "" },
+              placeholderClass: {
+                type: String,
+                default: "textarea-placeholder",
+              },
+              placeholderStyle: {
+                type: [String, Object],
+                default: "color: #c0c4cc",
+              },
+              height: { type: [String, Number], default: 70 },
+              confirmType: { type: String, default: "return" },
+              disabled: { type: Boolean, default: !1 },
+              count: { type: Boolean, default: !1 },
+              focus: { type: Boolean, default: !1 },
+              autoHeight: { type: Boolean, default: !1 },
+              fixed: { type: Boolean, default: !1 },
+              cursorSpacing: { type: Number, default: 0 },
+              cursor: { type: [String, Number], default: "" },
+              showConfirmBar: { type: Boolean, default: !0 },
+              selectionStart: { type: Number, default: -1 },
+              selectionEnd: { type: Number, default: -1 },
+              adjustPosition: { type: Boolean, default: !0 },
+              disableDefaultPadding: { type: Boolean, default: !1 },
+              holdKeyboard: { type: Boolean, default: !1 },
+              maxlength: { type: [String, Number], default: 140 },
+              border: { type: String, default: "surround" },
+              formatter: { type: [Function, null], default: null },
+              ignoreCompositionEvent: { type: Boolean, default: !0 },
+              confirmHold: { type: Boolean, default: !1 },
+              textStyle: { type: [Object, String], default: function () {} },
+              countStyle: { type: [Object, String], default: function () {} },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (r = n.props) ||
+              void 0 === r
+              ? void 0
+              : r.textarea,
+          ),
+        };
+      e.default = s;
+    },
+    "64d8": function (t, e, a) {
+      var i = a("4bc9");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[t.i, i, ""]]),
+        i.locals && (t.exports = i.locals);
+      var n = a("967d").default;
+      n("52a068ac", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    6811: function (t, e, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var n = i(a("4d8f0")),
+        r = i(a("9463")),
+        o = i(a("caf4")),
+        s = {
+          name: "uv-divider",
+          mixins: [n.default, r.default, o.default],
+          emits: ["click"],
+          computed: {
+            textStyle: function () {
+              var t = {};
+              return (
+                (t.fontSize = this.$uv.addUnit(this.textSize)),
+                (t.color = this.textColor),
+                t
+              );
+            },
+            leftLineStyle: function () {
+              var t = {};
+              return (
+                "left" === this.textPosition
+                  ? (t.width = "80rpx")
+                  : (t.flex = 1),
+                t
+              );
+            },
+            rightLineStyle: function () {
+              var t = {};
+              return (
+                "right" === this.textPosition
+                  ? (t.width = "80rpx")
+                  : (t.flex = 1),
+                t
+              );
+            },
+          },
+          methods: {
+            click: function () {
+              this.$emit("click");
+            },
+          },
+        };
+      e.default = s;
+    },
+    "6c27": function (t, e, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        a("c223"),
+        a("aa9c");
+      var n = i(a("4d8f0")),
+        r = i(a("9463")),
+        o = i(a("56da")),
+        s = {
+          name: "uv-textarea",
+          mixins: [n.default, r.default, o.default],
+          data: function () {
+            return {
+              innerValue: "",
+              focused: !1,
+              innerFormatter: function (t) {
+                return t;
+              },
+            };
+          },
+          created: function () {
+            this.innerValue = this.value;
+          },
+          watch: {
+            value: function (t) {
+              this.innerValue = t;
+            },
+            modelValue: function (t) {
+              this.innerValue = t;
+            },
+          },
+          computed: {
+            textareaClass: function () {
+              var t = [],
+                e = this.border,
+                a = this.disabled;
+              return (
+                "surround" === e &&
+                  (t = t.concat(["uv-border", "uv-textarea--radius"])),
+                "bottom" === e &&
+                  (t = t.concat([
+                    "uv-border-bottom",
+                    "uv-textarea--no-radius",
+                  ])),
+                a && t.push("uv-textarea--disabled"),
+                t.join(" ")
+              );
+            },
+            textareaStyle: function () {
+              return this.$uv.deepMerge(
+                {},
+                this.$uv.addStyle(this.customStyle),
+              );
+            },
+            maxlen: function () {
+              return this.maxlength < 0
+                ? this.maxlength < 0
+                  ? -1
+                  : 140
+                : this.maxlength;
+            },
+            getCount: function () {
+              try {
+                return this.innerValue.length > this.maxlen
+                  ? this.maxlen
+                  : this.innerValue.length;
+              } catch (t) {
+                return 0;
+              }
+            },
+          },
+          methods: {
+            setFormatter: function (t) {
+              this.innerFormatter = t;
+            },
+            onFocus: function (t) {
+              this.$emit("focus", t);
+            },
+            onBlur: function (t) {
+              this.$emit("blur", t), this.$uv.formValidate(this, "blur");
+            },
+            onLinechange: function (t) {
+              this.$emit("linechange", t);
+            },
+            onInput: function (t) {
+              var e = this,
+                a = t.detail || {},
+                i = a.value,
+                n = void 0 === i ? "" : i,
+                r = this.formatter || this.innerFormatter,
+                o = r(n);
+              (this.innerValue = n),
+                this.$nextTick(function () {
+                  (e.innerValue = o), e.valueChange();
+                });
+            },
+            valueChange: function () {
+              var t = this,
+                e = this.innerValue;
+              this.$nextTick(function () {
+                t.$emit("input", e),
+                  t.$emit("update:modelValue", e),
+                  t.$emit("change", e),
+                  t.$uv.formValidate(t, "change");
+              });
+            },
+            onConfirm: function (t) {
+              this.$emit("confirm", t);
+            },
+            onKeyboardheightchange: function (t) {
+              this.$emit("keyboardheightchange", t);
+            },
+          },
+        };
+      e.default = s;
+    },
+    "819f": function (t, e, a) {
+      var i = a("0924");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[t.i, i, ""]]),
+        i.locals && (t.exports = i.locals);
+      var n = a("967d").default;
+      n("ac60d91a", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "8e60": function (t, e, a) {
+      "use strict";
+      a.r(e);
+      var i = a("c6e8"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (t) {
+            a.d(e, t, function () {
+              return i[t];
+            });
+          })(r);
+      e["default"] = n.a;
+    },
+    "96f8": function (t, e, a) {
+      "use strict";
+      a.r(e);
+      var i = a("6c27"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (t) {
+            a.d(e, t, function () {
+              return i[t];
+            });
+          })(r);
+      e["default"] = n.a;
+    },
+    b24f: function (t, e, a) {
+      "use strict";
+      var i = a("64d8"),
+        n = a.n(i);
+      n.a;
+    },
+    b400: function (t, e, a) {
+      "use strict";
+      var i = a("819f"),
+        n = a.n(i);
+      n.a;
+    },
+    bc7d: function (t, e, a) {
+      "use strict";
+      a.d(e, "b", function () {
+        return n;
+      }),
+        a.d(e, "c", function () {
+          return r;
+        }),
+        a.d(e, "a", function () {
+          return i;
+        });
+      var i = { uvLine: a("73b2").default },
+        n = function () {
+          var t = this,
+            e = t.$createElement,
+            a = t._self._c || e;
+          return a(
+            "v-uni-view",
+            {
+              staticClass: "uv-divider",
+              style: [t.$uv.addStyle(t.customStyle)],
+              on: {
+                click: function (e) {
+                  (arguments[0] = e = t.$handleEvent(e)),
+                    t.click.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              a("uv-line", {
+                attrs: {
+                  color: t.lineColor,
+                  customStyle: t.leftLineStyle,
+                  hairline: t.hairline,
+                  dashed: t.dashed,
+                },
+              }),
+              t.dot
+                ? a("v-uni-text", { staticClass: "uv-divider__dot" }, [
+                    t._v("●"),
+                  ])
+                : t.text
+                  ? a(
+                      "v-uni-text",
+                      { staticClass: "uv-divider__text", style: [t.textStyle] },
+                      [t._v(t._s(t.text))],
+                    )
+                  : t._e(),
+              a("uv-line", {
+                attrs: {
+                  color: t.lineColor,
+                  customStyle: t.rightLineStyle,
+                  hairline: t.hairline,
+                  dashed: t.dashed,
+                },
+              }),
+            ],
+            1,
+          );
+        },
+        r = [];
+    },
+    bd38: function (t, e, a) {
+      "use strict";
+      a.r(e);
+      var i = a("06f9"),
+        n = a("8e60");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (t) {
+            a.d(e, t, function () {
+              return n[t];
+            });
+          })(r);
+      a("b400");
+      var o = a("828b"),
+        s = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "2210d5da",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = s.exports;
+    },
+    c6e8: function (t, e, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var n = i(a("9b1b")),
+        r = i(a("2634")),
+        o = i(a("2fdc"));
+      a("0c26"), a("dd2b"), a("c223"), a("fd3c"), a("aa9c");
+      var s = a("e74a"),
+        d = i(a("2609")),
+        u = a("15b8"),
+        l = {
+          data: function () {
+            return {
+              id: 0,
+              order: [],
+              service: [],
+              form: { des: "", pics: [] },
+              rules: {
+                des: {
+                  type: "string",
+                  required: !0,
+                  message: "请输入申请理由",
+                  trigger: ["blur", "change"],
+                },
+                pics: {
+                  type: "array",
+                  required: !0,
+                  message: "请上传图片",
+                  trigger: ["blur", "change"],
+                },
+              },
+              status: 0,
+              palte: "h5",
+            };
+          },
+          onLoad: function (t) {
+            console.log(t.id), (this.id = t.id), this.getServiceInfo();
+          },
+          onPullDownRefresh: function () {
+            var t = this;
+            uni.showLoading({ title: "刷新中" }),
+              setTimeout(function () {
+                uni.hideLoading(),
+                  t.getServiceInfo(),
+                  uni.showToast({ title: "刷新成功", duration: 1e3 }),
+                  uni.stopPullDownRefresh();
+              }, 300);
+          },
+          methods: {
+            getServiceInfo: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, s.send)(
+                  "/wechat/OrderService/getServiceInfo",
+                  { id: this.id },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var a = e.status,
+                    i = e.msg,
+                    n = e.data;
+                  if (1 != a) return uni.$uv.toast(i);
+                  (t.order = n.order),
+                    (t.service = n.service),
+                    (t.status = n.status),
+                    t.initUpload(n.up_config);
+                });
+            },
+            copyOrderNum: function (t) {
+              uni.setClipboardData({
+                data: t.trim(),
+                success: function () {
+                  uni.$uv.toast("复制成功");
+                },
+                fail: function () {
+                  uni.$uv.toast("复制失败");
+                },
+              });
+            },
+            submit: function () {
+              console.log(this.form);
+              var t = this;
+              this.$refs.form
+                .validate()
+                .then(function (e) {
+                  uni.$uv.throttle(t.applyService, 1500);
+                })
+                .catch(function (t) {});
+            },
+            applyService: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, s.send)(
+                  "/wechat/OrderService/applyService",
+                  { id: this.id, des: this.form.des, pics: this.form.pics },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var a = e.status,
+                    i = e.msg;
+                  e.data;
+                  if (1 != a) return uni.$uv.toast(i);
+                  uni.$uv.toast(i),
+                    setTimeout(function () {
+                      t.getServiceInfo();
+                    }, 2e3);
+                });
+            },
+            upImg: function (t, e) {
+              var a = this;
+              return (0, o.default)(
+                (0, r.default)().mark(function i() {
+                  var n;
+                  return (0, r.default)().wrap(function (i) {
+                    while (1)
+                      switch ((i.prev = i.next)) {
+                        case 0:
+                          return (i.next = 2), (0, u.uploadCompressImgs)(t);
+                        case 2:
+                          (n = i.sent),
+                            (0, s.send)(
+                              "/wechat/Files/uploadBase64",
+                              { label: "service", file: n },
+                              !1,
+                            ).then(function (t) {
+                              t.status;
+                              var i = t.msg,
+                                n = t.data;
+                              if (1 != t.code)
+                                return (a.form.pics = []), uni.$uv.toast(i);
+                              var r = a.form.pics[e];
+                              a.form.pics.splice(
+                                e,
+                                1,
+                                Object.assign(r, {
+                                  status: "success",
+                                  message: "",
+                                  url: n.fullurl,
+                                }),
+                              );
+                            });
+                        case 4:
+                        case "end":
+                          return i.stop();
+                      }
+                  }, i);
+                }),
+              )();
+            },
+            selectPic: function (t) {
+              var e = this,
+                a = [].concat(t.file),
+                i = this.form.pics.length;
+              a.map(function (t) {
+                e.form.pics.push(
+                  (0, n.default)(
+                    (0, n.default)({}, t),
+                    {},
+                    { status: "uploading", message: "上传中" },
+                  ),
+                );
+              });
+              for (var r = 0; r < a.length; r++)
+                "h5" == this.palte && this.upImg(a[r].url, i),
+                  "mp-weixin" == this.palte && this.selectWeappPic(a[r].url, i),
+                  i++;
+            },
+            initUpload: function (t) {
+              "mp-weixin" == this.palte &&
+                (this.uploader = new d.default({
+                  domain: t.domain,
+                  tokenUrl: t.token_url,
+                  quality: 0.6,
+                  prefix: t.prefix,
+                }));
+            },
+            selectWeappPic: function (t, e) {
+              var a = this;
+              return (0, o.default)(
+                (0, r.default)().mark(function i() {
+                  var n, o;
+                  return (0, r.default)().wrap(
+                    function (i) {
+                      while (1)
+                        switch ((i.prev = i.next)) {
+                          case 0:
+                            return (
+                              (i.prev = 0),
+                              (i.next = 3),
+                              a.uploader.uploadWechatAvatar({ avatarUrl: t })
+                            );
+                          case 3:
+                            (n = i.sent),
+                              console.log(n),
+                              (o = a.form.pics[e]),
+                              a.form.pics.splice(
+                                e,
+                                1,
+                                Object.assign(o, {
+                                  status: "success",
+                                  message: "",
+                                  url: n.url,
+                                }),
+                              ),
+                              (i.next = 13);
+                            break;
+                          case 9:
+                            (i.prev = 9),
+                              (i.t0 = i["catch"](0)),
+                              uni.showToast({
+                                title:
+                                  "发送失败: " + (i.t0.message || "未知错误"),
+                                icon: "none",
+                              }),
+                              console.error("发送失败:", i.t0);
+                          case 13:
+                          case "end":
+                            return i.stop();
+                        }
+                    },
+                    i,
+                    null,
+                    [[0, 9]],
+                  );
+                }),
+              )();
+            },
+            deletePic: function (t) {
+              console.log(this.form.pics),
+                console.log(t),
+                this.form.pics.splice(t.index, 1);
+            },
+            previewImage: function (t, e) {
+              uni.previewImage({ current: t, urls: e });
+            },
+            jump: function (t) {
+              uni.navigateTo({ url: t });
+            },
+            applyKefu: function () {
+              var t = this;
+              uni.showModal({
+                title: "温馨提示",
+                content: "确认要申请客服介入么?",
+                success: function (e) {
+                  e.confirm &&
+                    (uni.showLoading({ title: "加载中.." }),
+                    (0, s.send)(
+                      "/wechat/OrderService/applyKefu",
+                      { id: t.id },
+                      !1,
+                    ).then(function (e) {
+                      uni.hideLoading();
+                      var a = e.status,
+                        i = e.msg;
+                      e.data;
+                      if (1 != a) return uni.$uv.toast(i);
+                      uni.$uv.toast(i),
+                        setTimeout(function () {
+                          t.getServiceInfo();
+                        }, 2e3);
+                    }));
+                },
+              });
+            },
+          },
+        };
+      e.default = l;
+    },
+    caf4: function (t, e, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        a("64aa");
+      var n,
+        r,
+        o = i(a("9b1b")),
+        s = {
+          props: (0, o.default)(
+            {
+              dashed: { type: Boolean, default: !1 },
+              hairline: { type: Boolean, default: !0 },
+              dot: { type: Boolean, default: !1 },
+              textPosition: { type: String, default: "center" },
+              text: { type: [String, Number], default: "" },
+              textSize: { type: [String, Number], default: 14 },
+              textColor: { type: String, default: "#909399" },
+              lineColor: { type: String, default: "#dcdfe6" },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (r = n.props) ||
+              void 0 === r
+              ? void 0
+              : r.divider,
+          ),
+        };
+      e.default = s;
+    },
+  },
+]);
+//# sourceMappingURL=pages_sub1-order-service.7d7ce628.js.map

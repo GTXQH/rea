@@ -1,0 +1,1959 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages-index-goods"],
+  {
+    1173: function (t, e, i) {
+      "use strict";
+      i("6a54"),
+        Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var a = i("e74a"),
+        n = {
+          data: function () {
+            return { show: !1, isPlaying: !1 };
+          },
+          mounted: function () {
+            (this.isPlaying = !!uni.$audioPlaying),
+              uni.$on("audioPlayStateChange", this.onPlayStateChange),
+              this.loadConfig();
+          },
+          beforeDestroy: function () {
+            uni.$off("audioPlayStateChange", this.onPlayStateChange);
+          },
+          methods: {
+            onPlayStateChange: function (t) {
+              this.isPlaying = t;
+            },
+            loadConfig: function () {
+              var t = this;
+              uni.$audioConfig
+                ? this.applyConfig(uni.$audioConfig)
+                : (0, a.send)("/wechat/Wechat/getAudioConfig", {}, !1)
+                    .then(function (e) {
+                      var i = e.data || {};
+                      (uni.$audioConfig = i), t.applyConfig(i);
+                    })
+                    .catch(function () {});
+            },
+            applyConfig: function (t) {
+              t && t.audio_play_switch && t.audio_url
+                ? ((this.show = !0),
+                  uni.$audioCtx &&
+                    !uni.$audioCtx.src &&
+                    ((uni.$audioCtx.src = t.audio_url),
+                    uni.$audioWantPlay && uni.$audioCtx.play()))
+                : (this.show = !1);
+            },
+            togglePlay: function () {
+              uni.$audioCtx &&
+                (this.isPlaying
+                  ? uni.$audioCtx.pause()
+                  : ((uni.$audioWantPlay = !0), uni.$audioCtx.play()));
+            },
+          },
+        };
+      e.default = n;
+    },
+    "141d": function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-17bb3196], uni-scroll-view[data-v-17bb3196], uni-swiper-item[data-v-17bb3196]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-rate[data-v-17bb3196]{display:flex;flex-direction:row;align-items:center;margin:0;padding:0;touch-action:none}.uv-rate__content[data-v-17bb3196]{display:flex;flex-direction:row}.uv-rate__content__item[data-v-17bb3196]{position:relative}.uv-rate__content__item__icon-wrap--half[data-v-17bb3196]{position:absolute;overflow:hidden;top:0;left:0}.uv-icon[data-v-17bb3196]{box-sizing:border-box}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "20f3": function (t, e, i) {
+      "use strict";
+      var a = i("8bdb"),
+        n = i("5145");
+      a(
+        { target: "Array", proto: !0, forced: n !== [].lastIndexOf },
+        { lastIndexOf: n },
+      );
+    },
+    "280a": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var a = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var n = a(i("2634")),
+        o = a(i("2fdc"));
+      i("64aa");
+      var s = a(i("4d8f0")),
+        r = a(i("9463")),
+        d = a(i("4d4c")),
+        c = {
+          name: "uv-rate",
+          mixins: [s.default, r.default, d.default],
+          data: function () {
+            return {
+              elId: "",
+              elClass: "",
+              rateBoxLeft: 0,
+              activeIndex: 0,
+              rateWidth: 0,
+              moving: !1,
+            };
+          },
+          watch: {
+            value: function (t) {
+              this.activeIndex = t;
+            },
+            modelValue: function (t) {
+              this.activeIndex = t;
+            },
+          },
+          created: function () {
+            (this.activeIndex = Number(this.value || this.modelValue)),
+              (this.elId = this.$uv.guid()),
+              (this.elClass = this.$uv.guid());
+          },
+          mounted: function () {
+            this.init();
+          },
+          methods: {
+            init: function () {
+              var t = this;
+              this.$uv.sleep(200).then(function () {
+                t.getRateItemRect(), t.getRateIconWrapRect();
+              });
+            },
+            getRateItemRect: function () {
+              var t = this;
+              return (0, o.default)(
+                (0, n.default)().mark(function e() {
+                  return (0, n.default)().wrap(function (e) {
+                    while (1)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          return (e.next = 2), t.$uv.sleep();
+                        case 2:
+                          t.$uvGetRect("#" + t.elId).then(function (e) {
+                            t.rateBoxLeft = e.left;
+                          });
+                        case 3:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                }),
+              )();
+            },
+            getRateIconWrapRect: function () {
+              var t = this;
+              this.$uvGetRect("." + this.elClass).then(function (e) {
+                t.rateWidth = e.width;
+              });
+            },
+            touchMove: function (t) {
+              if (this.touchable) {
+                this.preventEvent(t);
+                var e =
+                  (t.changedTouches && t.changedTouches[0].pageX) ||
+                  (t.detail && t.detail.pageX);
+                this.getActiveIndex(e);
+              }
+            },
+            touchEnd: function (t) {
+              if (this.touchable) {
+                this.preventEvent(t);
+                var e =
+                  (t.changedTouches && t.changedTouches[0].pageX) ||
+                  (t.detail && t.detail.pageX);
+                this.getActiveIndex(e);
+              }
+            },
+            clickHandler: function (t, e) {
+              if ("ios" !== this.$uv.os() || !this.moving) {
+                this.preventEvent(t);
+                var i;
+                (i =
+                  (t.changedTouches && t.changedTouches[0].pageX) ||
+                  (t.detail && t.detail.pageX)),
+                  this.getActiveIndex(i, !0);
+              }
+            },
+            changeEvent: function () {
+              this.$emit("change", this.activeIndex),
+                this.$emit("input", this.activeIndex),
+                this.$emit("update:modelValue", this.activeIndex);
+            },
+            getActiveIndex: function (t) {
+              var e = this,
+                i =
+                  arguments.length > 1 &&
+                  void 0 !== arguments[1] &&
+                  arguments[1];
+              if (!this.disabled && !this.readonly) {
+                var a = this.rateWidth * this.count + this.rateBoxLeft;
+                t = this.$uv.range(this.rateBoxLeft, a, t) - this.rateBoxLeft;
+                var n,
+                  o = t;
+                if (this.allowHalf) {
+                  n = Math.floor(o / this.rateWidth);
+                  var s = o % this.rateWidth;
+                  s <= this.rateWidth / 2 && s > 0
+                    ? (n += 0.5)
+                    : s > this.rateWidth / 2 && n++;
+                } else {
+                  n = Math.floor(o / this.rateWidth);
+                  var r = o % this.rateWidth;
+                  i ? r > 0 && n++ : r > this.rateWidth / 2 && n++;
+                }
+                (this.activeIndex = Math.min(n, this.count)),
+                  this.activeIndex < this.minCount &&
+                    (this.activeIndex = this.minCount),
+                  this.changeEvent(),
+                  setTimeout(function () {
+                    e.moving = !0;
+                  }, 10),
+                  setTimeout(function () {
+                    e.moving = !1;
+                  }, 10);
+              }
+            },
+          },
+        };
+      e.default = c;
+    },
+    "2b4e": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("8fcd"),
+        n = i("8cb7");
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      i("506a");
+      var s = i("828b"),
+        r = Object(s["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "6a509d70",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    "30e9": function (t, e, i) {
+      "use strict";
+      var a = i("9fbe"),
+        n = i.n(a);
+      n.a;
+    },
+    "31ed": function (t, e, i) {
+      "use strict";
+      i("6a54"),
+        Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var a = {
+        name: "seckill-mask",
+        props: { seckill: { type: Object, default: null } },
+        data: function () {
+          return { now: 0, timer: null };
+        },
+        computed: {
+          isShow: function () {
+            return this.seckill && 1 == this.seckill.sold_out;
+          },
+          remain: function () {
+            return this.isShow
+              ? Math.max(0, this.seckill.next_ts - this.now)
+              : 0;
+          },
+          countText: function () {
+            var t = this.remain;
+            if (t <= 0) return "00:00";
+            var e = function (t) {
+                return (t < 10 ? "0" : "") + t;
+              },
+              i = Math.floor(t / 3600),
+              a = Math.floor((t % 3600) / 60),
+              n = t % 60;
+            return i > 0 ? i + ":" + e(a) + ":" + e(n) : e(a) + ":" + e(n);
+          },
+        },
+        watch: {
+          isShow: function (t) {
+            t ? this.start() : this.stop();
+          },
+        },
+        mounted: function () {
+          this.isShow && this.start();
+        },
+        beforeDestroy: function () {
+          this.stop();
+        },
+        methods: {
+          start: function () {
+            var t = this;
+            (this.now =
+              this.seckill && this.seckill.now_ts
+                ? this.seckill.now_ts
+                : Math.floor(Date.now() / 1e3)),
+              this.stop(),
+              (this.timer = setInterval(function () {
+                t.now++, t.remain <= 0 && t.stop();
+              }, 1e3));
+          },
+          stop: function () {
+            this.timer && (clearInterval(this.timer), (this.timer = null));
+          },
+        },
+      };
+      e.default = a;
+    },
+    "336a": function (t, e, i) {
+      "use strict";
+      var a = i("dba3"),
+        n = i.n(a);
+      n.a;
+    },
+    "3c78": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("9ead"),
+        n = i("f6ff");
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      i("72b4");
+      var s = i("828b"),
+        r = Object(s["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "1aa473ad",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    "43f9": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("280a"),
+        n = i.n(a);
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      e["default"] = n.a;
+    },
+    4431: function (t, e, i) {
+      var a = i("b084");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("189e6682", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "4d4c": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var a = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("64aa");
+      var n,
+        o,
+        s = a(i("9b1b")),
+        r = {
+          props: (0, s.default)(
+            {
+              value: { type: [String, Number], default: 0 },
+              modelValue: { type: [String, Number], default: 0 },
+              count: { type: [String, Number], default: 5 },
+              disabled: { type: Boolean, default: !1 },
+              readonly: { type: Boolean, default: !1 },
+              size: { type: [String, Number], default: 18 },
+              inactiveColor: { type: String, default: "#b2b2b2" },
+              activeColor: { type: String, default: "#FA3534" },
+              gutter: { type: [String, Number], default: 4 },
+              minCount: { type: [String, Number], default: 1 },
+              allowHalf: { type: Boolean, default: !1 },
+              activeIcon: { type: String, default: "star-fill" },
+              inactiveIcon: { type: String, default: "star" },
+              touchable: { type: Boolean, default: !1 },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (o = n.props) ||
+              void 0 === o
+              ? void 0
+              : o.rate,
+          ),
+        };
+      e.default = r;
+    },
+    "4de7": function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.storeClose_box[data-v-b89ee9d0]{position:fixed;max-width:480px;width:100%;margin:0 auto;left:0;right:0;bottom:calc(env(safe-area-inset-bottom) + 65px);background:#fff7d7;padding:%?22?% %?30?% %?36?%}.storeClose_box img[data-v-b89ee9d0]{width:%?80?%;height:%?76?%}.storeClose_box .tit_box[data-v-b89ee9d0]{width:calc(100% - %?100?%)}.storeClose_box .tit_box .tit[data-v-b89ee9d0]{font-size:17px}.storeClose_box .tit_box .des[data-v-b89ee9d0]{color:#999;font-size:13px;margin-top:%?8?%}.content[data-v-b89ee9d0]{padding-bottom:%?130?%}.swiper_wrap[data-v-b89ee9d0]{position:relative}.col_img_box[data-v-b89ee9d0]{position:relative;display:flex;flex-direction:column;align-items:center}.goods_box[data-v-b89ee9d0]{padding:%?20?% %?30?% %?22?%}.goods_box .price_box[data-v-b89ee9d0]{display:flex;align-items:center;margin:%?8?% auto %?14?%}.goods_box .price_box .price_container[data-v-b89ee9d0]{display:flex;align-items:center;flex-grow:1\r\n  /* 占据剩余空间 */}.goods_box .price_box .new_price[data-v-b89ee9d0]{color:#fd2c28;font-weight:700;font-size:26px}.goods_box .price_box .new_price .icon[data-v-b89ee9d0]{font-size:16px}.goods_box .price_box .old_price[data-v-b89ee9d0]{font-size:15.4px;color:#999;text-decoration:line-through;margin-left:%?20?%}.goods_box .price_box .sales_box[data-v-b89ee9d0]{margin-left:auto;color:#999}.goods_box .name_box[data-v-b89ee9d0]{margin:%?10?% auto %?10?%;font-size:16px;font-weight:700}.goods_box .vipgoods_tag[data-v-b89ee9d0]{display:inline-block;background:linear-gradient(90deg,#f53c04,#f54f01);color:#fff;border-radius:%?8?%;padding:%?0?% %?8?%;height:%?42?%;line-height:%?42?%;font-size:12px;margin-right:%?8?%}.goods_box .introduce[data-v-b89ee9d0]{color:#999}.buy_vip[data-v-b89ee9d0]{margin:%?15?% %?30?%;background:#f9f2d6;border-radius:%?14?%;padding:%?22?% %?14?% %?22?% %?24?%}.buy_vip uni-view[data-v-b89ee9d0]{font-size:13px}.buy_vip[data-v-b89ee9d0] .uv-icon__icon{margin-left:%?4?%}.seller_box[data-v-b89ee9d0]{margin:%?20?% %?30?% %?35?%;border-radius:%?25?%;padding:%?26?% %?22?%;background:#f7f8fa}.seller_box .head[data-v-b89ee9d0]{position:relative}.seller_box .head .tu[data-v-b89ee9d0]{width:%?82?%;height:%?82?%;border-radius:%?82?%}.seller_box .head .circle[data-v-b89ee9d0]{width:%?28?%;height:%?28?%;border-radius:100%;background:#6dff26;position:absolute;right:%?2?%;bottom:%?0?%;border:%?6?% solid #fff}.seller_box .head .circle.dis[data-v-b89ee9d0]{background:#ddd}.seller_box .xiangqing[data-v-b89ee9d0]{width:calc(100% - %?106?%)}.seller_box .xiangqing .name_box[data-v-b89ee9d0]{justify-content:flex-start}.seller_box .xiangqing .name_box .nickname[data-v-b89ee9d0]{font-size:16px;font-weight:700;margin-right:%?14?%;max-width:calc(100% - %?64?%)}.seller_box .xiangqing .name_box .vip[data-v-b89ee9d0]{height:%?44?%;width:%?44?%;-webkit-filter:grayscale(100%);filter:grayscale(100%)}.seller_box .xiangqing .name_box.is_vip .nickname[data-v-b89ee9d0]{color:red}.seller_box .xiangqing .name_box.is_vip .vip[data-v-b89ee9d0]{-webkit-filter:grayscale(0);filter:grayscale(0)}.seller_box .xiangqing .status_box[data-v-b89ee9d0]{margin-top:%?6?%;justify-content:flex-start}.seller_box .xiangqing .status_box .credit[data-v-b89ee9d0]{-webkit-transform:scale(.98);transform:scale(.98);padding:0 %?8?%;height:%?35?%;line-height:%?35?%;border-radius:%?35?%;background:#fff1d4;color:#fd6400;font-size:11px;white-space:nowrap}.seller_box .xiangqing .status_box .bond[data-v-b89ee9d0]{white-space:nowrap;font-size:11px;color:#999;margin-left:%?14?%}.uv-divider[data-v-b89ee9d0]{margin:%?55?% %?30?% %?30?%}.rich_box[data-v-b89ee9d0]{margin:%?30?% %?30?% %?30?%}.tab_bar[data-v-b89ee9d0]{margin:%?55?% %?30?% 0;border-bottom:%?2?% solid #eee;justify-content:center}.tab_bar .tab[data-v-b89ee9d0]{position:relative;flex:1;text-align:center;font-size:15px;font-weight:700;color:#666;padding:%?20?% 0;margin:0}.tab_bar .tab .txt[data-v-b89ee9d0]{position:relative;display:inline-block;padding-bottom:%?18?%}.tab_bar .tab.cur[data-v-b89ee9d0]{color:#000}.tab_bar .tab.cur .txt[data-v-b89ee9d0]::before{content:"";position:absolute;left:0;bottom:%?8?%;width:100%;height:%?26?%;background:linear-gradient(0deg,rgba(255,230,16,.45),rgba(255,230,16,0));pointer-events:none}.tab_bar .tab.cur .txt[data-v-b89ee9d0]::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:%?10?%;border-radius:%?10?%;background:#ffe610}.tab_bar .tab.solo .txt[data-v-b89ee9d0]::before,\r\n.tab_bar .tab.solo .txt[data-v-b89ee9d0]::after{display:none}.tab_bar .tab_num[data-v-b89ee9d0]{font-size:12px;font-weight:400;color:#999}.comment_box[data-v-b89ee9d0]{margin:%?30?% %?30?% %?30?%}.comment_box .comment_col[data-v-b89ee9d0]{background:#fff;border-radius:%?20?%;box-shadow:0 %?4?% %?20?% rgba(0,0,0,.07);padding:%?26?% %?24?%;margin-bottom:%?24?%}.comment_box .comment_col .top[data-v-b89ee9d0]{justify-content:flex-start;overflow:visible}.comment_box .comment_col .top .head_box[data-v-b89ee9d0]{position:relative;width:%?116?%;height:%?116?%;margin-left:%?-20?%;margin-right:%?14?%;flex-shrink:0}.comment_box .comment_col .top .head_box .img[data-v-b89ee9d0]{position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);z-index:1;width:%?82?%;height:%?82?%;border-radius:50%}.comment_box .comment_col .top .head_box .head_frame[data-v-b89ee9d0]{position:absolute;left:0;top:0;width:%?116?%;height:%?116?%;z-index:2;pointer-events:none}.comment_box .comment_col .top .u_info[data-v-b89ee9d0]{flex:1;min-width:0}.comment_box .comment_col .top .u_info .name_row[data-v-b89ee9d0]{justify-content:flex-start;margin-bottom:%?8?%}.comment_box .comment_col .top .u_info .name_row .name[data-v-b89ee9d0]{flex:0 1 auto;min-width:0;max-width:9em;font-size:14px;font-weight:700}.comment_box .comment_col .top .u_info .name_row .level[data-v-b89ee9d0]{flex-shrink:0;display:block;width:%?94?%;height:%?40?%;object-fit:contain;margin-left:%?15?%}.comment_box .comment_col .top .u_info .name_row .time[data-v-b89ee9d0]{margin-left:auto;flex-shrink:0;font-size:12px;color:#999;font-weight:400}.comment_box .comment_col .top .u_info .star_row[data-v-b89ee9d0]{justify-content:flex-start}.comment_box .comment_col .top .u_info .star_row .star_label[data-v-b89ee9d0]{flex-shrink:0;font-size:12px;color:#999;margin-right:%?8?%}.comment_box .comment_col .des_wrap[data-v-b89ee9d0]{position:relative;margin-top:%?1?%;padding-left:%?110?%;box-sizing:border-box}.comment_box .comment_col .des_wrap .des[data-v-b89ee9d0]{font-size:14px;line-height:1.6;word-break:break-all}.comment_box .comment_col .des_wrap .des.clamp[data-v-b89ee9d0]{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}.comment_box .comment_col .des_wrap .des_toggle[data-v-b89ee9d0]{color:#666}.comment_box .comment_col .des_wrap .des_toggle uni-text[data-v-b89ee9d0]{margin-right:%?4?%}.comment_box .comment_col .des_wrap .des_toggle.abs[data-v-b89ee9d0]{position:absolute;right:0;bottom:0;z-index:1;display:flex;align-items:center;font-size:14px;line-height:1.6;padding-left:%?60?%;background:linear-gradient(90deg,hsla(0,0%,100%,0),#fff %?50?%)}.comment_box .comment_col .des_wrap .des_toggle.bottom[data-v-b89ee9d0]{justify-content:flex-end;margin-top:%?6?%;font-size:12px}.comment_box .comment_col .c_imgs[data-v-b89ee9d0]{margin-top:%?20?%;padding-left:%?110?%;box-sizing:border-box;justify-content:flex-start;flex-wrap:wrap}.comment_box .comment_col .c_imgs .c_img[data-v-b89ee9d0]{flex-shrink:0;width:%?190?%;height:%?190?%;border-radius:%?10?%;margin:0 %?12?% %?12?% 0}.comment_box .load_more[data-v-b89ee9d0]{text-align:center;color:#999;font-size:13px;padding:%?30?% 0 %?10?%}.daohang_box[data-v-b89ee9d0]{background:#fff;box-shadow:0 0 %?10?% #ddd;padding:%?20?% %?30?% %?20?% %?45?%;max-width:480px;width:100%;margin:0 auto;position:fixed;left:0;right:0;bottom:0;z-index:100\r\n  /* 联系客服下单开关开启时，contact按钮覆盖整个下单按钮区域 */\r\n  /* 覆盖微信按钮默认样式:比如边框 */}.daohang_box .kefu_box[data-v-b89ee9d0]{position:relative}.daohang_box .kefu_box .picture[data-v-b89ee9d0]{height:%?40?%;width:%?40?%;margin:0 auto %?2?%}.daohang_box .kefu_box .kefu[data-v-b89ee9d0]{font-size:12px}.daohang_box .xiadan[data-v-b89ee9d0]{background:#ffe610;width:calc(100% - %?85?%);height:%?90?%;line-height:%?90?%;border-radius:%?90?%;font-size:15px;font-weight:700;text-align:center}.daohang_box .up_button[data-v-b89ee9d0]{background-color:initial!important;font-size:12.2px;position:absolute;top:0;bottom:0;left:0;z-index:30!important;width:16vw!important;text-align:center!important;padding:0!important;line-height:%?340?%!important;-webkit-tap-highlight-color:transparent!important\r\n  /* 禁用点击高亮 */}.daohang_box .up_button_full[data-v-b89ee9d0]{width:100%!important}.daohang_box uni-button[data-v-b89ee9d0]::after{border:none!important;box-shadow:none!important;border-radius:0!important;\r\n  /* 如果需要也可重置圆角 */display:none!important}.tips_box[data-v-b89ee9d0]{margin:0 %?30?% %?30?%;padding:%?20?% %?24?%;background:linear-gradient(135deg,#fff8e8,#fff5e0);border-radius:%?16?%;-webkit-animation:jelly-data-v-b89ee9d0 2s infinite ease-in-out;animation:jelly-data-v-b89ee9d0 2s infinite ease-in-out;box-shadow:0 %?4?% %?12?% rgba(253,100,0,.1)}.tips_text[data-v-b89ee9d0]{font-size:12px;\r\n  /* 缩小字体 */color:#d46b08;line-height:1.6;display:-webkit-box;\r\n  /* 强制两行显示核心样式 */-webkit-line-clamp:2;\r\n  /* 限制显示2行 */-webkit-box-orient:vertical;overflow:hidden;\r\n  /* 隐藏超出部分 */text-overflow:ellipsis\r\n  /* 超出部分显示省略号（如需完整显示可删除） */}.tips_text .highlight[data-v-b89ee9d0]{font-weight:700;color:#fd6400;font-size:13px\r\n  /* 高亮文字比正文稍大，保持突出 */}@-webkit-keyframes jelly-data-v-b89ee9d0{0%,\r\n  100%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scale(1.015);transform:scale(1.015)}60%{-webkit-transform:scale(.99);transform:scale(.99)}80%{-webkit-transform:scale(1.005);transform:scale(1.005)}}@keyframes jelly-data-v-b89ee9d0{0%,\r\n  100%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scale(1.015);transform:scale(1.015)}60%{-webkit-transform:scale(.99);transform:scale(.99)}80%{-webkit-transform:scale(1.005);transform:scale(1.005)}}[data-v-b89ee9d0] .uv-popup__content{max-width:480px;width:100%}.notice_every_day[data-v-b89ee9d0]{background:#fff;border-radius:%?30?%;padding:%?0?% %?30?% %?40?%;text-align:center;margin:0 %?30?%}.notice_every_day .dd[data-v-b89ee9d0]{font-weight:700;padding:%?36?% 0 0 0;font-size:18px}.notice_every_day .rich_box[data-v-b89ee9d0]{max-height:70vh;min-height:%?50?%;overflow-y:scroll}.notice_every_day .btn[data-v-b89ee9d0]{background:#ffe610;width:44%;font-size:16px;font-weight:700;height:%?78?%;line-height:%?78?%;border-radius:%?78?%;margin:%?35?% auto %?3?%}.specsShow[data-v-b89ee9d0]{background:#fff;border-radius:%?30?% %?30?% 0 0}.specsShow .goods_msg[data-v-b89ee9d0]{padding:%?32?% %?0?%;margin:%?0?% %?30?%;border-bottom:%?2?% solid #eee}.specsShow .goods_msg .img[data-v-b89ee9d0]{width:%?110?%;height:%?110?%;border-radius:%?10?%}.specsShow .goods_msg .txt[data-v-b89ee9d0]{width:calc(100% - %?135?%)}.specsShow .goods_msg .txt .name[data-v-b89ee9d0]{font-weight:700;font-size:15px}.specsShow .goods_msg .txt .price_box[data-v-b89ee9d0]{margin-top:%?14?%;justify-content:flex-start}.specsShow .goods_msg .txt .price_box .new_price[data-v-b89ee9d0]{color:#fd2c28;font-weight:700;font-size:17px}.specsShow .goods_msg .txt .price_box .new_price .unit[data-v-b89ee9d0]{font-size:12px}.specsShow .goods_msg .txt .price_box .old_price[data-v-b89ee9d0]{color:#999;margin-left:%?14?%;text-decoration:line-through}.specsShow .reason_box[data-v-b89ee9d0]{margin:%?32?% %?30?% %?50?%}.specsShow .reason_box .tit[data-v-b89ee9d0]{font-size:15px;font-weight:700;position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;text-align:left;width:100%}.specsShow .reason_box .tit > uni-text[data-v-b89ee9d0]{display:inline-block;position:relative;z-index:10}.specsShow .reason_box .tit > uni-text[data-v-b89ee9d0]::before{z-index:-1;display:block;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?6?%;-webkit-transform:translate(-50%);transform:translate(-50%)}.specsShow .reason_box .tit .switch_btn[data-v-b89ee9d0]{font-size:11px;font-weight:400;color:#333;padding:%?8?% %?20?%;background:#fff;border:%?1?% solid #ddd;border-radius:%?40?%;position:relative;z-index:20}.specsShow .reason_box .specs_grid[data-v-b89ee9d0]{margin:%?28?% auto 0}.specsShow .reason_box .specs_grid.specs_img[data-v-b89ee9d0]{max-height:%?500?%;overflow-y:scroll;display:grid;grid-template-columns:repeat(3,1fr);grid-gap:%?20?%}.specsShow .reason_box .specs_grid.specs_img .col[data-v-b89ee9d0]{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:%?16?% %?10?%;background:#eee;border-radius:%?16?%;color:#555;text-align:center}.specsShow .reason_box .specs_grid.specs_img .col .col_img[data-v-b89ee9d0]{width:%?120?%;height:%?120?%;margin-bottom:%?12?%}.specsShow .reason_box .specs_grid.specs_img .col .col_title[data-v-b89ee9d0]{font-size:12px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:100%}.specsShow .reason_box .specs_grid.specs_img .col.cur[data-v-b89ee9d0]{background:#ffe610;color:#000}.specsShow .reason_box .specs_grid.specs_img .col.cur .col_title[data-v-b89ee9d0]{font-weight:700}.specsShow .reason_box .specs_grid.specs_text[data-v-b89ee9d0]{max-height:%?500?%;overflow-y:scroll;display:grid;grid-template-columns:repeat(2,1fr);grid-gap:%?24?% %?12?%}.specsShow .reason_box .specs_grid.specs_text .col[data-v-b89ee9d0]{padding:0 %?16?%;height:%?54?%;line-height:%?54?%;font-size:12px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;background:#eee;border-radius:%?10?%;color:#555;text-align:center}.specsShow .reason_box .specs_grid.specs_text .col .col_title_text[data-v-b89ee9d0]{display:block}.specsShow .reason_box .specs_grid.specs_text .col.cur[data-v-b89ee9d0]{background:#ffe610;color:#000;font-weight:700}.specsShow .daohang_box[data-v-b89ee9d0]{background:#fff;box-shadow:0 0 %?10?% #ddd;padding:%?20?% %?30?%;position:relative\r\n  /* 联系客服下单开关开启时，contact按钮覆盖整个下单按钮区域 */\r\n  /* 覆盖微信按钮默认样式:比如边框 */}.specsShow .daohang_box .kefu_box .picture[data-v-b89ee9d0]{height:%?40?%;width:%?40?%;margin:0 auto %?2?%}.specsShow .daohang_box .kefu_box .kefu[data-v-b89ee9d0]{font-size:12px}.specsShow .daohang_box .up_button[data-v-b89ee9d0]{background-color:initial!important;font-size:12.2px;position:absolute;top:0;bottom:0;left:0;z-index:30!important;width:14vw!important;text-align:center!important;padding:0!important;line-height:%?340?%!important;-webkit-tap-highlight-color:transparent!important\r\n  /* 禁用点击高亮 */}.specsShow .daohang_box .up_button_full[data-v-b89ee9d0]{width:100%!important}.specsShow .daohang_box uni-button[data-v-b89ee9d0]::after{border:none!important;box-shadow:none!important;border-radius:0!important;\r\n  /* 如果需要也可重置圆角 */display:none!important}.specsShow .daohang_box .xiadan[data-v-b89ee9d0]{background:#ffe610;width:calc(100% - %?80?%);height:%?90?%;line-height:%?90?%;border-radius:%?90?%;font-size:15px;font-weight:700;text-align:center}.specsShow .daohang_box .xiadan.cancel[data-v-b89ee9d0]{background:#dadada}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "506a": function (t, e, i) {
+      "use strict";
+      var a = i("c954"),
+        n = i.n(a);
+      n.a;
+    },
+    "5f70": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("9ccd"),
+        n = i("43f9");
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      i("336a");
+      var s = i("828b"),
+        r = Object(s["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "17bb3196",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    6321: function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.audio_player_box[data-v-6a509d70]{position:fixed;right:10px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);z-index:999;width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,#ffd9a8,#ffb877 45%,#ff8c2e);display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(255,140,46,.45),0 0 26px rgba(255,184,119,.25),inset 0 0 8px hsla(0,0%,100%,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}.halo[data-v-6a509d70]{position:absolute;left:-5px;top:-5px;right:-5px;bottom:-5px;border-radius:50%;border:1.8px solid rgba(255,184,119,.65);opacity:0;pointer-events:none}.halo2[data-v-6a509d70]{left:-11px;top:-11px;right:-11px;bottom:-11px;border-color:rgba(255,140,46,.45)}.audio_player_box.playing .halo[data-v-6a509d70]{opacity:1;-webkit-animation:haloBreath-data-v-6a509d70 2s ease-in-out infinite;animation:haloBreath-data-v-6a509d70 2s ease-in-out infinite}.audio_player_box.playing .halo2[data-v-6a509d70]{-webkit-animation:haloBreath-data-v-6a509d70 2s ease-in-out .6s infinite;animation:haloBreath-data-v-6a509d70 2s ease-in-out .6s infinite}@-webkit-keyframes haloBreath-data-v-6a509d70{0%, 100%{-webkit-transform:scale(1);transform:scale(1);opacity:.8}50%{-webkit-transform:scale(1.2);transform:scale(1.2);opacity:.1}}@keyframes haloBreath-data-v-6a509d70{0%, 100%{-webkit-transform:scale(1);transform:scale(1);opacity:.8}50%{-webkit-transform:scale(1.2);transform:scale(1.2);opacity:.1}}.audio_inner[data-v-6a509d70]{width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,hsla(0,0%,100%,.3),hsla(0,0%,100%,.08));box-shadow:inset 0 0 10px hsla(0,0%,100%,.2)}.audio_svg[data-v-6a509d70]{width:20px;height:18px;display:flex;align-items:center;justify-content:space-between;gap:2px}.audio_svg .bar[data-v-6a509d70]{width:2.5px;background:#fff;border-radius:2px;box-shadow:0 0 5px hsla(0,0%,100%,.85);-webkit-animation:barJump-data-v-6a509d70 .9s ease-in-out infinite;animation:barJump-data-v-6a509d70 .9s ease-in-out infinite}.audio_svg .bar1[data-v-6a509d70]{-webkit-animation-delay:0s;animation-delay:0s}.audio_svg .bar2[data-v-6a509d70]{-webkit-animation-delay:.18s;animation-delay:.18s}.audio_svg .bar3[data-v-6a509d70]{-webkit-animation-delay:.36s;animation-delay:.36s}.audio_svg .bar4[data-v-6a509d70]{-webkit-animation-delay:.54s;animation-delay:.54s}@-webkit-keyframes barJump-data-v-6a509d70{0%, 100%{height:4px}50%{height:16px}}@keyframes barJump-data-v-6a509d70{0%, 100%{height:4px}50%{height:16px}}.play_icon[data-v-6a509d70]{width:20px;height:18px;display:flex;align-items:center;justify-content:center}.play_icon .triangle[data-v-6a509d70]{width:0;height:0;margin-left:2px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:12px solid #fff;-webkit-filter:drop-shadow(0 0 4px hsla(0,0%,100%,.8));filter:drop-shadow(0 0 4px rgba(255,255,255,.8))}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "72b4": function (t, e, i) {
+      "use strict";
+      var a = i("4431"),
+        n = i.n(a);
+      n.a;
+    },
+    "8cb7": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("1173"),
+        n = i.n(a);
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      e["default"] = n.a;
+    },
+    "8fcd": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return a;
+      }),
+        i.d(e, "c", function () {
+          return n;
+        }),
+        i.d(e, "a", function () {});
+      var a = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return t.show
+            ? i(
+                "v-uni-view",
+                {
+                  staticClass: "audio_player_box",
+                  class: { playing: t.isPlaying },
+                  on: {
+                    click: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.togglePlay.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  i("v-uni-view", { staticClass: "halo" }),
+                  i("v-uni-view", { staticClass: "halo halo2" }),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "audio_inner" },
+                    [
+                      t.isPlaying
+                        ? i(
+                            "v-uni-view",
+                            { staticClass: "audio_svg" },
+                            [
+                              i("v-uni-view", { staticClass: "bar bar1" }),
+                              i("v-uni-view", { staticClass: "bar bar2" }),
+                              i("v-uni-view", { staticClass: "bar bar3" }),
+                              i("v-uni-view", { staticClass: "bar bar4" }),
+                            ],
+                            1,
+                          )
+                        : i(
+                            "v-uni-view",
+                            { staticClass: "play_icon" },
+                            [i("v-uni-view", { staticClass: "triangle" })],
+                            1,
+                          ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              )
+            : t._e();
+        },
+        n = [];
+    },
+    "9ccd": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return o;
+        }),
+        i.d(e, "a", function () {
+          return a;
+        });
+      var a = { uvIcon: i("1a07").default },
+        n = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return i(
+            "v-uni-view",
+            {
+              ref: "uv-rate",
+              staticClass: "uv-rate",
+              style: [t.$uv.addStyle(t.customStyle)],
+              attrs: { id: t.elId },
+            },
+            [
+              i(
+                "v-uni-view",
+                {
+                  staticClass: "uv-rate__content",
+                  on: {
+                    touchmove: function (e) {
+                      e.stopPropagation(),
+                        (arguments[0] = e = t.$handleEvent(e)),
+                        t.touchMove.apply(void 0, arguments);
+                    },
+                    touchend: function (e) {
+                      e.stopPropagation(),
+                        (arguments[0] = e = t.$handleEvent(e)),
+                        t.touchEnd.apply(void 0, arguments);
+                    },
+                  },
+                },
+                t._l(Number(t.count), function (e, a) {
+                  return i(
+                    "v-uni-view",
+                    {
+                      key: a,
+                      staticClass: "uv-rate__content__item",
+                      class: [t.elClass],
+                    },
+                    [
+                      i(
+                        "v-uni-view",
+                        {
+                          ref: "uv-rate__content__item__icon-wrap",
+                          refInFor: !0,
+                          staticClass: "uv-rate__content__item__icon-wrap",
+                          on: {
+                            click: function (e) {
+                              e.stopPropagation(),
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                t.clickHandler(e, a + 1);
+                            },
+                          },
+                        },
+                        [
+                          i("uv-icon", {
+                            attrs: {
+                              name:
+                                Math.floor(t.activeIndex) > a
+                                  ? t.activeIcon
+                                  : t.inactiveIcon,
+                              color: t.disabled
+                                ? "#c8c9cc"
+                                : Math.floor(t.activeIndex) > a
+                                  ? t.activeColor
+                                  : t.inactiveColor,
+                              "custom-style": {
+                                "padding-left": t.$uv.addUnit(t.gutter / 2),
+                                "padding-right": t.$uv.addUnit(t.gutter / 2),
+                              },
+                              size: t.size,
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                      t.allowHalf
+                        ? i(
+                            "v-uni-view",
+                            {
+                              ref: "uv-rate__content__item__icon-wrap",
+                              refInFor: !0,
+                              staticClass:
+                                "uv-rate__content__item__icon-wrap uv-rate__content__item__icon-wrap--half",
+                              style: [
+                                { width: t.$uv.addUnit(t.rateWidth / 2) },
+                              ],
+                              on: {
+                                click: function (e) {
+                                  e.stopPropagation(),
+                                    (arguments[0] = e = t.$handleEvent(e)),
+                                    t.clickHandler(e, a + 1);
+                                },
+                              },
+                            },
+                            [
+                              i("uv-icon", {
+                                attrs: {
+                                  name:
+                                    Math.ceil(t.activeIndex) > a
+                                      ? t.activeIcon
+                                      : t.inactiveIcon,
+                                  color: t.disabled
+                                    ? "#c8c9cc"
+                                    : Math.ceil(t.activeIndex) > a
+                                      ? t.activeColor
+                                      : t.inactiveColor,
+                                  "custom-style": {
+                                    "padding-left": t.$uv.addUnit(t.gutter / 2),
+                                    "padding-right": t.$uv.addUnit(
+                                      t.gutter / 2,
+                                    ),
+                                  },
+                                  size: t.size,
+                                },
+                              }),
+                            ],
+                            1,
+                          )
+                        : t._e(),
+                    ],
+                    1,
+                  );
+                }),
+                1,
+              ),
+            ],
+            1,
+          );
+        },
+        o = [];
+    },
+    "9e9e": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var a = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("aa77"),
+        i("bf0f"),
+        i("c223");
+      var n = i("e74a"),
+        o = a(i("2b4e")),
+        s = a(i("3c78")),
+        r = {
+          components: { audioPlayer: o.default, seckillMask: s.default },
+          data: function () {
+            return {
+              id: 0,
+              info: [],
+              seller: [],
+              content: "",
+              vip_status: 0,
+              store_close: [],
+              palte: "h5",
+              show_login_panel: 0,
+              kefu: [],
+              child_list: [],
+              seckill_show: null,
+              select_id: 0,
+              specViewMode: "img",
+              des_tab: "buy",
+              hide_goods_comment: 0,
+              comment_list: [],
+              comment_page: 1,
+              comment_no_more: 0,
+              comment_total: 0,
+              comment_loaded: 0,
+              comment_loading: 0,
+              des_expand: {},
+            };
+          },
+          computed: {
+            height: function () {
+              return uni.getSystemInfoSync().windowHeight - uni.upx2px(100);
+            },
+          },
+          onLoad: function (t) {
+            (this.id = t.id),
+              "mp-weixin" == this.palte &&
+                wx.showShareMenu({
+                  withShareTicket: !0,
+                  menus: ["shareAppMessage", "shareTimeline"],
+                }),
+              this.getGoodsInfo(),
+              this.getEvaluateConfig();
+          },
+          onPullDownRefresh: function () {
+            var t = this;
+            uni.showLoading({ title: "刷新中" }),
+              setTimeout(function () {
+                uni.hideLoading(),
+                  t.getGoodsInfo(),
+                  uni.showToast({ title: "刷新成功", duration: 1e3 }),
+                  uni.stopPullDownRefresh();
+              }, 300);
+          },
+          onShareAppMessage: function () {
+            return {
+              title: this.info.title,
+              path: "/pages/index/goods?id=" + this.info.id,
+              imageUrl: this.info.thumb,
+            };
+          },
+          onShareTimeline: function () {
+            return {
+              title: this.info.title,
+              query: "id=" + this.info.id,
+              imageUrl: this.info.thumb,
+            };
+          },
+          onReachBottom: function () {
+            "comment" == this.des_tab && this.getGoodsCommentList();
+          },
+          methods: {
+            getGoodsInfo: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, n.send)(
+                  "/wechat/Goods/getGoodsInfo",
+                  { id: this.id },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var i = e.status,
+                    a = e.msg,
+                    n = e.data;
+                  1 == i
+                    ? ((t.info = n),
+                      0 == t.info.child_num && (t.select_id = t.info.id),
+                      (t.seckill_show = n.seckill_show || null),
+                      (t.seller = n.user),
+                      (t.content = n.buy_tips),
+                      (t.vip_status = n.vip_status),
+                      (t.store_close = n.store_close),
+                      (t.show_login_panel = n.show_login_panel),
+                      (t.kefu = n.kefu),
+                      1 == t.info.alert_status &&
+                        t.$nextTick(function () {
+                          t.$refs.notice.open();
+                        }),
+                      t.getGoodsCommentList())
+                    : uni.showModal({
+                        title: "温馨提示",
+                        content: a,
+                        showCancel: !1,
+                        confirmText: "确认",
+                        success: function (t) {
+                          t.confirm && uni.navigateBack({ delta: 1 });
+                        },
+                      });
+                });
+            },
+            checkChildGoods: function () {
+              0 == this.info.child_num ? this.sub() : this.showSpecModel();
+            },
+            sub: function () {
+              var t = this,
+                e = this;
+              if (0 != this.info.raffle_id)
+                return uni.$uv.toast("抽奖商品不允许下单");
+              if (1 == this.show_login_panel)
+                return uni.showModal({
+                  title: "温馨提示",
+                  content: "请先登录再下单哦",
+                  confirmColor: "#36c337",
+                  cancelText: "暂不登录",
+                  success: function (t) {
+                    t.confirm && uni.switchTab({ url: "/pages/user/index" });
+                  },
+                });
+              if (0 == this.select_id) return uni.$uv.toast("请选择商品规格");
+              if (this.seckill_show && 1 == this.seckill_show.sold_out)
+                return uni.$uv.toast("本轮已售罄, 等待补货");
+              if (this.child_list.length > 0) {
+                var i = this.child_list.find(function (e) {
+                  return e.id == t.select_id;
+                });
+                if (i && i.seckill_show && 1 == i.seckill_show.sold_out)
+                  return uni.$uv.toast("当前规格本轮已售罄, 等待补货");
+              }
+              (0, n.send)(
+                "/wechat/User/checkUserLoginStatus",
+                { label: "" },
+                !1,
+              ).then(function (i) {
+                var a = i.status,
+                  n = i.msg,
+                  o = i.data;
+                return 1 != a
+                  ? uni.$uv.toast(n)
+                  : 1 == t.info.is_vip && 0 == o.user_vip
+                    ? uni.showModal({
+                        title: "温馨提示",
+                        content: "加入会员, 享会员折扣商品哦",
+                        confirmColor: "#e64340",
+                        confirmText: "点我开通",
+                        cancelText: "暂不开通",
+                        success: function (t) {
+                          t.confirm && e.jump("/pages/pay/vip");
+                        },
+                      })
+                    : void t.jump("/pages/pay/submit?id=" + t.select_id);
+              });
+            },
+            jump: function (t) {
+              uni.navigateTo({ url: t });
+            },
+            jumpKefu: function () {
+              "h5" == this.palte
+                ? 1 == this.kefu.kefu_h5_type || 3 == this.kefu.kefu_h5_type
+                  ? (window.location.href = this.kefu.kefu_link)
+                  : uni.switchTab({ url: "/pages/chat/list" })
+                : ((1 != this.kefu.kefu_weapp_type &&
+                    4 != this.kefu.kefu_weapp_type) ||
+                    wx.openCustomerServiceChat({
+                      extInfo: { url: this.kefu.kefu_link },
+                      corpId: this.kefu.kefu_corp_id,
+                      success: function (t) {
+                        console.log(t);
+                      },
+                    }),
+                  2 == this.kefu.kefu_weapp_type &&
+                    uni.switchTab({ url: "/pages/chat/list" }));
+            },
+            changeDesTab: function (t) {
+              (this.des_tab = t),
+                "comment" == t &&
+                  0 == this.comment_loaded &&
+                  this.getGoodsCommentList();
+            },
+            getGoodsCommentList: function () {
+              var t = this;
+              1 != this.hide_goods_comment &&
+                (1 == this.comment_loading ||
+                  (1 == this.comment_loaded && 1 == this.comment_no_more) ||
+                  ((this.comment_loading = 1),
+                  (0, n.send)(
+                    "/wechat/Order/getGoodsCommentList",
+                    { id: this.id, page: this.comment_page },
+                    !1,
+                  )
+                    .then(function (e) {
+                      t.comment_loading = 0;
+                      var i = e.status,
+                        a = e.msg,
+                        n = e.data;
+                      if (1 != i)
+                        return (t.comment_loaded = 1), uni.$uv.toast(a);
+                      (t.comment_list = t.comment_list.concat(n.list)),
+                        (t.comment_total = n.total),
+                        (t.comment_no_more = n.no_more),
+                        (t.comment_loaded = 1),
+                        t.comment_page++;
+                    })
+                    .catch(function () {
+                      t.comment_loading = 0;
+                    })));
+            },
+            previewCommentImage: function (t, e) {
+              uni.previewImage({
+                current: t.comment_imgs[e],
+                urls: t.comment_imgs,
+              });
+            },
+            isDesOver: function (t) {
+              return !!t && t.length >= 55;
+            },
+            toggleDesExpand: function (t) {
+              this.$set(this.des_expand, t, !this.des_expand[t]);
+            },
+            previewImage: function (t) {
+              var e = this.info.pics[t];
+              uni.previewImage({ current: e, urls: this.info.pics });
+            },
+            initSpecMode: function () {
+              var t = this;
+              uni.$specConfig
+                ? (this.specViewMode =
+                    1 == uni.$specConfig.spec_text_switch ? "text" : "img")
+                : (0, n.send)("/wechat/Wechat/getSpecConfig", {}, !1)
+                    .then(function (e) {
+                      (uni.$specConfig = e.data || {}),
+                        (t.specViewMode =
+                          1 == uni.$specConfig.spec_text_switch
+                            ? "text"
+                            : "img");
+                    })
+                    .catch(function () {});
+            },
+            getEvaluateConfig: function () {
+              var t = this;
+              uni.$evaluateConfig
+                ? (this.hide_goods_comment =
+                    1 == uni.$evaluateConfig.hide_goods_comment ? 1 : 0)
+                : (0, n.send)("/wechat/Wechat/getEvaluateConfig", {}, !1)
+                    .then(function (e) {
+                      (uni.$evaluateConfig = e.data || {}),
+                        (t.hide_goods_comment =
+                          1 == uni.$evaluateConfig.hide_goods_comment ? 1 : 0);
+                    })
+                    .catch(function () {});
+            },
+            showSpecModel: function () {
+              var t = this;
+              this.initSpecMode(),
+                this.$refs.specsPop.open(),
+                (0, n.send)(
+                  "/wechat/Goods/getChildGoodsList",
+                  { id: this.id },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var i = e.status,
+                    a = e.msg,
+                    n = e.data;
+                  if (1 != i) return uni.$uv.toast(a);
+                  t.child_list = n;
+                });
+            },
+            selectGoods: function (t) {
+              (this.info = t), (this.select_id = t.id);
+            },
+            closeNotice: function () {
+              this.$refs.notice.close();
+            },
+          },
+        };
+      e.default = r;
+    },
+    "9ead": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return a;
+      }),
+        i.d(e, "c", function () {
+          return n;
+        }),
+        i.d(e, "a", function () {});
+      var a = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return t.isShow
+            ? i(
+                "v-uni-view",
+                { staticClass: "seckill_mask" },
+                [
+                  i("v-uni-view", { staticClass: "seckill_tip" }, [
+                    t._v("售罄"),
+                  ]),
+                  t.remain > 0
+                    ? i("v-uni-view", { staticClass: "seckill_countdown" }, [
+                        t._v("距补货 " + t._s(t.countText)),
+                      ])
+                    : t._e(),
+                ],
+                1,
+              )
+            : t._e();
+        },
+        n = [];
+    },
+    "9fbe": function (t, e, i) {
+      var a = i("4de7");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("5c904870", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    ac08: function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("9e9e"),
+        n = i.n(a);
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      e["default"] = n.a;
+    },
+    b084: function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.seckill_mask[data-v-1aa473ad]{position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;color:#fff;pointer-events:none}.seckill_mask .seckill_tip[data-v-1aa473ad]{font-size:%?34?%;font-weight:700;letter-spacing:%?4?%}.seckill_mask .seckill_countdown[data-v-1aa473ad]{font-size:%?24?%;margin-top:%?10?%}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    c954: function (t, e, i) {
+      var a = i("6321");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("40af3152", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    cc1d: function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return o;
+        }),
+        i.d(e, "a", function () {
+          return a;
+        });
+      var a = {
+          uvSwiper: i("db40").default,
+          uvIcon: i("1a07").default,
+          uvParse: i("c96a").default,
+          uvRate: i("5f70").default,
+          uvEmpty: i("caef").default,
+          uvPopup: i("ce8a").default,
+        },
+        n = function () {
+          var t = this,
+            e = t.$createElement,
+            a = t._self._c || e;
+          return a(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              a(
+                "v-uni-view",
+                { staticClass: "swiper_wrap" },
+                [
+                  t.info
+                    ? a("uv-swiper", {
+                        attrs: {
+                          list: t.info.pics,
+                          imgMode: "aspectFit",
+                          height: "250",
+                          indicator: !0,
+                          indicatorMode: "dot",
+                          circular: !0,
+                          radius: "",
+                        },
+                        on: {
+                          click: function (e) {
+                            (arguments[0] = e = t.$handleEvent(e)),
+                              t.previewImage.apply(void 0, arguments);
+                          },
+                        },
+                      })
+                    : t._e(),
+                  a("seckill-mask", { attrs: { seckill: t.seckill_show } }),
+                ],
+                1,
+              ),
+              a(
+                "v-uni-view",
+                { staticClass: "goods_box" },
+                [
+                  a(
+                    "v-uni-view",
+                    { staticClass: "price_box flex_box" },
+                    [
+                      a(
+                        "v-uni-view",
+                        { staticClass: "price_container" },
+                        [
+                          a(
+                            "v-uni-view",
+                            { staticClass: "new_price" },
+                            [
+                              a("v-uni-text", { staticClass: "icon" }, [
+                                t._v("￥"),
+                              ]),
+                              a("v-uni-text", { staticClass: "num" }, [
+                                t._v(t._s(t.info.price)),
+                              ]),
+                            ],
+                            1,
+                          ),
+                          a("v-uni-view", { staticClass: "old_price" }, [
+                            t._v(t._s(t.info.priced)),
+                          ]),
+                        ],
+                        1,
+                      ),
+                      t.info.sale_num2 > 0
+                        ? a("v-uni-view", { staticClass: "sales_box" }, [
+                            t._v("销量: " + t._s(t.info.sale_num2)),
+                          ])
+                        : t._e(),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "v-uni-view",
+                    { staticClass: "name_box uv-line-2" },
+                    [
+                      1 == t.info.is_vip && 1 == t.vip_status
+                        ? a("v-uni-text", { staticClass: "vipgoods_tag" }, [
+                            t._v("会员商品"),
+                          ])
+                        : t._e(),
+                      t._v(" " + t._s(t.info.title ? t.info.title : "") + " "),
+                    ],
+                    1,
+                  ),
+                  a("v-uni-view", { staticClass: "introduce" }, [
+                    t._v(t._s(t.info.intro)),
+                  ]),
+                ],
+                1,
+              ),
+              1 == t.info.is_vip && 1 == t.vip_status
+                ? a(
+                    "v-uni-view",
+                    {
+                      staticClass: "buy_vip flex_box",
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.jump("/pages/pay/vip");
+                        },
+                      },
+                    },
+                    [
+                      a("v-uni-view", { staticClass: "tit" }, [
+                        t._v("加入会员，享会员折扣商品"),
+                      ]),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "flex_box" },
+                        [
+                          a("v-uni-view", [t._v("了解更多")]),
+                          a("uv-icon", {
+                            attrs: {
+                              name: "arrow-right",
+                              color: "#bbb",
+                              size: "16",
+                              top: "0.4px",
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              a(
+                "v-uni-view",
+                { staticClass: "tips_box" },
+                [
+                  a("v-uni-view", { staticClass: "tips_text" }, [
+                    a("span", { staticClass: "highlight" }, [
+                      t._v("【购买提示】"),
+                    ]),
+                    t._v(
+                      " 当前商品属于个性化定制服务，服务开始后无法以无理由条件退款。本商品不对未成年人开放。 ",
+                    ),
+                  ]),
+                ],
+                1,
+              ),
+              a(
+                "v-uni-view",
+                { staticClass: "tab_bar flex_box" },
+                [
+                  a(
+                    "v-uni-view",
+                    {
+                      class: {
+                        tab: !0,
+                        cur: "buy" == t.des_tab,
+                        solo: 1 == t.hide_goods_comment,
+                      },
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.changeDesTab("buy");
+                        },
+                      },
+                    },
+                    [
+                      a("v-uni-view", { staticClass: "txt" }, [
+                        t._v("购买说明"),
+                      ]),
+                    ],
+                    1,
+                  ),
+                  1 != t.hide_goods_comment
+                    ? a(
+                        "v-uni-view",
+                        {
+                          class: { tab: !0, cur: "comment" == t.des_tab },
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.changeDesTab("comment");
+                            },
+                          },
+                        },
+                        [
+                          a(
+                            "v-uni-view",
+                            { staticClass: "txt" },
+                            [
+                              t._v("商品评价"),
+                              t.comment_total > 0
+                                ? a("v-uni-text", { staticClass: "tab_num" }, [
+                                    t._v("(" + t._s(t.comment_total) + ")"),
+                                  ])
+                                : t._e(),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      )
+                    : t._e(),
+                ],
+                1,
+              ),
+              "buy" == t.des_tab
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "rich_box" },
+                    [a("uv-parse", { attrs: { content: t.content } })],
+                    1,
+                  )
+                : t._e(),
+              "comment" == t.des_tab
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "comment_box" },
+                    [
+                      t._l(t.comment_list, function (e, i) {
+                        return a(
+                          "v-uni-view",
+                          { key: i, staticClass: "comment_col" },
+                          [
+                            a(
+                              "v-uni-view",
+                              { staticClass: "top flex_box" },
+                              [
+                                a("v-uni-view", { staticClass: "head_box" }, [
+                                  e.user && e.user.avatar_frame
+                                    ? a("img", {
+                                        staticClass: "head_frame",
+                                        attrs: { src: e.user.avatar_frame },
+                                      })
+                                    : t._e(),
+                                  a("img", {
+                                    staticClass: "img",
+                                    attrs: { src: e.user ? e.user.avatar : "" },
+                                  }),
+                                ]),
+                                a(
+                                  "v-uni-view",
+                                  { staticClass: "u_info" },
+                                  [
+                                    a(
+                                      "v-uni-view",
+                                      { staticClass: "name_row flex_box" },
+                                      [
+                                        a(
+                                          "v-uni-view",
+                                          { staticClass: "name uv-line-1" },
+                                          [
+                                            t._v(
+                                              t._s(
+                                                e.user
+                                                  ? e.user.nickname
+                                                  : "匿名用户",
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        e.user && e.user.level_icon
+                                          ? a("img", {
+                                              staticClass: "level",
+                                              attrs: {
+                                                mode: "aspectFit",
+                                                src: e.user.level_icon,
+                                              },
+                                            })
+                                          : t._e(),
+                                        a(
+                                          "v-uni-view",
+                                          { staticClass: "time" },
+                                          [t._v(t._s(e.comment_time))],
+                                        ),
+                                      ],
+                                      1,
+                                    ),
+                                    a(
+                                      "v-uni-view",
+                                      { staticClass: "star_row flex_box" },
+                                      [
+                                        a(
+                                          "v-uni-view",
+                                          { staticClass: "star_label" },
+                                          [t._v("评分")],
+                                        ),
+                                        a("uv-rate", {
+                                          attrs: {
+                                            value: e.comment_star,
+                                            size: "14",
+                                            gutter: "2",
+                                            readonly: !0,
+                                          },
+                                        }),
+                                      ],
+                                      1,
+                                    ),
+                                  ],
+                                  1,
+                                ),
+                              ],
+                              1,
+                            ),
+                            a(
+                              "v-uni-view",
+                              { staticClass: "des_wrap" },
+                              [
+                                a(
+                                  "v-uni-view",
+                                  {
+                                    staticClass: "des",
+                                    class: { clamp: !t.des_expand[i] },
+                                  },
+                                  [t._v(t._s(e.comment_des))],
+                                ),
+                                t.isDesOver(e.comment_des) && !t.des_expand[i]
+                                  ? a(
+                                      "v-uni-view",
+                                      {
+                                        staticClass: "des_toggle abs",
+                                        on: {
+                                          click: function (e) {
+                                            (arguments[0] = e =
+                                              t.$handleEvent(e)),
+                                              t.toggleDesExpand(i);
+                                          },
+                                        },
+                                      },
+                                      [
+                                        a("v-uni-text", [t._v("展开")]),
+                                        a("uv-icon", {
+                                          attrs: {
+                                            name: "arrow-down",
+                                            color: "#666",
+                                            size: "12",
+                                          },
+                                        }),
+                                      ],
+                                      1,
+                                    )
+                                  : t._e(),
+                                t.isDesOver(e.comment_des) && t.des_expand[i]
+                                  ? a(
+                                      "v-uni-view",
+                                      {
+                                        staticClass:
+                                          "des_toggle bottom flex_box",
+                                        on: {
+                                          click: function (e) {
+                                            (arguments[0] = e =
+                                              t.$handleEvent(e)),
+                                              t.toggleDesExpand(i);
+                                          },
+                                        },
+                                      },
+                                      [
+                                        a("v-uni-text", [t._v("收起")]),
+                                        a("uv-icon", {
+                                          attrs: {
+                                            name: "arrow-up",
+                                            color: "#666",
+                                            size: "12",
+                                          },
+                                        }),
+                                      ],
+                                      1,
+                                    )
+                                  : t._e(),
+                              ],
+                              1,
+                            ),
+                            e.comment_imgs && e.comment_imgs.length > 0
+                              ? a(
+                                  "v-uni-view",
+                                  { staticClass: "c_imgs flex_box" },
+                                  t._l(e.comment_imgs, function (i, n) {
+                                    return a("img", {
+                                      key: n,
+                                      staticClass: "c_img",
+                                      attrs: { src: i, mode: "aspectFill" },
+                                      on: {
+                                        click: function (i) {
+                                          (arguments[0] = i =
+                                            t.$handleEvent(i)),
+                                            t.previewCommentImage(e, n);
+                                        },
+                                      },
+                                    });
+                                  }),
+                                  0,
+                                )
+                              : t._e(),
+                          ],
+                          1,
+                        );
+                      }),
+                      0 == t.comment_list.length && 1 == t.comment_loaded
+                        ? a("uv-empty", {
+                            attrs: { text: "暂无评价", icon: "list" },
+                          })
+                        : t._e(),
+                      t.comment_list.length > 0 && 1 == t.comment_no_more
+                        ? a("v-uni-view", { staticClass: "load_more" }, [
+                            t._v("没有更多了"),
+                          ])
+                        : t._e(),
+                    ],
+                    2,
+                  )
+                : t._e(),
+              a(
+                "v-uni-view",
+                { staticClass: "daohang_box flex_box" },
+                [
+                  a(
+                    "v-uni-view",
+                    {
+                      staticClass: "kefu_box",
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)), t.jumpKefu();
+                        },
+                      },
+                    },
+                    [
+                      a("img", {
+                        staticClass: "picture",
+                        attrs: { src: i("fd7e"), alt: "" },
+                      }),
+                      a("v-uni-view", { staticClass: "kefu" }, [t._v("客服")]),
+                    ],
+                    1,
+                  ),
+                  1 == t.store_close.online
+                    ? [
+                        1 == t.info.limit1
+                          ? a(
+                              "v-uni-view",
+                              {
+                                staticClass: "xiadan",
+                                staticStyle: { "background-color": "#dadada" },
+                              },
+                              [t._v("24小时之内限制下1单")],
+                            )
+                          : 0 != t.info.raffle_id
+                            ? a(
+                                "v-uni-view",
+                                {
+                                  staticClass: "xiadan",
+                                  staticStyle: {
+                                    "background-color": "#dadada",
+                                  },
+                                },
+                                [t._v("当前商品暂不允许下单")],
+                              )
+                            : a(
+                                "v-uni-view",
+                                {
+                                  staticClass: "xiadan",
+                                  on: {
+                                    click: function (e) {
+                                      (arguments[0] = e = t.$handleEvent(e)),
+                                        t.checkChildGoods.apply(
+                                          void 0,
+                                          arguments,
+                                        );
+                                    },
+                                  },
+                                },
+                                [
+                                  t._v(
+                                    t._s(
+                                      "mp-weixin" == t.palte &&
+                                        1 == t.kefu.order_kefu_send_link
+                                        ? "联系客服下单"
+                                        : "立即下单",
+                                    ),
+                                  ),
+                                ],
+                              ),
+                      ]
+                    : a(
+                        "v-uni-view",
+                        {
+                          staticClass: "xiadan",
+                          staticStyle: { "background-color": "#dadada" },
+                        },
+                        [t._v("商家已打烊")],
+                      ),
+                ],
+                2,
+              ),
+              0 == t.store_close.online
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "storeClose_box flex_box" },
+                    [
+                      a("img", {
+                        attrs: { src: t.store_close.close_store_icon },
+                      }),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "tit_box" },
+                        [
+                          a("v-uni-view", { staticClass: "tit" }, [
+                            t._v("商家已打烊"),
+                          ]),
+                          a("v-uni-view", { staticClass: "des" }, [
+                            t._v(t._s(t.store_close.store_tip_txt)),
+                          ]),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              a(
+                "uv-popup",
+                {
+                  ref: "notice",
+                  attrs: {
+                    mode: "center",
+                    bgColor: "none",
+                    "z-index": "99999",
+                  },
+                  on: {
+                    maskClick: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.closeNotice.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  a(
+                    "v-uni-view",
+                    { staticClass: "notice_every_day" },
+                    [
+                      a("v-uni-view", { staticClass: "dd" }, [
+                        t._v("商品说明"),
+                      ]),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "rich_box" },
+                        [
+                          a("uv-parse", {
+                            attrs: {
+                              content: t.info.alert_des,
+                              "preview-img": !1,
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        {
+                          staticClass: "btn",
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.closeNotice.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [t._v("关闭")],
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a(
+                "uv-popup",
+                {
+                  ref: "specsPop",
+                  attrs: {
+                    mode: "bottom",
+                    zIndex: "10075",
+                    safeAreaInsetBottom: !0,
+                  },
+                },
+                [
+                  a(
+                    "v-uni-view",
+                    { staticClass: "specsShow" },
+                    [
+                      a(
+                        "v-uni-view",
+                        { staticClass: "goods_msg flex_box" },
+                        [
+                          a("img", {
+                            staticClass: "img",
+                            attrs: {
+                              src:
+                                t.info.pics && t.info.pics[0]
+                                  ? t.info.pics[0]
+                                  : t.info.thumb,
+                            },
+                            on: {
+                              click: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  t.previewImage();
+                              },
+                            },
+                          }),
+                          a(
+                            "v-uni-view",
+                            { staticClass: "txt" },
+                            [
+                              a(
+                                "v-uni-view",
+                                { staticClass: "name uv-line-1" },
+                                [t._v(t._s(t.info.title))],
+                              ),
+                              a(
+                                "v-uni-view",
+                                { staticClass: "price_box flex_box" },
+                                [
+                                  a(
+                                    "v-uni-view",
+                                    { staticClass: "new_price" },
+                                    [
+                                      a("v-uni-text", { staticClass: "unit" }, [
+                                        t._v("￥"),
+                                      ]),
+                                      a("v-uni-text", [
+                                        t._v(t._s(t.info.price)),
+                                      ]),
+                                    ],
+                                    1,
+                                  ),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "reason_box" },
+                        [
+                          a(
+                            "v-uni-view",
+                            { staticClass: "tit flex_box" },
+                            [
+                              a("v-uni-text", [t._v("商品规格")]),
+                              a(
+                                "v-uni-view",
+                                {
+                                  staticClass: "switch_btn",
+                                  on: {
+                                    click: function (e) {
+                                      (arguments[0] = e = t.$handleEvent(e)),
+                                        (t.specViewMode =
+                                          "img" == t.specViewMode
+                                            ? "text"
+                                            : "img");
+                                    },
+                                  },
+                                },
+                                [
+                                  t._v(
+                                    t._s(
+                                      "img" == t.specViewMode
+                                        ? "切换到文字"
+                                        : "切换到图片",
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                            1,
+                          ),
+                          a(
+                            "v-uni-view",
+                            {
+                              class: ["specs_grid", "specs_" + t.specViewMode],
+                            },
+                            t._l(t.child_list, function (e, i) {
+                              return a(
+                                "v-uni-view",
+                                {
+                                  key: i,
+                                  class: { col: !0, cur: t.select_id == e.id },
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = t.$handleEvent(i)),
+                                        t.selectGoods(e);
+                                    },
+                                  },
+                                },
+                                [
+                                  "img" == t.specViewMode
+                                    ? a(
+                                        "v-uni-view",
+                                        { staticClass: "col_img_box" },
+                                        [
+                                          a("v-uni-image", {
+                                            staticClass: "col_img",
+                                            attrs: {
+                                              src: e.thumb
+                                                ? e.thumb
+                                                : e.pics && e.pics[0]
+                                                  ? e.pics[0]
+                                                  : "",
+                                              mode: "aspectFill",
+                                            },
+                                          }),
+                                          a("seckill-mask", {
+                                            attrs: { seckill: e.seckill_show },
+                                          }),
+                                        ],
+                                        1,
+                                      )
+                                    : t._e(),
+                                  a(
+                                    "v-uni-view",
+                                    {
+                                      class: [
+                                        "col_title",
+                                        "text" == t.specViewMode
+                                          ? "col_title_text"
+                                          : "",
+                                      ],
+                                    },
+                                    [t._v(t._s(e.title))],
+                                  ),
+                                ],
+                                1,
+                              );
+                            }),
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "daohang_box flex_box" },
+                        [
+                          a(
+                            "v-uni-view",
+                            {
+                              staticClass: "kefu_box",
+                              on: {
+                                click: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.jumpKefu();
+                                },
+                              },
+                            },
+                            [
+                              a("img", {
+                                staticClass: "picture",
+                                attrs: { src: i("fd7e"), alt: "" },
+                              }),
+                              a("v-uni-view", { staticClass: "kefu" }, [
+                                t._v("客服"),
+                              ]),
+                            ],
+                            1,
+                          ),
+                          1 == t.store_close.online
+                            ? [
+                                1 == t.info.limit1
+                                  ? a(
+                                      "v-uni-view",
+                                      { staticClass: "xiadan cancel" },
+                                      [t._v("24小时之内限制下1单")],
+                                    )
+                                  : 0 != t.info.raffle_id
+                                    ? a(
+                                        "v-uni-view",
+                                        { staticClass: "xiadan cancel" },
+                                        [t._v("当前商品暂不允许下单")],
+                                      )
+                                    : a(
+                                        "v-uni-view",
+                                        {
+                                          staticClass: "xiadan",
+                                          on: {
+                                            click: function (e) {
+                                              (arguments[0] = e =
+                                                t.$handleEvent(e)),
+                                                t.sub.apply(void 0, arguments);
+                                            },
+                                          },
+                                        },
+                                        [
+                                          t._v(
+                                            t._s(
+                                              "mp-weixin" == t.palte &&
+                                                1 == t.kefu.order_kefu_send_link
+                                                ? "联系客服下单"
+                                                : "立即下单",
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                              ]
+                            : a(
+                                "v-uni-view",
+                                { staticClass: "xiadan cancel" },
+                                [t._v("商家已打烊")],
+                              ),
+                        ],
+                        2,
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a("audio-player"),
+            ],
+            1,
+          );
+        },
+        o = [];
+    },
+    dba3: function (t, e, i) {
+      var a = i("141d");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("685d51ef", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    e8c3: function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("cc1d"),
+        n = i("ac08");
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      i("30e9");
+      var s = i("828b"),
+        r = Object(s["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "b89ee9d0",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    f6ff: function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("31ed"),
+        n = i.n(a);
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      e["default"] = n.a;
+    },
+    fd7e: function (t, e) {
+      t.exports =
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAACrBJREFUeF7tnV1sFUUUgM+WIvITwIABBGMB++ODJj6BBmMbExJ/YjD6QoRA44MPoiZqgi+mrS+SGENEfZVC0JAYY/yLPzFQxED0weCTbQm2BrBFUbFQQCisnMudup17ZubM7Mze3d5uQu5N2Z2dPd+cnzlzdm4ExTgaAKAVAPDztvInfsdDfOL3wcTj4Hf8d6D8N/zek/fHjXLaQRTyZgC4vwzCVzcFFISUS0B5AiIgbJJGvS8YVDsIZde1+3VL2hXyntq28wCkEwCyhKASCMJpr7ZZqxYQoQ0djkNR+Ar5M+lP0Oe4HEJrcKBkflQDCD6oDQghIBQOOmUbx4yAxD/hj5LQdALH+3aVzVlmYLIEgoLYz/QPIUepiNjQTHK0CAcAmrJkBBcMUFZAOFoREoJKgNxAIrO+hQbC0YqqmAaJEFdrsK9tIbUlJBCTVuQiqiFUB+c/6ONUviaotoQCsrM8sdPF/lWJYpjG3xQFBoMSAgg6bpWzRAeJKl+Uw2RyMQrzOrB8AsHOo2aoYHjvfEZUTdri9bl8AlFpRl59hS1PHGj4jNSBqRcMjVMfvoDoYCxP3cv8NKAzYV40xQcQFYyi+Qsu9qBQ0gJRhbaTFYaApoKS2jynAaKyqZMdBgeK8+QxDZABYvKEI2Qy+QyTGUNNQTnIh/OgdAWi8hsII5MknElSGf6/ylI4OXkXIJhawPmGfKCa2qTGU8ks/rmlAeqhAWJogKic5ohhEKLrAyJq7M2sL+XJobyk4ORPXIBQpspbHK6iVAawGSDmrbMjHIh7AOoORE292L+Qh2pSbG26bIFQUVVQv1ECMe1qB0QRaqbbIeBcqeuK7ugNZVJV/sTKctgA8XJDrkQTGmGzuqhvvmTSol0wBt2BwFDm3GrA2gChMrjWKskBEh9tab1mmlRpCk4THDDtAfyMan6CaRWW2bQBEhNP6T2qio+2dALEHWdHr8LFf2MYuxLDkpvr00MAgKHfx6C+PoJZMyOYfWNdSVuixl6v2dpyclUeTGwt4QKhfId3Rx4fbS6F0y+99ge88e5f4xCaV9wAH+y4Be5snuEE5tCPF+DJF4Zg8OTl8etf2bIAXn1+IcZjXQGgUNMCli/hAqEiK6/aEfc37UTH/dupMVi65liF4J/ZMB/e7ljkBGTDi0Pw3icjFdeePdIIc2bXhYBCzU1Y5p0DhHJUXrUj6TP6Bi5By9rKye/6R+bC+9uXOAF56KkT8MW3oxXXDh9eCYsW1gNcd/Y+fYoqDDZqCQcI5cyNDXMlJzvwqgDBziKUK1Gbx+iLGsjG2TsHCOXMOdexmAi/IU6uGpDrHeiJGvt8LTFT0wSjczcJNqi5ivtbNkMUT0jDVBkI+pM2j+GwtXM3AQlrrvqbB8bzUGUVyRbI7bBo4TRZk31qibXZMgGhoivTNTxTRWgHXpgDID61hDJb2mjLJFzZf3iLrkSYK9PLBZA47o6a+r0ULZQLI5KVOFo/ogNCqRs7BWBSk/hoMxUsQP/AJWgmwt6N6+bC7tfdwt5Hnz4Jn+47V9GlocMrYTGGvfIRw2DU1Odroc3Kj+iAUP7Dy2SQcuZJmax64lf44aeLE8SEMBCKy/HOnjOwpevUhEsfuGcWfLP7Vk1z3pw7NUlUThtsgWAcrTpQFVnv7anMlWj4/MUY9n42AiPnrkIUAdzVPAPaVs9yYTF+zVcHR6H32CVAtbxpXh1sXDcP6rQG2yqlknwPRe7nfADYLv1ROR/RdYly6ByhGOteTUA4Nwl+jtmPmCoadV1U+mIdENLGWwhCWbovTwYt2szyVF34q6ti5PRRGWmFBIIdI6HExPyD8xQZn6MCoqopsOneMACQEYoKiGp10Oam4tyK0aCKsFwaD3YNHWml1QzRXYxYZlJ9twWiewkSO6t6b29CVFFgDVH5VZQLDjxqvR7lIlfpjAHAdBsg1Eg4AgB3G0YkahaugcsFCROcWCF8SKVTV62Xc6oUzwLAHEl25BRCpSFrAOCg1MDHALCOYSKMWc6CAkmT1/sbADD8TR5WQCihGnP5ibvJs9MJ6QKxbs6AW71T4qhdqueSo07WCmD5AY4DwLJqAqFG07g2Bq8q8YFxLFouLValyeuxl8BtnLqNhuiBlMpAY6pI2YcovbQRNfYlZZPWYuQbCEos136k0qHXApD/i+GwPKdhKRkFehnt9o1UJBYnPxChJcvbfmkdPHEZNj8+D3ZuW2wvOw9XtG04Dj3fn4eGZdNhYN9yai2kNoA83Dp72+c9o1uFTDueXQCdz2HxWnZH+8vD0P3hP+M3XHvvnPVfHzq3V+pBbQCRyy5xhKKWtK5Kl2rn4kStQO1ghKM1AwTrbA+fvxCvFkIpmY39K7gyTXWeMFWJRlRp8doBUn5PcUIInIXp6txxGrre+pOjHXhOTQHBB67IE4WEIvuNMhVdNWbNAUGZVBQDhIBCmCm8tykNUpNAyAJldPD79+iKEXhuBOc67VuHS+GtdJhg1KTJGvfp1I5C6Og3PTa3NFexnUAiCAxrCX/B0Yxkv+RUj00qKf+pE824VhYPIBjUGISjC40RAk42d300MmGOId3TpuivJk2WzMi0RWBpZo0HwkEApSFfaZIo9i4Ff2nS71TByH0A8J3cOZsiB46tFe37qglOU2pDgbAxM/L11BoPZ7VQVRRhtUBFRj3l7flMOyRQy7825oESpGppmOPRRZ1Y2v3dXd7R1xWLkMqg0xBVB3DzetWbq6rR4GIiVGAQOO7moKoWFBWU+AsItjth6wCrKk6oLTRMmv0lADxI3UwHREdXPHSyTd0u0aYqe85I152DfQ21Q0PyvroNPvE87AP2xXQ41fZio0bHarpzeS9C1kvzjLaqfYpqYwDbfikHKGfkpoGS1nfYPmgW56eFopUJB4irpqSJaLIQbJp7mHyErm3tG8xcIHgD0Qnd9kjGyvc0UsjhtSL6E7+PleziaQCQV9uMUwcbIMmbUY4rC6eaQybjXUrKBGVBzcWM0aYrkDwLJg99c96maQqIf3yq6YJRO7ArU0D8A1HNVViyZp3kv8+TtsXUG4ROAfE3NlSmyhhZJbswBcQfEC97GU8B8QNEBYPlyKc0xA8E0YrXHySY0pB0cFRO3PnX3KaAuAPRvZHrvONe0YFgZJP8nXUhXlycCpny172r7gyjyBNDTrY1VKJT95OAqWAUFYjty/vO9lyyZmQhX+IcL8sNRTNZtjCEvJx+OiIhbNOilBcYRdMQ3Ro/xzW7aArHNKY2U0Wdh+h+DU5sbSEqUXA3CarowmZJ2bR0nVbryEFUFJOl0g6dqVCVMeHsWVdbZvIVKEjj/rsclaXOKQoQ1/2DKa2i0hnCNOHmOaYyHm/+oshAXPd/pDQrmX3l+AhfgQFLaYqiIWlqheVCZ1HkpyvsSwov1Hym0D5EBmJjw133jkSBBTVPRTZZ2t2FDLbAdu/ITDVC7ntRTBYVMXHWGkyha9VMk2oQFQUINUM3TfQ4E0l08CIRmYu6sqIAwQFFhbAq86LKxp65to/ym55fU2BFT9yTigREl8cSO2qLdLzq+b2mObhCtjmvSEDwuWx8giwHjs+xkV2Qc4sGxBVK5uGrK60iAsFnFXvhmtIcQRKArsLmXFdUIPhswl+I1yOSr7Xhe5BCmzhyyM05/wGhNOiSLHV8XgAAAABJRU5ErkJggg==";
+    },
+  },
+]);
+//# sourceMappingURL=pages-index-goods.25c74f14.js.map

@@ -1,0 +1,476 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages-follow-index"],
+  {
+    "058f": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("40e5"),
+        n = i.n(a);
+      for (var s in a)
+        ["default"].indexOf(s) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(s);
+      e["default"] = n.a;
+    },
+    "0e25": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("f57d"),
+        n = i("058f");
+      for (var s in n)
+        ["default"].indexOf(s) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(s);
+      i("c7e8");
+      var o = i("828b"),
+        r = Object(o["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "267d0d6a",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    3744: function (t, e, i) {
+      t.exports = i.p + "static/vip.png";
+    },
+    "40e5": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var a = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var n = a(i("b7c7"));
+      i("bf0f"), i("2797"), i("aa9c");
+      var s = i("e74a"),
+        o = {
+          data: function () {
+            return {
+              seller_id: 0,
+              selected: 2,
+              keyword: "",
+              list: [],
+              page: 1,
+              no_more: 0,
+              status: "loading",
+            };
+          },
+          onLoad: function () {
+            this.getFollowList();
+          },
+          onPullDownRefresh: function () {
+            var t = this;
+            uni.showLoading({ title: "刷新中" }),
+              setTimeout(function () {
+                uni.hideLoading(),
+                  (t.page = 1),
+                  (t.no_more = 0),
+                  (t.status = "loading"),
+                  t.getFollowList(),
+                  uni.showToast({ title: "刷新成功", duration: 1e3 }),
+                  uni.stopPullDownRefresh();
+              }, 300);
+          },
+          onReachBottom: function (t) {
+            this.loadMoreFun();
+          },
+          methods: {
+            search: function () {
+              (this.page = 1),
+                (this.no_more = 0),
+                (this.status = "loading"),
+                uni.$uv.throttle(this.getFollowList, 1500);
+            },
+            followSeller: function (t) {
+              (this.seller_id = t), uni.$uv.throttle(this.followSellerFun, 500);
+            },
+            followSellerFun: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, s.send)(
+                  "/wechat/UserFans/followSeller",
+                  { seller_id: this.seller_id },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var i = e.status,
+                    a = e.msg;
+                  e.data;
+                  if (1 != i) return uni.$uv.toast(a);
+                  t.list.forEach(function (e) {
+                    e.seller.id == t.seller_id &&
+                      ((e.seller.follow_status =
+                        1 == e.seller.follow_status ? 0 : 1),
+                      (e.seller.fans =
+                        1 == e.seller.follow_status
+                          ? e.seller.fans + 1
+                          : e.seller.fans - 1));
+                  });
+                });
+            },
+            getFollowList: function () {
+              var t = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, s.send)(
+                  "/wechat/UserFans/getFollowList",
+                  { keyword: this.keyword, page: this.page },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var i,
+                    a = e.status,
+                    s = e.msg,
+                    o = e.data;
+                  if (1 != a) return uni.$uv.toast(s);
+                  t.page > 1
+                    ? (i = t.list).push.apply(i, (0, n.default)(o.list))
+                    : (t.list = o.list);
+                  1 == o.no_more &&
+                    ((t.status = "nomore"), (t.no_more = o.no_more));
+                });
+            },
+            loadMoreFun: function () {
+              0 == this.no_more && (this.page++, this.getFollowList()),
+                console.log("到底了");
+            },
+            jump: function (t) {
+              uni.navigateTo({ url: t });
+            },
+          },
+        };
+      e.default = o;
+    },
+    c7e8: function (t, e, i) {
+      "use strict";
+      var a = i("d0bf"),
+        n = i.n(a);
+      n.a;
+    },
+    d0bf: function (t, e, i) {
+      var a = i("f536");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("51de125b", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    f536: function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.new_search_box[data-v-267d0d6a] .uv-input{background:#fff!important;padding:%?4?%!important;padding-left:%?18?%!important}.new_search_box[data-v-267d0d6a] .uv-input.uv-border{border:%?4?% solid #000!important}.new_search_box[data-v-267d0d6a] .uv-input .uv-input__content__clear{margin-right:%?8?%!important}.new_search_box[data-v-267d0d6a] .uv-input .btn{width:%?88?%!important;height:%?56?%!important;border-radius:%?56?%!important;background:#000!important;justify-content:center!important}.new_search_box[data-v-267d0d6a] .uv-input .btn .uv-icon__icon{font-weight:700!important}[data-v-267d0d6a] .uv-search__content{border-width:%?4?%}.content[data-v-267d0d6a]{padding:%?35?% %?30?%}.list[data-v-267d0d6a]{margin-top:%?40?%}.list .item[data-v-267d0d6a]{margin-bottom:%?52?%}.list .item[data-v-267d0d6a]:last-child{margin-bottom:%?15?%}.list .item .msg_box .head[data-v-267d0d6a]{width:%?82?%;height:%?82?%;border-radius:%?82?%}.list .item .msg_box .des_box[data-v-267d0d6a]{width:calc(100% - %?105?%)}.list .item .msg_box .des_box .btn[data-v-267d0d6a]{background:#ffe610;border:%?4?% solid #000;min-width:%?135?%;height:%?66?%;line-height:%?58?%;border-radius:%?66?%;text-align:center;font-weight:700}.list .item .msg_box .des_box .btn.cancle[data-v-267d0d6a]{padding:0 %?24?%;background:#eee;border-color:#eee;color:#666}.list .item .msg_box .des_box .user[data-v-267d0d6a]{height:%?82?%;width:calc(100% - %?200?%);display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between}.list .item .msg_box .des_box .user .name_box[data-v-267d0d6a]{width:100%;justify-content:flex-start}.list .item .msg_box .des_box .user .name_box .nickname[data-v-267d0d6a]{font-weight:700;font-size:14.6px}.list .item .msg_box .des_box .user .name_box .vip[data-v-267d0d6a]{margin-left:%?10?%;height:%?40?%;width:%?40?%}.list .item .msg_box .des_box .user .name_box.is_vip .nickname[data-v-267d0d6a]{color:red}.list .item .msg_box .des_box .user .fans_box[data-v-267d0d6a]{display:flex;justify-content:flex-start;align-items:center}.list .item .msg_box .des_box .user .fans_box .xinyong[data-v-267d0d6a]{padding:0 %?8?%;height:%?35?%;line-height:%?35?%;border-radius:%?35?%;background:#fff1d4;color:#fd6400;font-size:11px;white-space:nowrap;margin-right:%?20?%;max-width:%?190?%}.list .item .msg_box .des_box .user .fans_box .fans[data-v-267d0d6a]{font-size:12px;color:#999}.list .item .grid[data-v-267d0d6a]{margin-top:%?32?%;display:grid;grid-template-columns:repeat(3,1fr);grid-gap:%?2?%;border-radius:%?20?%;margin-left:%?105?%}.list .item .grid .tu[data-v-267d0d6a]{position:relative}.list .item .grid .tu[data-v-267d0d6a]:last-child{border-radius:0 %?20?% %?20?% 0}.list .item .grid .tu .img[data-v-267d0d6a]{width:%?220?%;height:%?220?%}.list .item .grid .tu .price[data-v-267d0d6a]{position:absolute;right:%?5?%;bottom:%?5?%;background:rgba(0,0,0,.3);color:#fff;padding:%?4?% %?6?%;border-radius:%?15?%;font-size:12px;font-weight:700}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    f57d: function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return s;
+        }),
+        i.d(e, "a", function () {
+          return a;
+        });
+      var a = {
+          uvInput: i("f723").default,
+          uvIcon: i("1a07").default,
+          uvEmpty: i("caef").default,
+          uvLoadMore: i("bd68").default,
+        },
+        n = function () {
+          var t = this,
+            e = t.$createElement,
+            a = t._self._c || e;
+          return a(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              a(
+                "v-uni-view",
+                { staticClass: "new_search_box" },
+                [
+                  a("uv-input", {
+                    staticClass: "new_search",
+                    attrs: {
+                      placeholder: "请输入搜索内容",
+                      border: "surround",
+                      shape: "circle",
+                      clearable: !0,
+                      fontSize: "14px",
+                    },
+                    on: {
+                      confirm: function (e) {
+                        (arguments[0] = e = t.$handleEvent(e)),
+                          t.search.apply(void 0, arguments);
+                      },
+                    },
+                    scopedSlots: t._u([
+                      {
+                        key: "suffix",
+                        fn: function () {
+                          return [
+                            a(
+                              "v-uni-view",
+                              {
+                                staticClass: "btn flex_box",
+                                on: {
+                                  click: function (e) {
+                                    (arguments[0] = e = t.$handleEvent(e)),
+                                      t.search.apply(void 0, arguments);
+                                  },
+                                },
+                              },
+                              [
+                                a("uv-icon", {
+                                  attrs: {
+                                    name: "search",
+                                    color: "#fff",
+                                    size: "20",
+                                  },
+                                }),
+                              ],
+                              1,
+                            ),
+                          ];
+                        },
+                        proxy: !0,
+                      },
+                    ]),
+                    model: {
+                      value: t.keyword,
+                      callback: function (e) {
+                        t.keyword = e;
+                      },
+                      expression: "keyword",
+                    },
+                  }),
+                ],
+                1,
+              ),
+              t.list.length > 0
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "list" },
+                    t._l(t.list, function (e, n) {
+                      return a(
+                        "v-uni-view",
+                        { key: n, staticClass: "item", attrs: { text: e } },
+                        [
+                          a(
+                            "v-uni-view",
+                            { staticClass: "msg_box flex_box" },
+                            [
+                              a(
+                                "v-uni-view",
+                                {
+                                  staticClass: "head",
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = t.$handleEvent(i)),
+                                        t.jump(
+                                          "/pages/index/seller?id=" +
+                                            e.seller.id,
+                                        );
+                                    },
+                                  },
+                                },
+                                [
+                                  a("img", {
+                                    attrs: {
+                                      src: e.seller ? e.seller.avatar : "",
+                                    },
+                                  }),
+                                ],
+                              ),
+                              a(
+                                "v-uni-view",
+                                { staticClass: "des_box flex_box" },
+                                [
+                                  a(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: "user",
+                                      on: {
+                                        click: function (i) {
+                                          (arguments[0] = i =
+                                            t.$handleEvent(i)),
+                                            t.jump(
+                                              "/pages/index/seller?id=" +
+                                                e.seller.id,
+                                            );
+                                        },
+                                      },
+                                    },
+                                    [
+                                      a(
+                                        "v-uni-view",
+                                        {
+                                          class: {
+                                            name_box: !0,
+                                            flex_box: !0,
+                                            is_vip: e.seller.seller_vip ? 1 : 0,
+                                          },
+                                        },
+                                        [
+                                          a(
+                                            "v-uni-view",
+                                            {
+                                              staticClass: "nickname uv-line-1",
+                                            },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  e.seller
+                                                    ? e.seller.nickname
+                                                    : "",
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          1 == e.seller.seller_vip
+                                            ? a("img", {
+                                                staticClass: "vip",
+                                                attrs: { src: i("3744") },
+                                              })
+                                            : t._e(),
+                                        ],
+                                        1,
+                                      ),
+                                      a(
+                                        "v-uni-view",
+                                        { staticClass: "fans_box" },
+                                        [
+                                          a(
+                                            "v-uni-view",
+                                            { staticClass: "xinyong" },
+                                            [t._v("信用良好")],
+                                          ),
+                                          a(
+                                            "v-uni-view",
+                                            { staticClass: "fans" },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  e.seller ? e.seller.fans : 0,
+                                                ) + "粉丝",
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                        1,
+                                      ),
+                                    ],
+                                    1,
+                                  ),
+                                  a(
+                                    "v-uni-view",
+                                    {
+                                      class: e.seller.follow_status
+                                        ? "btn cancle"
+                                        : "btn",
+                                      on: {
+                                        click: function (i) {
+                                          (arguments[0] = i =
+                                            t.$handleEvent(i)),
+                                            t.followSeller(e.seller.id);
+                                        },
+                                      },
+                                    },
+                                    [
+                                      t._v(
+                                        t._s(
+                                          e.seller.follow_status
+                                            ? "取消关注"
+                                            : "关注",
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          ),
+                          e.goods.length > 0
+                            ? a(
+                                "v-uni-view",
+                                { staticClass: "grid" },
+                                t._l(e.goods, function (e, i) {
+                                  return a(
+                                    "v-uni-view",
+                                    {
+                                      key: i,
+                                      staticClass: "tu",
+                                      attrs: { text: e },
+                                      on: {
+                                        click: function (i) {
+                                          (arguments[0] = i =
+                                            t.$handleEvent(i)),
+                                            t.jump(
+                                              "/pages/index/goods?id=" + e.id,
+                                            );
+                                        },
+                                      },
+                                    },
+                                    [
+                                      a("img", {
+                                        staticClass: "img",
+                                        attrs: {
+                                          src: e.cat3 ? e.cat3.thumb : "",
+                                        },
+                                      }),
+                                      a(
+                                        "v-uni-view",
+                                        { staticClass: "price" },
+                                        [t._v("￥" + t._s(e.price))],
+                                      ),
+                                    ],
+                                    1,
+                                  );
+                                }),
+                                1,
+                              )
+                            : t._e(),
+                        ],
+                        1,
+                      );
+                    }),
+                    1,
+                  )
+                : a("uv-empty", {
+                    attrs: {
+                      mode: "data",
+                      text: "暂无数据",
+                      icon: "/static/imgs/no-data.png",
+                    },
+                  }),
+              t.page > 1
+                ? a("uv-load-more", { attrs: { status: t.status } })
+                : t._e(),
+              a("tab-bar", { attrs: { selected: t.selected } }),
+            ],
+            1,
+          );
+        },
+        s = [];
+    },
+  },
+]);
+//# sourceMappingURL=pages-follow-index.12546315.js.map

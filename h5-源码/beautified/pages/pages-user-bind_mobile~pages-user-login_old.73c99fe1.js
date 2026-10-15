@@ -1,0 +1,600 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages-user-bind_mobile~pages-user-login_old"],
+  {
+    "0a32": function (t, e, n) {
+      "use strict";
+      n.d(e, "b", function () {
+        return i;
+      }),
+        n.d(e, "c", function () {
+          return o;
+        }),
+        n.d(e, "a", function () {});
+      var i = function () {
+          var t = this.$createElement,
+            e = this._self._c || t;
+          return e("v-uni-view", {
+            staticClass: "uv-gap",
+            style: [this.gapStyle],
+          });
+        },
+        o = [];
+    },
+    1009: function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        n("4626"),
+        n("fd3c"),
+        n("bf0f");
+      n("5d41");
+      var o = i(n("4d8f0")),
+        a = i(n("9463")),
+        r = {
+          name: "uv-toast",
+          mixins: [o.default, a.default],
+          data: function () {
+            return {
+              isShow: !1,
+              timer: null,
+              config: {
+                message: "",
+                type: "",
+                duration: 2e3,
+                icon: !0,
+                position: "center",
+                complete: null,
+                overlay: !0,
+                loading: !1,
+                zIndex: 10090,
+              },
+              tmpConfig: {},
+              rect: {},
+              opacity: 0,
+            };
+          },
+          computed: {
+            iconName: function () {
+              return this.tmpConfig.icon &&
+                "none" != this.tmpConfig.icon &&
+                ["error", "warning", "success", "primary"].includes(
+                  this.tmpConfig.type,
+                )
+                ? this.$uv.type2icon(this.tmpConfig.type)
+                : "";
+            },
+            overlayStyle: function () {
+              var t = {
+                justifyContent: "center",
+                alignItems: "center",
+                display: "flex",
+                zIndex: this.tmpConfig.zIndex,
+                backgroundColor: "rgba(0, 0, 0, 0)",
+              };
+              return t;
+            },
+            iconStyle: function () {
+              var t = { marginRight: "4px" };
+              return t;
+            },
+            aniStyle: function () {
+              var t = { position: "fixed", zIndex: this.tmpConfig.zIndex };
+              return t;
+            },
+            contentStyle: function () {
+              var t = this.$uv.sys(),
+                e =
+                  (t.windowWidth,
+                  t.windowHeight,
+                  { position: "fixed", top: "50%", left: "50%" }),
+                n = 0;
+              return (
+                "top" === this.tmpConfig.position
+                  ? (e.top = "25%")
+                  : "bottom" === this.tmpConfig.position
+                    ? (e.top = "75%")
+                    : (n = "-50%"),
+                (e.transform = "translate(-50%,".concat(n, ")")),
+                e
+              );
+            },
+          },
+          created: function () {
+            var t = this;
+            [
+              "primary",
+              "success",
+              "error",
+              "warning",
+              "default",
+              "loading",
+            ].map(function (e) {
+              t[e] = function (n) {
+                return t.show({ type: e, message: n });
+              };
+            });
+          },
+          methods: {
+            show: function (t) {
+              var e = this;
+              (this.tmpConfig = this.$uv.deepMerge(this.config, t)),
+                this.clearTimer(),
+                (this.isShow = !0),
+                (this.timer = setTimeout(function () {
+                  e.clearTimer(),
+                    "function" === typeof e.tmpConfig.complete &&
+                      e.tmpConfig.complete();
+                }, this.tmpConfig.duration));
+            },
+            queryRect: function () {
+              var t = this;
+              return new Promise(function (e) {
+                var n = t.$refs["uvToastContent"];
+                dom.getComponentRect(n, function (t) {
+                  e(t.size);
+                });
+              });
+            },
+            hide: function () {
+              this.clearTimer();
+            },
+            clearTimer: function () {
+              (this.isShow = !1), clearTimeout(this.timer), (this.timer = null);
+            },
+          },
+          beforeDestroy: function () {
+            this.clearTimer();
+          },
+        };
+      e.default = r;
+    },
+    "1e56": function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        n("64aa"),
+        n("5c47"),
+        n("a1c1");
+      var o = i(n("4d8f0")),
+        a = i(n("9463")),
+        r = i(n("3153")),
+        u = {
+          name: "uv-code",
+          mixins: [o.default, a.default, r.default],
+          data: function () {
+            return { secNum: this.seconds, timer: null, canGetCode: !0 };
+          },
+          mounted: function () {
+            this.checkKeepRunning();
+          },
+          watch: {
+            seconds: {
+              immediate: !0,
+              handler: function (t) {
+                this.secNum = t;
+              },
+            },
+          },
+          methods: {
+            checkKeepRunning: function () {
+              var t = Number(
+                uni.getStorageSync(this.uniqueKey + "_$uCountDownTimestamp"),
+              );
+              if (!t) return this.changeEvent(this.startText);
+              var e = Math.floor(+new Date() / 1e3);
+              this.keepRunning && t && t > e
+                ? ((this.secNum = t - e),
+                  uni.removeStorageSync(
+                    this.uniqueKey + "_$uCountDownTimestamp",
+                  ),
+                  this.start())
+                : this.changeEvent(this.startText);
+            },
+            start: function () {
+              var t = this;
+              this.timer && (clearInterval(this.timer), (this.timer = null)),
+                this.$emit("start"),
+                (this.canGetCode = !1),
+                this.changeEvent(this.changeText.replace(/x|X/, this.secNum)),
+                (this.timer = setInterval(function () {
+                  --t.secNum
+                    ? t.changeEvent(t.changeText.replace(/x|X/, t.secNum))
+                    : (clearInterval(t.timer),
+                      (t.timer = null),
+                      t.changeEvent(t.endText),
+                      (t.secNum = t.seconds),
+                      t.$emit("end"),
+                      (t.canGetCode = !0));
+                }, 1e3)),
+                this.setTimeToStorage();
+            },
+            reset: function () {
+              (this.canGetCode = !0),
+                clearInterval(this.timer),
+                (this.secNum = this.seconds),
+                this.changeEvent(this.endText);
+            },
+            changeEvent: function (t) {
+              this.$emit("change", t);
+            },
+            setTimeToStorage: function () {
+              if (
+                this.keepRunning &&
+                this.timer &&
+                this.secNum > 0 &&
+                this.secNum <= this.seconds
+              ) {
+                var t = Math.floor(+new Date() / 1e3);
+                uni.setStorage({
+                  key: this.uniqueKey + "_$uCountDownTimestamp",
+                  data: t + Number(this.secNum),
+                });
+              }
+            },
+          },
+          beforeDestroy: function () {
+            this.setTimeToStorage(),
+              clearTimeout(this.timer),
+              (this.timer = null);
+          },
+        };
+      e.default = u;
+    },
+    3153: function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        n("64aa");
+      var o,
+        a,
+        r = i(n("9b1b")),
+        u = {
+          props: (0, r.default)(
+            {
+              seconds: { type: [String, Number], default: 60 },
+              startText: { type: String, default: "获取验证码" },
+              changeText: { type: String, default: "X秒重新获取" },
+              endText: { type: String, default: "重新获取" },
+              keepRunning: { type: Boolean, default: !1 },
+              uniqueKey: { type: String, default: "" },
+            },
+            null === (o = uni.$uv) ||
+              void 0 === o ||
+              null === (a = o.props) ||
+              void 0 === a
+              ? void 0
+              : a.code,
+          ),
+        };
+      e.default = u;
+    },
+    3724: function (t, e, n) {
+      "use strict";
+      n.d(e, "b", function () {
+        return o;
+      }),
+        n.d(e, "c", function () {
+          return a;
+        }),
+        n.d(e, "a", function () {
+          return i;
+        });
+      var i = {
+          uvOverlay: n("5ef7").default,
+          uvTransition: n("7fd8").default,
+          uvLoadingIcon: n("17f5").default,
+          uvIcon: n("1a07").default,
+          uvGap: n("c2aa").default,
+        },
+        o = function () {
+          var t = this,
+            e = t.$createElement,
+            n = t._self._c || e;
+          return n(
+            "v-uni-view",
+            { staticClass: "uv-toast" },
+            [
+              n("uv-overlay", {
+                attrs: {
+                  show: t.isShow && t.tmpConfig.overlay,
+                  "custom-style": t.overlayStyle,
+                },
+              }),
+              n(
+                "uv-transition",
+                {
+                  attrs: {
+                    show: t.isShow,
+                    mode: "fade",
+                    "custom-style": t.aniStyle,
+                  },
+                },
+                [
+                  n(
+                    "v-uni-view",
+                    {
+                      ref: "uvToastContent",
+                      staticClass: "uv-toast__content",
+                      class: [
+                        "uv-type-" + t.tmpConfig.type,
+                        "loading" === t.tmpConfig.type || t.tmpConfig.loading
+                          ? "uv-toast__content--loading"
+                          : "",
+                      ],
+                      style: [t.contentStyle],
+                    },
+                    [
+                      "loading" === t.tmpConfig.type
+                        ? n("uv-loading-icon", {
+                            attrs: {
+                              mode: "circle",
+                              color: "rgb(255, 255, 255)",
+                              inactiveColor: "rgb(120, 120, 120)",
+                              size: "25",
+                            },
+                          })
+                        : "defalut" !== t.tmpConfig.type && t.iconName
+                          ? n("uv-icon", {
+                              attrs: {
+                                name: t.iconName,
+                                size: "17",
+                                color: t.tmpConfig.type,
+                                customStyle: t.iconStyle,
+                              },
+                            })
+                          : t._e(),
+                      "loading" === t.tmpConfig.type || t.tmpConfig.loading
+                        ? n("uv-gap", {
+                            attrs: { height: "12", bgColor: "transparent" },
+                          })
+                        : t._e(),
+                      n(
+                        "v-uni-text",
+                        {
+                          staticClass: "uv-toast__content__text",
+                          class: [
+                            "uv-toast__content__text--" + t.tmpConfig.type,
+                          ],
+                          staticStyle: { "max-width": "400rpx" },
+                        },
+                        [t._v(t._s(t.tmpConfig.message))],
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+            ],
+            1,
+          );
+        },
+        a = [];
+    },
+    "399c": function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("3724"),
+        o = n("4d71");
+      for (var a in o)
+        ["default"].indexOf(a) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return o[t];
+            });
+          })(a);
+      n("d63ad");
+      var r = n("828b"),
+        u = Object(r["a"])(
+          o["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "863f94ca",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = u.exports;
+    },
+    "39bb": function (t, e, n) {
+      "use strict";
+      n.d(e, "b", function () {
+        return i;
+      }),
+        n.d(e, "c", function () {
+          return o;
+        }),
+        n.d(e, "a", function () {});
+      var i = function () {
+          var t = this.$createElement,
+            e = this._self._c || t;
+          return e("v-uni-view", { staticClass: "uv-code" });
+        },
+        o = [];
+    },
+    "406f": function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("39bb"),
+        o = n("6b9d");
+      for (var a in o)
+        ["default"].indexOf(a) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return o[t];
+            });
+          })(a);
+      var r = n("828b"),
+        u = Object(r["a"])(
+          o["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          null,
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = u.exports;
+    },
+    "4d71": function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("1009"),
+        o = n.n(i);
+      for (var a in i)
+        ["default"].indexOf(a) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return i[t];
+            });
+          })(a);
+      e["default"] = o.a;
+    },
+    "6b68": function (t, e, n) {
+      var i = n("c86c");
+      (e = i(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-863f94ca], uni-scroll-view[data-v-863f94ca], uni-swiper-item[data-v-863f94ca]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-toast__content[data-v-863f94ca]{display:flex;flex-direction:row;padding:12px 20px;border-radius:4px;background-color:#585858;color:#fff;align-items:center;max-width:%?600?%;position:relative}.uv-toast__content--loading[data-v-863f94ca]{flex-direction:column;padding:20px 20px}.uv-toast__content__text[data-v-863f94ca]{color:#fff;font-size:15px;line-height:15px}.uv-toast__content__text--default[data-v-863f94ca]{color:#fff}.uv-toast__content__text--error[data-v-863f94ca]{color:#f56c6c}.uv-toast__content__text--primary[data-v-863f94ca]{color:#3c9cff}.uv-toast__content__text--success[data-v-863f94ca]{color:#5ac725}.uv-toast__content__text--warning[data-v-863f94ca]{color:#f9ae3d}.uv-type-primary[data-v-863f94ca]{color:#3c9cff;background-color:#ecf5ff;border-color:#d7eafe;border-width:1px}.uv-type-success[data-v-863f94ca]{color:#5ac725;background-color:#dbf1e1;border-color:#bef5c8;border-width:1px}.uv-type-error[data-v-863f94ca]{color:#f56c6c;background-color:#fef0f0;border-color:#fde2e2;border-width:1px}.uv-type-warning[data-v-863f94ca]{color:#f9ae3d;background-color:#fdf6ec;border-color:#faecd8;border-width:1px}.uv-type-default[data-v-863f94ca]{color:#fff;background-color:#585858}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "6b9d": function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("1e56"),
+        o = n.n(i);
+      for (var a in i)
+        ["default"].indexOf(a) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return i[t];
+            });
+          })(a);
+      e["default"] = o.a;
+    },
+    7302: function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        n("64aa");
+      var o,
+        a,
+        r = i(n("9b1b")),
+        u = {
+          props: (0, r.default)(
+            {
+              bgColor: { type: String, default: "transparent" },
+              height: { type: [String, Number], default: 20 },
+              marginTop: { type: [String, Number], default: 0 },
+              marginBottom: { type: [String, Number], default: 0 },
+            },
+            null === (o = uni.$uv) ||
+              void 0 === o ||
+              null === (a = o.props) ||
+              void 0 === a
+              ? void 0
+              : a.gap,
+          ),
+        };
+      e.default = u;
+    },
+    8271: function (t, e, n) {
+      "use strict";
+      n("6a54");
+      var i = n("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var o = i(n("4d8f0")),
+        a = i(n("9463")),
+        r = i(n("7302")),
+        u = {
+          name: "uv-gap",
+          mixins: [o.default, a.default, r.default],
+          computed: {
+            gapStyle: function () {
+              var t = {
+                backgroundColor: this.bgColor,
+                height: this.$uv.addUnit(this.height),
+                marginTop: this.$uv.addUnit(this.marginTop),
+                marginBottom: this.$uv.addUnit(this.marginBottom),
+              };
+              return this.$uv.deepMerge(t, this.$uv.addStyle(this.customStyle));
+            },
+          },
+        };
+      e.default = u;
+    },
+    a424: function (t, e, n) {
+      var i = n("6b68");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[t.i, i, ""]]),
+        i.locals && (t.exports = i.locals);
+      var o = n("967d").default;
+      o("1640e402", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    c2aa: function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("0a32"),
+        o = n("e6296");
+      for (var a in o)
+        ["default"].indexOf(a) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return o[t];
+            });
+          })(a);
+      var r = n("828b"),
+        u = Object(r["a"])(
+          o["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          null,
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      e["default"] = u.exports;
+    },
+    d63ad: function (t, e, n) {
+      "use strict";
+      var i = n("a424"),
+        o = n.n(i);
+      o.a;
+    },
+    e6296: function (t, e, n) {
+      "use strict";
+      n.r(e);
+      var i = n("8271"),
+        o = n.n(i);
+      for (var a in i)
+        ["default"].indexOf(a) < 0 &&
+          (function (t) {
+            n.d(e, t, function () {
+              return i[t];
+            });
+          })(a);
+      e["default"] = o.a;
+    },
+  },
+]);
+//# sourceMappingURL=pages-user-bind_mobile~pages-user-login_old.73c99fe1.js.map

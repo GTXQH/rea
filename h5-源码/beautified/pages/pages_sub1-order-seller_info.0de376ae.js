@@ -1,0 +1,2114 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages_sub1-order-seller_info"],
+  {
+    "145e": function (e, i) {
+      e.exports =
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEoAAABACAYAAAC9S+EXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3dpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDkuMS1jMDAxIDc5LjE0NjI4OTk3NzcsIDIwMjMvMDYvMjUtMjM6NTc6MTQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6NmYxZjUzOTEtODYwOS02NTQ1LWJmMmUtZGI1YTlhNTBhYzY2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU0Q0VFMDZDMjZDQTExRjE4Q0Y1QjMwMkYyRjU2RTMxIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU0Q0VFMDZCMjZDQTExRjE4Q0Y1QjMwMkYyRjU2RTMxIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyNS4wIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjlmNzcxMjA0LTVlNTMtMjc0Ni04NGRmLWExMzY1OTAwMmJiYiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2ZjFmNTM5MS04NjA5LTY1NDUtYmYyZS1kYjVhOWE1MGFjNjYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4TL8/LAAACn0lEQVR42uycTYhNYRjH33sIaTJDKZONSON7YTEbVhYWJCmUjXwtTFmQlY8RQ2wQEYNJkoaIpSwsiDJlFLJQVqbGiMmYpnxlXL/nGjU0necdjDn33v+v/ptbM/f063nee973PPfm8q+qOkMIz8kT8ojcC9VdL4L4hRyi8gO8/pLcJNfIXcR9k6iBRfWnjZwjpxD2TqJ8egqyQjiMsE6J8nlPdpIz5dSSyR/8TVVfZT0IHeOnS5RPLWlF1iqJ8hlHriLrAMlJlM8uch5ZIyXKZx25iKwREuWzhjSWYhsmQ/A/N5F6iYpjL1W1QqIibmT71qsaifKpIM3IGiVRPvPJwXLd6w2WXrKQfWGLKiodu69qogVHS5TPbLJNrRfHBzKTFmxTRaUzNtihn1ovipWsVQskKu5G9Ggx7gWTYXhPO/ArusO+/7mY98eeG85iYf+qikrHzto3qKLiaC8Iq+76qIpKZzKpU0XF8ZZMo6p6VFHpTCRbVVFxdJOpWZ9rSDJwDZVkhyoqjk+kJssb5iQj1zGG7FPrxbGWPeBciYq7lkMSFcdSqmqRRMVxPIvDHlkUNSeLW5us3B78jo0/2jFMhyoqHRt/PKbWi2M1a9UyiYrjLLImSJTPJHJaouJbcL1ExXESWfMkyseeMtuYdqVE+dj0XvNwTR0XkyhjCTkhUXHUUVX7JSqO3ciql6g4GpC1p9w3xYOhkWxhA92rikpnM7lOdVVIlM9y0oKsGRLlYwO1D5G1cSgG1UpJlGHt10RuIWuKRPksJk+Rtf1fzbeXwqeehz19tkf2V/7mW/XlIOonz8gRchlhnyXK53WwY5sQLiCsXaJ8rA3vkEvkBtK6JcrnC7lPbhc+MUN4jLi8RPm8KdyT2Q9g/PipqNbvAgwAJivLjh1gJNUAAAAASUVORK5CYII=";
+    },
+    "26c4": function (e, i, t) {
+      "use strict";
+      var s = t("5132"),
+        a = t.n(s);
+      a.a;
+    },
+    3744: function (e, i, t) {
+      e.exports = t.p + "static/vip.png";
+    },
+    "3a07": function (e, i, t) {
+      var s = t("c86c");
+      (i = s(!1)),
+        i.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-c2d489ac], uni-scroll-view[data-v-c2d489ac], uni-swiper-item[data-v-c2d489ac]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-divider[data-v-c2d489ac]{display:flex;flex-direction:row;flex-direction:row;align-items:center;margin:15px 0}.uv-divider__text[data-v-c2d489ac]{margin:0 15px}.uv-divider__dot[data-v-c2d489ac]{font-size:12px;margin:0 12px;color:#c0c4cc}',
+          "",
+        ]),
+        (e.exports = i);
+    },
+    4589: function (e, i, t) {
+      "use strict";
+      t.r(i);
+      var s = t("bc7d"),
+        a = t("4ab8");
+      for (var n in a)
+        ["default"].indexOf(n) < 0 &&
+          (function (e) {
+            t.d(i, e, function () {
+              return a[e];
+            });
+          })(n);
+      t("26c4");
+      var o = t("828b"),
+        r = Object(o["a"])(
+          a["default"],
+          s["b"],
+          s["c"],
+          !1,
+          null,
+          "c2d489ac",
+          null,
+          !1,
+          s["a"],
+          void 0,
+        );
+      i["default"] = r.exports;
+    },
+    "4ab8": function (e, i, t) {
+      "use strict";
+      t.r(i);
+      var s = t("6811"),
+        a = t.n(s);
+      for (var n in s)
+        ["default"].indexOf(n) < 0 &&
+          (function (e) {
+            t.d(i, e, function () {
+              return s[e];
+            });
+          })(n);
+      i["default"] = a.a;
+    },
+    "4bf5": function (e, i, t) {
+      e.exports = t.p + "static/service_member.png";
+    },
+    5132: function (e, i, t) {
+      var s = t("3a07");
+      s.__esModule && (s = s.default),
+        "string" === typeof s && (s = [[e.i, s, ""]]),
+        s.locals && (e.exports = s.locals);
+      var a = t("967d").default;
+      a("71a84af6", s, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "59ad": function (e, i, t) {
+      var s = t("bfdf");
+      s.__esModule && (s = s.default),
+        "string" === typeof s && (s = [[e.i, s, ""]]),
+        s.locals && (e.exports = s.locals);
+      var a = t("967d").default;
+      a("6c6e07fc", s, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "5d2f": function (e, i, t) {
+      "use strict";
+      var s = t("59ad"),
+        a = t.n(s);
+      a.a;
+    },
+    "5e25": function (e, i, t) {
+      "use strict";
+      t.r(i);
+      var s = t("95b1"),
+        a = t("967e");
+      for (var n in a)
+        ["default"].indexOf(n) < 0 &&
+          (function (e) {
+            t.d(i, e, function () {
+              return a[e];
+            });
+          })(n);
+      t("5d2f");
+      var o = t("828b"),
+        r = Object(o["a"])(
+          a["default"],
+          s["b"],
+          s["c"],
+          !1,
+          null,
+          "04c28902",
+          null,
+          !1,
+          s["a"],
+          void 0,
+        );
+      i["default"] = r.exports;
+    },
+    6811: function (e, i, t) {
+      "use strict";
+      t("6a54");
+      var s = t("f5bd").default;
+      Object.defineProperty(i, "__esModule", { value: !0 }),
+        (i.default = void 0);
+      var a = s(t("4d8f0")),
+        n = s(t("9463")),
+        o = s(t("caf4")),
+        r = {
+          name: "uv-divider",
+          mixins: [a.default, n.default, o.default],
+          emits: ["click"],
+          computed: {
+            textStyle: function () {
+              var e = {};
+              return (
+                (e.fontSize = this.$uv.addUnit(this.textSize)),
+                (e.color = this.textColor),
+                e
+              );
+            },
+            leftLineStyle: function () {
+              var e = {};
+              return (
+                "left" === this.textPosition
+                  ? (e.width = "80rpx")
+                  : (e.flex = 1),
+                e
+              );
+            },
+            rightLineStyle: function () {
+              var e = {};
+              return (
+                "right" === this.textPosition
+                  ? (e.width = "80rpx")
+                  : (e.flex = 1),
+                e
+              );
+            },
+          },
+          methods: {
+            click: function () {
+              this.$emit("click");
+            },
+          },
+        };
+      i.default = r;
+    },
+    "7ffd": function (e, i, t) {
+      e.exports = t.p + "static/loading.gif";
+    },
+    "95b1": function (e, i, t) {
+      "use strict";
+      t.d(i, "b", function () {
+        return a;
+      }),
+        t.d(i, "c", function () {
+          return n;
+        }),
+        t.d(i, "a", function () {
+          return s;
+        });
+      var s = {
+          uvIcon: t("1a07").default,
+          uvDivider: t("4589").default,
+          uvPopup: t("ce8a").default,
+          uvForm: t("0de9").default,
+          uvFormItem: t("05af").default,
+          uvInput: t("f723").default,
+          uvUpload: t("7447").default,
+        },
+        a = function () {
+          var e = this,
+            i = e.$createElement,
+            s = e._self._c || i;
+          return s(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              s(
+                "v-uni-view",
+                { staticClass: "status_box" },
+                [
+                  s(
+                    "v-uni-view",
+                    { staticClass: "status flex_box" },
+                    [
+                      1 == e.info.status
+                        ? s("img", {
+                            staticClass: "icon_loading",
+                            attrs: { src: t("7ffd") },
+                          })
+                        : e._e(),
+                      s("v-uni-view", { staticClass: "tit" }, [
+                        e._v(e._s(e.info.status_text)),
+                      ]),
+                    ],
+                    1,
+                  ),
+                  s("v-uni-view", { staticClass: "intro" }, [
+                    e._v(e._s(e.info.status_tips)),
+                  ]),
+                  e.info.status >= 3 && e.info.status <= 5
+                    ? s(
+                        "v-uni-view",
+                        { staticClass: "seller_msg_box flex_box" },
+                        [
+                          s("img", {
+                            staticClass: "head",
+                            attrs: { src: e.info.seller.avatar },
+                          }),
+                          s(
+                            "v-uni-view",
+                            { staticClass: "txt" },
+                            [
+                              s(
+                                "v-uni-view",
+                                { staticClass: "nickname uv-line-1" },
+                                [e._v(e._s(e.info.seller.nickname))],
+                              ),
+                              s("v-uni-view", { staticClass: "tips" }, [
+                                e._v("证明文字：" + e._s(e.info.service_txt)),
+                              ]),
+                              s(
+                                "v-uni-view",
+                                { staticClass: "img_box" },
+                                e._l(e.info.service_imgs, function (i, t) {
+                                  return s("img", {
+                                    key: t,
+                                    attrs: { text: i, src: i },
+                                    on: {
+                                      click: function (t) {
+                                        (arguments[0] = t = e.$handleEvent(t)),
+                                          e.previewImage(
+                                            i,
+                                            e.info.service_imgs,
+                                          );
+                                      },
+                                    },
+                                  });
+                                }),
+                                0,
+                              ),
+                              s("v-uni-view", { staticClass: "tips" }, [
+                                e._v(
+                                  "接单时间：" +
+                                    e._s(
+                                      e.info.start_time
+                                        ? e.info.start_time
+                                        : "",
+                                    ),
+                                ),
+                              ]),
+                              s("v-uni-view", { staticClass: "tips" }, [
+                                e._v(
+                                  "完成时间：" +
+                                    e._s(
+                                      e.info.service_time
+                                        ? e.info.service_time
+                                        : "",
+                                    ),
+                                ),
+                              ]),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  8 == e.info.status
+                    ? s(
+                        "v-uni-view",
+                        { staticClass: "seller_msg_box flex_box" },
+                        [
+                          s("img", {
+                            staticClass: "head",
+                            attrs: { src: e.info.seller.avatar },
+                          }),
+                          s(
+                            "v-uni-view",
+                            { staticClass: "txt" },
+                            [
+                              s(
+                                "v-uni-view",
+                                { staticClass: "nickname uv-line-1" },
+                                [e._v(e._s(e.info.seller.nickname))],
+                              ),
+                              s(
+                                "v-uni-view",
+                                { staticClass: "img_box" },
+                                e._l(e.info.problem_imgs, function (i, t) {
+                                  return s("img", {
+                                    key: t,
+                                    attrs: { text: i, src: i },
+                                    on: {
+                                      click: function (t) {
+                                        (arguments[0] = t = e.$handleEvent(t)),
+                                          e.previewImage(
+                                            i,
+                                            e.info.problem_imgs,
+                                          );
+                                      },
+                                    },
+                                  });
+                                }),
+                                0,
+                              ),
+                              s("v-uni-view", { staticClass: "tips" }, [
+                                e._v("描述：" + e._s(e.info.problem_des)),
+                              ]),
+                              s("v-uni-view", { staticClass: "tips" }, [
+                                e._v(
+                                  "时间：" +
+                                    e._s(
+                                      e.info.problem_time
+                                        ? e.info.problem_time
+                                        : "",
+                                    ),
+                                ),
+                              ]),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                ],
+                1,
+              ),
+              "" != e.user
+                ? s(
+                    "v-uni-view",
+                    { staticClass: "user_msg_flex flex_box" },
+                    [
+                      s(
+                        "v-uni-view",
+                        { staticClass: "head_msg_box" },
+                        [
+                          s(
+                            "v-uni-view",
+                            { staticClass: "head_frame_box" },
+                            [
+                              e.user.avatar_frame
+                                ? s("img", {
+                                    staticClass: "head_frame",
+                                    attrs: { src: e.user.avatar_frame },
+                                  })
+                                : e._e(),
+                              s("v-uni-view", { staticClass: "head" }, [
+                                s("img", { attrs: { src: e.user.avatar } }),
+                              ]),
+                            ],
+                            1,
+                          ),
+                          s("v-uni-view", { staticClass: "id" }, [
+                            e._v("ID: " + e._s(e.user.share_code)),
+                          ]),
+                        ],
+                        1,
+                      ),
+                      s(
+                        "v-uni-view",
+                        { staticClass: "name_rights" },
+                        [
+                          s(
+                            "v-uni-view",
+                            {
+                              class: {
+                                name_box: !0,
+                                is_vip:
+                                  1 == e.user.user_vip && 1 == e.vip_status,
+                              },
+                            },
+                            [
+                              s("v-uni-view", { staticClass: "nickname" }, [
+                                e._v(e._s(e.user.nickname)),
+                              ]),
+                              s("img", {
+                                staticClass: "level",
+                                attrs: { src: e.user_level.icon },
+                              }),
+                              s("img", {
+                                staticClass: "vip",
+                                attrs: { src: t("3744") },
+                              }),
+                            ],
+                            1,
+                          ),
+                          s(
+                            "v-uni-view",
+                            { staticClass: "rights_grid" },
+                            e._l(e.user_level.icon_list, function (i, t) {
+                              return s(
+                                "v-uni-view",
+                                {
+                                  key: t,
+                                  staticClass: "rights",
+                                  attrs: { text: i },
+                                },
+                                [e._v(e._s(i))],
+                              );
+                            }),
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : e._e(),
+              s(
+                "v-uni-view",
+                { staticClass: "top_box flex_box" },
+                [
+                  s(
+                    "v-uni-view",
+                    {
+                      staticClass: "order_num flex_box",
+                      on: {
+                        click: function (i) {
+                          (arguments[0] = i = e.$handleEvent(i)),
+                            e.copyOrderNum(e.info.order_no);
+                        },
+                      },
+                    },
+                    [
+                      s("v-uni-view", {}, [e._v("订单编号：")]),
+                      s("v-uni-view", { staticClass: "num" }, [
+                        e._v(e._s(e.info.order_no)),
+                      ]),
+                      s("v-uni-view", { staticClass: "copy_btn" }, [
+                        e._v("复制"),
+                      ]),
+                    ],
+                    1,
+                  ),
+                  s("v-uni-view", { staticClass: "status" }, [
+                    e._v(e._s(e.info.status_text)),
+                  ]),
+                ],
+                1,
+              ),
+              s(
+                "v-uni-view",
+                { staticClass: "msg_box" },
+                [
+                  0 != e.info.raffle_order &&
+                  e.info.prizes &&
+                  0 != e.info.prizes.length
+                    ? s(
+                        "v-uni-view",
+                        { staticClass: "goods_msg flex_box" },
+                        [
+                          e.info.raffle_thumb
+                            ? s("img", {
+                                staticClass: "img",
+                                attrs: { src: e.info.raffle_thumb },
+                              })
+                            : e._e(),
+                          s(
+                            "v-uni-view",
+                            { staticClass: "txt" },
+                            [
+                              s(
+                                "v-uni-view",
+                                { staticClass: "price_box flex_box" },
+                                [
+                                  s(
+                                    "v-uni-view",
+                                    { staticClass: "price" },
+                                    [
+                                      s("v-uni-text", { staticClass: "unit" }, [
+                                        e._v("￥"),
+                                      ]),
+                                      s("v-uni-text", [
+                                        e._v(e._s(e.info.price)),
+                                      ]),
+                                    ],
+                                    1,
+                                  ),
+                                  s("v-uni-view", { staticClass: "num" }, [
+                                    e._v("x " + e._s(e.info.num)),
+                                  ]),
+                                ],
+                                1,
+                              ),
+                              s(
+                                "v-uni-view",
+                                { staticClass: "name uv-line-2" },
+                                [e._v(e._s(e.info.raffle_title))],
+                              ),
+                              s(
+                                "v-uni-view",
+                                { staticClass: "intro uv-line-2" },
+                                [e._v(e._s(e.info.raffle_intro))],
+                              ),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      )
+                    : s(
+                        "v-uni-view",
+                        {
+                          staticClass: "goods_msg flex_box",
+                          on: {
+                            click: function (i) {
+                              (arguments[0] = i = e.$handleEvent(i)),
+                                e.jump(
+                                  "/pages/index/goods?id=" + e.info.goods_id,
+                                );
+                            },
+                          },
+                        },
+                        [
+                          e.info.goods_thumb
+                            ? s("img", {
+                                staticClass: "img",
+                                attrs: { src: e.info.goods_thumb },
+                              })
+                            : s("img", {
+                                staticClass: "img",
+                                attrs: {
+                                  src: e.info.goods ? e.info.goods.thumb : "",
+                                },
+                              }),
+                          s(
+                            "v-uni-view",
+                            { staticClass: "txt" },
+                            [
+                              s(
+                                "v-uni-view",
+                                { staticClass: "price_box flex_box" },
+                                [
+                                  s(
+                                    "v-uni-view",
+                                    { staticClass: "price" },
+                                    [
+                                      s("v-uni-text", { staticClass: "unit" }, [
+                                        e._v("￥"),
+                                      ]),
+                                      s("v-uni-text", [
+                                        e._v(e._s(e.info.price)),
+                                      ]),
+                                    ],
+                                    1,
+                                  ),
+                                  s("v-uni-view", { staticClass: "num" }, [
+                                    e._v("x " + e._s(e.info.num)),
+                                  ]),
+                                ],
+                                1,
+                              ),
+                              s(
+                                "v-uni-view",
+                                { staticClass: "name uv-line-2" },
+                                [e._v(e._s(e.info.goods_name))],
+                              ),
+                              s(
+                                "v-uni-view",
+                                { staticClass: "intro uv-line-2" },
+                                [e._v(e._s(e.info.goods_intro))],
+                              ),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                  e.info.raffle_order > 0 &&
+                  e.info.prizes &&
+                  e.info.prizes.length > 0
+                    ? s(
+                        "v-uni-view",
+                        { staticClass: "prize_list_box" },
+                        [
+                          s("v-uni-view", { staticClass: "prize_list_title" }, [
+                            e._v("抽中奖品"),
+                          ]),
+                          s(
+                            "v-uni-view",
+                            { staticClass: "prize_list" },
+                            e._l(
+                              e.showAllPrizes
+                                ? e.info.prizes
+                                : e.info.prizes.slice(0, 3),
+                              function (i, t) {
+                                return s(
+                                  "v-uni-view",
+                                  {
+                                    key: t,
+                                    staticClass: "prize_item flex_box",
+                                    on: {
+                                      click: function (t) {
+                                        (arguments[0] = t = e.$handleEvent(t)),
+                                          e.jump(
+                                            "/pages/index/goods?id=" +
+                                              i.goods_id,
+                                          );
+                                      },
+                                    },
+                                  },
+                                  [
+                                    s("img", {
+                                      staticClass: "prize_img",
+                                      attrs: { src: i.goods_thumb },
+                                    }),
+                                    s(
+                                      "v-uni-view",
+                                      { staticClass: "prize_txt" },
+                                      [
+                                        s(
+                                          "v-uni-view",
+                                          { staticClass: "prize_label" },
+                                          [e._v("奖品")],
+                                        ),
+                                        s(
+                                          "v-uni-view",
+                                          {
+                                            staticClass: "prize_name uv-line-1",
+                                          },
+                                          [e._v(e._s(i.goods_title))],
+                                        ),
+                                      ],
+                                      1,
+                                    ),
+                                    i.count > 1
+                                      ? s(
+                                          "v-uni-view",
+                                          { staticClass: "prize_count" },
+                                          [e._v("x" + e._s(i.count))],
+                                        )
+                                      : e._e(),
+                                  ],
+                                  1,
+                                );
+                              },
+                            ),
+                            1,
+                          ),
+                          e.info.prizes.length > 3
+                            ? s(
+                                "v-uni-view",
+                                {
+                                  staticClass: "show_more",
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = e.$handleEvent(i)),
+                                        (e.showAllPrizes = !e.showAllPrizes);
+                                    },
+                                  },
+                                },
+                                [
+                                  e._v(
+                                    " " +
+                                      e._s(
+                                        e.showAllPrizes
+                                          ? "收起"
+                                          : "展开全部(" +
+                                              e.info.prizes.length +
+                                              "个)",
+                                      ) +
+                                      " ",
+                                  ),
+                                ],
+                              )
+                            : e._e(),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                ],
+                1,
+              ),
+              e.info.order_service && e.info.order_service.length > 0
+                ? s("v-uni-view", { staticClass: "line_box" })
+                : e._e(),
+              e.info.order_service && e.info.order_service.length > 0
+                ? s(
+                    "v-uni-view",
+                    { staticClass: "order_service_box" },
+                    [
+                      s("v-uni-view", { staticClass: "order_service_title" }, [
+                        e._v("增值服务"),
+                      ]),
+                      e._l(
+                        e.showAllServices
+                          ? e.info.order_service
+                          : e.info.order_service.slice(0, 3),
+                        function (i) {
+                          return s(
+                            "v-uni-view",
+                            {
+                              key: i.id,
+                              staticClass: "order_service_item flex_box",
+                            },
+                            [
+                              i.image
+                                ? s("img", {
+                                    staticClass: "os_img",
+                                    attrs: { src: i.image, mode: "aspectFill" },
+                                    on: {
+                                      click: function (t) {
+                                        (arguments[0] = t = e.$handleEvent(t)),
+                                          e.previewImage(
+                                            i.image,
+                                            e.info.order_service
+                                              .filter(function (e) {
+                                                return e.image;
+                                              })
+                                              .map(function (e) {
+                                                return e.image;
+                                              }),
+                                          );
+                                      },
+                                    },
+                                  })
+                                : e._e(),
+                              s(
+                                "v-uni-view",
+                                { staticClass: "os_info" },
+                                [
+                                  s(
+                                    "v-uni-view",
+                                    { staticClass: "os_name uv-line-1" },
+                                    [e._v(e._s(i.name))],
+                                  ),
+                                  i.intro
+                                    ? s(
+                                        "v-uni-view",
+                                        { staticClass: "os_intro uv-line-2" },
+                                        [e._v(e._s(i.intro))],
+                                      )
+                                    : e._e(),
+                                ],
+                                1,
+                              ),
+                              s(
+                                "v-uni-view",
+                                { staticClass: "os_right" },
+                                [
+                                  s("v-uni-view", { staticClass: "os_num" }, [
+                                    e._v("x" + e._s(i.num)),
+                                  ]),
+                                  s("v-uni-view", { staticClass: "os_price" }, [
+                                    e._v("￥" + e._s(i.money)),
+                                  ]),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          );
+                        },
+                      ),
+                      e.info.order_service.length > 3
+                        ? s(
+                            "v-uni-view",
+                            {
+                              staticClass: "show_more",
+                              on: {
+                                click: function (i) {
+                                  (arguments[0] = i = e.$handleEvent(i)),
+                                    (e.showAllServices = !e.showAllServices);
+                                },
+                              },
+                            },
+                            [
+                              e._v(
+                                " " +
+                                  e._s(
+                                    e.showAllServices
+                                      ? "收起"
+                                      : "展开全部(" +
+                                          e.info.order_service.length +
+                                          "个)",
+                                  ) +
+                                  " ",
+                              ),
+                            ],
+                          )
+                        : e._e(),
+                    ],
+                    2,
+                  )
+                : e._e(),
+              s("v-uni-view", { staticClass: "line_box" }),
+              s(
+                "v-uni-view",
+                { staticClass: "msg_box" },
+                [
+                  s(
+                    "v-uni-view",
+                    { staticClass: "tips flex_box" },
+                    [
+                      s("v-uni-view", { staticClass: "tit" }, [e._v("大区")]),
+                      s("v-uni-view", [e._v(e._s(e.info.game_area_text))]),
+                    ],
+                    1,
+                  ),
+                  "" != e.user && e.info.num_id
+                    ? s(
+                        "v-uni-view",
+                        {
+                          staticClass: "tips flex_box",
+                          on: {
+                            click: function (i) {
+                              (arguments[0] = i = e.$handleEvent(i)),
+                                e.copyOrderNum(e.info.num_id);
+                            },
+                          },
+                        },
+                        [
+                          s("v-uni-view", { staticClass: "tit" }, [
+                            e._v("数字编号"),
+                          ]),
+                          s(
+                            "v-uni-view",
+                            [
+                              e._v(" " + e._s(e.info.num_id) + " "),
+                              s("v-uni-text", { staticClass: "copy_btn" }, [
+                                e._v("复制"),
+                              ]),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  "" != e.user && e.info.text_id
+                    ? s(
+                        "v-uni-view",
+                        {
+                          staticClass: "tips flex_box",
+                          on: {
+                            click: function (i) {
+                              (arguments[0] = i = e.$handleEvent(i)),
+                                e.copyOrderNum(e.info.text_id);
+                            },
+                          },
+                        },
+                        [
+                          s("v-uni-view", { staticClass: "tit" }, [
+                            e._v("文字ID"),
+                          ]),
+                          s(
+                            "v-uni-view",
+                            [
+                              e._v(" " + e._s(e.info.text_id) + " "),
+                              s("v-uni-text", { staticClass: "copy_btn" }, [
+                                e._v("复制"),
+                              ]),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  null != e.user.mobile
+                    ? s(
+                        "v-uni-view",
+                        {
+                          staticClass: "tips flex_box",
+                          on: {
+                            click: function (i) {
+                              (arguments[0] = i = e.$handleEvent(i)),
+                                e.callPhone(e.user.mobile);
+                            },
+                          },
+                        },
+                        [
+                          s("v-uni-view", { staticClass: "tit" }, [
+                            e._v("手机号"),
+                          ]),
+                          s(
+                            "v-uni-view",
+                            [
+                              e._v(" " + e._s(e.user.mobile) + " "),
+                              s("v-uni-text", { staticClass: "copy_btn" }, [
+                                e._v("拨打电话"),
+                              ]),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  s(
+                    "v-uni-view",
+                    { staticClass: "tips flex_box" },
+                    [
+                      s("v-uni-view", { staticClass: "tit" }, [e._v("服务费")]),
+                      s("v-uni-view", [e._v("¥" + e._s(e.info.service_fee))]),
+                    ],
+                    1,
+                  ),
+                  s(
+                    "v-uni-view",
+                    { staticClass: "tips flex_box" },
+                    [
+                      s("v-uni-view", { staticClass: "tit" }, [
+                        e._v("支付方式"),
+                      ]),
+                      s("v-uni-view", [e._v(e._s(e.info.pay_type_text))]),
+                    ],
+                    1,
+                  ),
+                  s(
+                    "v-uni-view",
+                    { staticClass: "tips flex_box" },
+                    [
+                      s("v-uni-view", { staticClass: "tit" }, [
+                        e._v("订单备注"),
+                      ]),
+                      s("v-uni-view", { staticClass: "remark uv-line-3" }, [
+                        e._v(e._s(e.info.remark ? e.info.remark : "无")),
+                      ]),
+                    ],
+                    1,
+                  ),
+                  s(
+                    "v-uni-view",
+                    { staticClass: "tips flex_box" },
+                    [
+                      s("v-uni-view", { staticClass: "tit" }, [
+                        e._v("下单时间"),
+                      ]),
+                      s("v-uni-view", [
+                        e._v(e._s(e.info.add_time ? e.info.add_time : "-")),
+                      ]),
+                    ],
+                    1,
+                  ),
+                  s(
+                    "v-uni-view",
+                    { staticClass: "tips flex_box" },
+                    [
+                      s("v-uni-view", { staticClass: "tit" }, [
+                        e._v("付款时间"),
+                      ]),
+                      s("v-uni-view", [
+                        e._v(e._s(e.info.pay_time ? e.info.pay_time : "-")),
+                      ]),
+                    ],
+                    1,
+                  ),
+                  s(
+                    "v-uni-view",
+                    { staticClass: "tips flex_box" },
+                    [
+                      s("v-uni-view", { staticClass: "tit" }, [
+                        e._v("完成时间"),
+                      ]),
+                      s("v-uni-view", [
+                        e._v(e._s(e.info.end_time ? e.info.end_time : "-")),
+                      ]),
+                    ],
+                    1,
+                  ),
+                  e.info.cancel_time
+                    ? s(
+                        "v-uni-view",
+                        { staticClass: "tips flex_box" },
+                        [
+                          s("v-uni-view", { staticClass: "tit" }, [
+                            e._v("取消时间"),
+                          ]),
+                          s("v-uni-view", [
+                            e._v(
+                              e._s(
+                                e.info.cancel_time ? e.info.cancel_time : "-",
+                              ),
+                            ),
+                          ]),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.info.cancel_time && "" != e.info.cancel_reason
+                    ? s(
+                        "v-uni-view",
+                        { staticClass: "tips flex_box" },
+                        [
+                          s("v-uni-view", { staticClass: "tit" }, [
+                            e._v("取消原因"),
+                          ]),
+                          s("v-uni-view", [
+                            e._v(
+                              e._s(
+                                e.info.cancel_reason
+                                  ? e.info.cancel_reason
+                                  : "-",
+                              ),
+                            ),
+                          ]),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  s(
+                    "v-uni-view",
+                    { staticClass: "service_member_card" },
+                    [
+                      s("v-uni-view", { staticClass: "tip_box" }, [
+                        e._v("主陪设置分成,未邀请副陪主陪得100%"),
+                      ]),
+                      s(
+                        "v-uni-view",
+                        { staticClass: "card_box" },
+                        [
+                          s(
+                            "v-uni-view",
+                            { staticClass: "card_title flex_box" },
+                            [
+                              s("img", { attrs: { src: t("4bf5"), alt: "" } }),
+                              s("v-uni-view", { staticClass: "title" }, [
+                                e._v("服务成员"),
+                              ]),
+                            ],
+                            1,
+                          ),
+                          s(
+                            "v-uni-view",
+                            { staticClass: "card_main flex_box" },
+                            [
+                              s(
+                                "v-uni-view",
+                                { staticClass: "member_box flex_box" },
+                                e._l(e.member, function (i, t) {
+                                  return s(
+                                    "v-uni-view",
+                                    {
+                                      key: t,
+                                      staticClass: "member",
+                                      attrs: { text: i },
+                                    },
+                                    [
+                                      s(
+                                        "v-uni-view",
+                                        {
+                                          class: [
+                                            "head_box",
+                                            1 == i.type ? "zhupei" : "fupei",
+                                          ],
+                                        },
+                                        [
+                                          s(
+                                            "v-uni-view",
+                                            { staticClass: "head" },
+                                            [
+                                              s("img", {
+                                                attrs: { src: i.avatar },
+                                              }),
+                                              2 == i.type && 0 == i.status
+                                                ? s(
+                                                    "v-uni-view",
+                                                    { staticClass: "status" },
+                                                    [e._v("邀请中")],
+                                                  )
+                                                : e._e(),
+                                              2 == i.type && 1 == i.status
+                                                ? s(
+                                                    "v-uni-view",
+                                                    { staticClass: "status" },
+                                                    [e._v("已接受")],
+                                                  )
+                                                : e._e(),
+                                              2 == i.type && 2 == i.status
+                                                ? s(
+                                                    "v-uni-view",
+                                                    { staticClass: "status" },
+                                                    [e._v("已拒绝")],
+                                                  )
+                                                : e._e(),
+                                            ],
+                                            1,
+                                          ),
+                                          s(
+                                            "v-uni-view",
+                                            { staticClass: "tag" },
+                                            [
+                                              e._v(
+                                                e._s(
+                                                  1 == i.type ? "主陪" : "副陪",
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                        1,
+                                      ),
+                                      s(
+                                        "v-uni-view",
+                                        { staticClass: "nickname" },
+                                        [e._v(e._s(i.nickname))],
+                                      ),
+                                      s(
+                                        "v-uni-view",
+                                        { staticClass: "money" },
+                                        [e._v(e._s(i.money))],
+                                      ),
+                                    ],
+                                    1,
+                                  );
+                                }),
+                                1,
+                              ),
+                              e.info.invite_status &&
+                              e.info.my_user_id == e.info.seller_id
+                                ? s(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: "invite_box",
+                                      on: {
+                                        click: function (i) {
+                                          (arguments[0] = i =
+                                            e.$handleEvent(i)),
+                                            e.jump(
+                                              "/pages_sub1/order/invite_fupei?order_id=" +
+                                                e.info.id,
+                                            );
+                                        },
+                                      },
+                                    },
+                                    [
+                                      s(
+                                        "v-uni-view",
+                                        { staticClass: "invite flex_box" },
+                                        [
+                                          s("uv-icon", {
+                                            attrs: {
+                                              name: "plus",
+                                              color: "#000",
+                                              size: "24",
+                                            },
+                                          }),
+                                        ],
+                                        1,
+                                      ),
+                                      s("v-uni-view", { staticClass: "des" }, [
+                                        e._v("邀请"),
+                                      ]),
+                                    ],
+                                    1,
+                                  )
+                                : e._e(),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              2 == e.info.status && 3 == e.info.status
+                ? s("uv-divider", {
+                    staticClass: "block_title",
+                    attrs: { text: "已确认接单", textSize: "13" },
+                  })
+                : e._e(),
+              2 == e.info.status && 3 == e.info.status
+                ? s(
+                    "v-uni-view",
+                    { staticClass: "reason_box flex_box" },
+                    [
+                      s("v-uni-view", { staticClass: "tit" }, [
+                        e._v("温馨提示:"),
+                      ]),
+                      s("v-uni-view", { staticClass: "txt" }, [
+                        e._v("已确认接单, 请及时上号添加买家为好友"),
+                      ]),
+                    ],
+                    1,
+                  )
+                : e._e(),
+              s(
+                "v-uni-view",
+                { staticClass: "cash_box flex_box" },
+                [
+                  s(
+                    "v-uni-view",
+                    { staticClass: "total_box flex_box" },
+                    [
+                      s("v-uni-view", { staticClass: "tit" }, [e._v("到手:")]),
+                      s(
+                        "v-uni-view",
+                        { staticClass: "price" },
+                        [
+                          s("v-uni-text", { staticClass: "unit" }, [
+                            e._v("￥"),
+                          ]),
+                          e.info.my_user_id == e.info.seller_id
+                            ? s("v-uni-text", [e._v(e._s(e.info.seller_money))])
+                            : e._e(),
+                          e.info.my_user_id == e.info.member1
+                            ? s("v-uni-text", [
+                                e._v(e._s(e.info.member1_money)),
+                              ])
+                            : e._e(),
+                          e.info.my_user_id == e.info.member2
+                            ? s("v-uni-text", [
+                                e._v(e._s(e.info.member2_money)),
+                              ])
+                            : e._e(),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  e.info.my_user_id == e.info.seller_id
+                    ? s(
+                        "v-uni-view",
+                        { staticClass: "btn_box flex_box" },
+                        [
+                          2 == e.info.status
+                            ? s(
+                                "v-uni-view",
+                                {
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = e.$handleEvent(i)),
+                                        e.openShowEnd(1);
+                                    },
+                                  },
+                                },
+                                [e._v("结束服务")],
+                              )
+                            : e._e(),
+                          2 == e.info.status
+                            ? s(
+                                "v-uni-view",
+                                {
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = e.$handleEvent(i)),
+                                        e.openProblemOrder.apply(
+                                          void 0,
+                                          arguments,
+                                        );
+                                    },
+                                  },
+                                },
+                                [e._v("问题单")],
+                              )
+                            : e._e(),
+                          5 == e.info.status || 6 == e.info.status
+                            ? s(
+                                "v-uni-view",
+                                {
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = e.$handleEvent(i)),
+                                        e.jump(
+                                          "/pages_sub1/order/seller_service?id=" +
+                                            e.info.id,
+                                        );
+                                    },
+                                  },
+                                },
+                                [e._v("售后信息")],
+                              )
+                            : e._e(),
+                          2 == e.info.status && 1 == e.info.seller_cancel_order
+                            ? s(
+                                "v-uni-view",
+                                {
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = e.$handleEvent(i)),
+                                        e.cancleOrder.apply(void 0, arguments);
+                                    },
+                                  },
+                                },
+                                [e._v("取消订单")],
+                              )
+                            : e._e(),
+                          4 == e.info.status && "" == e.info.service_imgs
+                            ? s(
+                                "v-uni-view",
+                                {
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = e.$handleEvent(i)),
+                                        e.openShowEnd(2);
+                                    },
+                                  },
+                                },
+                                [e._v("补充服务证明")],
+                              )
+                            : e._e(),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                ],
+                1,
+              ),
+              s(
+                "uv-popup",
+                {
+                  ref: "popEnd",
+                  attrs: {
+                    mode: "center",
+                    bgColor: "none",
+                    closeOnClickOverlay: !1,
+                  },
+                },
+                [
+                  s(
+                    "v-uni-view",
+                    { staticClass: "ysShow" },
+                    [
+                      s("v-uni-view", { staticClass: "title" }, [
+                        e._v("请提交服务证明材料"),
+                      ]),
+                      s(
+                        "v-uni-view",
+                        { staticClass: "con_box" },
+                        [
+                          s(
+                            "uv-form",
+                            {
+                              ref: "form1",
+                              attrs: {
+                                labelPosition: "left",
+                                model: e.form,
+                                rules: e.rules,
+                              },
+                            },
+                            [
+                              s(
+                                "uv-form-item",
+                                { attrs: { prop: "service_txt" } },
+                                [
+                                  s("uv-input", {
+                                    attrs: {
+                                      placeholder: "请输入证明文字",
+                                      maxlength: "50",
+                                    },
+                                    model: {
+                                      value: e.form.service_txt,
+                                      callback: function (i) {
+                                        e.$set(e.form, "service_txt", i);
+                                      },
+                                      expression: "form.service_txt",
+                                    },
+                                  }),
+                                ],
+                                1,
+                              ),
+                              s(
+                                "uv-form-item",
+                                { attrs: { prop: "pics" } },
+                                [
+                                  s("uv-upload", {
+                                    attrs: {
+                                      fileList: e.form.pics,
+                                      name: "4",
+                                      maxCount: 3,
+                                      multiple: !0,
+                                      previewFullImage: !0,
+                                      uploadText: "点击上传",
+                                      accept: "image",
+                                    },
+                                    on: {
+                                      afterRead: function (i) {
+                                        (arguments[0] = i = e.$handleEvent(i)),
+                                          e.selectPic.apply(void 0, arguments);
+                                      },
+                                      delete: function (i) {
+                                        (arguments[0] = i = e.$handleEvent(i)),
+                                          e.deletePic.apply(void 0, arguments);
+                                      },
+                                    },
+                                  }),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                      s(
+                        "v-uni-view",
+                        { staticClass: "btn_box flex_box" },
+                        [
+                          s(
+                            "v-uni-view",
+                            {
+                              staticClass: "cancle",
+                              on: {
+                                click: function (i) {
+                                  (arguments[0] = i = e.$handleEvent(i)),
+                                    e.closeEnd.apply(void 0, arguments);
+                                },
+                              },
+                            },
+                            [e._v("取消")],
+                          ),
+                          s(
+                            "v-uni-view",
+                            {
+                              on: {
+                                click: function (i) {
+                                  (arguments[0] = i = e.$handleEvent(i)),
+                                    e.endServiceFun.apply(void 0, arguments);
+                                },
+                              },
+                            },
+                            [e._v("确认")],
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              s(
+                "uv-popup",
+                {
+                  ref: "popProblem",
+                  attrs: {
+                    mode: "center",
+                    bgColor: "none",
+                    closeOnClickOverlay: !1,
+                  },
+                },
+                [
+                  s(
+                    "v-uni-view",
+                    { staticClass: "ysShow" },
+                    [
+                      s("v-uni-view", { staticClass: "title" }, [
+                        e._v("请提交问题单证明材料"),
+                      ]),
+                      s(
+                        "v-uni-view",
+                        { staticClass: "con_box" },
+                        [
+                          s(
+                            "uv-form",
+                            {
+                              ref: "form2",
+                              attrs: {
+                                labelPosition: "left",
+                                model: e.form,
+                                rules: e.rules,
+                              },
+                            },
+                            [
+                              s(
+                                "uv-form-item",
+                                { attrs: { prop: "problem_des" } },
+                                [
+                                  s("uv-input", {
+                                    attrs: {
+                                      placeholder: "请输入描述文字",
+                                      maxlength: "50",
+                                    },
+                                    model: {
+                                      value: e.form.problem_des,
+                                      callback: function (i) {
+                                        e.$set(e.form, "problem_des", i);
+                                      },
+                                      expression: "form.problem_des",
+                                    },
+                                  }),
+                                ],
+                                1,
+                              ),
+                              s(
+                                "uv-form-item",
+                                { attrs: { prop: "pics" } },
+                                [
+                                  s("uv-upload", {
+                                    attrs: {
+                                      fileList: e.form.pics,
+                                      name: "4",
+                                      maxCount: 3,
+                                      multiple: !0,
+                                      previewFullImage: !0,
+                                      uploadText: "点击上传",
+                                      accept: "image",
+                                    },
+                                    on: {
+                                      afterRead: function (i) {
+                                        (arguments[0] = i = e.$handleEvent(i)),
+                                          e.selectPic.apply(void 0, arguments);
+                                      },
+                                      delete: function (i) {
+                                        (arguments[0] = i = e.$handleEvent(i)),
+                                          e.deletePic.apply(void 0, arguments);
+                                      },
+                                    },
+                                  }),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                      s(
+                        "v-uni-view",
+                        { staticClass: "btn_box flex_box" },
+                        [
+                          s(
+                            "v-uni-view",
+                            {
+                              staticClass: "cancle",
+                              on: {
+                                click: function (i) {
+                                  (arguments[0] = i = e.$handleEvent(i)),
+                                    e.closeProblem.apply(void 0, arguments);
+                                },
+                              },
+                            },
+                            [e._v("取消")],
+                          ),
+                          s(
+                            "v-uni-view",
+                            {
+                              on: {
+                                click: function (i) {
+                                  (arguments[0] = i = e.$handleEvent(i)),
+                                    e.problemOrderFun.apply(void 0, arguments);
+                                },
+                              },
+                            },
+                            [e._v("确认")],
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+            ],
+            1,
+          );
+        },
+        n = [];
+    },
+    "967e": function (e, i, t) {
+      "use strict";
+      t.r(i);
+      var s = t("ff2b"),
+        a = t.n(s);
+      for (var n in s)
+        ["default"].indexOf(n) < 0 &&
+          (function (e) {
+            t.d(i, e, function () {
+              return s[e];
+            });
+          })(n);
+      i["default"] = a.a;
+    },
+    bc7d: function (e, i, t) {
+      "use strict";
+      t.d(i, "b", function () {
+        return a;
+      }),
+        t.d(i, "c", function () {
+          return n;
+        }),
+        t.d(i, "a", function () {
+          return s;
+        });
+      var s = { uvLine: t("73b2").default },
+        a = function () {
+          var e = this,
+            i = e.$createElement,
+            t = e._self._c || i;
+          return t(
+            "v-uni-view",
+            {
+              staticClass: "uv-divider",
+              style: [e.$uv.addStyle(e.customStyle)],
+              on: {
+                click: function (i) {
+                  (arguments[0] = i = e.$handleEvent(i)),
+                    e.click.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              t("uv-line", {
+                attrs: {
+                  color: e.lineColor,
+                  customStyle: e.leftLineStyle,
+                  hairline: e.hairline,
+                  dashed: e.dashed,
+                },
+              }),
+              e.dot
+                ? t("v-uni-text", { staticClass: "uv-divider__dot" }, [
+                    e._v("●"),
+                  ])
+                : e.text
+                  ? t(
+                      "v-uni-text",
+                      { staticClass: "uv-divider__text", style: [e.textStyle] },
+                      [e._v(e._s(e.text))],
+                    )
+                  : e._e(),
+              t("uv-line", {
+                attrs: {
+                  color: e.lineColor,
+                  customStyle: e.rightLineStyle,
+                  hairline: e.hairline,
+                  dashed: e.dashed,
+                },
+              }),
+            ],
+            1,
+          );
+        },
+        n = [];
+    },
+    bfdf: function (e, i, t) {
+      var s = t("c86c"),
+        a = t("2ec5"),
+        n = t("145e");
+      i = s(!1);
+      var o = a(n);
+      i.push([
+        e.i,
+        '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\r\n/* 增值服务明细 */.order_service_box[data-v-04c28902]{padding:0 %?30?% %?30?%}.order_service_box .show_more[data-v-04c28902]{text-align:center;color:#ff6a00;font-size:14px;margin-top:%?12?%;padding-top:%?12?%;border-top:%?1?% dashed #eee}.order_service_box .order_service_title[data-v-04c28902]{font-size:15px;color:#333;font-weight:700;margin:%?30?% auto %?10?%}.order_service_box .order_service_item[data-v-04c28902]{padding:%?20?% 0;border-bottom:%?2?% solid #f2f2f2}.order_service_box .order_service_item[data-v-04c28902]:last-child{border-bottom:none}.order_service_box .order_service_item .os_img[data-v-04c28902]{width:%?80?%;height:%?80?%;border-radius:%?8?%;margin-right:%?16?%;flex-shrink:0}.order_service_box .order_service_item .os_info[data-v-04c28902]{flex:1;min-width:0;margin-right:%?16?%}.order_service_box .order_service_item .os_info .os_name[data-v-04c28902]{font-size:13.5px;color:#333}.order_service_box .order_service_item .os_info .os_intro[data-v-04c28902]{font-size:12.4px;color:#999;margin-top:%?6?%}.order_service_box .order_service_item .os_right[data-v-04c28902]{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0}.order_service_box .order_service_item .os_right .os_num[data-v-04c28902]{font-size:12.4px;color:#999;margin-bottom:%?4?%}.order_service_box .order_service_item .os_right .os_price[data-v-04c28902]{color:#fd2c28;font-weight:700;font-size:14.4px}.user_msg_flex[data-v-04c28902]{justify-content:center;border-bottom:%?14?% solid #f8f8f8;padding:12px 4px}.user_msg_flex .head_msg_box[data-v-04c28902]{margin-right:10px;display:flex;flex-direction:column;justify-content:space-between;max-width:calc(100% - 255px)}.user_msg_flex .head_msg_box .head_frame_box[data-v-04c28902]{display:flex;align-items:center;justify-content:center;position:relative;width:80px;height:80px}.user_msg_flex .head_msg_box .head_frame_box .head_frame[data-v-04c28902]{position:absolute;z-index:10;pointer-events:none}.user_msg_flex .head_msg_box .head_frame_box .head[data-v-04c28902]{position:absolute;z-index:9;width:60px;height:60px;border-radius:100%}.user_msg_flex .head_msg_box .id[data-v-04c28902]{color:#555;font-size:12px;text-align:center;margin-top:1px}.user_msg_flex .name_rights[data-v-04c28902]{width:245px}.user_msg_flex .name_rights .name_box[data-v-04c28902]{display:flex;align-items:center;justify-content:flex-start;margin-top:2px}.user_msg_flex .name_rights .name_box .nickname[data-v-04c28902]{font-size:15px;font-weight:700;max-width:calc(100% - 80px);text-overflow:ellipsis;white-space:nowrap}.user_msg_flex .name_rights .name_box .level[data-v-04c28902]{width:47px;height:14px;object-fit:contain;margin:0 6px 0 7px}.user_msg_flex .name_rights .name_box .vip[data-v-04c28902]{width:20px;height:18px;object-fit:contain;-webkit-filter:grayscale(100%);filter:grayscale(100%)}.user_msg_flex .name_rights .name_box.is_vip .nickname[data-v-04c28902]{color:red}.user_msg_flex .name_rights .name_box.is_vip .vip[data-v-04c28902]{-webkit-filter:grayscale(0);filter:grayscale(0)}.user_msg_flex .name_rights .rights_grid[data-v-04c28902]{margin-top:11px;display:grid;grid-template-columns:repeat(3,1fr);grid-gap:4px}.user_msg_flex .name_rights .rights_grid .rights[data-v-04c28902]{width:79px;height:23px;line-height:23px;border-radius:23px;background:#e30000;color:#fff;font-size:11px;text-align:center;white-space:nowrap}.seller_msg_box[data-v-04c28902]{margin:%?30?% auto 0;align-items:flex-start}.seller_msg_box .head[data-v-04c28902]{width:%?72?%;height:%?72?%;border-radius:100%}.seller_msg_box .txt[data-v-04c28902]{width:calc(100% - %?97?%)}.seller_msg_box .txt .nickname[data-v-04c28902]{height:%?72?%;line-height:%?72?%;font-size:15px}.seller_msg_box .txt .img_box[data-v-04c28902]{margin:%?4?% auto %?20?%;display:grid;grid-template-columns:repeat(3,1fr);grid-gap:%?30?%}.seller_msg_box .txt .img_box img[data-v-04c28902]{border-radius:%?15?%;width:%?162?%;height:%?162?%}.seller_msg_box .txt .tips[data-v-04c28902]{color:#999;margin:%?6?% auto}.status_box[data-v-04c28902]{padding:%?20?% %?30?% %?30?%;border-bottom:%?14?% solid #f8f8f8}.status_box .status[data-v-04c28902]{justify-content:flex-start}.status_box .status .icon_loading[data-v-04c28902]{display:inline-block;margin:0 %?14?% 0 0;width:%?38?%;height:%?38?%}.status_box .status .tit[data-v-04c28902]{font-weight:700;font-size:16px}.status_box .intro[data-v-04c28902]{color:#999;margin-top:%?10?%}.line_box[data-v-04c28902]{background:#f8f8f8;width:100%;height:%?14?%;margin:0 auto}.block_title[data-v-04c28902]{background:#f8f8f8;padding:%?36?% %?30?%}.reason_box[data-v-04c28902]{padding:%?8?% %?30?%;box-sizing:border-box}.reason_box.remarks_box[data-v-04c28902]{align-items:flex-start}.reason_box .tit[data-v-04c28902]{font-size:15px;font-weight:700;position:relative;z-index:10}.reason_box .tit[data-v-04c28902]::before{z-index:-1;display:block;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?6?%;-webkit-transform:translate(-50%);transform:translate(-50%)}.reason_box .txt[data-v-04c28902]{width:calc(100% - %?150?%)}.reason_box .txt.img_box[data-v-04c28902]{display:grid;grid-template-columns:repeat(3,1fr);grid-gap:%?25?%}.reason_box .txt.img_box img[data-v-04c28902]{border-radius:%?15?%;width:%?162?%;height:%?162?%}.ysShow[data-v-04c28902]{background:#fff;border-radius:%?30?%;padding:%?0?% %?46?% %?30?%;text-align:center}.ysShow .title[data-v-04c28902]{font-weight:700;padding:%?40?% 0;font-size:17px;margin-bottom:%?-25?%}.ysShow .con_box[data-v-04c28902] .uv-form-item{margin:%?40?% 0}.ysShow .con_box[data-v-04c28902] .uv-form-item__body{padding:%?0?%!important}.ysShow .con_box[data-v-04c28902] .uv-form-item__body .uv-upload__button{margin-bottom:0;margin-right:0}.ysShow .con_box[data-v-04c28902] .uv-form-item__body .uv-upload__wrap__preview{margin-bottom:0;margin-right:calc((100% - 240px) / 2)}.ysShow .con_box[data-v-04c28902] .uv-form-item__body .uv-upload__wrap__preview:last-child{margin-right:0}.ysShow .con_box[data-v-04c28902] .uv-form-item__body__right__message{margin:%?12?% 0 0!important;font-size:12.4px}.ysShow .btn_box[data-v-04c28902]{margin:%?25?% auto %?15?%}.ysShow .btn_box uni-view[data-v-04c28902]{background:#ffe610;width:42%;font-size:16px;font-weight:700;height:%?80?%;line-height:%?80?%;border-radius:%?80?%}.ysShow .btn_box uni-view.cancle[data-v-04c28902]{background:#eee;color:#999}.content[data-v-04c28902]{min-height:100vh;padding:0 %?0?% %?130?%}.top_box[data-v-04c28902]{padding:%?30?% 0;margin:0 %?30?%;border-bottom:%?2?% solid #eee}.top_box uni-view[data-v-04c28902]{font-size:13px;white-space:nowrap}.top_box .order_num[data-v-04c28902]{justify-content:flex-start;flex:1}.top_box .order_num .num[data-v-04c28902]{font-weight:700}.top_box .order_num .copy_btn[data-v-04c28902]{margin-left:%?12?%;color:#2979ff}.top_box .status[data-v-04c28902]{font-size:12px;font-weight:700}.msg_box[data-v-04c28902]{padding:0 %?30?%}.msg_box .goods_msg[data-v-04c28902]{margin:%?35?% auto %?45?%;padding-bottom:%?4?%}.msg_box .goods_msg .img[data-v-04c28902]{width:%?120?%;height:%?120?%;border-radius:%?10?%;position:relative;top:%?4?%}.msg_box .goods_msg .txt[data-v-04c28902]{width:calc(100% - %?145?%)}.msg_box .goods_msg .txt .price_box .price[data-v-04c28902]{color:#fd2c28;font-weight:700;font-size:18px}.msg_box .goods_msg .txt .price_box .price .unit[data-v-04c28902]{font-size:13px}.msg_box .goods_msg .txt .name[data-v-04c28902]{margin:%?6?% auto %?2?%;font-weight:700}.msg_box .goods_msg .txt .intro[data-v-04c28902]{font-size:13px;color:#999}.msg_box .tips[data-v-04c28902]{margin:%?28?% auto}.msg_box .tips uni-view[data-v-04c28902]{color:#999;font-size:14.4px}.msg_box .tips .tit[data-v-04c28902]{color:#444}.msg_box .tips .raffle_order[data-v-04c28902]{color:#fd2c28;font-weight:700}.msg_box .tips .remark[data-v-04c28902]{flex:1;text-align:right;margin-left:%?150?%}.msg_box .tips .copy_btn[data-v-04c28902]{margin-left:%?14?%;color:#2979ff}.msg_box .tips .real_money[data-v-04c28902]{color:#fd2c28;font-weight:700;font-size:15px}.msg_box .tips .real_money .unit[data-v-04c28902]{font-size:11px}.msg_box .tips .vip[data-v-04c28902]{width:%?30?%;height:%?26?%;-webkit-filter:grayscale(100%);filter:grayscale(100%);display:inline-block;margin:0;margin-left:%?10?%}.msg_box .tips .nickname.is_vip[data-v-04c28902]{color:red}.msg_box .tips .nickname.is_vip .vip[data-v-04c28902]{-webkit-filter:grayscale(0);filter:grayscale(0)}.msg_box .service_member_card[data-v-04c28902]{position:relative;margin:20px auto}.msg_box .service_member_card uni-view[data-v-04c28902]{text-align:center;white-space:nowrap}.msg_box .service_member_card .tip_box[data-v-04c28902]{background:#a387f1;position:absolute;z-index:9;top:7px;right:7px;height:36px;line-height:28px;font-size:12px;color:#fff;border-radius:0 12px 0 0;width:calc(100% - 95px - 11px);padding:0 12px 0 23px}.msg_box .service_member_card .card_box[data-v-04c28902]{position:relative;z-index:10}.msg_box .service_member_card .card_box .card_title[data-v-04c28902]{position:relative;z-index:0;border-radius:12px 0 0 0;height:36px;background:#ffe610;justify-content:flex-start;position:relative;overflow:visible;width:95px;padding-top:6px;padding-left:14px}.msg_box .service_member_card .card_box .card_title img[data-v-04c28902]{width:20px;height:20px;margin-right:7px}.msg_box .service_member_card .card_box .card_title .title[data-v-04c28902]{font-weight:700;font-size:12.6px}.msg_box .service_member_card .card_box .card_title[data-v-04c28902]::before{content:"";display:block;height:inherit;width:28px;right:-28px;background:url(' +
+          o +
+          ");background-position:0 0;background-repeat:no-repeat;background-size:100% 100%;position:absolute;top:0;bottom:0}.msg_box .service_member_card .card_box .card_main[data-v-04c28902]{position:relative;z-index:1;border-radius:0 12px 12px 12px;background:#ffe610;align-items:flex-start;padding:18px 12px 16px 4px;margin-top:-2px}.msg_box .service_member_card .card_box .card_main .member_box[data-v-04c28902]{flex:1;justify-content:flex-start}.msg_box .service_member_card .card_box .card_main .member_box .member[data-v-04c28902]{width:80px}.msg_box .service_member_card .card_box .card_main .member_box .member .head_box.fupei .head[data-v-04c28902]{border-color:#a387f1}.msg_box .service_member_card .card_box .card_main .member_box .member .head_box.fupei .tag[data-v-04c28902]{background:#a387f1}.msg_box .service_member_card .card_box .card_main .member_box .member .head_box .head[data-v-04c28902]{width:62px;height:62px;border-radius:100%;border:2px solid #000;position:relative;z-index:9;margin:0 auto}.msg_box .service_member_card .card_box .card_main .member_box .member .head_box .head .status[data-v-04c28902]{position:absolute;z-index:10;background:rgba(0,0,0,.55);color:#fff;width:100%;height:100%;left:0;top:0;display:flex;align-items:center;justify-content:center}.msg_box .service_member_card .card_box .card_main .member_box .member .head_box .tag[data-v-04c28902]{position:relative;z-index:11;margin:-14px auto 0;width:42px;height:18px;line-height:18px;border-radius:18px;background:#000;color:#fff;font-size:11.4px}.msg_box .service_member_card .card_box .card_main .member_box .member .nickname[data-v-04c28902]{margin:6px auto 7px;font-size:13px;text-overflow:ellipsis;width:70px}.msg_box .service_member_card .card_box .card_main .member_box .member .money[data-v-04c28902]{font-size:12px;margin:0 auto;width:62px;height:23px;line-height:23px;border-radius:23px;background:#fff}.msg_box .service_member_card .card_box .card_main .invite_box .invite[data-v-04c28902]{width:62px;height:62px;border-radius:100%;border:2px dashed #000;justify-content:center}.msg_box .service_member_card .card_box .card_main .invite_box .des[data-v-04c28902]{margin:10px auto 0;font-size:13px}.prize_list_box[data-v-04c28902]{background:#fffbe6;border-radius:%?16?%;padding:%?24?%;margin-bottom:%?24?%;border:%?2?% solid #ffe066}.prize_list_box .prize_list_title[data-v-04c28902]{font-size:16px;font-weight:700;color:#d4a800;margin-bottom:%?16?%}.prize_list_box .prize_list[data-v-04c28902]{display:flex;flex-direction:column;gap:%?12?%}.prize_list_box .prize_item[data-v-04c28902]{background:#fff;border-radius:%?12?%;padding:%?12?%;align-items:center}.prize_list_box .prize_item .prize_img[data-v-04c28902]{width:%?80?%;height:%?80?%;border-radius:%?8?%;margin-right:%?16?%}.prize_list_box .prize_item .prize_txt[data-v-04c28902]{flex:1;display:flex;align-items:center;gap:%?8?%}.prize_list_box .prize_item .prize_txt .prize_label[data-v-04c28902]{background:linear-gradient(135deg,#ff6a00,#ff8c00);color:#fff;font-size:10px;padding:%?2?% %?8?%;border-radius:%?4?%;font-weight:700}.prize_list_box .prize_item .prize_txt .prize_name[data-v-04c28902]{font-size:14px;color:#333}.prize_list_box .prize_item .prize_count[data-v-04c28902]{font-size:14px;color:#999;font-weight:700}.prize_list_box .show_more[data-v-04c28902]{text-align:center;color:#ff6a00;font-size:14px;margin-top:%?12?%;padding-top:%?12?%;border-top:%?1?% dashed #ffe066}.cash_box[data-v-04c28902]{background:#fff;position:fixed;left:0;right:0;bottom:0;max-width:480px;width:100%;margin:0 auto;box-shadow:0 0 %?10?% #ddd;padding:%?25?%;z-index:99}.cash_box .total_box uni-view[data-v-04c28902],\r\n.cash_box .total_box uni-text[data-v-04c28902]{white-space:nowrap}.cash_box .total_box .tit[data-v-04c28902]{font-size:12.4px;color:#666}.cash_box .total_box .price[data-v-04c28902]{color:#fd2c28;font-weight:700;font-size:17px}.cash_box .total_box .price .unit[data-v-04c28902]{font-size:12px}.cash_box .btn_box[data-v-04c28902]{justify-content:flex-end}.cash_box .btn_box uni-view[data-v-04c28902]{background:#ffe610;height:%?66?%;line-height:%?66?%;border-radius:%?66?%;font-weight:700;margin-left:%?25?%;padding:0 %?24?%;box-sizing:border-box}.cash_box .btn_box uni-view[data-v-04c28902]:first-child{margin-left:0}.cash_box .btn_box uni-view.cancle[data-v-04c28902]{background:#eee;color:#666}",
+        "",
+      ]),
+        (e.exports = i);
+    },
+    caf4: function (e, i, t) {
+      "use strict";
+      t("6a54");
+      var s = t("f5bd").default;
+      Object.defineProperty(i, "__esModule", { value: !0 }),
+        (i.default = void 0),
+        t("64aa");
+      var a,
+        n,
+        o = s(t("9b1b")),
+        r = {
+          props: (0, o.default)(
+            {
+              dashed: { type: Boolean, default: !1 },
+              hairline: { type: Boolean, default: !0 },
+              dot: { type: Boolean, default: !1 },
+              textPosition: { type: String, default: "center" },
+              text: { type: [String, Number], default: "" },
+              textSize: { type: [String, Number], default: 14 },
+              textColor: { type: String, default: "#909399" },
+              lineColor: { type: String, default: "#dcdfe6" },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (n = a.props) ||
+              void 0 === n
+              ? void 0
+              : n.divider,
+          ),
+        };
+      i.default = r;
+    },
+    ff2b: function (e, i, t) {
+      "use strict";
+      t("6a54");
+      var s = t("f5bd").default;
+      Object.defineProperty(i, "__esModule", { value: !0 }),
+        (i.default = void 0);
+      var a = s(t("9b1b")),
+        n = s(t("2634")),
+        o = s(t("2fdc"));
+      t("0c26"), t("dd2b"), t("c223"), t("fd3c"), t("aa9c");
+      var r = t("e74a"),
+        c = s(t("2609")),
+        l = t("15b8"),
+        d = {
+          data: function () {
+            return {
+              id: 0,
+              info: { user: {}, my_user_id: 0 },
+              showAllPrizes: !1,
+              showAllServices: !1,
+              user_level: [],
+              user: [],
+              form: { problem_des: "", service_txt: "", pics: [] },
+              rules: {
+                problem_des: {
+                  type: "string",
+                  required: !0,
+                  message: "请输入问题单描述",
+                  trigger: ["blur", "change"],
+                },
+                service_txt: {
+                  type: "string",
+                  required: !0,
+                  message: "请输入证明文字",
+                  trigger: ["blur", "change"],
+                },
+                pics: {
+                  type: "array",
+                  required: !0,
+                  message: "请上传证明图片",
+                  trigger: ["blur", "change"],
+                },
+              },
+              intervalId: null,
+              openShowEndType: 1,
+              vip_status: 0,
+              member: [],
+              palte: "h5",
+            };
+          },
+          onLoad: function (e) {
+            this.id = e.id;
+            var i = this;
+            clearInterval(this.intervalId),
+              (this.intervalId = null),
+              (this.intervalId = setInterval(function () {
+                i.getSellerOrderInfo(0);
+              }, 6e3));
+          },
+          onShow: function () {
+            this.getSellerOrderInfo();
+          },
+          onUnload: function () {
+            clearInterval(this.intervalId),
+              (this.intervalId = null),
+              console.log("清除定时器");
+          },
+          mounted: function () {},
+          onPullDownRefresh: function () {
+            var e = this;
+            uni.showLoading({ title: "刷新中" }),
+              setTimeout(function () {
+                uni.hideLoading(),
+                  e.getSellerOrderInfo(),
+                  uni.showToast({ title: "刷新成功", duration: 1e3 }),
+                  uni.stopPullDownRefresh();
+              }, 300);
+          },
+          methods: {
+            openShowEnd: function (e) {
+              this.$refs.popEnd.open(), (this.openShowEndType = e);
+            },
+            closeEnd: function () {
+              (this.form.pics = []), this.$refs.popEnd.close();
+            },
+            openProblemOrder: function () {
+              this.$refs.popProblem.open();
+            },
+            closeProblem: function () {
+              (this.form.pics = []), this.$refs.popProblem.close();
+            },
+            copyOrderNum: function (e) {
+              uni.setClipboardData({
+                data: e.trim(),
+                success: function () {
+                  uni.$uv.toast("复制成功");
+                },
+                fail: function () {
+                  uni.$uv.toast("复制失败");
+                },
+              });
+            },
+            getSellerOrderInfo: function () {
+              var e = this,
+                i =
+                  arguments.length > 0 && void 0 !== arguments[0]
+                    ? arguments[0]
+                    : 1;
+              1 == i && uni.showLoading({ title: "加载中.." }),
+                (0, r.send)(
+                  "/wechat/Order/getSellerOrderInfo",
+                  { id: this.id },
+                  !1,
+                ).then(function (t) {
+                  1 == i && uni.hideLoading();
+                  var s = t.status,
+                    a = t.msg,
+                    n = t.data;
+                  if (1 != s) return uni.$uv.toast(a);
+                  (e.info = n),
+                    (e.showAllPrizes = !1),
+                    (e.user_level = n.user_level),
+                    (e.user = n.user),
+                    (e.member = n.member.member || []),
+                    (e.vip_status = n.vip_status),
+                    e.initUpload(n.up_config);
+                });
+            },
+            jump: function (e) {
+              clearInterval(this.intervalId),
+                (this.intervalId = null),
+                uni.navigateTo({ url: e });
+            },
+            cancleOrder: function () {
+              var e = this;
+              uni.showModal({
+                title: "请输入取消原因",
+                content: "",
+                editable: !0,
+                success: function (i) {
+                  if ((console.log(i), i.confirm)) {
+                    if ("" == i.content)
+                      return uni.$uv.toast("取消原因不能为空");
+                    e.subCancel(i.content);
+                  }
+                },
+              });
+            },
+            subCancel: function (e) {
+              var i = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, r.send)(
+                  "/wechat/Order/sellerCancleOrder",
+                  { id: this.id, cancel_reason: e },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var t = e.status,
+                    s = e.msg;
+                  e.data;
+                  if (1 != t) return uni.$uv.toast(s);
+                  uni.$uv.toast(s), i.getSellerOrderInfo();
+                });
+            },
+            endServiceFun: function () {
+              var e = this;
+              this.$refs.form1
+                .validate()
+                .then(function (i) {
+                  uni.$uv.throttle(e.endService, 1500);
+                })
+                .catch(function (e) {
+                  console.log(e);
+                });
+            },
+            endService: function () {
+              var e = this;
+              uni.showLoading({ title: "加载中.." });
+              var i = "";
+              1 == this.openShowEndType && (i = "/wechat/Order/endService"),
+                2 == this.openShowEndType &&
+                  (i = "/wechat/Order/improveServiceInfo"),
+                (0, r.send)(
+                  i,
+                  {
+                    id: this.id,
+                    pics: this.form.pics,
+                    service_txt: this.form.service_txt,
+                  },
+                  !1,
+                ).then(function (i) {
+                  uni.hideLoading();
+                  var t = i.status,
+                    s = i.msg;
+                  i.data;
+                  if (1 != t) return uni.$uv.toast(s);
+                  uni.$uv.toast(s),
+                    e.closeEnd(),
+                    setTimeout(function () {
+                      e.getSellerOrderInfo();
+                    }, 1500);
+                });
+            },
+            problemOrderFun: function () {
+              var e = this;
+              this.$refs.form2
+                .validate()
+                .then(function (i) {
+                  uni.$uv.throttle(e.problemOrder, 1500);
+                })
+                .catch(function (e) {});
+            },
+            problemOrder: function () {
+              var e = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, r.send)(
+                  "/wechat/Order/problemOrder",
+                  {
+                    id: this.id,
+                    problem_des: this.form.problem_des,
+                    pics: this.form.pics,
+                  },
+                  !1,
+                ).then(function (i) {
+                  uni.hideLoading();
+                  var t = i.status,
+                    s = i.msg;
+                  i.data;
+                  if (1 != t) return uni.$uv.toast(s);
+                  uni.$uv.toast(s),
+                    e.closeProblem(),
+                    setTimeout(function () {
+                      e.getSellerOrderInfo();
+                    }, 1500);
+                });
+            },
+            confirmOrder: function () {
+              var e = this;
+              uni.showModal({
+                title: "温馨提示",
+                content: "确认要接单么 ?",
+                success: function (i) {
+                  i.confirm &&
+                    (uni.showLoading({ title: "加载中.." }),
+                    (0, r.send)(
+                      "/wechat/Order/confirmOrder",
+                      { id: e.id },
+                      !1,
+                    ).then(function (i) {
+                      uni.hideLoading();
+                      var t = i.status,
+                        s = i.msg;
+                      i.data;
+                      if (1 != t) return uni.$uv.toast(s);
+                      uni.$uv.toast(s), e.getSellerOrderInfo();
+                    }));
+                },
+              });
+            },
+            upImg: function (e, i) {
+              var t = this;
+              return (0, o.default)(
+                (0, n.default)().mark(function s() {
+                  var a;
+                  return (0, n.default)().wrap(function (s) {
+                    while (1)
+                      switch ((s.prev = s.next)) {
+                        case 0:
+                          return (s.next = 2), (0, l.uploadCompressImgs)(e);
+                        case 2:
+                          (a = s.sent),
+                            (0, r.send)(
+                              "/wechat/Files/uploadBase64",
+                              { label: "order", file: a },
+                              !1,
+                            ).then(function (e) {
+                              e.status;
+                              var s = e.msg,
+                                a = e.data;
+                              if (1 != e.code)
+                                return (t.form.pics = []), uni.$uv.toast(s);
+                              var n = t.form.pics[i];
+                              t.form.pics.splice(
+                                i,
+                                1,
+                                Object.assign(n, {
+                                  status: "success",
+                                  message: "",
+                                  url: a.fullurl,
+                                }),
+                              );
+                            });
+                        case 4:
+                        case "end":
+                          return s.stop();
+                      }
+                  }, s);
+                }),
+              )();
+            },
+            selectPic: function (e) {
+              var i = this,
+                t = [].concat(e.file),
+                s = this.form.pics.length;
+              t.map(function (e) {
+                i.form.pics.push(
+                  (0, a.default)(
+                    (0, a.default)({}, e),
+                    {},
+                    { status: "uploading", message: "上传中" },
+                  ),
+                );
+              });
+              for (var n = 0; n < t.length; n++)
+                "h5" == this.palte && this.upImg(t[n].url, s),
+                  "mp-weixin" == this.palte && this.selectWeappPic(t[n].url, s),
+                  s++;
+            },
+            initUpload: function (e) {
+              "mp-weixin" == this.palte &&
+                (this.uploader = new c.default({
+                  domain: e.domain,
+                  tokenUrl: e.token_url,
+                  quality: 0.6,
+                  prefix: e.prefix,
+                }));
+            },
+            selectWeappPic: function (e, i) {
+              var t = this;
+              return (0, o.default)(
+                (0, n.default)().mark(function s() {
+                  var a, o;
+                  return (0, n.default)().wrap(
+                    function (s) {
+                      while (1)
+                        switch ((s.prev = s.next)) {
+                          case 0:
+                            return (
+                              (s.prev = 0),
+                              (s.next = 3),
+                              t.uploader.uploadWechatAvatar({ avatarUrl: e })
+                            );
+                          case 3:
+                            (a = s.sent),
+                              console.log(a),
+                              (o = t.form.pics[i]),
+                              t.form.pics.splice(
+                                i,
+                                1,
+                                Object.assign(o, {
+                                  status: "success",
+                                  message: "",
+                                  url: a.url,
+                                }),
+                              ),
+                              (s.next = 13);
+                            break;
+                          case 9:
+                            (s.prev = 9),
+                              (s.t0 = s["catch"](0)),
+                              uni.showToast({
+                                title:
+                                  "发送失败: " + (s.t0.message || "未知错误"),
+                                icon: "none",
+                              }),
+                              console.error("发送失败:", s.t0);
+                          case 13:
+                          case "end":
+                            return s.stop();
+                        }
+                    },
+                    s,
+                    null,
+                    [[0, 9]],
+                  );
+                }),
+              )();
+            },
+            deletePic: function (e) {
+              console.log(this.form.pics),
+                console.log(e),
+                this.form.pics.splice(e.index, 1);
+            },
+            previewImage: function (e, i) {
+              uni.previewImage({ current: e, urls: i });
+            },
+            callPhone: function (e) {
+              uni.makePhoneCall({
+                phoneNumber: e,
+                success: function () {
+                  console.log("拨打电话成功");
+                },
+                fail: function (e) {
+                  console.error("拨打电话失败", e);
+                },
+              });
+            },
+          },
+        };
+      i.default = d;
+    },
+  },
+]);
+//# sourceMappingURL=pages_sub1-order-seller_info.0de376ae.js.map

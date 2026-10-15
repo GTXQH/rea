@@ -1,0 +1,2895 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  [
+    "pages-user-apply",
+    "pages-user-certification~pages-user-personal~pages_sub1-order-audit_detail~pages_sub1-order-comment~~ea7a9f35",
+    "pages-pay-raffle~pages-user-huifu~pages_sub1-kefu-service~pages_sub1-seller-index",
+  ],
+  {
+    "06da": function (e, t, a) {
+      "use strict";
+      a.d(t, "b", function () {
+        return n;
+      }),
+        a.d(t, "c", function () {
+          return r;
+        }),
+        a.d(t, "a", function () {
+          return i;
+        });
+      var i = {
+          uvIcon: a("1a07").default,
+          uvLoadingIcon: a("17f5").default,
+          uvPreviewVideo: a("27eb").default,
+        },
+        n = function () {
+          var e = this,
+            t = e.$createElement,
+            a = e._self._c || t;
+          return a(
+            "v-uni-view",
+            {
+              staticClass: "uv-upload",
+              style: [e.$uv.addStyle(e.customStyle)],
+            },
+            [
+              a(
+                "v-uni-view",
+                { staticClass: "uv-upload__wrap" },
+                [
+                  e.previewImage
+                    ? e._l(e.lists, function (t, i) {
+                        return a(
+                          "v-uni-view",
+                          { key: i, staticClass: "uv-upload__wrap__preview" },
+                          [
+                            t.isImage || (t.type && "image" === t.type)
+                              ? a("v-uni-image", {
+                                  staticClass:
+                                    "uv-upload__wrap__preview__image",
+                                  style: [
+                                    {
+                                      width: e.$uv.addUnit(e.width),
+                                      height: e.$uv.addUnit(e.height),
+                                    },
+                                  ],
+                                  attrs: {
+                                    src: t.thumb || t.url,
+                                    mode: e.imageMode,
+                                  },
+                                  on: {
+                                    click: function (a) {
+                                      (arguments[0] = a = e.$handleEvent(a)),
+                                        e.onPreviewImage(t, i);
+                                    },
+                                  },
+                                })
+                              : a(
+                                  "v-uni-view",
+                                  {
+                                    staticClass:
+                                      "uv-upload__wrap__preview__other",
+                                    style: [
+                                      {
+                                        width: e.$uv.addUnit(e.width),
+                                        height: e.$uv.addUnit(e.height),
+                                      },
+                                    ],
+                                    on: {
+                                      click: function (a) {
+                                        (arguments[0] = a = e.$handleEvent(a)),
+                                          e.onPreviewVideo(t, i);
+                                      },
+                                    },
+                                  },
+                                  [
+                                    a("uv-icon", {
+                                      attrs: {
+                                        color: "#80CBF9",
+                                        size: "26",
+                                        name:
+                                          t.isVideo ||
+                                          (t.type && "video" === t.type)
+                                            ? "movie"
+                                            : "folder",
+                                      },
+                                    }),
+                                    a(
+                                      "v-uni-text",
+                                      {
+                                        staticClass:
+                                          "uv-upload__wrap__preview__other__text",
+                                      },
+                                      [
+                                        e._v(
+                                          e._s(
+                                            t.isVideo ||
+                                              (t.type && "video" === t.type)
+                                              ? "视频"
+                                              : "文件",
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                  1,
+                                ),
+                            "uploading" === t.status || "failed" === t.status
+                              ? a(
+                                  "v-uni-view",
+                                  { staticClass: "uv-upload__status" },
+                                  [
+                                    a(
+                                      "v-uni-view",
+                                      {
+                                        staticClass: "uv-upload__status__icon",
+                                      },
+                                      [
+                                        "failed" === t.status
+                                          ? a("uv-icon", {
+                                              attrs: {
+                                                name: "close-circle",
+                                                color: "#ffffff",
+                                                size: "25",
+                                              },
+                                            })
+                                          : a("uv-loading-icon", {
+                                              attrs: {
+                                                size: "22",
+                                                mode: "circle",
+                                              },
+                                            }),
+                                      ],
+                                      1,
+                                    ),
+                                    t.message
+                                      ? a(
+                                          "v-uni-text",
+                                          {
+                                            staticClass:
+                                              "uv-upload__status__message",
+                                          },
+                                          [e._v(e._s(t.message))],
+                                        )
+                                      : e._e(),
+                                  ],
+                                  1,
+                                )
+                              : e._e(),
+                            "uploading" !== t.status &&
+                            (e.deletable || t.deletable)
+                              ? a(
+                                  "v-uni-view",
+                                  {
+                                    staticClass: "uv-upload__deletable",
+                                    on: {
+                                      click: function (t) {
+                                        t.stopPropagation(),
+                                          (arguments[0] = t =
+                                            e.$handleEvent(t)),
+                                          e.deleteItem(i);
+                                      },
+                                    },
+                                  },
+                                  [
+                                    a(
+                                      "v-uni-view",
+                                      {
+                                        staticClass:
+                                          "uv-upload__deletable__icon",
+                                      },
+                                      [
+                                        a("uv-icon", {
+                                          attrs: {
+                                            name: "close",
+                                            color: "#ffffff",
+                                            size: "10",
+                                          },
+                                        }),
+                                      ],
+                                      1,
+                                    ),
+                                  ],
+                                  1,
+                                )
+                              : e._e(),
+                            "success" === t.status
+                              ? a(
+                                  "v-uni-view",
+                                  { staticClass: "uv-upload__success" },
+                                  [
+                                    a(
+                                      "v-uni-view",
+                                      {
+                                        staticClass: "uv-upload__success__icon",
+                                      },
+                                      [
+                                        a("uv-icon", {
+                                          attrs: {
+                                            name: "checkmark",
+                                            color: "#ffffff",
+                                            size: "12",
+                                          },
+                                        }),
+                                      ],
+                                      1,
+                                    ),
+                                  ],
+                                  1,
+                                )
+                              : e._e(),
+                          ],
+                          1,
+                        );
+                      })
+                    : e._e(),
+                  e.isInCount
+                    ? [
+                        a(
+                          "v-uni-view",
+                          {
+                            on: {
+                              click: function (t) {
+                                (arguments[0] = t = e.$handleEvent(t)),
+                                  e.chooseFile.apply(void 0, arguments);
+                              },
+                            },
+                          },
+                          [
+                            e._t("default", [
+                              a(
+                                "v-uni-view",
+                                {
+                                  staticClass: "uv-upload__button",
+                                  class: [
+                                    e.disabled && "uv-upload__button--disabled",
+                                  ],
+                                  style: [
+                                    {
+                                      width: e.$uv.addUnit(e.width),
+                                      height: e.$uv.addUnit(e.height),
+                                    },
+                                  ],
+                                  attrs: {
+                                    "hover-class": e.disabled
+                                      ? ""
+                                      : "uv-upload__button--hover",
+                                    "hover-stay-time": "150",
+                                  },
+                                  on: {
+                                    click: function (t) {
+                                      t.stopPropagation(),
+                                        (arguments[0] = t = e.$handleEvent(t)),
+                                        e.chooseFile.apply(void 0, arguments);
+                                    },
+                                  },
+                                },
+                                [
+                                  a("uv-icon", {
+                                    attrs: {
+                                      name: e.uploadIcon,
+                                      size: "26",
+                                      color: e.uploadIconColor,
+                                    },
+                                  }),
+                                  e.uploadText
+                                    ? a(
+                                        "v-uni-text",
+                                        {
+                                          staticClass:
+                                            "uv-upload__button__text",
+                                        },
+                                        [e._v(e._s(e.uploadText))],
+                                      )
+                                    : e._e(),
+                                ],
+                                1,
+                              ),
+                            ]),
+                          ],
+                          2,
+                        ),
+                      ]
+                    : e._e(),
+                ],
+                2,
+              ),
+              a("uv-preview-video", { ref: "previewVideo" }),
+            ],
+            1,
+          );
+        },
+        r = [];
+    },
+    "0745": function (e, t, a) {
+      "use strict";
+      var i = a("cc60"),
+        n = a.n(i);
+      n.a;
+    },
+    "0d58": function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("64aa");
+      var n,
+        r,
+        o = i(a("9b1b")),
+        l = {
+          props: (0, o.default)(
+            {
+              name: { type: [String, Number, Boolean], default: "" },
+              shape: { type: String, default: "" },
+              size: { type: [String, Number], default: "" },
+              checked: { type: Boolean, default: !1 },
+              disabled: { type: [String, Boolean], default: "" },
+              activeColor: { type: String, default: "" },
+              inactiveColor: { type: String, default: "" },
+              iconSize: { type: [String, Number], default: "" },
+              iconColor: { type: String, default: "" },
+              label: { type: [String, Number, Boolean], default: "" },
+              labelSize: { type: [String, Number], default: "" },
+              labelColor: { type: String, default: "" },
+              labelDisabled: { type: [String, Boolean], default: "" },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (r = n.props) ||
+              void 0 === r
+              ? void 0
+              : r.checkbox,
+          ),
+        };
+      t.default = l;
+    },
+    "0d9c": function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("fd3c");
+      var n = i(a("4d8f0")),
+        r = i(a("9463")),
+        o = i(a("7702")),
+        l = {
+          name: "uv-radio-group",
+          mixins: [n.default, r.default, o.default],
+          computed: {
+            parentData: function () {
+              var e = this.value || this.modelValue;
+              return [
+                e,
+                this.disabled,
+                this.inactiveColor,
+                this.activeColor,
+                this.size,
+                this.labelDisabled,
+                this.shape,
+                this.iconSize,
+                this.borderBottom,
+                this.placement,
+              ];
+            },
+            bemClass: function () {
+              return this.bem("radio-group", ["placement"]);
+            },
+          },
+          watch: {
+            parentData: function () {
+              this.children.length &&
+                this.children.map(function (e) {
+                  "function" === typeof e.init && e.init();
+                });
+            },
+          },
+          data: function () {
+            return {};
+          },
+          created: function () {
+            this.children = [];
+          },
+          methods: {
+            unCheckedOther: function (e) {
+              this.children.map(function (t) {
+                e !== t && (t.checked = !1);
+              });
+              var t = e.name;
+              this.$emit("input", t), this.$emit("change", t);
+            },
+          },
+        };
+      t.default = l;
+    },
+    1295: function (e, t, a) {
+      "use strict";
+      a("6a54"),
+        Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0);
+      var i = {
+        props: {
+          src: { type: String, default: "" },
+          autoplay: { type: Boolean, default: !0 },
+        },
+        data: function () {
+          return { videoSrc: "", show: !1 };
+        },
+        computed: {
+          getSec: function () {
+            return this.src || this.videoSrc;
+          },
+        },
+        methods: {
+          open: function (e) {
+            (this.videoSrc = e), this.$refs.popup.open();
+          },
+          close: function () {
+            this.$refs.popup.close();
+          },
+          change: function (e) {
+            this.show = e.show;
+          },
+        },
+      };
+      t.default = i;
+    },
+    "23c3": function (e, t, a) {
+      var i = a("54ca");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[e.i, i, ""]]),
+        i.locals && (e.exports = i.locals);
+      var n = a("967d").default;
+      n("1d1409dc", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    2620: function (e, t, a) {
+      "use strict";
+      a("6a54"),
+        Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0);
+      var i = a("a991"),
+        n = {
+          watch: {
+            accept: {
+              immediate: !0,
+              handler: function (e) {
+                ("all" !== e && "media" !== e) ||
+                  (0, i.error)(
+                    "只有微信小程序才支持把accept配置为all、media之一",
+                  );
+              },
+            },
+          },
+        };
+      t.default = n;
+    },
+    "27eb": function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("7921"),
+        n = a("3347");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      a("4522");
+      var o = a("828b"),
+        l = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "2340c894",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    "2c72": function (e, t, a) {
+      "use strict";
+      a.d(t, "b", function () {
+        return n;
+      }),
+        a.d(t, "c", function () {
+          return r;
+        }),
+        a.d(t, "a", function () {
+          return i;
+        });
+      var i = {
+          uvParse: a("c96a").default,
+          uvForm: a("0de9").default,
+          uvFormItem: a("05af").default,
+          uvCheckboxGroup: a("d019").default,
+          uvCheckbox: a("f80b").default,
+          uvInput: a("f723").default,
+          uvRadioGroup: a("af45").default,
+          uvRadio: a("636d").default,
+          uvUpload: a("7447").default,
+          uvIcon: a("1a07").default,
+        },
+        n = function () {
+          var e = this,
+            t = e.$createElement,
+            a = e._self._c || t;
+          return a(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              a(
+                "v-uni-view",
+                { staticClass: "rich_box" },
+                [a("uv-parse", { attrs: { content: e.content } })],
+                1,
+              ),
+              a("v-uni-view", { staticClass: "line_box" }),
+              a(
+                "uv-form",
+                {
+                  ref: "form",
+                  attrs: {
+                    labelPosition: "left",
+                    model: e.form,
+                    rules: e.rules,
+                  },
+                },
+                [
+                  a(
+                    "uv-form-item",
+                    { attrs: { label: "游戏", prop: "game_ids" } },
+                    [
+                      a(
+                        "uv-checkbox-group",
+                        {
+                          model: {
+                            value: e.form.game_ids,
+                            callback: function (t) {
+                              e.$set(e.form, "game_ids", t);
+                            },
+                            expression: "form.game_ids",
+                          },
+                        },
+                        e._l(e.game_list, function (e, t) {
+                          return a("uv-checkbox", {
+                            key: t,
+                            attrs: {
+                              label: e,
+                              name: e,
+                              customStyle: {
+                                marginRight: "8px",
+                                marginBottom: "8px",
+                              },
+                            },
+                          });
+                        }),
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "uv-form-item",
+                    { attrs: { label: "昵称", prop: "nickname" } },
+                    [
+                      a("uv-input", {
+                        attrs: { placeholder: "请输入昵称", maxlength: "14" },
+                        model: {
+                          value: e.form.nickname,
+                          callback: function (t) {
+                            e.$set(e.form, "nickname", t);
+                          },
+                          expression: "form.nickname",
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "uv-form-item",
+                    { attrs: { label: "性别", prop: "sex" } },
+                    [
+                      a(
+                        "uv-radio-group",
+                        {
+                          model: {
+                            value: e.form.sex,
+                            callback: function (t) {
+                              e.$set(e.form, "sex", t);
+                            },
+                            expression: "form.sex",
+                          },
+                        },
+                        e._l(e.radiolist, function (e, t) {
+                          return a("uv-radio", {
+                            key: t,
+                            attrs: { label: e.label, name: e.name },
+                          });
+                        }),
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "uv-form-item",
+                    { attrs: { label: "年龄", prop: "age" } },
+                    [
+                      a("uv-input", {
+                        attrs: {
+                          placeholder: "请输入年龄",
+                          maxlength: "2",
+                          type: "number",
+                        },
+                        model: {
+                          value: e.form.age,
+                          callback: function (t) {
+                            e.$set(e.form, "age", t);
+                          },
+                          expression: "form.age",
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "uv-form-item",
+                    { attrs: { label: "手机号", prop: "mobile" } },
+                    [
+                      a("uv-input", {
+                        attrs: {
+                          placeholder: "请输入手机号",
+                          maxlength: "11",
+                          type: "number",
+                        },
+                        model: {
+                          value: e.form.mobile,
+                          callback: function (t) {
+                            e.$set(e.form, "mobile", t);
+                          },
+                          expression: "form.mobile",
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "uv-form-item",
+                    { attrs: { label: "微信号", prop: "weixin" } },
+                    [
+                      a("uv-input", {
+                        attrs: { placeholder: "请输入微信号" },
+                        model: {
+                          value: e.form.weixin,
+                          callback: function (t) {
+                            e.$set(e.form, "weixin", t);
+                          },
+                          expression: "form.weixin",
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "uv-form-item",
+                    { attrs: { label: "身份证正面", prop: "sfz_img1" } },
+                    [
+                      a("uv-upload", {
+                        attrs: {
+                          fileList: e.form.sfz_img1,
+                          name: "1",
+                          maxCount: 1,
+                          multiple: !0,
+                          previewFullImage: !0,
+                          uploadText: "点击上传",
+                          accept: "image",
+                        },
+                        on: {
+                          afterRead: function (t) {
+                            (arguments[0] = t = e.$handleEvent(t)),
+                              e.selectSfzImg1.apply(void 0, arguments);
+                          },
+                          delete: function (t) {
+                            (arguments[0] = t = e.$handleEvent(t)),
+                              e.deleteSfzImg1.apply(void 0, arguments);
+                          },
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "uv-form-item",
+                    { attrs: { label: "身份证背面", prop: "sfz_img2" } },
+                    [
+                      a("uv-upload", {
+                        attrs: {
+                          fileList: e.form.sfz_img2,
+                          name: "1",
+                          maxCount: 1,
+                          multiple: !0,
+                          previewFullImage: !0,
+                          uploadText: "点击上传",
+                          accept: "image",
+                        },
+                        on: {
+                          afterRead: function (t) {
+                            (arguments[0] = t = e.$handleEvent(t)),
+                              e.selectSfzImg2.apply(void 0, arguments);
+                          },
+                          delete: function (t) {
+                            (arguments[0] = t = e.$handleEvent(t)),
+                              e.deleteSfzImg2.apply(void 0, arguments);
+                          },
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "v-uni-view",
+                    { staticClass: "xieyi_box flex_box" },
+                    [
+                      a(
+                        "v-uni-view",
+                        {
+                          staticClass: "check flex_box",
+                          on: {
+                            click: function (t) {
+                              (arguments[0] = t = e.$handleEvent(t)),
+                                e.toggleAgree.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [
+                          e.agree
+                            ? a("uv-icon", {
+                                attrs: {
+                                  name: "checkmark",
+                                  color: "#2979ff",
+                                  size: "16",
+                                },
+                              })
+                            : e._e(),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        {
+                          staticClass: "tit",
+                          on: {
+                            click: function (t) {
+                              (arguments[0] = t = e.$handleEvent(t)),
+                                e.toggleAgree.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [e._v("我已阅读并同意")],
+                      ),
+                      a(
+                        "v-uni-view",
+                        {
+                          staticClass: "tit blue",
+                          on: {
+                            click: function (t) {
+                              (arguments[0] = t = e.$handleEvent(t)),
+                                e.jump("/pages/user/article?id=5");
+                            },
+                          },
+                        },
+                        [e._v("《陪玩入驻协议》")],
+                      ),
+                    ],
+                    1,
+                  ),
+                  a(
+                    "v-uni-view",
+                    {
+                      staticClass: "sub_btn",
+                      on: {
+                        click: function (t) {
+                          (arguments[0] = t = e.$handleEvent(t)),
+                            e.submit.apply(void 0, arguments);
+                        },
+                      },
+                    },
+                    [e._v("提交申请")],
+                  ),
+                ],
+                1,
+              ),
+            ],
+            1,
+          );
+        },
+        r = [];
+    },
+    "2f40": function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("0d9c"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return i[e];
+            });
+          })(r);
+      t["default"] = n.a;
+    },
+    "311d": function (e, t, a) {
+      "use strict";
+      var i = a("a3cb"),
+        n = a.n(i);
+      n.a;
+    },
+    3347: function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("1295"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return i[e];
+            });
+          })(r);
+      t["default"] = n.a;
+    },
+    3603: function (e, t, a) {
+      var i = a("e357");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[e.i, i, ""]]),
+        i.locals && (e.exports = i.locals);
+      var n = a("967d").default;
+      n("470340b0", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "394f": function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("b478"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return i[e];
+            });
+          })(r);
+      t["default"] = n.a;
+    },
+    "431d": function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("aa9c");
+      var n = i(a("4d8f0")),
+        r = i(a("9463")),
+        o = i(a("9b82")),
+        l = {
+          name: "uv-radio",
+          mixins: [n.default, r.default, o.default],
+          data: function () {
+            return {
+              checked: !1,
+              parentData: {
+                iconSize: 12,
+                labelSize: 14,
+                labelColor: "#303133",
+                labelDisabled: null,
+                disabled: null,
+                shape: null,
+                activeColor: null,
+                inactiveColor: null,
+                size: 18,
+                value: null,
+                modelValue: null,
+                iconColor: null,
+                placement: "row",
+                borderBottom: !1,
+                iconPlacement: "left",
+              },
+            };
+          },
+          computed: {
+            elDisabled: function () {
+              return "" !== this.disabled
+                ? this.disabled
+                : null !== this.parentData.disabled && this.parentData.disabled;
+            },
+            elLabelDisabled: function () {
+              return "" !== this.labelDisabled
+                ? this.labelDisabled
+                : null !== this.parentData.labelDisabled &&
+                    this.parentData.labelDisabled;
+            },
+            elSize: function () {
+              return this.size
+                ? this.size
+                : this.parentData.size
+                  ? this.parentData.size
+                  : 21;
+            },
+            elIconSize: function () {
+              return this.iconSize
+                ? this.iconSize
+                : this.parentData.iconSize
+                  ? this.parentData.iconSize
+                  : 12;
+            },
+            elActiveColor: function () {
+              return this.activeColor
+                ? this.activeColor
+                : this.parentData.activeColor
+                  ? this.parentData.activeColor
+                  : "#2979ff";
+            },
+            elInactiveColor: function () {
+              return this.inactiveColor
+                ? this.inactiveColor
+                : this.parentData.inactiveColor
+                  ? this.parentData.inactiveColor
+                  : "#c8c9cc";
+            },
+            elLabelColor: function () {
+              return this.labelColor
+                ? this.labelColor
+                : this.parentData.labelColor
+                  ? this.parentData.labelColor
+                  : "#606266";
+            },
+            elShape: function () {
+              return this.shape
+                ? this.shape
+                : this.parentData.shape
+                  ? this.parentData.shape
+                  : "circle";
+            },
+            elLabelSize: function () {
+              return this.$uv.addUnit(
+                this.labelSize
+                  ? this.labelSize
+                  : this.parentData.labelSize
+                    ? this.parentData.labelSize
+                    : "15",
+              );
+            },
+            elIconColor: function () {
+              var e = this.iconColor
+                ? this.iconColor
+                : this.parentData.iconColor
+                  ? this.parentData.iconColor
+                  : "#ffffff";
+              return this.elDisabled
+                ? this.checked
+                  ? this.elInactiveColor
+                  : "transparent"
+                : this.checked
+                  ? e
+                  : "transparent";
+            },
+            iconClasses: function () {
+              var e = [];
+              return (
+                e.push("uv-radio__icon-wrap--" + this.elShape),
+                this.elDisabled && e.push("uv-radio__icon-wrap--disabled"),
+                this.checked &&
+                  this.elDisabled &&
+                  e.push("uv-radio__icon-wrap--disabled--checked"),
+                e
+              );
+            },
+            iconWrapStyle: function () {
+              var e = {};
+              return (
+                (e.backgroundColor =
+                  this.checked && !this.elDisabled
+                    ? this.elActiveColor
+                    : "#ffffff"),
+                (e.borderColor =
+                  this.checked && !this.elDisabled
+                    ? this.elActiveColor
+                    : this.elInactiveColor),
+                (e.width = this.$uv.addUnit(this.elSize)),
+                (e.height = this.$uv.addUnit(this.elSize)),
+                "right" === this.parentData.iconPlacement &&
+                  (e.marginRight = 0),
+                e
+              );
+            },
+            radioStyle: function () {
+              var e = {};
+              return (
+                this.parentData.borderBottom &&
+                  "row" === this.parentData.placement &&
+                  this.$uv.error(
+                    "检测到您将borderBottom设置为true，需要同时将uv-radio-group的placement设置为column才有效",
+                  ),
+                this.parentData.borderBottom &&
+                  "column" === this.parentData.placement &&
+                  (e.paddingBottom = "ios" === this.$uv.os() ? "12px" : "8px"),
+                this.$uv.deepMerge(e, this.$uv.addStyle(this.customStyle))
+              );
+            },
+          },
+          created: function () {
+            this.init();
+          },
+          methods: {
+            init: function () {
+              var e = this;
+              this.updateParentData(),
+                this.parent ||
+                  this.$uv.error("uv-radio必须搭配uv-radio-group组件使用"),
+                this.$nextTick(function () {
+                  var t;
+                  (t = e.parentData.value), (e.checked = e.name === t);
+                });
+            },
+            updateParentData: function () {
+              this.getParentData("uv-radio-group");
+            },
+            iconClickHandler: function (e) {
+              this.preventEvent(e),
+                this.elDisabled || this.setRadioCheckedStatus();
+            },
+            wrapperClickHandler: function (e) {
+              "right" === this.parentData.iconPlacement &&
+                this.iconClickHandler(e);
+            },
+            labelClickHandler: function (e) {
+              this.preventEvent(e),
+                this.elLabelDisabled ||
+                  this.elDisabled ||
+                  this.setRadioCheckedStatus();
+            },
+            emitEvent: function () {
+              var e = this;
+              this.checked ||
+                (this.$emit("change", this.name),
+                this.$nextTick(function () {
+                  e.$uv.formValidate(e, "change");
+                }));
+            },
+            setRadioCheckedStatus: function () {
+              this.emitEvent(),
+                (this.checked = !0),
+                "function" === typeof this.parent.unCheckedOther &&
+                  this.parent.unCheckedOther(this);
+            },
+          },
+        };
+      t.default = l;
+    },
+    4522: function (e, t, a) {
+      "use strict";
+      var i = a("23c3"),
+        n = a.n(i);
+      n.a;
+    },
+    "4cbe7": function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("9aa3"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return i[e];
+            });
+          })(r);
+      t["default"] = n.a;
+    },
+    "54ca": function (e, t, a) {
+      var i = a("c86c");
+      (t = i(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.video-view[data-v-2340c894]{width:%?750?%}.video-view .video[data-v-2340c894]{width:%?750?%}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    "54fd": function (e, t, a) {
+      "use strict";
+      var i = a("c01e"),
+        n = a.n(i);
+      n.a;
+    },
+    "5cb5": function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0);
+      var n = i(a("9b1b")),
+        r = i(a("2634")),
+        o = i(a("2fdc"));
+      a("5c47"), a("0506"), a("dd2b"), a("c223"), a("fd3c"), a("aa9c");
+      var l = a("e74a"),
+        s = i(a("2609")),
+        u = a("15b8"),
+        c = {
+          data: function () {
+            return {
+              content: "",
+              radiolist: [
+                { label: "男", name: 1 },
+                { label: "女", name: 2 },
+              ],
+              form: {
+                nickname: "",
+                sex: 1,
+                age: "",
+                weixin: "",
+                mobile: "",
+                game_ids: [],
+                sfz_img1: [],
+                sfz_img2: [],
+              },
+              rules: {
+                game_ids: {
+                  type: "array",
+                  min: 1,
+                  required: !0,
+                  message: "请至少选择1个游戏",
+                  trigger: ["change"],
+                },
+                nickname: {
+                  type: "string",
+                  required: !0,
+                  message: "请填写昵称",
+                  trigger: ["blur", "change"],
+                },
+                radiovalue: {
+                  type: "string",
+                  required: !0,
+                  message: "请选择性别",
+                  trigger: ["blur", "change"],
+                },
+                age: {
+                  type: "number",
+                  required: !0,
+                  message: "请填写年龄",
+                  trigger: ["blur", "change"],
+                },
+                weixin: {
+                  type: "string",
+                  required: !0,
+                  message: "请填写微信号",
+                  trigger: ["blur", "change"],
+                },
+                mobile: {
+                  type: "number",
+                  required: !0,
+                  message: "请填写手机号",
+                  trigger: ["blur", "change"],
+                },
+                sfz_img1: {
+                  type: "array",
+                  required: !0,
+                  message: "请上传身份证正面图片",
+                  trigger: ["blur", "change"],
+                },
+                sfz_img2: {
+                  type: "array",
+                  required: !0,
+                  message: "请上传身份证背面图片",
+                  trigger: ["blur", "change"],
+                },
+              },
+              agree: !0,
+              game_list: [],
+              palte: "h5",
+            };
+          },
+          onLoad: function () {
+            this.getApplyInfo();
+          },
+          methods: {
+            getApplyInfo: function () {
+              var e = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, l.send)(
+                  "/wechat/Seller/getApplyInfo",
+                  { id: this.id },
+                  !1,
+                ).then(function (t) {
+                  uni.hideLoading();
+                  var a = t.status,
+                    i = t.msg,
+                    n = t.data;
+                  if (1 != a) return uni.$uv.toast(i);
+                  (e.content = n.notice_apply),
+                    (e.game_list = n.game_list),
+                    e.initUpload(n.up_config);
+                });
+            },
+            verifyMobile: function () {
+              return !!/^1[3-9]\d{9}$/.test(this.form.mobile);
+            },
+            toggleAgree: function () {
+              this.agree = !this.agree;
+            },
+            submit: function () {
+              if (0 == this.agree) return uni.$uv.toast("请勾选同意打手协议");
+              var e = this;
+              this.$refs.form
+                .validate()
+                .then(function (t) {
+                  uni.$uv.throttle(e.applySeller, 1500);
+                })
+                .catch(function (e) {});
+            },
+            reset: function () {
+              this.$refs.form.resetFields(), this.$refs.form.clearValidate();
+            },
+            applySeller: function () {
+              if (!this.verifyMobile())
+                return uni.showModal({ content: "请输入正确的手机号" });
+              uni.showLoading({ title: "加载中.." }),
+                (0, l.send)(
+                  "/wechat/Seller/applySeller",
+                  {
+                    nickname: this.form.nickname,
+                    sex: this.form.sex,
+                    age: this.form.age,
+                    weixin: this.form.weixin,
+                    mobile: this.form.mobile,
+                    game_ids: this.form.game_ids,
+                    sfz_img1: this.form.sfz_img1,
+                    sfz_img2: this.form.sfz_img2,
+                  },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var t = e.status,
+                    a = e.msg;
+                  e.data;
+                  if (1 != t) return uni.$uv.toast(a);
+                  uni.$uv.toast(a),
+                    setTimeout(function () {
+                      uni.navigateBack({ delta: 1 });
+                    }, 2e3);
+                });
+            },
+            jump: function (e) {
+              uni.navigateTo({ url: e });
+            },
+            initUpload: function (e) {
+              "mp-weixin" == this.palte &&
+                (this.uploader = new s.default({
+                  domain: e.domain,
+                  tokenUrl: e.token_url,
+                  quality: 0.6,
+                  prefix: e.prefix,
+                }));
+            },
+            selectWeappSfz: function () {
+              var e = arguments,
+                t = this;
+              return (0, o.default)(
+                (0, r.default)().mark(function a() {
+                  var i, n, o, l, s, u;
+                  return (0, r.default)().wrap(
+                    function (a) {
+                      while (1)
+                        switch ((a.prev = a.next)) {
+                          case 0:
+                            return (
+                              (i = e.length > 0 && void 0 !== e[0] ? e[0] : 1),
+                              (n = e.length > 1 ? e[1] : void 0),
+                              (o = e.length > 2 ? e[2] : void 0),
+                              (a.prev = 3),
+                              (a.next = 6),
+                              t.uploader.uploadWechatAvatar({ avatarUrl: n })
+                            );
+                          case 6:
+                            (l = a.sent),
+                              console.log(l),
+                              1 == i &&
+                                ((s = t.form.sfz_img1[o]),
+                                t.form.sfz_img1.splice(
+                                  o,
+                                  1,
+                                  Object.assign(s, {
+                                    status: "success",
+                                    message: "",
+                                    url: l.url,
+                                  }),
+                                )),
+                              2 == i &&
+                                ((u = t.form.sfz_img2[o]),
+                                t.form.sfz_img2.splice(
+                                  o,
+                                  1,
+                                  Object.assign(u, {
+                                    status: "success",
+                                    message: "",
+                                    url: l.url,
+                                  }),
+                                )),
+                              (a.next = 16);
+                            break;
+                          case 12:
+                            (a.prev = 12),
+                              (a.t0 = a["catch"](3)),
+                              uni.showToast({
+                                title:
+                                  "发送失败: " + (a.t0.message || "未知错误"),
+                                icon: "none",
+                              }),
+                              console.error("发送失败:", a.t0);
+                          case 16:
+                          case "end":
+                            return a.stop();
+                        }
+                    },
+                    a,
+                    null,
+                    [[3, 12]],
+                  );
+                }),
+              )();
+            },
+            upSfzImg: function () {
+              var e = arguments,
+                t = this;
+              return (0, o.default)(
+                (0, r.default)().mark(function a() {
+                  var i, n, o, s;
+                  return (0, r.default)().wrap(function (a) {
+                    while (1)
+                      switch ((a.prev = a.next)) {
+                        case 0:
+                          return (
+                            (i = e.length > 0 && void 0 !== e[0] ? e[0] : 1),
+                            (n = e.length > 1 ? e[1] : void 0),
+                            (o = e.length > 2 ? e[2] : void 0),
+                            (a.next = 5),
+                            (0, u.uploadCompressImgs)(n)
+                          );
+                        case 5:
+                          (s = a.sent),
+                            (0, l.send)(
+                              "/wechat/Files/uploadBase64",
+                              { label: "real", file: s },
+                              !1,
+                            ).then(function (e) {
+                              e.status;
+                              var a = e.msg,
+                                n = e.data;
+                              if (1 == i) {
+                                if (1 != e.code)
+                                  return (
+                                    (t.form.sfz_img1 = []), uni.$uv.toast(a)
+                                  );
+                                var r = t.form.sfz_img1[o];
+                                t.form.sfz_img1.splice(
+                                  o,
+                                  1,
+                                  Object.assign(r, {
+                                    status: "success",
+                                    message: "",
+                                    url: n.fullurl,
+                                  }),
+                                );
+                              }
+                              if (2 == i) {
+                                if (1 != e.code)
+                                  return (
+                                    (t.form.sfz_img2 = []), uni.$uv.toast(a)
+                                  );
+                                var l = t.form.sfz_img2[o];
+                                t.form.sfz_img2.splice(
+                                  o,
+                                  1,
+                                  Object.assign(l, {
+                                    status: "success",
+                                    message: "",
+                                    url: n.fullurl,
+                                  }),
+                                );
+                              }
+                            });
+                        case 7:
+                        case "end":
+                          return a.stop();
+                      }
+                  }, a);
+                }),
+              )();
+            },
+            selectSfzImg1: function (e) {
+              var t = this,
+                a = [].concat(e.file),
+                i = this.form.sfz_img1.length;
+              a.map(function (e) {
+                t.form.sfz_img1.push(
+                  (0, n.default)(
+                    (0, n.default)({}, e),
+                    {},
+                    { status: "uploading", message: "上传中" },
+                  ),
+                );
+              }),
+                "h5" == this.palte && this.upSfzImg(1, a[0].url, i),
+                "mp-weixin" == this.palte &&
+                  this.selectWeappSfz(1, a[0].url, i);
+            },
+            selectSfzImg2: function (e) {
+              var t = this,
+                a = [].concat(e.file),
+                i = this.form.sfz_img2.length;
+              a.map(function (e) {
+                t.form.sfz_img2.push(
+                  (0, n.default)(
+                    (0, n.default)({}, e),
+                    {},
+                    { status: "uploading", message: "上传中" },
+                  ),
+                );
+              }),
+                "h5" == this.palte && this.upSfzImg(2, a[0].url, i),
+                "mp-weixin" == this.palte &&
+                  this.selectWeappSfz(2, a[0].url, i);
+            },
+            deleteSfzImg1: function (e) {
+              this.form.sfz_img1.splice(e.index, 1);
+            },
+            deleteSfzImg2: function (e) {
+              this.form.sfz_img2.splice(e.index, 1);
+            },
+            previewImage: function (e, t) {
+              uni.previewImage({ current: e, urls: t });
+            },
+          },
+        };
+      t.default = c;
+    },
+    "5d1a": function (e, t, a) {
+      "use strict";
+      var i = a("3603"),
+        n = a.n(i);
+      n.a;
+    },
+    "5fe6": function (e, t, a) {
+      "use strict";
+      a.d(t, "b", function () {
+        return i;
+      }),
+        a.d(t, "c", function () {
+          return n;
+        }),
+        a.d(t, "a", function () {});
+      var i = function () {
+          var e = this.$createElement,
+            t = this._self._c || e;
+          return t(
+            "v-uni-view",
+            {
+              staticClass: "uv-checkbox-group",
+              class: this.bemClass,
+              style: [this.$uv.addStyle(this.customStyle)],
+            },
+            [this._t("default")],
+            2,
+          );
+        },
+        n = [];
+    },
+    6068: function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("2c72"),
+        n = a("cb08");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      a("311d");
+      var o = a("828b"),
+        l = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "9721524c",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    "62ed": function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("fd3c"),
+        a("bf0f"),
+        a("8f71"),
+        a("bd06");
+      var n = a("1509"),
+        r = i(a("4d8f0")),
+        o = i(a("9463")),
+        l = a("d485"),
+        s = i(a("2620")),
+        u = i(a("e407")),
+        c = {
+          name: "uv-upload",
+          mixins: [r.default, o.default, s.default, u.default],
+          data: function () {
+            return { lists: [], isInCount: !0 };
+          },
+          watch: {
+            fileList: {
+              deep: !0,
+              immediate: !0,
+              handler: function () {
+                this.formatFileList();
+              },
+            },
+            deletable: function (e) {
+              var t = this;
+              e ||
+                this.lists.map(function (e) {
+                  e.deletable = t.deletable;
+                });
+            },
+          },
+          methods: {
+            formatFileList: function () {
+              var e = this,
+                t = this.fileList,
+                a = void 0 === t ? [] : t,
+                i = this.maxCount,
+                r = a.map(function (t) {
+                  return Object.assign(Object.assign({}, t), {
+                    isImage:
+                      "image" === e.accept || (0, n.image)(t.url || t.thumb),
+                    isVideo:
+                      "video" === e.accept || (0, n.video)(t.url || t.thumb),
+                    deletable:
+                      "boolean" === typeof t.deletable
+                        ? t.deletable
+                        : e.deletable,
+                  });
+                });
+              (this.lists = r), (this.isInCount = r.length < i);
+            },
+            chooseFile: function () {
+              var e = this;
+              this.timer && clearTimeout(this.timer),
+                (this.timer = setTimeout(function () {
+                  var t = e.maxCount,
+                    a = e.multiple,
+                    i = e.lists,
+                    r = e.disabled;
+                  if (!r) {
+                    var o;
+                    try {
+                      o = (0, n.array)(e.capture)
+                        ? e.capture
+                        : e.capture.split(",");
+                    } catch (s) {
+                      o = [];
+                    }
+                    (0, l.chooseFile)(
+                      Object.assign(
+                        {
+                          accept: e.accept,
+                          multiple: e.multiple,
+                          capture: o,
+                          compressed: e.compressed,
+                          maxDuration: e.maxDuration,
+                          sizeType: e.sizeType,
+                          camera: e.camera,
+                        },
+                        { maxCount: t - i.length },
+                      ),
+                    )
+                      .then(function (t) {
+                        e.onBeforeRead(a ? t : t[0]);
+                      })
+                      .catch(function (t) {
+                        e.$emit("error", t);
+                      });
+                  }
+                }, 100));
+            },
+            onBeforeRead: function (e) {
+              var t = this,
+                a = this.beforeRead,
+                i = this.useBeforeRead,
+                r = !0;
+              (0, n.func)(a) && (r = a(e, this.getDetail())),
+                i &&
+                  (r = new Promise(function (a, i) {
+                    t.$emit(
+                      "beforeRead",
+                      Object.assign(Object.assign({ file: e }, t.getDetail()), {
+                        callback: function (e) {
+                          e ? a() : i();
+                        },
+                      }),
+                    );
+                  })),
+                r &&
+                  ((0, n.promise)(r)
+                    ? r.then(function (a) {
+                        return t.onAfterRead(a || e);
+                      })
+                    : this.onAfterRead(e));
+            },
+            getDetail: function (e) {
+              return {
+                name: this.name,
+                index: null == e ? this.fileList.length : e,
+              };
+            },
+            onAfterRead: function (e) {
+              var t = this.maxSize,
+                a = this.afterRead,
+                i = Array.isArray(e)
+                  ? e.some(function (e) {
+                      return e.size > t;
+                    })
+                  : e.size > t;
+              i
+                ? this.$emit(
+                    "oversize",
+                    Object.assign({ file: e }, this.getDetail()),
+                  )
+                : ("function" === typeof a && a(e, this.getDetail()),
+                  this.$emit(
+                    "afterRead",
+                    Object.assign({ file: e }, this.getDetail()),
+                  ));
+            },
+            deleteItem: function (e) {
+              this.$emit(
+                "delete",
+                Object.assign(Object.assign({}, this.getDetail(e)), {
+                  file: this.fileList[e],
+                }),
+              );
+            },
+            onPreviewImage: function (e, t) {
+              var a = this,
+                i = this.$uv.deepClone(this.lists);
+              i.map(function (e, a) {
+                a == t && (e.current = !0);
+              });
+              var r = i.filter(function (e) {
+                  return e.isImage;
+                }),
+                o = r.findIndex(function (e) {
+                  return e.current;
+                });
+              this.onClickPreview(e, t),
+                e.isImage &&
+                  this.previewFullImage &&
+                  uni.previewImage({
+                    urls: this.lists
+                      .filter(function (e) {
+                        return (
+                          "image" === a.accept || (0, n.image)(e.url || e.thumb)
+                        );
+                      })
+                      .map(function (e) {
+                        return e.url || e.thumb;
+                      }),
+                    current: o,
+                    fail: function () {
+                      this.$uv.toast("预览图片失败");
+                    },
+                  });
+            },
+            onPreviewVideo: function (e, t) {
+              this.onClickPreview(e, t),
+                this.previewFullVideo &&
+                  e.isVideo &&
+                  this.$refs.previewVideo.open(e.url);
+            },
+            onClickPreview: function (e, t) {
+              this.$emit(
+                "clickPreview",
+                Object.assign(Object.assign({}, e), this.getDetail(t)),
+              );
+            },
+          },
+        };
+      t.default = c;
+    },
+    "636d": function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("ac37"),
+        n = a("92ad");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      a("5d1a");
+      var o = a("828b"),
+        l = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "21c4bd17",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    "6a4c": function (e, t, a) {
+      var i = a("c86c");
+      (t = i(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.uv-border-bottom[data-v-b5f313b8]{border-bottom-width:.5px!important;border-color:#dadbde!important;border-bottom-style:solid}uni-view[data-v-b5f313b8], uni-scroll-view[data-v-b5f313b8], uni-swiper-item[data-v-b5f313b8]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-checkbox[data-v-b5f313b8]{display:flex;flex-direction:row;overflow:hidden;flex-direction:row;align-items:center}.uv-checkbox-label--left[data-v-b5f313b8]{flex-direction:row}.uv-checkbox-label--right[data-v-b5f313b8]{flex-direction:row-reverse;justify-content:space-between}.uv-checkbox__icon-wrap[data-v-b5f313b8]{box-sizing:border-box;transition-property:border-color,background-color,color;transition-duration:.2s;color:#606266;display:flex;flex-direction:row;align-items:center;justify-content:center;color:transparent;text-align:center;font-size:6px;border-width:1px;border-color:#c8c9cc;border-style:solid}.uv-checkbox__icon-wrap--circle[data-v-b5f313b8]{border-radius:100%}.uv-checkbox__icon-wrap--square[data-v-b5f313b8]{border-radius:3px}.uv-checkbox__icon-wrap--checked[data-v-b5f313b8]{color:#fff;background-color:red;border-color:#2979ff}.uv-checkbox__icon-wrap--disabled[data-v-b5f313b8]{background-color:#ebedf0!important}.uv-checkbox__icon-wrap--disabled--checked[data-v-b5f313b8]{color:#c8c9cc!important}.uv-checkbox__label[data-v-b5f313b8]{word-wrap:break-word;margin-left:5px;margin-right:12px;color:#606266;font-size:15px}.uv-checkbox__label--disabled[data-v-b5f313b8]{color:#c8c9cc}.uv-checkbox__label-wrap[data-v-b5f313b8]{flex:1;padding-left:6px}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    7447: function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("06da"),
+        n = a("db3f");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      a("54fd");
+      var o = a("828b"),
+        l = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "8576c98e",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    7702: function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("64aa");
+      var n,
+        r,
+        o = i(a("9b1b")),
+        l = {
+          props: (0, o.default)(
+            {
+              value: { type: [String, Number, Boolean], default: "" },
+              modelValue: { type: [String, Number, Boolean], default: "" },
+              disabled: { type: Boolean, default: !1 },
+              shape: { type: String, default: "circle" },
+              activeColor: { type: String, default: "#2979ff" },
+              inactiveColor: { type: String, default: "#c8c9cc" },
+              name: { type: String, default: "" },
+              size: { type: [String, Number], default: 18 },
+              placement: { type: String, default: "row" },
+              label: { type: [String], default: "" },
+              labelColor: { type: [String], default: "#303133" },
+              labelSize: { type: [String, Number], default: 14 },
+              labelDisabled: { type: Boolean, default: !1 },
+              iconColor: { type: String, default: "#fff" },
+              iconSize: { type: [String, Number], default: 12 },
+              borderBottom: { type: Boolean, default: !1 },
+              iconPlacement: { type: String, default: "left" },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (r = n.props) ||
+              void 0 === r
+              ? void 0
+              : r.radioGroup,
+          ),
+        };
+      t.default = l;
+    },
+    7921: function (e, t, a) {
+      "use strict";
+      a.d(t, "b", function () {
+        return n;
+      }),
+        a.d(t, "c", function () {
+          return r;
+        }),
+        a.d(t, "a", function () {
+          return i;
+        });
+      var i = { uvPopup: a("ce8a").default },
+        n = function () {
+          var e = this,
+            t = e.$createElement,
+            a = e._self._c || t;
+          return a(
+            "uv-popup",
+            {
+              ref: "popup",
+              on: {
+                change: function (t) {
+                  (arguments[0] = t = e.$handleEvent(t)),
+                    e.change.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              e.show
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "video-view" },
+                    [
+                      a("v-uni-video", {
+                        staticClass: "video",
+                        attrs: { src: e.getSec, autoplay: e.autoplay },
+                      }),
+                    ],
+                    1,
+                  )
+                : e._e(),
+            ],
+            1,
+          );
+        },
+        r = [];
+    },
+    "7b72": function (e, t, a) {
+      "use strict";
+      a.d(t, "b", function () {
+        return n;
+      }),
+        a.d(t, "c", function () {
+          return r;
+        }),
+        a.d(t, "a", function () {
+          return i;
+        });
+      var i = { uvIcon: a("1a07").default },
+        n = function () {
+          var e = this,
+            t = e.$createElement,
+            a = e._self._c || t;
+          return a(
+            "v-uni-view",
+            {
+              staticClass: "uv-checkbox",
+              class: [
+                "uv-checkbox-label--" + e.parentData.iconPlacement,
+                e.parentData.borderBottom &&
+                  "column" === e.parentData.placement &&
+                  "uv-border-bottom",
+              ],
+              style: [e.checkboxStyle],
+              on: {
+                click: function (t) {
+                  t.stopPropagation(),
+                    (arguments[0] = t = e.$handleEvent(t)),
+                    e.wrapperClickHandler.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              a(
+                "v-uni-view",
+                {
+                  staticClass: "uv-checkbox__icon-wrap",
+                  class: e.iconClasses,
+                  style: [e.iconWrapStyle],
+                  on: {
+                    click: function (t) {
+                      t.stopPropagation(),
+                        (arguments[0] = t = e.$handleEvent(t)),
+                        e.iconClickHandler.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  e._t("icon", [
+                    a("uv-icon", {
+                      staticClass: "uv-checkbox__icon-wrap__icon",
+                      attrs: {
+                        name: "checkbox-mark",
+                        size: e.elIconSize,
+                        color: e.elIconColor,
+                      },
+                    }),
+                  ]),
+                ],
+                2,
+              ),
+              a(
+                "v-uni-view",
+                {
+                  staticClass: "uv-checkbox__label-wrap",
+                  on: {
+                    click: function (t) {
+                      t.stopPropagation(),
+                        (arguments[0] = t = e.$handleEvent(t)),
+                        e.labelClickHandler.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  e._t("default", [
+                    a(
+                      "v-uni-text",
+                      {
+                        style: {
+                          color: e.elDisabled
+                            ? e.elInactiveColor
+                            : e.elLabelColor,
+                          fontSize: e.elLabelSize,
+                          lineHeight: e.elLabelSize,
+                        },
+                      },
+                      [e._v(e._s(e.label))],
+                    ),
+                  ]),
+                ],
+                2,
+              ),
+            ],
+            1,
+          );
+        },
+        r = [];
+    },
+    8322: function (e, t, a) {
+      "use strict";
+      a.d(t, "b", function () {
+        return i;
+      }),
+        a.d(t, "c", function () {
+          return n;
+        }),
+        a.d(t, "a", function () {});
+      var i = function () {
+          var e = this.$createElement,
+            t = this._self._c || e;
+          return t(
+            "v-uni-view",
+            {
+              staticClass: "uv-radio-group",
+              class: this.bemClass,
+              style: [this.$uv.addStyle(this.customStyle)],
+            },
+            [this._t("default")],
+            2,
+          );
+        },
+        n = [];
+    },
+    "868a": function (e, t, a) {
+      "use strict";
+      var i = a("b342"),
+        n = a.n(i);
+      n.a;
+    },
+    "92ad": function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("431d"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return i[e];
+            });
+          })(r);
+      t["default"] = n.a;
+    },
+    "9aa3": function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("aa9c"),
+        a("5c47"),
+        a("0506"),
+        a("bf0f");
+      var n = i(a("4d8f0")),
+        r = i(a("9463")),
+        o = i(a("0d58")),
+        l = {
+          name: "uv-checkbox",
+          mixins: [n.default, r.default, o.default],
+          data: function () {
+            return {
+              isChecked: !1,
+              parentData: {
+                iconSize: 12,
+                labelDisabled: null,
+                disabled: null,
+                shape: "square",
+                activeColor: null,
+                inactiveColor: null,
+                size: 18,
+                value: null,
+                modelValue: null,
+                iconColor: null,
+                placement: "row",
+                borderBottom: !1,
+                iconPlacement: "left",
+                labelSize: 14,
+                labelColor: "#303133",
+              },
+            };
+          },
+          computed: {
+            elDisabled: function () {
+              return "" !== this.disabled
+                ? this.disabled
+                : null !== this.parentData.disabled && this.parentData.disabled;
+            },
+            elLabelDisabled: function () {
+              return "" !== this.labelDisabled
+                ? this.labelDisabled
+                : null !== this.parentData.labelDisabled &&
+                    this.parentData.labelDisabled;
+            },
+            elSize: function () {
+              return this.size
+                ? this.size
+                : this.parentData.size
+                  ? this.parentData.size
+                  : 21;
+            },
+            elIconSize: function () {
+              return this.iconSize
+                ? this.iconSize
+                : this.parentData.iconSize
+                  ? this.parentData.iconSize
+                  : 12;
+            },
+            elActiveColor: function () {
+              return this.activeColor
+                ? this.activeColor
+                : this.parentData.activeColor
+                  ? this.parentData.activeColor
+                  : "#2979ff";
+            },
+            elInactiveColor: function () {
+              return this.inactiveColor
+                ? this.inactiveColor
+                : this.parentData.inactiveColor
+                  ? this.parentData.inactiveColor
+                  : "#c8c9cc";
+            },
+            elLabelColor: function () {
+              return this.labelColor
+                ? this.labelColor
+                : this.parentData.labelColor
+                  ? this.parentData.labelColor
+                  : "#606266";
+            },
+            elShape: function () {
+              return this.shape
+                ? this.shape
+                : this.parentData.shape
+                  ? this.parentData.shape
+                  : "circle";
+            },
+            elLabelSize: function () {
+              return this.$uv.addUnit(
+                this.labelSize
+                  ? this.labelSize
+                  : this.parentData.labelSize
+                    ? this.parentData.labelSize
+                    : "15",
+              );
+            },
+            elIconColor: function () {
+              var e = this.iconColor
+                ? this.iconColor
+                : this.parentData.iconColor
+                  ? this.parentData.iconColor
+                  : "#ffffff";
+              return this.elDisabled
+                ? this.isChecked
+                  ? this.elInactiveColor
+                  : "transparent"
+                : this.isChecked
+                  ? e
+                  : "transparent";
+            },
+            iconClasses: function () {
+              var e = [];
+              return (
+                e.push("uv-checkbox__icon-wrap--" + this.elShape),
+                this.elDisabled && e.push("uv-checkbox__icon-wrap--disabled"),
+                this.isChecked &&
+                  this.elDisabled &&
+                  e.push("uv-checkbox__icon-wrap--disabled--checked"),
+                e
+              );
+            },
+            iconWrapStyle: function () {
+              var e = {};
+              return (
+                (e.backgroundColor =
+                  this.isChecked && !this.elDisabled
+                    ? this.elActiveColor
+                    : "#ffffff"),
+                (e.borderColor =
+                  this.isChecked && !this.elDisabled
+                    ? this.elActiveColor
+                    : this.elInactiveColor),
+                (e.width = this.$uv.addUnit(this.elSize)),
+                (e.height = this.$uv.addUnit(this.elSize)),
+                "right" === this.parentData.iconPlacement &&
+                  (e.marginRight = 0),
+                e
+              );
+            },
+            checkboxStyle: function () {
+              var e = {};
+              return (
+                this.parentData.borderBottom &&
+                  "row" === this.parentData.placement &&
+                  this.$uv.error(
+                    "检测到您将borderBottom设置为true，需要同时将uv-checkbox-group的placement设置为column才有效",
+                  ),
+                this.parentData.borderBottom &&
+                  "column" === this.parentData.placement &&
+                  (e.paddingBottom = "8px"),
+                this.$uv.deepMerge(e, this.$uv.addStyle(this.customStyle))
+              );
+            },
+          },
+          created: function () {
+            this.init();
+          },
+          methods: {
+            init: function () {
+              var e = this;
+              this.updateParentData(),
+                this.parent ||
+                  this.$uv.error(
+                    "uv-checkbox必须搭配uv-checkbox-group组件使用",
+                  ),
+                this.$nextTick(function () {
+                  var t = [];
+                  e.parentData.value.length
+                    ? (t = e.parentData.value)
+                    : e.parentData.modelValue.length &&
+                      (t = e.parentData.modelValue),
+                    e.checked
+                      ? (e.isChecked = !0)
+                      : e.$uv.test.array(t) &&
+                        (e.isChecked = t.some(function (t) {
+                          return t === e.name;
+                        }));
+                });
+            },
+            updateParentData: function () {
+              this.getParentData("uv-checkbox-group");
+            },
+            wrapperClickHandler: function (e) {
+              "right" === this.parentData.iconPlacement &&
+                this.iconClickHandler(e);
+            },
+            iconClickHandler: function (e) {
+              this.preventEvent(e),
+                this.elDisabled || this.setRadioCheckedStatus();
+            },
+            labelClickHandler: function (e) {
+              this.preventEvent(e),
+                this.elLabelDisabled ||
+                  this.elDisabled ||
+                  this.setRadioCheckedStatus();
+            },
+            emitEvent: function () {
+              var e = this;
+              this.$emit("change", this.isChecked),
+                this.$nextTick(function () {
+                  e.$uv.formValidate(e, "change");
+                });
+            },
+            setRadioCheckedStatus: function () {
+              (this.isChecked = !this.isChecked),
+                this.emitEvent(),
+                "function" === typeof this.parent.unCheckedOther &&
+                  this.parent.unCheckedOther(this);
+            },
+          },
+          watch: {
+            checked: function () {
+              this.isChecked = this.checked;
+            },
+          },
+        };
+      t.default = l;
+    },
+    "9b82": function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("64aa");
+      var n,
+        r,
+        o = i(a("9b1b")),
+        l = {
+          props: (0, o.default)(
+            {
+              name: { type: [String, Number, Boolean], default: "" },
+              shape: { type: String, default: "" },
+              disabled: { type: [String, Boolean], default: "" },
+              labelDisabled: { type: [String, Boolean], default: "" },
+              activeColor: { type: String, default: "" },
+              inactiveColor: { type: String, default: "" },
+              iconSize: { type: [String, Number], default: "" },
+              labelSize: { type: [String, Number], default: "" },
+              label: { type: [String, Number, Boolean], default: "" },
+              size: { type: [String, Number], default: "" },
+              iconColor: { type: String, default: "" },
+              labelColor: { type: String, default: "" },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (r = n.props) ||
+              void 0 === r
+              ? void 0
+              : r.radio,
+          ),
+        };
+      t.default = l;
+    },
+    a09a: function (e, t, a) {
+      var i = a("c86c");
+      (t = i(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-8576c98e], uni-scroll-view[data-v-8576c98e], uni-swiper-item[data-v-8576c98e]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-upload[data-v-8576c98e]{display:flex;flex-direction:column;flex:1}.uv-upload__wrap[data-v-8576c98e]{display:flex;flex-direction:row;flex-wrap:wrap;flex:1}.uv-upload__wrap__preview[data-v-8576c98e]{border-radius:2px;margin:0 8px 8px 0;position:relative;overflow:hidden;display:flex;flex-direction:row}.uv-upload__wrap__preview__image[data-v-8576c98e]{width:80px;height:80px}.uv-upload__wrap__preview__other[data-v-8576c98e]{width:80px;height:80px;background-color:#f2f2f2;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center}.uv-upload__wrap__preview__other__text[data-v-8576c98e]{font-size:11px;color:#909193;margin-top:2px}.uv-upload__deletable[data-v-8576c98e]{position:absolute;top:0;right:0;background-color:#373737;height:14px;width:14px;display:flex;flex-direction:row;border-bottom-left-radius:100px;align-items:center;justify-content:center;z-index:3}.uv-upload__deletable__icon[data-v-8576c98e]{position:absolute;-webkit-transform:scale(.7);transform:scale(.7);top:0;right:0;top:1px;right:0}.uv-upload__success[data-v-8576c98e]{position:absolute;bottom:0;right:0;display:flex;flex-direction:row;border-style:solid;border-top-color:transparent;border-left-color:transparent;border-bottom-color:#5ac725;border-right-color:#5ac725;border-width:9px;align-items:center;justify-content:center}.uv-upload__success__icon[data-v-8576c98e]{position:absolute;-webkit-transform:scale(.7);transform:scale(.7);bottom:-10px;right:-10px}.uv-upload__status[data-v-8576c98e]{position:absolute;top:0;bottom:0;left:0;right:0;background-color:rgba(0,0,0,.5);display:flex;flex-direction:column;align-items:center;justify-content:center}.uv-upload__status__icon[data-v-8576c98e]{position:relative;z-index:1}.uv-upload__status__message[data-v-8576c98e]{font-size:12px;color:#fff;margin-top:5px}.uv-upload__button[data-v-8576c98e]{display:flex;flex-direction:column;align-items:center;justify-content:center;width:80px;height:80px;background-color:#f4f5f7;border-radius:2px;margin:0 8px 8px 0;box-sizing:border-box}.uv-upload__button__text[data-v-8576c98e]{font-size:11px;color:#909193;margin-top:2px}.uv-upload__button--hover[data-v-8576c98e]{background-color:#e6e7e9}.uv-upload__button--disabled[data-v-8576c98e]{opacity:.5}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    a3cb: function (e, t, a) {
+      var i = a("a90f");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[e.i, i, ""]]),
+        i.locals && (e.exports = i.locals);
+      var n = a("967d").default;
+      n("2d06f614", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    a621: function (e, t, a) {
+      var i = a("c86c");
+      (t = i(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-5eb2fa22], uni-scroll-view[data-v-5eb2fa22], uni-swiper-item[data-v-5eb2fa22]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-radio-group[data-v-5eb2fa22]{flex:1}.uv-radio-group--row[data-v-5eb2fa22]{display:flex;flex-direction:row;flex-wrap:wrap}.uv-radio-group--column[data-v-5eb2fa22]{display:flex;flex-direction:column}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    a90f: function (e, t, a) {
+      var i = a("c86c");
+      (t = i(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.line_box[data-v-9721524c]{background:#f8f8f8;width:100%;height:%?14?%;margin:%?30?% auto %?0?%}.rich_box[data-v-9721524c]{margin:%?14?% %?30?%}[data-v-9721524c] .uv-form-item__body__left{align-items:flex-start!important;margin-top:%?18?%!important}[data-v-9721524c] .uv-form-item__body__left__content__label span{white-space:nowrap!important}[data-v-9721524c] .uv-form-item{margin:%?55?% %?30?%}[data-v-9721524c] .uv-form-item .uni-textarea-textarea{font-size:14px}[data-v-9721524c] .uv-form-item .uni-textarea-placeholder{font-size:14px}[data-v-9721524c] .uv-form-item.remarks_box .uv-form-item__body__left{align-items:flex-start!important}[data-v-9721524c] .uv-form-item__body{padding:0!important}[data-v-9721524c] .uv-form-item__body__left{width:auto!important;margin-right:%?24?%!important;position:relative;font-weight:700;width:%?145?%!important;white-space:nowrap}[data-v-9721524c] .uv-form-item__body__left__content{padding:0!important}[data-v-9721524c] .uv-form-item__body__left__content__label{display:inline-block;position:relative;z-index:10;flex:0!important}[data-v-9721524c] .uv-form-item__body__left__content__label::before{z-index:-1;display:block;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?6?%;-webkit-transform:translate(-50%);transform:translate(-50%)}[data-v-9721524c] .uv-form-item__body__right__message{margin-left:%?170?%!important;margin-top:%?4?%!important}[data-v-9721524c] .uv-form-item .uv-radio-label--left{margin-right:%?36?%}[data-v-9721524c] .uv-form-item .uv-radio__label-wrap{margin-bottom:%?2?%}.xieyi_box[data-v-9721524c]{justify-content:center;margin:%?55?% auto %?25?%}.xieyi_box .check[data-v-9721524c]{width:%?40?%;height:%?40?%;border-radius:%?40?%;border:%?2?% solid #bbb;background:#fff;align-items:center;justify-content:center;margin-right:%?12?%}.xieyi_box .blue[data-v-9721524c]{color:#2979ff}.sub_btn[data-v-9721524c]{background:#ffe610;height:%?90?%;line-height:%?90?%;border-radius:%?90?%;font-size:15px;font-weight:700;text-align:center;margin:%?100?% %?30?% %?40?%}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    a955: function (e, t, a) {
+      var i = a("6a4c");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[e.i, i, ""]]),
+        i.locals && (e.exports = i.locals);
+      var n = a("967d").default;
+      n("c94d7a04", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    ac37: function (e, t, a) {
+      "use strict";
+      a.d(t, "b", function () {
+        return n;
+      }),
+        a.d(t, "c", function () {
+          return r;
+        }),
+        a.d(t, "a", function () {
+          return i;
+        });
+      var i = { uvIcon: a("1a07").default },
+        n = function () {
+          var e = this,
+            t = e.$createElement,
+            a = e._self._c || t;
+          return a(
+            "v-uni-view",
+            {
+              staticClass: "uv-radio",
+              class: [
+                "uv-radio-label--" + e.parentData.iconPlacement,
+                e.parentData.borderBottom &&
+                  "column" === e.parentData.placement &&
+                  "uv-border-bottom",
+              ],
+              style: [e.radioStyle],
+              on: {
+                click: function (t) {
+                  t.stopPropagation(),
+                    (arguments[0] = t = e.$handleEvent(t)),
+                    e.wrapperClickHandler.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              a(
+                "v-uni-view",
+                {
+                  staticClass: "uv-radio__icon-wrap",
+                  class: e.iconClasses,
+                  style: [e.iconWrapStyle],
+                  on: {
+                    click: function (t) {
+                      t.stopPropagation(),
+                        (arguments[0] = t = e.$handleEvent(t)),
+                        e.iconClickHandler.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  e._t("icon", [
+                    a("uv-icon", {
+                      staticClass: "uv-radio__icon-wrap__icon",
+                      attrs: {
+                        name: "checkbox-mark",
+                        size: e.elIconSize,
+                        color: e.elIconColor,
+                      },
+                    }),
+                  ]),
+                ],
+                2,
+              ),
+              a(
+                "v-uni-view",
+                {
+                  staticClass: "uv-radio__label-wrap",
+                  on: {
+                    click: function (t) {
+                      t.stopPropagation(),
+                        (arguments[0] = t = e.$handleEvent(t)),
+                        e.labelClickHandler.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  e._t("default", [
+                    a(
+                      "v-uni-text",
+                      {
+                        style: {
+                          color: e.elDisabled
+                            ? e.elInactiveColor
+                            : e.elLabelColor,
+                          fontSize: e.elLabelSize,
+                          lineHeight: e.elLabelSize,
+                        },
+                      },
+                      [e._v(e._s(e.label))],
+                    ),
+                  ]),
+                ],
+                2,
+              ),
+            ],
+            1,
+          );
+        },
+        r = [];
+    },
+    af45: function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("8322"),
+        n = a("2f40");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      a("868a");
+      var o = a("828b"),
+        l = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "5eb2fa22",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    b342: function (e, t, a) {
+      var i = a("a621");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[e.i, i, ""]]),
+        i.locals && (e.exports = i.locals);
+      var n = a("967d").default;
+      n("62268bf9", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    b478: function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("fd3c"),
+        a("aa9c");
+      var n = i(a("4d8f0")),
+        r = i(a("9463")),
+        o = i(a("f165")),
+        l = {
+          name: "uv-checkbox-group",
+          mixins: [n.default, r.default, o.default],
+          computed: {
+            parentData: function () {
+              var e = [];
+              return (
+                this.value.length
+                  ? (e = this.value)
+                  : this.modelValue.length && (e = this.modelValue),
+                [
+                  e,
+                  this.disabled,
+                  this.inactiveColor,
+                  this.activeColor,
+                  this.size,
+                  this.labelDisabled,
+                  this.shape,
+                  this.iconSize,
+                  this.borderBottom,
+                  this.placement,
+                  this.labelSize,
+                  this.labelColor,
+                ]
+              );
+            },
+            bemClass: function () {
+              return this.bem("checkbox-group", ["placement"]);
+            },
+          },
+          watch: {
+            parentData: function () {
+              this.children.length &&
+                this.children.map(function (e) {
+                  "function" === typeof e.init && e.init();
+                });
+            },
+          },
+          data: function () {
+            return {};
+          },
+          created: function () {
+            this.children = [];
+          },
+          methods: {
+            unCheckedOther: function (e) {
+              var t = [];
+              this.children.map(function (e) {
+                e.isChecked && t.push(e.name);
+              }),
+                this.$emit("input", t),
+                this.$emit("change", t);
+            },
+          },
+        };
+      t.default = l;
+    },
+    bf82: function (e, t, a) {
+      "use strict";
+      var i = a("a955"),
+        n = a.n(i);
+      n.a;
+    },
+    c01e: function (e, t, a) {
+      var i = a("a09a");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[e.i, i, ""]]),
+        i.locals && (e.exports = i.locals);
+      var n = a("967d").default;
+      n("1197bc1a", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    c33a: function (e, t, a) {
+      var i = a("c86c");
+      (t = i(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-c405c53e], uni-scroll-view[data-v-c405c53e], uni-swiper-item[data-v-c405c53e]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-checkbox-group[data-v-c405c53e]{flex:1}.uv-checkbox-group--row[data-v-c405c53e]{display:flex;flex-direction:row;flex-wrap:wrap}.uv-checkbox-group--column[data-v-c405c53e]{display:flex;flex-direction:column}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    cb08: function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("5cb5"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return i[e];
+            });
+          })(r);
+      t["default"] = n.a;
+    },
+    cc60: function (e, t, a) {
+      var i = a("c33a");
+      i.__esModule && (i = i.default),
+        "string" === typeof i && (i = [[e.i, i, ""]]),
+        i.locals && (e.exports = i.locals);
+      var n = a("967d").default;
+      n("b654631c", i, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    d019: function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("5fe6"),
+        n = a("394f");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      a("0745");
+      var o = a("828b"),
+        l = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "c405c53e",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    d485: function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.chooseFile = function (e) {
+          var t = e.accept,
+            a = e.multiple,
+            i = e.capture,
+            l = e.compressed,
+            s = e.maxDuration,
+            u = e.sizeType,
+            c = e.camera,
+            d = e.maxCount;
+          return new Promise(function (e, f) {
+            switch (t) {
+              case "image":
+                uni.chooseImage({
+                  count: a ? Math.min(d, 9) : 1,
+                  sourceType: i,
+                  sizeType: u,
+                  success: function (t) {
+                    return e(
+                      (function (e) {
+                        return e.tempFiles.map(function (e) {
+                          return (0, n.default)(
+                            (0, n.default)({}, r(e, ["path"])),
+                            {},
+                            {
+                              type: "image",
+                              url: e.path,
+                              thumb: e.path,
+                              size: e.size,
+                              name: e.name,
+                            },
+                          );
+                        });
+                      })(t),
+                    );
+                  },
+                  fail: f,
+                });
+                break;
+              case "video":
+                uni.chooseVideo({
+                  sourceType: i,
+                  compressed: l,
+                  maxDuration: s,
+                  camera: c,
+                  success: function (t) {
+                    return e(
+                      (function (e) {
+                        return [
+                          (0, n.default)(
+                            (0, n.default)(
+                              {},
+                              r(e, [
+                                "tempFilePath",
+                                "thumbTempFilePath",
+                                "errMsg",
+                              ]),
+                            ),
+                            {},
+                            {
+                              type: "video",
+                              url: e.tempFilePath,
+                              thumb: e.thumbTempFilePath,
+                              size: e.size,
+                              name: e.name,
+                            },
+                          ),
+                        ];
+                      })(t),
+                    );
+                  },
+                  fail: f,
+                });
+                break;
+              case "file":
+                uni.chooseFile({
+                  count: a ? d : 1,
+                  type: t,
+                  success: function (t) {
+                    return e(o(t));
+                  },
+                  fail: f,
+                });
+                break;
+              default:
+                uni.chooseFile({
+                  count: a ? d : 1,
+                  type: "all",
+                  success: function (t) {
+                    return e(o(t));
+                  },
+                  fail: f,
+                });
+            }
+          });
+        });
+      var n = i(a("9b1b"));
+      function r(e, t) {
+        return ["[object Object]", "[object File]"].includes(
+          Object.prototype.toString.call(e),
+        )
+          ? Object.keys(e).reduce(function (a, i) {
+              return t.includes(i) || (a[i] = e[i]), a;
+            }, {})
+          : {};
+      }
+      function o(e) {
+        return e.tempFiles.map(function (e) {
+          return (0, n.default)(
+            (0, n.default)({}, r(e, ["path"])),
+            {},
+            { url: e.path, size: e.size, name: e.name, type: e.type },
+          );
+        });
+      }
+      a("4626"), a("bf0f"), a("473f"), a("dc8a"), a("5ac7"), a("fd3c");
+    },
+    db3f: function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("62ed"),
+        n = a.n(i);
+      for (var r in i)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return i[e];
+            });
+          })(r);
+      t["default"] = n.a;
+    },
+    e357: function (e, t, a) {
+      var i = a("c86c");
+      (t = i(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.uv-border-bottom[data-v-21c4bd17]{border-bottom-width:.5px!important;border-color:#dadbde!important;border-bottom-style:solid}uni-view[data-v-21c4bd17], uni-scroll-view[data-v-21c4bd17], uni-swiper-item[data-v-21c4bd17]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-radio[data-v-21c4bd17]{display:flex;flex-direction:row;overflow:hidden;flex-direction:row;align-items:center}.uv-radio-label--left[data-v-21c4bd17]{flex-direction:row}.uv-radio-label--right[data-v-21c4bd17]{flex-direction:row-reverse;justify-content:space-between}.uv-radio__icon-wrap[data-v-21c4bd17]{box-sizing:border-box;transition-property:border-color,background-color,color;transition-duration:.2s;color:#606266;display:flex;flex-direction:row;align-items:center;justify-content:center;color:transparent;text-align:center;font-size:20px;border-width:1px;border-color:#c8c9cc;border-style:solid}.uv-radio__icon-wrap--circle[data-v-21c4bd17]{border-radius:100%}.uv-radio__icon-wrap--square[data-v-21c4bd17]{border-radius:3px}.uv-radio__icon-wrap--checked[data-v-21c4bd17]{color:#fff;background-color:red;border-color:#2979ff}.uv-radio__icon-wrap--disabled[data-v-21c4bd17]{background-color:#ebedf0!important}.uv-radio__icon-wrap--disabled--checked[data-v-21c4bd17]{color:#c8c9cc!important}.uv-radio__label[data-v-21c4bd17]{word-wrap:break-word;margin-left:5px;margin-right:12px;color:#606266;font-size:15px}.uv-radio__label--disabled[data-v-21c4bd17]{color:#c8c9cc}.uv-radio__label-wrap[data-v-21c4bd17]{flex:1;padding-left:6px}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    e407: function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("64aa");
+      var n,
+        r,
+        o = i(a("9b1b")),
+        l = {
+          props: (0, o.default)(
+            {
+              accept: { type: String, default: "image" },
+              capture: {
+                type: [String, Array],
+                default: function () {
+                  return ["album", "camera"];
+                },
+              },
+              compressed: { type: Boolean, default: !0 },
+              camera: { type: String, default: "back" },
+              maxDuration: { type: Number, default: 60 },
+              uploadIcon: { type: String, default: "camera-fill" },
+              uploadIconColor: { type: String, default: "#D3D4D6" },
+              useBeforeRead: { type: Boolean, default: !1 },
+              afterRead: { type: Function, default: null },
+              beforeRead: { type: Function, default: null },
+              previewFullImage: { type: Boolean, default: !0 },
+              previewFullVideo: { type: Boolean, default: !0 },
+              maxCount: { type: [String, Number], default: 52 },
+              disabled: { type: Boolean, default: !1 },
+              imageMode: { type: String, default: "aspectFill" },
+              name: { type: String, default: "" },
+              sizeType: {
+                type: Array,
+                default: function () {
+                  return ["original", "compressed"];
+                },
+              },
+              multiple: { type: Boolean, default: !1 },
+              deletable: { type: Boolean, default: !0 },
+              maxSize: { type: [String, Number], default: Number.MAX_VALUE },
+              fileList: {
+                type: Array,
+                default: function () {
+                  return [];
+                },
+              },
+              uploadText: { type: String, default: "" },
+              width: { type: [String, Number], default: 80 },
+              height: { type: [String, Number], default: 80 },
+              previewImage: { type: Boolean, default: !0 },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (r = n.props) ||
+              void 0 === r
+              ? void 0
+              : r.upload,
+          ),
+        };
+      t.default = l;
+    },
+    f165: function (e, t, a) {
+      "use strict";
+      a("6a54");
+      var i = a("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        a("64aa");
+      var n,
+        r,
+        o = i(a("9b1b")),
+        l = {
+          props: (0, o.default)(
+            {
+              value: {
+                type: Array,
+                default: function () {
+                  return [];
+                },
+              },
+              modelValue: {
+                type: Array,
+                default: function () {
+                  return [];
+                },
+              },
+              name: { type: String, default: "" },
+              shape: { type: String, default: "square" },
+              disabled: { type: Boolean, default: !1 },
+              activeColor: { type: String, default: "#2979ff" },
+              inactiveColor: { type: String, default: "#c8c9cc" },
+              size: { type: [String, Number], default: 18 },
+              placement: { type: String, default: "row" },
+              labelSize: { type: [String, Number], default: 14 },
+              labelColor: { type: [String], default: "#303133" },
+              labelDisabled: { type: Boolean, default: !1 },
+              iconColor: { type: String, default: "#fff" },
+              iconSize: { type: [String, Number], default: 12 },
+              iconPlacement: { type: String, default: "left" },
+              borderBottom: { type: Boolean, default: !1 },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (r = n.props) ||
+              void 0 === r
+              ? void 0
+              : r.checkboxGroup,
+          ),
+        };
+      t.default = l;
+    },
+    f80b: function (e, t, a) {
+      "use strict";
+      a.r(t);
+      var i = a("7b72"),
+        n = a("4cbe7");
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            a.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      a("bf82");
+      var o = a("828b"),
+        l = Object(o["a"])(
+          n["default"],
+          i["b"],
+          i["c"],
+          !1,
+          null,
+          "b5f313b8",
+          null,
+          !1,
+          i["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+  },
+]);
+//# sourceMappingURL=pages-user-apply.84c6ff4f.js.map

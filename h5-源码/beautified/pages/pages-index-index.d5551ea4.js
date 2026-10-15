@@ -1,0 +1,5255 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages-index-index"],
+  {
+    "05c2": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var a = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("473f"),
+        i("bf0f"),
+        i("f7a5"),
+        i("5c47"),
+        i("0506"),
+        i("c223"),
+        i("18f7"),
+        i("de6c"),
+        i("fd3c");
+      var n = a(i("5de6")),
+        o = a(i("9b1b")),
+        s = a(i("2634")),
+        r = a(i("2fdc")),
+        c = a(i("4d8f0")),
+        l = a(i("9463")),
+        d = a(i("b92c")),
+        u = a(i("7689")),
+        f = {
+          name: "uv-tabs",
+          emits: ["click", "change"],
+          mixins: [c.default, l.default, u.default],
+          data: function () {
+            return {
+              firstTime: !0,
+              scrollLeft: 0,
+              scrollViewWidth: 0,
+              lineOffsetLeft: 0,
+              tabsRect: { left: 0 },
+              innerCurrent: 0,
+              moving: !1,
+            };
+          },
+          watch: {
+            current: {
+              immediate: !0,
+              handler: function (t, e) {
+                var i = this;
+                t !== this.innerCurrent &&
+                  ((this.innerCurrent = t),
+                  this.$nextTick(function () {
+                    i.resize();
+                  }));
+              },
+            },
+            list: function () {
+              var t = this;
+              this.$nextTick(function () {
+                t.resize();
+              });
+            },
+          },
+          computed: {
+            textStyle: function () {
+              var t = this;
+              return function (e) {
+                var i = {},
+                  a =
+                    e == t.innerCurrent
+                      ? t.$uv.addStyle(t.activeStyle)
+                      : t.$uv.addStyle(t.inactiveStyle);
+                return (
+                  t.list[e].disabled && (i.color = "#c8c9cc"),
+                  t.$uv.deepMerge(a, i)
+                );
+              };
+            },
+            propsBadge: function () {
+              return d.default;
+            },
+          },
+          mounted: function () {
+            var t = this;
+            return (0, r.default)(
+              (0, s.default)().mark(function e() {
+                return (0, s.default)().wrap(function (e) {
+                  while (1)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        t.init();
+                      case 1:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e);
+              }),
+            )();
+          },
+          methods: {
+            setLineLeft: function () {
+              var t = this,
+                e = this.list[this.innerCurrent];
+              if (e) {
+                var i = this.list.slice(0, this.innerCurrent).reduce(function (
+                    t,
+                    e,
+                  ) {
+                    return t + e.rect.width;
+                  }, 0),
+                  a = this.$uv.getPx(this.lineWidth);
+                this.$uv.test.number(this.lineWidth) &&
+                  this.$uv.unit &&
+                  (a = this.$uv.getPx(
+                    "".concat(this.lineWidth).concat(this.$uv.unit),
+                  )),
+                  (this.lineOffsetLeft = i + (e.rect.width - a) / 2),
+                  this.firstTime &&
+                    setTimeout(function () {
+                      t.firstTime = !1;
+                    }, 20);
+              }
+            },
+            animation: function (t) {},
+            clickHandler: function (t, e) {
+              var i = this;
+              this.$emit(
+                "click",
+                (0, o.default)((0, o.default)({}, t), {}, { index: e }),
+              ),
+                t.disabled ||
+                  (this.innerCurrent != e &&
+                    this.$emit(
+                      "change",
+                      (0, o.default)((0, o.default)({}, t), {}, { index: e }),
+                    ),
+                  (this.innerCurrent = e),
+                  this.$nextTick(function () {
+                    i.resize();
+                  }));
+            },
+            init: function () {
+              var t = this;
+              this.$uv.sleep().then(function () {
+                t.resize();
+              });
+            },
+            setScrollLeft: function () {
+              var t = this.list[this.innerCurrent],
+                e = this.list.slice(0, this.innerCurrent).reduce(function (
+                  t,
+                  e,
+                ) {
+                  return t + e.rect.width;
+                }, 0),
+                i = this.$uv.sys().windowWidth,
+                a =
+                  e -
+                  (this.tabsRect.width - t.rect.width) / 2 -
+                  (i - this.tabsRect.right) / 2 +
+                  this.tabsRect.left / 2;
+              (a = Math.min(a, this.scrollViewWidth - this.tabsRect.width)),
+                (this.scrollLeft = Math.max(0, a));
+            },
+            resize: function () {
+              var t = this;
+              0 !== this.list.length &&
+                Promise.all([this.getTabsRect(), this.getAllItemRect()]).then(
+                  function (e) {
+                    var i = (0, n.default)(e, 2),
+                      a = i[0],
+                      o = i[1],
+                      s = void 0 === o ? [] : o;
+                    (t.tabsRect = a),
+                      (t.scrollViewWidth = 0),
+                      s.map(function (e, i) {
+                        (t.scrollViewWidth += e.width), (t.list[i].rect = e);
+                      }),
+                      t.setLineLeft(),
+                      t.setScrollLeft();
+                  },
+                );
+            },
+            getTabsRect: function () {
+              var t = this;
+              return new Promise(function (e) {
+                t.queryRect("uv-tabs__wrapper__scroll-view").then(function (t) {
+                  return e(t);
+                });
+              });
+            },
+            getAllItemRect: function () {
+              var t = this;
+              return new Promise(function (e) {
+                var i = t.list.map(function (e, i) {
+                  return t.queryRect(
+                    "uv-tabs__wrapper__nav__item-".concat(i),
+                    !0,
+                  );
+                });
+                Promise.all(i).then(function (t) {
+                  return e(t);
+                });
+              });
+            },
+            queryRect: function (t, e) {
+              var i = this;
+              return new Promise(function (e) {
+                i.$uvGetRect(".".concat(t)).then(function (t) {
+                  e(t);
+                });
+              });
+            },
+          },
+        };
+      e.default = f;
+    },
+    1173: function (t, e, i) {
+      "use strict";
+      i("6a54"),
+        Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var a = i("e74a"),
+        n = {
+          data: function () {
+            return { show: !1, isPlaying: !1 };
+          },
+          mounted: function () {
+            (this.isPlaying = !!uni.$audioPlaying),
+              uni.$on("audioPlayStateChange", this.onPlayStateChange),
+              this.loadConfig();
+          },
+          beforeDestroy: function () {
+            uni.$off("audioPlayStateChange", this.onPlayStateChange);
+          },
+          methods: {
+            onPlayStateChange: function (t) {
+              this.isPlaying = t;
+            },
+            loadConfig: function () {
+              var t = this;
+              uni.$audioConfig
+                ? this.applyConfig(uni.$audioConfig)
+                : (0, a.send)("/wechat/Wechat/getAudioConfig", {}, !1)
+                    .then(function (e) {
+                      var i = e.data || {};
+                      (uni.$audioConfig = i), t.applyConfig(i);
+                    })
+                    .catch(function () {});
+            },
+            applyConfig: function (t) {
+              t && t.audio_play_switch && t.audio_url
+                ? ((this.show = !0),
+                  uni.$audioCtx &&
+                    !uni.$audioCtx.src &&
+                    ((uni.$audioCtx.src = t.audio_url),
+                    uni.$audioWantPlay && uni.$audioCtx.play()))
+                : (this.show = !1);
+            },
+            togglePlay: function () {
+              uni.$audioCtx &&
+                (this.isPlaying
+                  ? uni.$audioCtx.pause()
+                  : ((uni.$audioWantPlay = !0), uni.$audioCtx.play()));
+            },
+          },
+        };
+      e.default = n;
+    },
+    "14d3": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("529d"),
+        n = i.n(a);
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      e["default"] = n.a;
+    },
+    "20f3": function (t, e, i) {
+      "use strict";
+      var a = i("8bdb"),
+        n = i("5145");
+      a(
+        { target: "Array", proto: !0, forced: n !== [].lastIndexOf },
+        { lastIndexOf: n },
+      );
+    },
+    "28f5": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return o;
+        }),
+        i.d(e, "a", function () {
+          return a;
+        });
+      var a = { uvBadge: i("0261").default },
+        n = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return i(
+            "v-uni-view",
+            { staticClass: "uv-tabs", style: [t.$uv.addStyle(t.customStyle)] },
+            [
+              i(
+                "v-uni-view",
+                { staticClass: "uv-tabs__wrapper" },
+                [
+                  t._t("left"),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "uv-tabs__wrapper__scroll-view-wrapper" },
+                    [
+                      i(
+                        "v-uni-scroll-view",
+                        {
+                          ref: "uv-tabs__wrapper__scroll-view",
+                          staticClass: "uv-tabs__wrapper__scroll-view",
+                          attrs: {
+                            "scroll-x": t.scrollable,
+                            "scroll-left": t.scrollLeft,
+                            "scroll-with-animation": !0,
+                            "show-scrollbar": !1,
+                          },
+                        },
+                        [
+                          i(
+                            "v-uni-view",
+                            {
+                              ref: "uv-tabs__wrapper__nav",
+                              staticClass: "uv-tabs__wrapper__nav",
+                              style: { flex: t.scrollable ? "" : 1 },
+                            },
+                            [
+                              t._l(t.list, function (e, a) {
+                                return i(
+                                  "v-uni-view",
+                                  {
+                                    key: a,
+                                    ref: "uv-tabs__wrapper__nav__item-" + a,
+                                    refInFor: !0,
+                                    staticClass: "uv-tabs__wrapper__nav__item",
+                                    class: [
+                                      "uv-tabs__wrapper__nav__item-" + a,
+                                      e.disabled &&
+                                        "uv-tabs__wrapper__nav__item--disabled",
+                                    ],
+                                    style: [
+                                      { flex: t.scrollable ? "" : 1 },
+                                      t.$uv.addStyle(t.itemStyle),
+                                    ],
+                                    on: {
+                                      click: function (i) {
+                                        (arguments[0] = i = t.$handleEvent(i)),
+                                          t.clickHandler(e, a);
+                                      },
+                                    },
+                                  },
+                                  [
+                                    i(
+                                      "v-uni-text",
+                                      {
+                                        staticClass:
+                                          "uv-tabs__wrapper__nav__item__text",
+                                        class: [
+                                          e.disabled &&
+                                            "uv-tabs__wrapper__nav__item__text--disabled",
+                                        ],
+                                        style: [t.textStyle(a)],
+                                      },
+                                      [t._v(t._s(e[t.keyName]))],
+                                    ),
+                                    i("uv-badge", {
+                                      attrs: {
+                                        show: !(
+                                          !e.badge ||
+                                          !(
+                                            e.badge.show ||
+                                            e.badge.isDot ||
+                                            e.badge.value
+                                          )
+                                        ),
+                                        isDot:
+                                          (e.badge && e.badge.isDot) ||
+                                          t.propsBadge.isDot,
+                                        value:
+                                          (e.badge && e.badge.value) ||
+                                          t.propsBadge.value,
+                                        max:
+                                          (e.badge && e.badge.max) ||
+                                          t.propsBadge.max,
+                                        type:
+                                          (e.badge && e.badge.type) ||
+                                          t.propsBadge.type,
+                                        showZero:
+                                          (e.badge && e.badge.showZero) ||
+                                          t.propsBadge.showZero,
+                                        bgColor:
+                                          (e.badge && e.badge.bgColor) ||
+                                          t.propsBadge.bgColor,
+                                        color:
+                                          (e.badge && e.badge.color) ||
+                                          t.propsBadge.color,
+                                        shape:
+                                          (e.badge && e.badge.shape) ||
+                                          t.propsBadge.shape,
+                                        numberType:
+                                          (e.badge && e.badge.numberType) ||
+                                          t.propsBadge.numberType,
+                                        inverted:
+                                          (e.badge && e.badge.inverted) ||
+                                          t.propsBadge.inverted,
+                                        customStyle: "margin-left: 4px;",
+                                      },
+                                    }),
+                                  ],
+                                  1,
+                                );
+                              }),
+                              i("v-uni-view", {
+                                ref: "uv-tabs__wrapper__nav__line",
+                                staticClass: "uv-tabs__wrapper__nav__line",
+                                style: [
+                                  {
+                                    width: t.$uv.addUnit(t.lineWidth),
+                                    transform:
+                                      "translate(" + t.lineOffsetLeft + "px)",
+                                    transitionDuration:
+                                      (t.firstTime ? 0 : t.duration) + "ms",
+                                    height: t.firstTime
+                                      ? 0
+                                      : t.$uv.addUnit(t.lineHeight),
+                                    background: t.lineColor,
+                                    backgroundSize: t.lineBgSize,
+                                  },
+                                ],
+                              }),
+                            ],
+                            2,
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  t._t("right"),
+                ],
+                2,
+              ),
+            ],
+            1,
+          );
+        },
+        o = [];
+    },
+    "2b48": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("28f5"),
+        n = i("39c1");
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      i("45c0");
+      var s = i("828b"),
+        r = Object(s["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "6f5b1fc6",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    "2b4e": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("8fcd"),
+        n = i("8cb7");
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      i("506a");
+      var s = i("828b"),
+        r = Object(s["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "6a509d70",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    3105: function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-6f5b1fc6], uni-scroll-view[data-v-6f5b1fc6], uni-swiper-item[data-v-6f5b1fc6]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-tabs__wrapper[data-v-6f5b1fc6]{display:flex;flex-direction:row;align-items:center}.uv-tabs__wrapper__scroll-view-wrapper[data-v-6f5b1fc6]{flex:1;overflow:auto hidden}.uv-tabs__wrapper__scroll-view[data-v-6f5b1fc6]{display:flex;flex-direction:row;flex:1}.uv-tabs__wrapper__nav[data-v-6f5b1fc6]{display:flex;flex-direction:row;position:relative}.uv-tabs__wrapper__nav__item[data-v-6f5b1fc6]{padding:0 11px;display:flex;flex-direction:row;align-items:center;justify-content:center}.uv-tabs__wrapper__nav__item--disabled[data-v-6f5b1fc6]{cursor:not-allowed}.uv-tabs__wrapper__nav__item__text[data-v-6f5b1fc6]{font-size:15px;color:#606266}.uv-tabs__wrapper__nav__item__text--disabled[data-v-6f5b1fc6]{color:#c8c9cc!important}.uv-tabs__wrapper__nav__line[data-v-6f5b1fc6]{height:3px;background:#3c9cff;width:30px;position:absolute;bottom:2px;border-radius:100px;transition-property:-webkit-transform;transition-property:transform;transition-property:transform,-webkit-transform;transition-duration:.3s}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "31ed": function (t, e, i) {
+      "use strict";
+      i("6a54"),
+        Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0);
+      var a = {
+        name: "seckill-mask",
+        props: { seckill: { type: Object, default: null } },
+        data: function () {
+          return { now: 0, timer: null };
+        },
+        computed: {
+          isShow: function () {
+            return this.seckill && 1 == this.seckill.sold_out;
+          },
+          remain: function () {
+            return this.isShow
+              ? Math.max(0, this.seckill.next_ts - this.now)
+              : 0;
+          },
+          countText: function () {
+            var t = this.remain;
+            if (t <= 0) return "00:00";
+            var e = function (t) {
+                return (t < 10 ? "0" : "") + t;
+              },
+              i = Math.floor(t / 3600),
+              a = Math.floor((t % 3600) / 60),
+              n = t % 60;
+            return i > 0 ? i + ":" + e(a) + ":" + e(n) : e(a) + ":" + e(n);
+          },
+        },
+        watch: {
+          isShow: function (t) {
+            t ? this.start() : this.stop();
+          },
+        },
+        mounted: function () {
+          this.isShow && this.start();
+        },
+        beforeDestroy: function () {
+          this.stop();
+        },
+        methods: {
+          start: function () {
+            var t = this;
+            (this.now =
+              this.seckill && this.seckill.now_ts
+                ? this.seckill.now_ts
+                : Math.floor(Date.now() / 1e3)),
+              this.stop(),
+              (this.timer = setInterval(function () {
+                t.now++, t.remain <= 0 && t.stop();
+              }, 1e3));
+          },
+          stop: function () {
+            this.timer && (clearInterval(this.timer), (this.timer = null));
+          },
+        },
+      };
+      e.default = a;
+    },
+    "35e9": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("f5c9"),
+        n = i.n(a);
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      e["default"] = n.a;
+    },
+    "39c1": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("05c2"),
+        n = i.n(a);
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      e["default"] = n.a;
+    },
+    "3c78": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("9ead"),
+        n = i("f6ff");
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      i("72b4");
+      var s = i("828b"),
+        r = Object(s["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "1aa473ad",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    "43e1": function (t, e, i) {
+      var a,
+        n = i("4550").default;
+      i("5c47"),
+        i("2c10"),
+        i("5ef2"),
+        i("aa9c"),
+        i("a1c1"),
+        i("d4b5"),
+        (function (o, s) {
+          (a = function () {
+            return (function (t, e) {
+              if (!t.jWeixin) {
+                var i,
+                  a,
+                  o = {
+                    config: "preVerifyJSAPI",
+                    onMenuShareTimeline: "menu:share:timeline",
+                    onMenuShareAppMessage: "menu:share:appmessage",
+                    onMenuShareQQ: "menu:share:qq",
+                    onMenuShareWeibo: "menu:share:weiboApp",
+                    onMenuShareQZone: "menu:share:QZone",
+                    previewImage: "imagePreview",
+                    getLocation: "geoLocation",
+                    openProductSpecificView: "openProductViewWithPid",
+                    addCard: "batchAddCard",
+                    openCard: "batchViewCard",
+                    chooseWXPay: "getBrandWCPayRequest",
+                    openEnterpriseRedPacket: "getRecevieBizHongBaoRequest",
+                    startSearchBeacons: "startMonitoringBeacons",
+                    stopSearchBeacons: "stopMonitoringBeacons",
+                    onSearchBeacons: "onBeaconsInRange",
+                    consumeAndShareCard: "consumedShareCard",
+                    openAddress: "editAddress",
+                  },
+                  s = (function () {
+                    var t = {};
+                    for (var e in o) t[o[e]] = e;
+                    return t;
+                  })(),
+                  r = t.document,
+                  c = r.title,
+                  l = navigator.userAgent.toLowerCase(),
+                  d = navigator.platform.toLowerCase(),
+                  u = !(!d.match("mac") && !d.match("win")),
+                  f = -1 != l.indexOf("wxdebugger"),
+                  p = -1 != l.indexOf("micromessenger"),
+                  h = -1 != l.indexOf("android"),
+                  _ = -1 != l.indexOf("iphone") || -1 != l.indexOf("ipad"),
+                  v = (a =
+                    l.match(/micromessenger\/(\d+\.\d+\.\d+)/) ||
+                    l.match(/micromessenger\/(\d+\.\d+)/))
+                    ? a[1]
+                    : "",
+                  g = {
+                    initStartTime: j(),
+                    initEndTime: 0,
+                    preVerifyStartTime: 0,
+                    preVerifyEndTime: 0,
+                  },
+                  b = {
+                    version: 1,
+                    appId: "",
+                    initTime: 0,
+                    preVerifyTime: 0,
+                    networkType: "",
+                    isPreVerifyOk: 1,
+                    systemType: _ ? 1 : h ? 2 : -1,
+                    clientVersion: v,
+                    url: encodeURIComponent(location.href),
+                  },
+                  m = {},
+                  x = { _completes: [] },
+                  w = { state: 0, data: {} };
+                R(function () {
+                  g.initEndTime = j();
+                });
+                var y = !1,
+                  k = [],
+                  C =
+                    ((i = {
+                      config: function (e) {
+                        E("config", (m = e));
+                        var i = !1 !== m.check;
+                        R(function () {
+                          if (i)
+                            I(
+                              o.config,
+                              {
+                                verifyJsApiList: z(m.jsApiList),
+                                verifyOpenTagList: z(m.openTagList),
+                              },
+                              (function () {
+                                (x._complete = function (t) {
+                                  (g.preVerifyEndTime = j()),
+                                    (w.state = 1),
+                                    (w.data = t);
+                                }),
+                                  (x.success = function (t) {
+                                    b.isPreVerifyOk = 0;
+                                  }),
+                                  (x.fail = function (t) {
+                                    x._fail ? x._fail(t) : (w.state = -1);
+                                  });
+                                var t = x._completes;
+                                return (
+                                  t.push(function () {
+                                    !(function () {
+                                      if (
+                                        !(
+                                          u ||
+                                          f ||
+                                          m.debug ||
+                                          v < "6.0.2" ||
+                                          b.systemType < 0
+                                        )
+                                      ) {
+                                        var t = new Image();
+                                        (b.appId = m.appId),
+                                          (b.initTime =
+                                            g.initEndTime - g.initStartTime),
+                                          (b.preVerifyTime =
+                                            g.preVerifyEndTime -
+                                            g.preVerifyStartTime),
+                                          C.getNetworkType({
+                                            isInnerInvoke: !0,
+                                            success: function (e) {
+                                              b.networkType = e.networkType;
+                                              var i =
+                                                "https://open.weixin.qq.com/sdk/report?v=" +
+                                                b.version +
+                                                "&o=" +
+                                                b.isPreVerifyOk +
+                                                "&s=" +
+                                                b.systemType +
+                                                "&c=" +
+                                                b.clientVersion +
+                                                "&a=" +
+                                                b.appId +
+                                                "&n=" +
+                                                b.networkType +
+                                                "&i=" +
+                                                b.initTime +
+                                                "&p=" +
+                                                b.preVerifyTime +
+                                                "&u=" +
+                                                b.url;
+                                              t.src = i;
+                                            },
+                                          });
+                                      }
+                                    })();
+                                  }),
+                                  (x.complete = function (e) {
+                                    for (var i = 0, a = t.length; i < a; ++i)
+                                      t[i]();
+                                    x._completes = [];
+                                  }),
+                                  x
+                                );
+                              })(),
+                            ),
+                              (g.preVerifyStartTime = j());
+                          else {
+                            w.state = 1;
+                            for (
+                              var t = x._completes, e = 0, a = t.length;
+                              e < a;
+                              ++e
+                            )
+                              t[e]();
+                            x._completes = [];
+                          }
+                        }),
+                          C.invoke ||
+                            ((C.invoke = function (e, i, a) {
+                              t.WeixinJSBridge &&
+                                WeixinJSBridge.invoke(e, A(i), a);
+                            }),
+                            (C.on = function (e, i) {
+                              t.WeixinJSBridge && WeixinJSBridge.on(e, i);
+                            }));
+                      },
+                      ready: function (t) {
+                        0 != w.state
+                          ? t()
+                          : (x._completes.push(t), !p && m.debug && t());
+                      },
+                      error: function (t) {
+                        v < "6.0.2" ||
+                          (-1 == w.state ? t(w.data) : (x._fail = t));
+                      },
+                      checkJsApi: function (t) {
+                        I(
+                          "checkJsApi",
+                          { jsApiList: z(t.jsApiList) },
+                          ((t._complete = function (t) {
+                            if (h) {
+                              var e = t.checkResult;
+                              e && (t.checkResult = JSON.parse(e));
+                            }
+                            t = (function (t) {
+                              var e = t.checkResult;
+                              for (var i in e) {
+                                var a = s[i];
+                                a && ((e[a] = e[i]), delete e[i]);
+                              }
+                              return t;
+                            })(t);
+                          }),
+                          t),
+                        );
+                      },
+                      onMenuShareTimeline: function (t) {
+                        M(
+                          o.onMenuShareTimeline,
+                          {
+                            complete: function () {
+                              I(
+                                "shareTimeline",
+                                {
+                                  title: t.title || c,
+                                  desc: t.title || c,
+                                  img_url: t.imgUrl || "",
+                                  link: t.link || location.href,
+                                  type: t.type || "link",
+                                  data_url: t.dataUrl || "",
+                                },
+                                t,
+                              );
+                            },
+                          },
+                          t,
+                        );
+                      },
+                      onMenuShareAppMessage: function (t) {
+                        M(
+                          o.onMenuShareAppMessage,
+                          {
+                            complete: function (e) {
+                              "favorite" === e.scene
+                                ? I("sendAppMessage", {
+                                    title: t.title || c,
+                                    desc: t.desc || "",
+                                    link: t.link || location.href,
+                                    img_url: t.imgUrl || "",
+                                    type: t.type || "link",
+                                    data_url: t.dataUrl || "",
+                                  })
+                                : I(
+                                    "sendAppMessage",
+                                    {
+                                      title: t.title || c,
+                                      desc: t.desc || "",
+                                      link: t.link || location.href,
+                                      img_url: t.imgUrl || "",
+                                      type: t.type || "link",
+                                      data_url: t.dataUrl || "",
+                                    },
+                                    t,
+                                  );
+                            },
+                          },
+                          t,
+                        );
+                      },
+                      onMenuShareQQ: function (t) {
+                        M(
+                          o.onMenuShareQQ,
+                          {
+                            complete: function () {
+                              I(
+                                "shareQQ",
+                                {
+                                  title: t.title || c,
+                                  desc: t.desc || "",
+                                  img_url: t.imgUrl || "",
+                                  link: t.link || location.href,
+                                },
+                                t,
+                              );
+                            },
+                          },
+                          t,
+                        );
+                      },
+                      onMenuShareWeibo: function (t) {
+                        M(
+                          o.onMenuShareWeibo,
+                          {
+                            complete: function () {
+                              I(
+                                "shareWeiboApp",
+                                {
+                                  title: t.title || c,
+                                  desc: t.desc || "",
+                                  img_url: t.imgUrl || "",
+                                  link: t.link || location.href,
+                                },
+                                t,
+                              );
+                            },
+                          },
+                          t,
+                        );
+                      },
+                      onMenuShareQZone: function (t) {
+                        M(
+                          o.onMenuShareQZone,
+                          {
+                            complete: function () {
+                              I(
+                                "shareQZone",
+                                {
+                                  title: t.title || c,
+                                  desc: t.desc || "",
+                                  img_url: t.imgUrl || "",
+                                  link: t.link || location.href,
+                                },
+                                t,
+                              );
+                            },
+                          },
+                          t,
+                        );
+                      },
+                      updateTimelineShareData: function (t) {
+                        I(
+                          "updateTimelineShareData",
+                          { title: t.title, link: t.link, imgUrl: t.imgUrl },
+                          t,
+                        );
+                      },
+                      updateAppMessageShareData: function (t) {
+                        I(
+                          "updateAppMessageShareData",
+                          {
+                            title: t.title,
+                            desc: t.desc,
+                            link: t.link,
+                            imgUrl: t.imgUrl,
+                          },
+                          t,
+                        );
+                      },
+                      startRecord: function (t) {
+                        I("startRecord", {}, t);
+                      },
+                      stopRecord: function (t) {
+                        I("stopRecord", {}, t);
+                      },
+                      onVoiceRecordEnd: function (t) {
+                        M("onVoiceRecordEnd", t);
+                      },
+                      playVoice: function (t) {
+                        I("playVoice", { localId: t.localId }, t);
+                      },
+                      pauseVoice: function (t) {
+                        I("pauseVoice", { localId: t.localId }, t);
+                      },
+                      stopVoice: function (t) {
+                        I("stopVoice", { localId: t.localId }, t);
+                      },
+                      onVoicePlayEnd: function (t) {
+                        M("onVoicePlayEnd", t);
+                      },
+                      uploadVoice: function (t) {
+                        I(
+                          "uploadVoice",
+                          {
+                            localId: t.localId,
+                            isShowProgressTips:
+                              0 == t.isShowProgressTips ? 0 : 1,
+                          },
+                          t,
+                        );
+                      },
+                      downloadVoice: function (t) {
+                        I(
+                          "downloadVoice",
+                          {
+                            serverId: t.serverId,
+                            isShowProgressTips:
+                              0 == t.isShowProgressTips ? 0 : 1,
+                          },
+                          t,
+                        );
+                      },
+                      translateVoice: function (t) {
+                        I(
+                          "translateVoice",
+                          {
+                            localId: t.localId,
+                            isShowProgressTips:
+                              0 == t.isShowProgressTips ? 0 : 1,
+                          },
+                          t,
+                        );
+                      },
+                      chooseImage: function (t) {
+                        I(
+                          "chooseImage",
+                          {
+                            scene: "1|2",
+                            count: t.count || 9,
+                            sizeType: t.sizeType || ["original", "compressed"],
+                            sourceType: t.sourceType || ["album", "camera"],
+                          },
+                          ((t._complete = function (t) {
+                            if (h) {
+                              var e = t.localIds;
+                              try {
+                                e && (t.localIds = JSON.parse(e));
+                              } catch (t) {}
+                            }
+                          }),
+                          t),
+                        );
+                      },
+                      getLocation: function (t) {},
+                      previewImage: function (t) {
+                        I(
+                          o.previewImage,
+                          { current: t.current, urls: t.urls },
+                          t,
+                        );
+                      },
+                      uploadImage: function (t) {
+                        I(
+                          "uploadImage",
+                          {
+                            localId: t.localId,
+                            isShowProgressTips:
+                              0 == t.isShowProgressTips ? 0 : 1,
+                          },
+                          t,
+                        );
+                      },
+                      downloadImage: function (t) {
+                        I(
+                          "downloadImage",
+                          {
+                            serverId: t.serverId,
+                            isShowProgressTips:
+                              0 == t.isShowProgressTips ? 0 : 1,
+                          },
+                          t,
+                        );
+                      },
+                      getLocalImgData: function (t) {
+                        !1 === y
+                          ? ((y = !0),
+                            I(
+                              "getLocalImgData",
+                              { localId: t.localId },
+                              ((t._complete = function (t) {
+                                if (((y = !1), 0 < k.length)) {
+                                  var e = k.shift();
+                                  wx.getLocalImgData(e);
+                                }
+                              }),
+                              t),
+                            ))
+                          : k.push(t);
+                      },
+                      getNetworkType: function (t) {
+                        I(
+                          "getNetworkType",
+                          {},
+                          ((t._complete = function (t) {
+                            t = (function (t) {
+                              var e = t.errMsg;
+                              t.errMsg = "getNetworkType:ok";
+                              var i = t.subtype;
+                              if ((delete t.subtype, i)) t.networkType = i;
+                              else {
+                                var a = e.indexOf(":"),
+                                  n = e.substring(a + 1);
+                                switch (n) {
+                                  case "wifi":
+                                  case "edge":
+                                  case "wwan":
+                                    t.networkType = n;
+                                    break;
+                                  default:
+                                    t.errMsg = "getNetworkType:fail";
+                                }
+                              }
+                              return t;
+                            })(t);
+                          }),
+                          t),
+                        );
+                      },
+                      openLocation: function (t) {
+                        I(
+                          "openLocation",
+                          {
+                            latitude: t.latitude,
+                            longitude: t.longitude,
+                            name: t.name || "",
+                            address: t.address || "",
+                            scale: t.scale || 28,
+                            infoUrl: t.infoUrl || "",
+                          },
+                          t,
+                        );
+                      },
+                    }),
+                    n(i, "getLocation", function (t) {
+                      I(
+                        o.getLocation,
+                        { type: (t = t || {}).type || "wgs84" },
+                        ((t._complete = function (t) {
+                          delete t.type;
+                        }),
+                        t),
+                      );
+                    }),
+                    n(i, "hideOptionMenu", function (t) {
+                      I("hideOptionMenu", {}, t);
+                    }),
+                    n(i, "showOptionMenu", function (t) {
+                      I("showOptionMenu", {}, t);
+                    }),
+                    n(i, "closeWindow", function (t) {
+                      I("closeWindow", {}, (t = t || {}));
+                    }),
+                    n(i, "hideMenuItems", function (t) {
+                      I("hideMenuItems", { menuList: t.menuList }, t);
+                    }),
+                    n(i, "showMenuItems", function (t) {
+                      I("showMenuItems", { menuList: t.menuList }, t);
+                    }),
+                    n(i, "hideAllNonBaseMenuItem", function (t) {
+                      I("hideAllNonBaseMenuItem", {}, t);
+                    }),
+                    n(i, "showAllNonBaseMenuItem", function (t) {
+                      I("showAllNonBaseMenuItem", {}, t);
+                    }),
+                    n(i, "scanQRCode", function (t) {
+                      I(
+                        "scanQRCode",
+                        {
+                          needResult: (t = t || {}).needResult || 0,
+                          scanType: t.scanType || ["qrCode", "barCode"],
+                        },
+                        ((t._complete = function (t) {
+                          if (_) {
+                            var e = t.resultStr;
+                            if (e) {
+                              var i = JSON.parse(e);
+                              t.resultStr =
+                                i && i.scan_code && i.scan_code.scan_result;
+                            }
+                          }
+                        }),
+                        t),
+                      );
+                    }),
+                    n(i, "openAddress", function (t) {
+                      I(
+                        o.openAddress,
+                        {},
+                        ((t._complete = function (t) {
+                          t = (function (t) {
+                            return (
+                              (t.postalCode = t.addressPostalCode),
+                              delete t.addressPostalCode,
+                              (t.provinceName = t.proviceFirstStageName),
+                              delete t.proviceFirstStageName,
+                              (t.cityName = t.addressCitySecondStageName),
+                              delete t.addressCitySecondStageName,
+                              (t.countryName = t.addressCountiesThirdStageName),
+                              delete t.addressCountiesThirdStageName,
+                              (t.detailInfo = t.addressDetailInfo),
+                              delete t.addressDetailInfo,
+                              t
+                            );
+                          })(t);
+                        }),
+                        t),
+                      );
+                    }),
+                    n(i, "openProductSpecificView", function (t) {
+                      I(
+                        o.openProductSpecificView,
+                        {
+                          pid: t.productId,
+                          view_type: t.viewType || 0,
+                          ext_info: t.extInfo,
+                        },
+                        t,
+                      );
+                    }),
+                    n(i, "addCard", function (t) {
+                      for (
+                        var e = t.cardList, i = [], a = 0, n = e.length;
+                        a < n;
+                        ++a
+                      ) {
+                        var s = e[a],
+                          r = { card_id: s.cardId, card_ext: s.cardExt };
+                        i.push(r);
+                      }
+                      I(
+                        o.addCard,
+                        { card_list: i },
+                        ((t._complete = function (t) {
+                          var e = t.card_list;
+                          if (e) {
+                            for (
+                              var i = 0, a = (e = JSON.parse(e)).length;
+                              i < a;
+                              ++i
+                            ) {
+                              var n = e[i];
+                              (n.cardId = n.card_id),
+                                (n.cardExt = n.card_ext),
+                                (n.isSuccess = !!n.is_succ),
+                                delete n.card_id,
+                                delete n.card_ext,
+                                delete n.is_succ;
+                            }
+                            (t.cardList = e), delete t.card_list;
+                          }
+                        }),
+                        t),
+                      );
+                    }),
+                    n(i, "chooseCard", function (t) {
+                      I(
+                        "chooseCard",
+                        {
+                          app_id: m.appId,
+                          location_id: t.shopId || "",
+                          sign_type: t.signType || "SHA1",
+                          card_id: t.cardId || "",
+                          card_type: t.cardType || "",
+                          card_sign: t.cardSign,
+                          time_stamp: t.timestamp + "",
+                          nonce_str: t.nonceStr,
+                        },
+                        ((t._complete = function (t) {
+                          (t.cardList = t.choose_card_info),
+                            delete t.choose_card_info;
+                        }),
+                        t),
+                      );
+                    }),
+                    n(i, "openCard", function (t) {
+                      for (
+                        var e = t.cardList, i = [], a = 0, n = e.length;
+                        a < n;
+                        ++a
+                      ) {
+                        var s = e[a],
+                          r = { card_id: s.cardId, code: s.code };
+                        i.push(r);
+                      }
+                      I(o.openCard, { card_list: i }, t);
+                    }),
+                    n(i, "consumeAndShareCard", function (t) {
+                      I(
+                        o.consumeAndShareCard,
+                        { consumedCardId: t.cardId, consumedCode: t.code },
+                        t,
+                      );
+                    }),
+                    n(i, "chooseWXPay", function (t) {
+                      I(o.chooseWXPay, P(t), t);
+                    }),
+                    n(i, "openEnterpriseRedPacket", function (t) {
+                      I(o.openEnterpriseRedPacket, P(t), t);
+                    }),
+                    n(i, "startSearchBeacons", function (t) {
+                      I(o.startSearchBeacons, { ticket: t.ticket }, t);
+                    }),
+                    n(i, "stopSearchBeacons", function (t) {
+                      I(o.stopSearchBeacons, {}, t);
+                    }),
+                    n(i, "onSearchBeacons", function (t) {
+                      M(o.onSearchBeacons, t);
+                    }),
+                    n(i, "openEnterpriseChat", function (t) {
+                      I(
+                        "openEnterpriseChat",
+                        { useridlist: t.userIds, chatname: t.groupName },
+                        t,
+                      );
+                    }),
+                    n(i, "launchMiniProgram", function (t) {
+                      I(
+                        "launchMiniProgram",
+                        {
+                          targetAppId: t.targetAppId,
+                          path: (function (t) {
+                            if ("string" == typeof t && 0 < t.length) {
+                              var e = t.split("?")[0],
+                                i = t.split("?")[1];
+                              return (
+                                (e += ".html"), void 0 !== i ? e + "?" + i : e
+                              );
+                            }
+                          })(t.path),
+                          envVersion: t.envVersion,
+                        },
+                        t,
+                      );
+                    }),
+                    n(i, "openBusinessView", function (t) {
+                      I(
+                        "openBusinessView",
+                        {
+                          businessType: t.businessType,
+                          queryString: t.queryString || "",
+                          envVersion: t.envVersion,
+                        },
+                        ((t._complete = function (t) {
+                          if (h) {
+                            var e = t.extraData;
+                            if (e)
+                              try {
+                                t.extraData = JSON.parse(e);
+                              } catch (e) {
+                                t.extraData = {};
+                              }
+                          }
+                        }),
+                        t),
+                      );
+                    }),
+                    n(i, "miniProgram", {
+                      navigateBack: function (t) {
+                        (t = t || {}),
+                          R(function () {
+                            I(
+                              "invokeMiniProgramAPI",
+                              {
+                                name: "navigateBack",
+                                arg: { delta: t.delta || 1 },
+                              },
+                              t,
+                            );
+                          });
+                      },
+                      navigateTo: function (t) {
+                        R(function () {
+                          I(
+                            "invokeMiniProgramAPI",
+                            { name: "navigateTo", arg: { url: t.url } },
+                            t,
+                          );
+                        });
+                      },
+                      redirectTo: function (t) {
+                        R(function () {
+                          I(
+                            "invokeMiniProgramAPI",
+                            { name: "redirectTo", arg: { url: t.url } },
+                            t,
+                          );
+                        });
+                      },
+                      switchTab: function (t) {
+                        R(function () {
+                          I(
+                            "invokeMiniProgramAPI",
+                            { name: "switchTab", arg: { url: t.url } },
+                            t,
+                          );
+                        });
+                      },
+                      reLaunch: function (t) {
+                        R(function () {
+                          I(
+                            "invokeMiniProgramAPI",
+                            { name: "reLaunch", arg: { url: t.url } },
+                            t,
+                          );
+                        });
+                      },
+                      postMessage: function (t) {
+                        R(function () {
+                          I(
+                            "invokeMiniProgramAPI",
+                            { name: "postMessage", arg: t.data || {} },
+                            t,
+                          );
+                        });
+                      },
+                      getEnv: function (e) {
+                        R(function () {
+                          e({
+                            miniprogram: "miniprogram" === t.__wxjs_environment,
+                          });
+                        });
+                      },
+                    }),
+                    i),
+                  S = 1,
+                  T = {};
+                return (
+                  r.addEventListener(
+                    "error",
+                    function (t) {
+                      if (!h) {
+                        var e = t.target,
+                          i = e.tagName,
+                          a = e.src;
+                        if (
+                          ("IMG" == i ||
+                            "VIDEO" == i ||
+                            "AUDIO" == i ||
+                            "SOURCE" == i) &&
+                          -1 != a.indexOf("wxlocalresource://")
+                        ) {
+                          t.preventDefault(), t.stopPropagation();
+                          var n = e["wx-id"];
+                          if ((n || ((n = S++), (e["wx-id"] = n)), T[n]))
+                            return;
+                          (T[n] = !0),
+                            wx.ready(function () {
+                              wx.getLocalImgData({
+                                localId: a,
+                                success: function (t) {
+                                  e.src = t.localData;
+                                },
+                              });
+                            });
+                        }
+                      }
+                    },
+                    !0,
+                  ),
+                  r.addEventListener(
+                    "load",
+                    function (t) {
+                      if (!h) {
+                        var e = t.target,
+                          i = e.tagName;
+                        if (
+                          (e.src,
+                          "IMG" == i ||
+                            "VIDEO" == i ||
+                            "AUDIO" == i ||
+                            "SOURCE" == i)
+                        ) {
+                          var a = e["wx-id"];
+                          a && (T[a] = !1);
+                        }
+                      }
+                    },
+                    !0,
+                  ),
+                  e && (t.wx = t.jWeixin = C),
+                  C
+                );
+              }
+              function I(e, i, a) {
+                t.WeixinJSBridge
+                  ? WeixinJSBridge.invoke(e, A(i), function (t) {
+                      B(e, t, a);
+                    })
+                  : E(e, a);
+              }
+              function M(e, i, a) {
+                t.WeixinJSBridge
+                  ? WeixinJSBridge.on(e, function (t) {
+                      a && a.trigger && a.trigger(t), B(e, t, i);
+                    })
+                  : E(e, a || i);
+              }
+              function A(t) {
+                return (
+                  ((t = t || {}).appId = m.appId),
+                  (t.verifyAppId = m.appId),
+                  (t.verifySignType = "sha1"),
+                  (t.verifyTimestamp = m.timestamp + ""),
+                  (t.verifyNonceStr = m.nonceStr),
+                  (t.verifySignature = m.signature),
+                  t
+                );
+              }
+              function P(t) {
+                return {
+                  timeStamp: t.timestamp + "",
+                  nonceStr: t.nonceStr,
+                  package: t.package,
+                  paySign: t.paySign,
+                  signType: t.signType || "SHA1",
+                };
+              }
+              function B(t, e, i) {
+                ("openEnterpriseChat" != t && "openBusinessView" !== t) ||
+                  (e.errCode = e.err_code),
+                  delete e.err_code,
+                  delete e.err_desc,
+                  delete e.err_detail;
+                var a = e.errMsg;
+                a ||
+                  ((a = e.err_msg),
+                  delete e.err_msg,
+                  (a = (function (t, e) {
+                    var i = t,
+                      a = s[i];
+                    a && (i = a);
+                    var n = "ok";
+                    if (e) {
+                      var o = e.indexOf(":");
+                      "confirm" == (n = e.substring(o + 1)) && (n = "ok"),
+                        "failed" == n && (n = "fail"),
+                        -1 != n.indexOf("failed_") && (n = n.substring(7)),
+                        -1 != n.indexOf("fail_") && (n = n.substring(5)),
+                        ("access denied" !=
+                          (n = (n = n.replace(/_/g, " ")).toLowerCase()) &&
+                          "no permission to execute" != n) ||
+                          (n = "permission denied"),
+                        "config" == i &&
+                          "function not exist" == n &&
+                          (n = "ok"),
+                        "" == n && (n = "fail");
+                    }
+                    return i + ":" + n;
+                  })(t, a)),
+                  (e.errMsg = a)),
+                  (i = i || {})._complete &&
+                    (i._complete(e), delete i._complete),
+                  (a = e.errMsg || ""),
+                  m.debug && !i.isInnerInvoke && alert(JSON.stringify(e));
+                var n = a.indexOf(":");
+                switch (a.substring(n + 1)) {
+                  case "ok":
+                    i.success && i.success(e);
+                    break;
+                  case "cancel":
+                    i.cancel && i.cancel(e);
+                    break;
+                  default:
+                    i.fail && i.fail(e);
+                }
+                i.complete && i.complete(e);
+              }
+              function z(t) {
+                if (t) {
+                  for (var e = 0, i = t.length; e < i; ++e) {
+                    var a = t[e],
+                      n = o[a];
+                    n && (t[e] = n);
+                  }
+                  return t;
+                }
+              }
+              function E(t, e) {
+                if (!(!m.debug || (e && e.isInnerInvoke))) {
+                  var i = s[t];
+                  i && (t = i),
+                    e && e._complete && delete e._complete,
+                    console.log('"' + t + '",', e || "");
+                }
+              }
+              function j() {
+                return new Date().getTime();
+              }
+              function R(e) {
+                p &&
+                  (t.WeixinJSBridge
+                    ? e()
+                    : r.addEventListener &&
+                      r.addEventListener("WeixinJSBridgeReady", e, !1));
+              }
+            })(o);
+          }.call(e, i, e, t)),
+            void 0 === a || (t.exports = a);
+        })(window);
+    },
+    4431: function (t, e, i) {
+      var a = i("b084");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("189e6682", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    4550: function (t, e, i) {
+      i("6a54");
+      var a = i("8bcf");
+      (t.exports = function (t, e, i) {
+        return (
+          (e = a(e)),
+          e in t
+            ? Object.defineProperty(t, e, {
+                value: i,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0,
+              })
+            : (t[e] = i),
+          t
+        );
+      }),
+        (t.exports.__esModule = !0),
+        (t.exports["default"] = t.exports);
+    },
+    "45c0": function (t, e, i) {
+      "use strict";
+      var a = i("62a9"),
+        n = i.n(a);
+      n.a;
+    },
+    4648: function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("6666"),
+        n = i("14d3");
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      i("97ec");
+      var s = i("828b"),
+        r = Object(s["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "16cb9397",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    "469e": function (t, e, i) {
+      var a = i("d9cd");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("06112cca", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "506a": function (t, e, i) {
+      "use strict";
+      var a = i("c954"),
+        n = i.n(a);
+      n.a;
+    },
+    "529d": function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var a = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("5c47"),
+        i("e966"),
+        i("4100"),
+        i("c223"),
+        i("f7a5"),
+        i("bd06"),
+        i("aa9c"),
+        i("fd3c");
+      var n = a(i("b7c7")),
+        o = a(i("39d8")),
+        s = i("e74a"),
+        r = i("a5ed5"),
+        c = i("15b8"),
+        l = a(i("2b4e")),
+        d = a(i("3c78")),
+        u = a(i("60c7")),
+        f = i("43e1"),
+        p = {
+          components: {
+            audioPlayer: l.default,
+            seckillMask: d.default,
+            orderDanmu: u.default,
+          },
+          data: function () {
+            var t;
+            return (
+              (t = {
+                picWidth: 0,
+                swiperHeight: 150,
+                selected: 0,
+                current: 0,
+                home_cat: [],
+                banner: [],
+                banner2: [],
+                banner_notice: [],
+                rec_cat: [],
+                home_more: "",
+                area_list: [
+                  { id: 0, name: "全部" },
+                  { id: 1, name: "微信区" },
+                  { id: 2, name: "QQ区" },
+                ],
+                cat1_id: 0,
+                cat2_id: 0,
+                sort: 0,
+                list: [],
+                area: 0,
+                page: 1,
+                no_more: 0,
+                status: "loading",
+                moreCat: !1,
+                showBackToTop: !1,
+                standHeight: 200,
+                notice_home: "",
+                scrollLeft: 0,
+                moreFcat: !1,
+                sortPopup: !1,
+                sortTemp: 0,
+                fcatPosition: 283,
+              }),
+              (0, o.default)(t, "area_list", []),
+              (0, o.default)(t, "raffle", []),
+              (0, o.default)(t, "bind_mobile", 0),
+              (0, o.default)(t, "bind_mobile_tips", 0),
+              (0, o.default)(t, "vip_status", 0),
+              (0, o.default)(t, "notice", []),
+              (0, o.default)(t, "notice_status", 0),
+              (0, o.default)(t, "store_close", []),
+              (0, o.default)(t, "tabsImg", "width: 104rpx; height: 104rpx;"),
+              (0, o.default)(t, "tabs2Tit", "font-size: 12px;color: #666;"),
+              (0, o.default)(t, "tabs3Tit", "font-size: 12px;color: #666;"),
+              (0, o.default)(t, "tabs2TitCur", "font-size: 12.48;color: #333;"),
+              (0, o.default)(t, "tabs3TitCur", "font-size: 12.48;color: #333;"),
+              (0, o.default)(t, "tabsItem", ""),
+              (0, o.default)(t, "tabsItemCur", ""),
+              (0, o.default)(
+                t,
+                "tabsTitMarginTop",
+                "height: 56rpx; line-height: 56rpx;",
+              ),
+              (0, o.default)(t, "game_tpl", []),
+              (0, o.default)(t, "palte", "h5"),
+              (0, o.default)(t, "share_info", []),
+              (0, o.default)(t, "statusBarHeight", 0),
+              (0, o.default)(t, "share_code", ""),
+              (0, o.default)(t, "home_goods_tpl", 1),
+              (0, o.default)(t, "home_cat2_tpl", 1),
+              (0, o.default)(t, "home_cat2_all_icon", ""),
+              (0, o.default)(t, "home_cat2_all_switch", 1),
+              (0, o.default)(t, "child_list", []),
+              (0, o.default)(t, "shop_car_goods", []),
+              (0, o.default)(t, "child_goods", []),
+              (0, o.default)(t, "specViewMode", "img"),
+              (0, o.default)(t, "home_copy_right", 0),
+              (0, o.default)(t, "kefu", []),
+              (0, o.default)(t, "home_icons", []),
+              (0, o.default)(t, "homeNavPopupData", {
+                popup_image: "",
+                popup_content: "",
+              }),
+              (0, o.default)(t, "baseUrl", c.baseUrl),
+              (0, o.default)(t, "splash_show", !0),
+              (0, o.default)(t, "splash_fade", !1),
+              (0, o.default)(t, "splash_start_time", 0),
+              (0, o.default)(t, "list_loading", !1),
+              t
+            );
+          },
+          computed: {
+            height: function () {
+              return uni.getSystemInfoSync().windowHeight - uni.upx2px(100);
+            },
+          },
+          onLoad: function (t) {
+            uni.hideTabBar(), (this.splash_start_time = Date.now());
+            var e = t.share_code,
+              i = t.game_id;
+            (this.share_code = e),
+              this.share_code &&
+                uni.setStorageSync("share_code", this.share_code),
+              i && (this.cat1_id = i),
+              this.getHomeInfo(),
+              this.getShareSignPackage();
+          },
+          onShow: function () {},
+          onPullDownRefresh: function () {
+            var t = this;
+            uni.showLoading({ title: "刷新中" }),
+              setTimeout(function () {
+                uni.hideLoading(),
+                  (t.cat2_id = 0),
+                  (t.page = 1),
+                  (t.no_more = 0),
+                  (t.status = "loading"),
+                  t.getHomeInfo(),
+                  uni.showToast({ title: "刷新成功", duration: 1e3 }),
+                  uni.stopPullDownRefresh();
+              }, 300);
+          },
+          onReachBottom: function (t) {
+            this.loadMoreFun(), (this.showBackToTop = !0);
+          },
+          onReady: function () {
+            this.getSwiperWidth();
+          },
+          onPageScroll: function (t) {
+            var e = this;
+            if (((this.showBackToTop = t.scrollTop > 600), this.moreFcat)) {
+              var i = uni.createSelectorQuery().in(this);
+              i.select("#fcat_box")
+                .boundingClientRect(function (t) {
+                  t && (e.fcatPosition = Math.floor(t.top + t.height));
+                })
+                .exec();
+            }
+          },
+          mounted: function () {},
+          beforeDestroy: function () {},
+          onShareAppMessage: function () {
+            return {
+              title: this.share_info.title,
+              path: "/pages/index/index?scene=" + this.share_info.share_code,
+              imageUrl: this.share_info.imgUrl,
+            };
+          },
+          onShareTimeline: function () {
+            return {
+              title: this.share_info.title,
+              query: "scene=" + this.share_info.share_code,
+              imageUrl: this.share_info.imgUrl,
+            };
+          },
+          methods: {
+            jumpSearch: function () {
+              uni.navigateTo({ url: "/pages/index/search" });
+            },
+            jumpKefu: function () {
+              "h5" == this.palte
+                ? 1 == this.kefu.kefu_h5_type || 3 == this.kefu.kefu_h5_type
+                  ? (window.location.href = this.kefu.kefu_link)
+                  : uni.switchTab({ url: "/pages/chat/list" })
+                : ((1 != this.kefu.kefu_weapp_type &&
+                    4 != this.kefu.kefu_weapp_type) ||
+                    wx.openCustomerServiceChat({
+                      extInfo: { url: this.kefu.kefu_link },
+                      corpId: this.kefu.kefu_corp_id,
+                      success: function (t) {
+                        console.log(t);
+                      },
+                    }),
+                  2 == this.kefu.kefu_weapp_type &&
+                    uni.switchTab({ url: "/pages/chat/list" }));
+            },
+            homeNavJump: function (t) {
+              var e = this;
+              if (t && t.jump_type) {
+                var i = parseInt(t.jump_type);
+                switch (i) {
+                  case 1:
+                    if (!t.page_path) return;
+                    2 == t.page_open_type
+                      ? uni.switchTab({ url: t.page_path })
+                      : uni.navigateTo({ url: t.page_path });
+                    break;
+                  case 2:
+                    if (!t.url) return;
+                    "h5" == this.palte
+                      ? (window.location.href = t.url)
+                      : uni.setClipboardData({
+                          data: t.url,
+                          success: function () {
+                            uni.showToast({
+                              title: "链接已复制",
+                              icon: "none",
+                            });
+                          },
+                        });
+                    break;
+                  case 3:
+                    if (!t.weapp_path) return;
+                    "mp-weixin" == this.palte
+                      ? uni.navigateTo({ url: t.weapp_path })
+                      : uni.showToast({
+                          title: "请在小程序打开",
+                          icon: "none",
+                        });
+                    break;
+                  case 4:
+                    uni.switchTab({ url: "/pages/chat/list" });
+                    break;
+                  case 5:
+                    break;
+                  case 7:
+                    t.popup_image &&
+                      uni.previewImage({
+                        urls: [t.popup_image],
+                        current: t.popup_image,
+                      });
+                    break;
+                  case 8:
+                    t.popup_content &&
+                      ((this.homeNavPopupData = {
+                        title: t.title || "",
+                        popup_content: t.popup_content || "",
+                      }),
+                      this.$nextTick(function () {
+                        e.$refs.homeNavPopup.open();
+                      }));
+                    break;
+                }
+              }
+            },
+            closeHomeNavPopup: function () {
+              this.$refs.homeNavPopup.close();
+            },
+            onHomeNavContact: function (t) {
+              console.log("客服联系回调", t);
+            },
+            getViewWidth: function () {
+              var t = uni.getSystemInfoSync().windowWidth;
+              t > 480 && (t = 480);
+              var e = 2;
+              3 == this.home_goods_tpl && (e = 3);
+              var i = (t - 37) / e;
+              this.picWidth = i;
+            },
+            getYPosition: function () {
+              var t = this;
+              this.$nextTick(function () {
+                console.log(3333);
+                var e = uni.createSelectorQuery().in(t);
+                e.select("#fcat_box")
+                  .boundingClientRect(function (e) {
+                    console.log("距离屏幕顶部的位置:", e.top),
+                      console.log("自身高度:", e.height),
+                      (t.fcatPosition = Math.floor(e.top + e.height));
+                  })
+                  .exec();
+              });
+            },
+            toggleMoreFcat: function () {
+              var t = this;
+              this.moreFcat
+                ? (this.moreFcat = !1)
+                : this.$nextTick(function () {
+                    var e = uni.createSelectorQuery().in(t);
+                    e.select("#fcat_box")
+                      .boundingClientRect(function (e) {
+                        e && (t.fcatPosition = Math.floor(e.top + e.height)),
+                          (t.moreFcat = !0);
+                      })
+                      .exec();
+                  });
+            },
+            toggleSortPopup: function () {
+              var t = this;
+              this.sortPopup
+                ? (this.sortPopup = !1)
+                : ((this.sortTemp = this.sort),
+                  this.$nextTick(function () {
+                    var e = uni.createSelectorQuery().in(t);
+                    e.select("#fcat_box").boundingClientRect(),
+                      e.selectViewport().scrollOffset(),
+                      e.exec(function (e) {
+                        var i = e && e[0],
+                          a = e && e[1];
+                        i &&
+                          (t.fcatPosition =
+                            Math.floor(
+                              i.top + i.height + (a ? a.scrollTop : 0),
+                            ) + 8),
+                          (t.sortPopup = !0);
+                      });
+                  }));
+            },
+            resetSort: function () {
+              this.sortTemp = 0;
+            },
+            confirmSort: function () {
+              var t = this;
+              uni.$uv.debounce(function () {
+                (t.sortPopup = !1),
+                  t.sortTemp != t.sort &&
+                    ((t.sort = t.sortTemp),
+                    (t.page = 1),
+                    (t.list = []),
+                    (t.no_more = 0),
+                    t.getGoodsList(!0));
+              }, 300);
+            },
+            scrollToElement: function (t, e) {
+              var i = wx.getSystemInfoSync(),
+                a = i.windowWidth / 10;
+              (this.scrollLeft = t * a),
+                t <= 6 && (this.scrollLeft = this.scrollLeft - 30),
+                t > 6 && (this.scrollLeft = this.scrollLeft + 12 * t),
+                this.selectCat2Id(e),
+                (this.moreFcat = !1);
+            },
+            onScroll: function (t) {},
+            getSwiperWidth: function () {
+              var t = wx.getSystemInfoSync(),
+                e = t.windowWidth / 2;
+              (this.swiperHeight = e - 15),
+                this.swiperHeight > 220 && (this.swiperHeight = 220);
+            },
+            getHeight: function () {
+              var t = this;
+              this.$nextTick(function () {
+                var e = uni.createSelectorQuery().in(t);
+                e.select("#standHeight")
+                  .boundingClientRect(function (e) {
+                    t.standHeight = Math.floor(e.top + e.height);
+                  })
+                  .exec();
+              });
+            },
+            scrollToTop: function () {
+              uni.pageScrollTo({
+                scrollTop: 0,
+                duration: 300,
+                behavior: "smooth",
+              }),
+                (this.showBackToTop = !1);
+            },
+            toggleMoreCat: function () {
+              this.home_cat.length > 0
+                ? (this.moreCat = !this.moreCat)
+                : console.log("没有更多分类");
+            },
+            getHomeInfo: function () {
+              var t = this,
+                e = (this._homeReqId = (this._homeReqId || 0) + 1);
+              (0, s.send)(
+                "/wechat/Home/getHomeInfo",
+                { cat1_id: this.cat1_id, page: this.page, sort: this.sort },
+                !1,
+              ).then(function (i) {
+                if (e === t._homeReqId) {
+                  var a = i.status,
+                    n = i.msg,
+                    o = i.data;
+                  if (((t.list_loading = !1), 1 != a))
+                    return t.closeSplash(), uni.$uv.toast(n);
+                  if (
+                    ((t.list = o.goods_list.list),
+                    1 == o.goods_list.no_more &&
+                      ((t.status = "nomore"), (t.no_more = 1)),
+                    (t.banner = o.banner),
+                    (t.banner2 = o.banner2),
+                    (t.raffle = o.raffle),
+                    (t.home_cat = o.home_cat),
+                    (t.rec_cat = o.rec_cat),
+                    (t.vip_status = o.vip_status),
+                    (t.home_goods_tpl = o.home_goods_tpl),
+                    (t.home_cat2_tpl = o.home_cat2_tpl || 1),
+                    (t.home_cat2_all_icon = o.home_cat2_all_icon || ""),
+                    (t.home_cat2_all_switch =
+                      0 == o.home_cat2_all_switch ? 0 : 1),
+                    t.home_cat2_all_switch
+                      ? (t.area_list = [
+                          {
+                            id: 0,
+                            name: "全部分类",
+                            thumb: t.home_cat2_all_icon,
+                          },
+                        ].concat(t.rec_cat.list))
+                      : (t.area_list = t.rec_cat.list.slice()),
+                    (t.logo = o.logo),
+                    (t.home_more = o.home_more),
+                    (t.notice_home = o.notice_home),
+                    (t.bind_mobile_tips = o.bind_mobile_tips),
+                    (t.notice = o.notice),
+                    (t.store_close = o.store_close),
+                    (t.game_tpl = o.game_tpl),
+                    (t.home_copy_right = o.home_copy_right),
+                    (t.kefu = o.kefu),
+                    (t.home_icons = o.home_icons || []),
+                    1 == t.game_tpl.status &&
+                      0 != t.cat1_id &&
+                      (t.current = t.findIndexById(t.cat1_id, t.home_cat)),
+                    1 == o.notice_status)
+                  ) {
+                    var s = uni.getStorageSync("enter_system_notice");
+                    0 == s && t.$refs.notice.open();
+                  }
+                  0 == o.auth_status && t.showArrears(),
+                    t.initHomeTpl(),
+                    t.getYPosition(),
+                    t.getHeight(),
+                    t.getViewWidth(),
+                    t.loadWeappFun(),
+                    t.closeSplash();
+                }
+              });
+            },
+            closeSplash: function () {
+              var t = this;
+              if (this.splash_show) {
+                var e = Date.now() - this.splash_start_time,
+                  i = e >= 800 ? 0 : 800 - e;
+                setTimeout(function () {
+                  (t.splash_fade = !0),
+                    setTimeout(function () {
+                      t.splash_show = !1;
+                    }, 500);
+                }, i);
+              }
+            },
+            showArrears: function () {
+              var t = this;
+              return uni.showModal({
+                title: "温馨提示",
+                content:
+                  "您好，目前系统处于欠费状态，暂时无法提交新订单。烦请客户尽快完成系统费用补缴，待系统恢复后即可正常发起下单操作。",
+                showCancel: !1,
+                success: function (e) {
+                  e.confirm && t.getHomeInfo();
+                },
+              });
+            },
+            findIndexById: function (t, e) {
+              return e.findIndex(function (e) {
+                return e.id == t;
+              });
+            },
+            loadMoreFun: function () {
+              0 != this.no_more ||
+                this._goodsLoading ||
+                (this.page++, this.getGoodsList()),
+                console.log("到底了");
+            },
+            jumpFollow: function () {
+              (this.moreCat = !1),
+                uni.switchTab({ url: "/pages/follow/index" });
+            },
+            selectMoreCat: function (t, e) {
+              if (this.cat1_id == t.id) return console.log("重复点击"), !1;
+              (this.current = e), this.changeTabs(t), (this.moreCat = !1);
+            },
+            changeImgTabs: function (t) {
+              (this.cat1_id = t), uni.$uv.debounce(this.lazeLodeData1, 180);
+            },
+            changeTabs: function (t) {
+              (this.cat1_id = t.id), uni.$uv.debounce(this.lazeLodeData1, 180);
+            },
+            lazeLodeData1: function (t) {
+              (this.cat2_id = 0),
+                (this.page = 1),
+                (this.list = []),
+                (this.no_more = 0),
+                (this.list_loading = !0),
+                this.getHomeInfo();
+            },
+            selectCat2Id: function (t) {
+              (this.cat2_id = t),
+                (this.page = 1),
+                (this.list = []),
+                (this.no_more = 0),
+                this.getGoodsList(!0);
+            },
+            bannerJump1: function (t) {
+              this.bannerJump(1, t);
+            },
+            bannerJump2: function (t) {
+              this.bannerJump(2, t);
+            },
+            bannerJump: function (t, e) {
+              var i = this.banner;
+              2 == t && (i = this.banner2);
+              var a = i[e],
+                n = a.path,
+                o = a.url,
+                s = a.weapp_url,
+                r = a.type;
+              1 == r && this.previewImage(n, i),
+                2 == r &&
+                  ("h5" == this.palte && "" != o && (window.location.href = o),
+                  "mp-weixin" == this.palte && "" != s && this.jump(s)),
+                3 == r &&
+                  ((this.banner_notice = i[e]), this.$refs.bannerRef.open());
+            },
+            changeSort: function () {
+              0 == this.sort
+                ? (this.sort = 1)
+                : 1 == this.sort
+                  ? (this.sort = 2)
+                  : 2 == this.sort && (this.sort = 1),
+                (this.page = 1),
+                (this.list = []),
+                (this.no_more = 0),
+                this.getGoodsList(!0);
+            },
+            changeArea: function (t) {
+              (this.area = t.id),
+                (this.page = 1),
+                (this.list = []),
+                (this.no_more = 0),
+                this.getGoodsList(!0);
+            },
+            getGoodsList: function (t) {
+              var e = this,
+                i = (this._goodsReqId = (this._goodsReqId || 0) + 1);
+              (this._goodsLoading = !0),
+                t
+                  ? (this.list_loading = !0)
+                  : uni.showLoading({ title: "加载中.." }),
+                (0, s.send)(
+                  "/wechat/Goods/getGoodsList",
+                  {
+                    page: this.page,
+                    cat1_id: this.cat1_id,
+                    cat2_id: this.cat2_id,
+                    area: this.area,
+                    sort: this.sort,
+                  },
+                  !1,
+                )
+                  .then(function (a) {
+                    if (i === e._goodsReqId) {
+                      (e._goodsLoading = !1),
+                        t ? (e.list_loading = !1) : uni.hideLoading();
+                      var o,
+                        s = a.status,
+                        r = a.msg,
+                        c = a.data;
+                      if (1 != s) return uni.$uv.toast(r);
+                      if (e.page > 1)
+                        (o = e.list).push.apply(o, (0, n.default)(c.list));
+                      else e.list = c.list;
+                      1 == c.no_more &&
+                        ((e.status = "nomore"), (e.no_more = c.no_more));
+                    }
+                  })
+                  .catch(function () {
+                    i === e._goodsReqId &&
+                      ((e._goodsLoading = !1),
+                      t ? (e.list_loading = !1) : uni.hideLoading());
+                  });
+            },
+            getIndexById: function (t, e) {
+              return t.findIndex(function (t) {
+                return t.id === e;
+              });
+            },
+            jump: function (t) {
+              uni.navigateTo({ url: t });
+            },
+            jumpTab: function (t) {
+              uni.setStorageSync("cat1_id", this.cat1_id),
+                uni.switchTab({ url: t });
+            },
+            getShareSignPackage: function () {
+              (0, s.send)(
+                "/wechat/Wechat/getShareSignPackage",
+                { url: window.location.href.split("#")[0] },
+                !1,
+              ).then(function (t) {
+                var e = t.data,
+                  i = e.share_info;
+                f.config({
+                  debug: !1,
+                  appId: e.appId,
+                  timestamp: e.timestamp,
+                  nonceStr: e.nonceStr,
+                  signature: e.signature,
+                  jsApiList: [
+                    "updateAppMessageShareData",
+                    "updateTimelineShareData",
+                  ],
+                }),
+                  f.ready(function (t) {
+                    f.updateAppMessageShareData({
+                      title: i.title,
+                      desc: i.des,
+                      link: i.link,
+                      imgUrl: i.imgUrl,
+                      trigger: function (t) {},
+                      success: function (t) {},
+                      cancel: function (t) {},
+                      fail: function (t) {},
+                    }),
+                      f.updateTimelineShareData({
+                        title: i.title,
+                        desc: i.des,
+                        link: i.link,
+                        imgUrl: i.imgUrl,
+                        trigger: function (t) {},
+                        success: function (t) {},
+                        cancel: function (t) {},
+                        fail: function (t) {},
+                      });
+                  }),
+                  f.error(function (t) {
+                    console.log("jsapi错误：", t);
+                  });
+              });
+            },
+            previewImage: function (t, e) {
+              var i = e.map(function (t) {
+                return t.path;
+              });
+              uni.previewImage({ current: t, urls: i });
+            },
+            previewImage2: function (t) {
+              uni.previewImage({ current: t, urls: [t] });
+            },
+            jumpGoodsDes: function (t) {
+              var e =
+                arguments.length > 1 && void 0 !== arguments[1]
+                  ? arguments[1]
+                  : [];
+              this.getUserBindMobileStatus(t, e);
+            },
+            jumpRaffleByStyle: function (t) {
+              var e = this,
+                i =
+                  arguments.length > 1 && void 0 !== arguments[1]
+                    ? arguments[1]
+                    : [];
+              (0, s.send)(
+                "/wechat/Raffle/getRaffleStyle",
+                { label: "raffle", raffle_id: t },
+                !1,
+              )
+                .then(function (a) {
+                  var n = "/pages/active/turntable?raffle_id=" + t;
+                  1 == a.status &&
+                    a.data &&
+                    2 == a.data.style &&
+                    (n = "/pages_sub1/active/lucky_draw?raffle_id=" + t),
+                    e.jumpGoodsDes(n, i);
+                })
+                .catch(function () {
+                  e.jumpGoodsDes("/pages/active/turntable?raffle_id=" + t, i);
+                });
+            },
+            getUserBindMobileStatus: function (t) {
+              var e = this,
+                i =
+                  arguments.length > 1 && void 0 !== arguments[1]
+                    ? arguments[1]
+                    : [],
+                a = this;
+              uni.getStorageSync("token");
+              if (
+                (console.log(this.bind_mobile_tips), 0 == this.bind_mobile_tips)
+              )
+                return 1 == i.is_vip && 1 == this.vip_status
+                  ? this.checkUserLoginStatus(t)
+                  : void this.jump(t);
+              (0, s.send)(
+                "/wechat/User/getUserBindMobileStatus",
+                { label: "mobile" },
+                !1,
+              ).then(function (i) {
+                uni.hideLoading();
+                var n = i.status,
+                  o = i.msg,
+                  s = i.data;
+                return 1 != n
+                  ? uni.$uv.toast(o)
+                  : ((e.bind_mobile = s.bind_mobile),
+                    0 == e.bind_mobile
+                      ? uni.showModal({
+                          content:
+                            "未绑定手机号, 将无法接收订单通知, 是否现在绑定?",
+                          confirmColor: "#36c337",
+                          cancelText: "暂不绑定",
+                          success: function (e) {
+                            e.confirm
+                              ? ("h5" == a.palte &&
+                                  a.jump("/pages/user/bind_mobile"),
+                                "mp-weixin" == a.palte &&
+                                  (uni.setStorageSync("mobileSuccessPath", t),
+                                  a.jump("/pages/user/bind_mobile_weapp")))
+                              : e.cancel && a.jump(t);
+                          },
+                        })
+                      : void a.jump(t));
+              });
+            },
+            closeNotice: function () {
+              uni.setStorageSync("enter_system_notice", 1),
+                this.$refs.notice.close(),
+                (0, s.send)("/wechat/Article/closeNotice", {}, !1).then(
+                  function (t) {},
+                ),
+                uni.$audioCtx &&
+                  ((uni.$audioWantPlay = !0), uni.$audioCtx.play());
+            },
+            closeBannerNotice: function () {
+              this.$refs.bannerRef.close();
+            },
+            initHomeTpl: function () {
+              var t = this.game_tpl,
+                e = t.logo_size,
+                i = t.name_size,
+                a = t.name_color,
+                n = t.name_sel_size,
+                o = t.name_sel_color;
+              (this.tabsImg = "width:"
+                .concat(e, "rpx; height:")
+                .concat(e, "rpx;")),
+                (this.tabs2Tit = "font-size:"
+                  .concat(i, "px; color:")
+                  .concat(a, ";")),
+                (this.tabs3Tit = "font-size:"
+                  .concat(i, "px; color:")
+                  .concat(a, "; margin-top: 5rpx")),
+                (this.tabs2TitCur = "font-size:"
+                  .concat(n, "px; color:")
+                  .concat(o, ";")),
+                (this.tabs3TitCur = "font-size:"
+                  .concat(n, "px; color:")
+                  .concat(o, "; height:")
+                  .concat(e, "rpx; line-height:")
+                  .concat(e, "rpx;")),
+                0 == this.cat1_id && (this.cat1_id = this.home_cat[0].id);
+            },
+            loadWeappFun: function () {
+              if ("mp-weixin" == this.palte) {
+                var t = wx.getSystemInfoSync();
+                (this.statusBarHeight = t.statusBarHeight),
+                  wx.showShareMenu({
+                    withShareTicket: !0,
+                    menus: ["shareAppMessage", "shareTimeline"],
+                    success: function (t) {
+                      console.log("showShareMenu", t);
+                    },
+                    fail: function (t) {
+                      console.error(t);
+                    },
+                  });
+              }
+            },
+            checkUserLoginStatus: function (t) {
+              var e = this,
+                i = this;
+              (0, s.send)(
+                "/wechat/User/checkUserLoginStatus",
+                { label: "" },
+                !1,
+              ).then(function (a) {
+                var n = a.status,
+                  o = a.msg,
+                  s = a.data;
+                return 1 != n
+                  ? uni.$uv.toast(o)
+                  : 0 == s.user_vip
+                    ? uni.showModal({
+                        title: "温馨提示",
+                        content: "加入会员, 享会员折扣商品哦",
+                        confirmColor: "#e64340",
+                        confirmText: "点我开通",
+                        cancelText: "暂不开通",
+                        success: function (t) {
+                          t.confirm && i.jump("/pages/pay/vip");
+                        },
+                      })
+                    : void e.jump(t);
+              });
+            },
+            clickShopCar: function (t) {
+              (this.child_goods = []),
+                this.initSpecMode(),
+                0 != t.raffle_show_id
+                  ? this.getRaffleChildList(t)
+                  : this.getChildGoodsList(t);
+            },
+            initSpecMode: function () {
+              var t = this;
+              uni.$specConfig
+                ? (this.specViewMode =
+                    1 == uni.$specConfig.spec_text_switch ? "text" : "img")
+                : (0, s.send)("/wechat/Wechat/getSpecConfig", {}, !1)
+                    .then(function (e) {
+                      (uni.$specConfig = e.data || {}),
+                        (t.specViewMode =
+                          1 == uni.$specConfig.spec_text_switch
+                            ? "text"
+                            : "img");
+                    })
+                    .catch(function () {});
+            },
+            getChildGoodsList: function (t) {
+              var e = this;
+              (0, s.send)(
+                "/wechat/Goods/getChildGoodsList",
+                { id: t.id },
+                !1,
+              ).then(function (i) {
+                uni.hideLoading(), (e.sub_status = 1);
+                var a = i.status,
+                  n = (i.msg, i.data);
+                if (1 != a)
+                  return (
+                    (e.child_list = []),
+                    void e.jumpGoodsDes("/pages/pay/submit?id=" + t.id, t)
+                  );
+                (e.shop_car_goods = t),
+                  (e.child_list = n),
+                  e.$refs.specsPop.open();
+              });
+            },
+            getRaffleChildList: function (t) {
+              var e = this;
+              (0, s.send)(
+                "/wechat/Raffle/getChildRaffleList",
+                { id: t.raffle_show_id },
+                !1,
+              ).then(function (i) {
+                uni.hideLoading();
+                var a = i.status,
+                  n = (i.msg, i.data);
+                if (1 == a && n.list && 0 != n.list.length)
+                  (e.shop_car_goods = t),
+                    (e.child_list = n.list),
+                    e.$refs.specsPop.open();
+                else {
+                  e.child_list = [];
+                  var o = n && void 0 !== n.order_type ? n.order_type : 0;
+                  1 == o
+                    ? e.jumpRaffleByStyle(t.raffle_show_id, t)
+                    : e.jumpGoodsDes(
+                        "/pages/pay/raffle?id=" + t.raffle_show_id,
+                        t,
+                      );
+                }
+              });
+            },
+            selectChildGoods: function (t) {
+              (this.child_goods = t), (this.shop_car_goods = t);
+            },
+            subChildGoods: function () {
+              var t = this,
+                e = this;
+              if (this.child_list.length > 0 && "" == this.child_goods)
+                return uni.$uv.toast("请选择详细规格");
+              (0, s.send)(
+                "/wechat/User/checkUserLoginStatus",
+                { label: "" },
+                !1,
+              ).then(function (i) {
+                var a = i.status,
+                  n = i.msg,
+                  o = i.data;
+                if (1 != a) return uni.$uv.toast(n);
+                if (1 == t.child_goods.is_vip && 0 == o.user_vip)
+                  return uni.showModal({
+                    title: "温馨提示",
+                    content: "加入会员, 享会员折扣商品哦",
+                    confirmColor: "#e64340",
+                    confirmText: "点我开通",
+                    cancelText: "暂不开通",
+                    success: function (t) {
+                      t.confirm && e.jump("/pages/pay/vip");
+                    },
+                  });
+                if (0 != t.shop_car_goods.raffle_show_id) {
+                  var s =
+                    void 0 !== t.child_goods.order_type
+                      ? t.child_goods.order_type
+                      : 0;
+                  1 == s
+                    ? (0, r.goRaffle)(t.child_goods.id)
+                    : t.jump("/pages/pay/raffle?id=" + t.child_goods.id);
+                } else
+                  1 == t.child_goods.is_raffle
+                    ? t.jump("/pages/pay/raffle?id=" + t.child_goods.id)
+                    : t.jump("/pages/pay/submit?id=" + t.child_goods.id);
+              });
+            },
+          },
+        };
+      e.default = p;
+    },
+    "56c9": function (t, e, i) {
+      i("9e15"),
+        i("884b"),
+        i("01a2"),
+        i("e39c"),
+        i("bf0f"),
+        i("7a76"),
+        i("c9b5"),
+        i("64aa");
+      var a = i("bdbb")["default"];
+      (t.exports = function (t, e) {
+        if ("object" !== a(t) || null === t) return t;
+        var i = t[Symbol.toPrimitive];
+        if (void 0 !== i) {
+          var n = i.call(t, e || "default");
+          if ("object" !== a(n)) return n;
+          throw new TypeError("@@toPrimitive must return a primitive value.");
+        }
+        return ("string" === e ? String : Number)(t);
+      }),
+        (t.exports.__esModule = !0),
+        (t.exports["default"] = t.exports);
+    },
+    "60c7": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("9604"),
+        n = i("35e9");
+      for (var o in n)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return n[t];
+            });
+          })(o);
+      i("c152");
+      var s = i("828b"),
+        r = Object(s["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "2a55741c",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      e["default"] = r.exports;
+    },
+    "62a9": function (t, e, i) {
+      var a = i("3105");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("0bdeecc7", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    6321: function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.audio_player_box[data-v-6a509d70]{position:fixed;right:10px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);z-index:999;width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,#ffd9a8,#ffb877 45%,#ff8c2e);display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(255,140,46,.45),0 0 26px rgba(255,184,119,.25),inset 0 0 8px hsla(0,0%,100%,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}.halo[data-v-6a509d70]{position:absolute;left:-5px;top:-5px;right:-5px;bottom:-5px;border-radius:50%;border:1.8px solid rgba(255,184,119,.65);opacity:0;pointer-events:none}.halo2[data-v-6a509d70]{left:-11px;top:-11px;right:-11px;bottom:-11px;border-color:rgba(255,140,46,.45)}.audio_player_box.playing .halo[data-v-6a509d70]{opacity:1;-webkit-animation:haloBreath-data-v-6a509d70 2s ease-in-out infinite;animation:haloBreath-data-v-6a509d70 2s ease-in-out infinite}.audio_player_box.playing .halo2[data-v-6a509d70]{-webkit-animation:haloBreath-data-v-6a509d70 2s ease-in-out .6s infinite;animation:haloBreath-data-v-6a509d70 2s ease-in-out .6s infinite}@-webkit-keyframes haloBreath-data-v-6a509d70{0%, 100%{-webkit-transform:scale(1);transform:scale(1);opacity:.8}50%{-webkit-transform:scale(1.2);transform:scale(1.2);opacity:.1}}@keyframes haloBreath-data-v-6a509d70{0%, 100%{-webkit-transform:scale(1);transform:scale(1);opacity:.8}50%{-webkit-transform:scale(1.2);transform:scale(1.2);opacity:.1}}.audio_inner[data-v-6a509d70]{width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,hsla(0,0%,100%,.3),hsla(0,0%,100%,.08));box-shadow:inset 0 0 10px hsla(0,0%,100%,.2)}.audio_svg[data-v-6a509d70]{width:20px;height:18px;display:flex;align-items:center;justify-content:space-between;gap:2px}.audio_svg .bar[data-v-6a509d70]{width:2.5px;background:#fff;border-radius:2px;box-shadow:0 0 5px hsla(0,0%,100%,.85);-webkit-animation:barJump-data-v-6a509d70 .9s ease-in-out infinite;animation:barJump-data-v-6a509d70 .9s ease-in-out infinite}.audio_svg .bar1[data-v-6a509d70]{-webkit-animation-delay:0s;animation-delay:0s}.audio_svg .bar2[data-v-6a509d70]{-webkit-animation-delay:.18s;animation-delay:.18s}.audio_svg .bar3[data-v-6a509d70]{-webkit-animation-delay:.36s;animation-delay:.36s}.audio_svg .bar4[data-v-6a509d70]{-webkit-animation-delay:.54s;animation-delay:.54s}@-webkit-keyframes barJump-data-v-6a509d70{0%, 100%{height:4px}50%{height:16px}}@keyframes barJump-data-v-6a509d70{0%, 100%{height:4px}50%{height:16px}}.play_icon[data-v-6a509d70]{width:20px;height:18px;display:flex;align-items:center;justify-content:center}.play_icon .triangle[data-v-6a509d70]{width:0;height:0;margin-left:2px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:12px solid #fff;-webkit-filter:drop-shadow(0 0 4px hsla(0,0%,100%,.8));filter:drop-shadow(0 0 4px rgba(255,255,255,.8))}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    6666: function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return n;
+      }),
+        i.d(e, "c", function () {
+          return o;
+        }),
+        i.d(e, "a", function () {
+          return a;
+        });
+      var a = {
+          uvIcon: i("1a07").default,
+          uvSwiper: i("db40").default,
+          uvNoticeBar: i("ee8c").default,
+          uvTabs: i("2b48").default,
+          uvEmpty: i("caef").default,
+          uvLoadMore: i("bd68").default,
+          uvPopup: i("ce8a").default,
+          uvParse: i("c96a").default,
+        },
+        n = function () {
+          var t = this,
+            e = t.$createElement,
+            a = t._self._c || e;
+          return a(
+            "v-uni-view",
+            {
+              ref: "container",
+              class: {
+                content: !0,
+                more_cat_content: t.moreCat,
+                more_fcat_content: t.moreFcat,
+              },
+            },
+            [
+              a("v-uni-view", {
+                staticClass: "status-bar",
+                style: { height: t.statusBarHeight + "px" },
+              }),
+              a(
+                "v-uni-view",
+                { staticClass: "home_search_bar flex_box" },
+                [
+                  a(
+                    "v-uni-view",
+                    {
+                      staticClass: "home_kefu_btn flex_box",
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)), t.jumpKefu();
+                        },
+                      },
+                    },
+                    [a("img", { attrs: { src: i("fd7e"), alt: "" } })],
+                  ),
+                  "mp-weixin" == t.palte && 3 == t.kefu.kefu_weapp_type
+                    ? a("v-uni-button", {
+                        staticClass: "home_kefu_contact",
+                        attrs: {
+                          "open-type": "contact",
+                          bindcontact: "handleContact",
+                        },
+                      })
+                    : t._e(),
+                  a(
+                    "v-uni-view",
+                    {
+                      staticClass: "home_search_input flex_box",
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.jumpSearch.apply(void 0, arguments);
+                        },
+                      },
+                    },
+                    [
+                      a("uv-icon", {
+                        attrs: { name: "search", color: "#999", size: "18" },
+                      }),
+                      a("v-uni-text", [t._v("搜索您想搜索的单子")]),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a("uv-swiper", {
+                ref: "swiperWidth",
+                attrs: {
+                  list: t.banner,
+                  height: t.swiperHeight,
+                  keyName: "path",
+                  indicator: !0,
+                  indicatorMode: "dot",
+                  circular: !0,
+                  radius: "8",
+                  imgMode: "scaleToFill",
+                  id: "swiperWidth",
+                },
+                on: {
+                  click: function (e) {
+                    (arguments[0] = e = t.$handleEvent(e)),
+                      t.bannerJump1.apply(void 0, arguments);
+                  },
+                },
+              }),
+              a("uv-notice-bar", {
+                attrs: {
+                  text: t.notice_home ? t.notice_home : "",
+                  color: "#000",
+                  bgColor: "#F5B451",
+                  speed: "80",
+                },
+              }),
+              t.banner2.length > 0
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "hengfu_box" },
+                    [
+                      a("uv-swiper", {
+                        ref: "swiperWidth",
+                        attrs: {
+                          list: t.banner2,
+                          height: "90",
+                          keyName: "path",
+                          indicator: !0,
+                          indicatorMode: "dot",
+                          circular: !0,
+                          radius: "8",
+                          imgMode: "scaleToFill",
+                          id: "swiperWidth",
+                        },
+                        on: {
+                          click: function (e) {
+                            (arguments[0] = e = t.$handleEvent(e)),
+                              t.bannerJump2.apply(void 0, arguments);
+                          },
+                        },
+                      }),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              t.home_icons.length > 0
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "home_nav_box" },
+                    [
+                      t._l(t.home_icons, function (e, i) {
+                        return [
+                          5 == e.jump_type && "mp-weixin" == t.palte
+                            ? a(
+                                "v-uni-button",
+                                {
+                                  key: i,
+                                  staticClass: "home_nav_col",
+                                  attrs: { "open-type": "contact" },
+                                  on: {
+                                    contact: function (e) {
+                                      (arguments[0] = e = t.$handleEvent(e)),
+                                        t.onHomeNavContact.apply(
+                                          void 0,
+                                          arguments,
+                                        );
+                                    },
+                                  },
+                                },
+                                [
+                                  a("img", {
+                                    staticClass: "home_nav_img",
+                                    style: {
+                                      borderRadius: e.icon_radius + "px",
+                                    },
+                                    attrs: { src: e.image },
+                                  }),
+                                  a(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: "home_nav_title",
+                                      style: {
+                                        color: e.text_color,
+                                        fontSize: e.text_size + "px",
+                                      },
+                                    },
+                                    [t._v(t._s(e.title))],
+                                  ),
+                                ],
+                                1,
+                              )
+                            : a(
+                                "v-uni-view",
+                                {
+                                  key: "nav" + i,
+                                  staticClass: "home_nav_col",
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = t.$handleEvent(i)),
+                                        t.homeNavJump(e);
+                                    },
+                                  },
+                                },
+                                [
+                                  a("img", {
+                                    staticClass: "home_nav_img",
+                                    style: {
+                                      borderRadius: e.icon_radius + "px",
+                                    },
+                                    attrs: { src: e.image },
+                                  }),
+                                  a(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: "home_nav_title",
+                                      style: {
+                                        color: e.text_color,
+                                        fontSize: e.text_size + "px",
+                                      },
+                                    },
+                                    [t._v(t._s(e.title))],
+                                  ),
+                                ],
+                                1,
+                              ),
+                        ];
+                      }),
+                    ],
+                    2,
+                  )
+                : t._e(),
+              t.moreCat
+                ? a("v-uni-view", {
+                    staticClass: "more_cat_mark",
+                    on: {
+                      click: function (e) {
+                        (arguments[0] = e = t.$handleEvent(e)),
+                          (t.moreCat = !1);
+                      },
+                    },
+                  })
+                : t._e(),
+              t.moreCat && t.home_cat.length > 0
+                ? a(
+                    "v-uni-view",
+                    {
+                      staticClass: "more_cat_box",
+                      style: "top:calc( " + t.standHeight + "px + 0rpx);",
+                    },
+                    t._l(t.home_cat, function (e, i) {
+                      return a(
+                        "v-uni-view",
+                        {
+                          key: i,
+                          class: { item: !0, cur: t.cat1_id == e.id },
+                          attrs: { text: e },
+                          on: {
+                            click: function (a) {
+                              (arguments[0] = a = t.$handleEvent(a)),
+                                t.selectMoreCat(e, i);
+                            },
+                          },
+                        },
+                        [t._v(" " + t._s(e.name) + " ")],
+                      );
+                    }),
+                    1,
+                  )
+                : t._e(),
+              t.home_cat.length > 1
+                ? a(
+                    "v-uni-view",
+                    {
+                      ref: "standHeight",
+                      staticClass: "fir_tabs_box flex_box",
+                      attrs: { id: "standHeight" },
+                    },
+                    [
+                      1 == t.game_tpl.status
+                        ? a("uv-tabs", {
+                            attrs: {
+                              list: t.home_cat,
+                              current: t.current,
+                              lineColor: "#000",
+                              scrollable: t.home_cat.length > 3,
+                              activeStyle: {
+                                color: "#000",
+                                fontWeight: "bold",
+                                transform: "scale(1.04)",
+                                background: "#ffe610 !important",
+                              },
+                            },
+                            on: {
+                              change: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  t.changeTabs.apply(void 0, arguments);
+                              },
+                            },
+                          })
+                        : t._e(),
+                      2 == t.game_tpl.status
+                        ? a(
+                            "v-uni-view",
+                            { staticClass: "img_tabs_box" },
+                            [
+                              a(
+                                "v-uni-scroll-view",
+                                {
+                                  ref: "scrollView1_1",
+                                  class: {
+                                    scroll_box: !0,
+                                    flex_box: t.home_cat.length < 5,
+                                  },
+                                  attrs: { "scroll-x": "true" },
+                                },
+                                [
+                                  t.home_cat.length < 5
+                                    ? a(
+                                        "v-uni-view",
+                                        { staticClass: "game_tpl_min" },
+                                        t._l(t.home_cat, function (e, i) {
+                                          return a(
+                                            "v-uni-view",
+                                            {
+                                              key: i,
+                                              class: {
+                                                item: !0,
+                                                cur: t.cat1_id == e.id,
+                                              },
+                                              style:
+                                                t.cat1_id == e.id
+                                                  ? t.tabsItemCur
+                                                  : t.tabsItem,
+                                              attrs: { text: e.name },
+                                              on: {
+                                                click: function (i) {
+                                                  (arguments[0] = i =
+                                                    t.$handleEvent(i)),
+                                                    t.changeImgTabs(e.id);
+                                                },
+                                              },
+                                            },
+                                            [
+                                              a("img", {
+                                                staticClass: "img",
+                                                style: t.tabsImg,
+                                                attrs: { src: e.thumb },
+                                              }),
+                                              a(
+                                                "v-uni-view",
+                                                {
+                                                  staticClass: "tit",
+                                                  style:
+                                                    t.cat1_id == e.id
+                                                      ? t.tabs2TitCur
+                                                      : t.tabs2Tit,
+                                                },
+                                                [t._v(t._s(e.name) + " ")],
+                                              ),
+                                            ],
+                                            1,
+                                          );
+                                        }),
+                                        1,
+                                      )
+                                    : t._l(t.home_cat, function (e, i) {
+                                        return a(
+                                          "v-uni-view",
+                                          {
+                                            key: i,
+                                            class: {
+                                              item: !0,
+                                              cur: t.cat1_id == e.id,
+                                            },
+                                            style:
+                                              t.cat1_id == e.id
+                                                ? t.tabsItemCur
+                                                : t.tabsItem,
+                                            attrs: { text: e.name },
+                                            on: {
+                                              click: function (i) {
+                                                (arguments[0] = i =
+                                                  t.$handleEvent(i)),
+                                                  t.changeImgTabs(e.id);
+                                              },
+                                            },
+                                          },
+                                          [
+                                            a("img", {
+                                              staticClass: "img",
+                                              style: t.tabsImg,
+                                              attrs: { src: e.thumb },
+                                            }),
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                staticClass: "tit",
+                                                style:
+                                                  t.cat1_id == e.id
+                                                    ? t.tabs2TitCur
+                                                    : t.tabs2Tit,
+                                              },
+                                              [t._v(t._s(e.name))],
+                                            ),
+                                          ],
+                                          1,
+                                        );
+                                      }),
+                                ],
+                                2,
+                              ),
+                            ],
+                            1,
+                          )
+                        : t._e(),
+                      3 == t.game_tpl.status
+                        ? a(
+                            "v-uni-view",
+                            {
+                              staticClass:
+                                "img_tabs_box img_tabs_box_horizontal",
+                            },
+                            [
+                              a(
+                                "v-uni-scroll-view",
+                                {
+                                  ref: "scrollView1_2",
+                                  class: {
+                                    scroll_box: !0,
+                                    flex_box: t.home_cat.length < 4,
+                                  },
+                                  attrs: { "scroll-x": "true" },
+                                },
+                                [
+                                  t.home_cat.length < 4
+                                    ? a(
+                                        "v-uni-view",
+                                        { staticClass: "game_tpl_min" },
+                                        t._l(t.home_cat, function (e, i) {
+                                          return a(
+                                            "v-uni-view",
+                                            {
+                                              key: i,
+                                              class: {
+                                                item: !0,
+                                                cur: t.cat1_id == e.id,
+                                              },
+                                              style:
+                                                t.cat1_id == e.id
+                                                  ? t.tabsItemCur
+                                                  : t.tabsItem,
+                                              attrs: { text: e.name },
+                                              on: {
+                                                click: function (i) {
+                                                  (arguments[0] = i =
+                                                    t.$handleEvent(i)),
+                                                    t.changeImgTabs(e.id);
+                                                },
+                                              },
+                                            },
+                                            [
+                                              a("img", {
+                                                staticClass: "img",
+                                                style: t.tabsImg,
+                                                attrs: { src: e.thumb },
+                                              }),
+                                              a(
+                                                "v-uni-view",
+                                                {
+                                                  staticClass: "tit",
+                                                  style:
+                                                    t.cat1_id == e.id
+                                                      ? t.tabs3TitCur
+                                                      : t.tabs3Tit,
+                                                },
+                                                [t._v(t._s(e.name) + " ")],
+                                              ),
+                                            ],
+                                            1,
+                                          );
+                                        }),
+                                        1,
+                                      )
+                                    : t._l(t.home_cat, function (e, i) {
+                                        return a(
+                                          "v-uni-view",
+                                          {
+                                            key: i,
+                                            class: {
+                                              item: !0,
+                                              cur: t.cat1_id == e.id,
+                                            },
+                                            style:
+                                              t.cat1_id == e.id
+                                                ? t.tabsItemCur
+                                                : t.tabsItem,
+                                            attrs: { text: e.name },
+                                            on: {
+                                              click: function (i) {
+                                                (arguments[0] = i =
+                                                  t.$handleEvent(i)),
+                                                  t.changeImgTabs(e.id);
+                                              },
+                                            },
+                                          },
+                                          [
+                                            a("img", {
+                                              staticClass: "img",
+                                              style: t.tabsImg,
+                                              attrs: { src: e.thumb },
+                                            }),
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                staticClass: "tit",
+                                                style:
+                                                  t.cat1_id == e.id
+                                                    ? t.tabs3TitCur
+                                                    : t.tabs3Tit,
+                                              },
+                                              [t._v(t._s(e.name))],
+                                            ),
+                                          ],
+                                          1,
+                                        );
+                                      }),
+                                ],
+                                2,
+                              ),
+                            ],
+                            1,
+                          )
+                        : t._e(),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              t.moreFcat
+                ? a("v-uni-view", {
+                    staticClass: "more_fcat_mark",
+                    on: {
+                      click: function (e) {
+                        (arguments[0] = e = t.$handleEvent(e)),
+                          (t.moreFcat = !1);
+                      },
+                    },
+                  })
+                : t._e(),
+              t.moreFcat && t.area_list.length > 0
+                ? a(
+                    "v-uni-view",
+                    {
+                      staticClass: "more_fcat_box",
+                      class: { text_only: 2 == t.home_cat2_tpl },
+                      style: "top:" + t.fcatPosition + "px;",
+                    },
+                    t._l(t.area_list, function (e, i) {
+                      return a(
+                        "v-uni-view",
+                        {
+                          key: i,
+                          class: { col: !0, cur: t.cat2_id == e.id },
+                          attrs: { text: e },
+                          on: {
+                            click: function (a) {
+                              (arguments[0] = a = t.$handleEvent(a)),
+                                t.scrollToElement(i + 1, e.id);
+                            },
+                          },
+                        },
+                        [
+                          e.thumb
+                            ? a("img", { attrs: { src: e.thumb } })
+                            : t._e(),
+                          a("v-uni-view", { staticClass: "dd uv-line-1" }, [
+                            t._v(t._s(e.name)),
+                          ]),
+                        ],
+                        1,
+                      );
+                    }),
+                    1,
+                  )
+                : t._e(),
+              t.area_list.length > 0
+                ? a(
+                    "v-uni-view",
+                    {
+                      ref: "fcat_box",
+                      staticClass: "fcat_box",
+                      class: { text_only: 2 == t.home_cat2_tpl },
+                      attrs: { id: "fcat_box" },
+                    },
+                    [
+                      a(
+                        "v-uni-scroll-view",
+                        {
+                          staticClass: "scroll_box",
+                          attrs: {
+                            "scroll-x": "true",
+                            "scroll-left": t.scrollLeft,
+                            "scroll-with-animation": !0,
+                          },
+                          on: {
+                            scroll: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.onScroll.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        t._l(t.area_list, function (e, i) {
+                          return a(
+                            "v-uni-view",
+                            {
+                              key: i,
+                              class: { col: !0, cur: t.cat2_id == e.id },
+                              attrs: { id: "demo" + (i + 1) },
+                              on: {
+                                click: function (a) {
+                                  (arguments[0] = a = t.$handleEvent(a)),
+                                    t.scrollToElement(i + 1, e.id);
+                                },
+                              },
+                            },
+                            [
+                              e.thumb
+                                ? a("img", { attrs: { src: e.thumb } })
+                                : t._e(),
+                              a("v-uni-view", { staticClass: "dd uv-line-1" }, [
+                                t._v(t._s(e.name)),
+                              ]),
+                            ],
+                            1,
+                          );
+                        }),
+                        1,
+                      ),
+                      2 != t.home_cat2_tpl || 1 != t.home_goods_tpl
+                        ? a("uv-icon", {
+                            attrs: {
+                              name: "arrow-right",
+                              color: "#dedede",
+                              size: "28",
+                            },
+                          })
+                        : t._e(),
+                      2 == t.home_cat2_tpl && 1 == t.home_goods_tpl
+                        ? a(
+                            "v-uni-view",
+                            {
+                              staticClass: "sort_btn",
+                              on: {
+                                click: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.toggleSortPopup.apply(void 0, arguments);
+                                },
+                              },
+                            },
+                            [
+                              a("uv-icon", {
+                                attrs: {
+                                  name: "list",
+                                  color: "#666",
+                                  size: "26",
+                                },
+                              }),
+                            ],
+                            1,
+                          )
+                        : t._e(),
+                      t.rec_cat.num > 4 && 2 != t.home_cat2_tpl
+                        ? a(
+                            "v-uni-view",
+                            {
+                              staticClass: "more_btn",
+                              on: {
+                                click: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.toggleMoreFcat.apply(void 0, arguments);
+                                },
+                              },
+                            },
+                            [
+                              a("img", {
+                                staticClass: "logo",
+                                attrs: { src: t.home_more },
+                              }),
+                              a("v-uni-view", { staticClass: "dd uv-line-1" }, [
+                                t._v("更多"),
+                              ]),
+                            ],
+                            1,
+                          )
+                        : t._e(),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              t.sortPopup
+                ? a("v-uni-view", {
+                    staticClass: "sort_mark",
+                    on: {
+                      click: function (e) {
+                        (arguments[0] = e = t.$handleEvent(e)),
+                          (t.sortPopup = !1);
+                      },
+                    },
+                  })
+                : t._e(),
+              t.sortPopup
+                ? a(
+                    "v-uni-view",
+                    {
+                      staticClass: "sort_box",
+                      style: "top:" + t.fcatPosition + "px;",
+                    },
+                    [
+                      a(
+                        "v-uni-view",
+                        {
+                          class: { sort_item: !0, cur: 0 == t.sortTemp },
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                (t.sortTemp = 0);
+                            },
+                          },
+                        },
+                        [t._v("综合")],
+                      ),
+                      a(
+                        "v-uni-view",
+                        {
+                          class: { sort_item: !0, cur: 2 == t.sortTemp },
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                (t.sortTemp = 2);
+                            },
+                          },
+                        },
+                        [t._v("价格高")],
+                      ),
+                      a(
+                        "v-uni-view",
+                        {
+                          class: { sort_item: !0, cur: 1 == t.sortTemp },
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                (t.sortTemp = 1);
+                            },
+                          },
+                        },
+                        [t._v("价格低")],
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "sort_btns" },
+                        [
+                          a(
+                            "v-uni-view",
+                            {
+                              staticClass: "btn reset",
+                              on: {
+                                click: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.resetSort.apply(void 0, arguments);
+                                },
+                              },
+                            },
+                            [t._v("重置")],
+                          ),
+                          a(
+                            "v-uni-view",
+                            {
+                              staticClass: "btn ok",
+                              on: {
+                                click: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.confirmSort.apply(void 0, arguments);
+                                },
+                              },
+                            },
+                            [t._v("确定")],
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              t.list_loading
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "list_loading_box" },
+                    [
+                      a("v-uni-view", { staticClass: "list_loading" }),
+                      a("v-uni-text", { staticClass: "list_loading_txt" }, [
+                        t._v("加载中..."),
+                      ]),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              1 != t.home_goods_tpl || t.list_loading
+                ? t._e()
+                : a(
+                    "v-uni-view",
+                    { staticClass: "goods_list" },
+                    [
+                      t._l(t.list, function (e, i) {
+                        return [
+                          0 == e.raffle_show_id
+                            ? a(
+                                "v-uni-view",
+                                { key: i + "_0", staticClass: "col" },
+                                [
+                                  a(
+                                    "v-uni-view",
+                                    {
+                                      on: {
+                                        click: function (i) {
+                                          (arguments[0] = i =
+                                            t.$handleEvent(i)),
+                                            t.jumpGoodsDes(
+                                              "/pages/index/goods?id=" + e.id,
+                                            );
+                                        },
+                                      },
+                                    },
+                                    [
+                                      a(
+                                        "v-uni-view",
+                                        { staticClass: "img_box" },
+                                        [
+                                          "mp-weixin" == t.palte
+                                            ? a("img", {
+                                                style: {
+                                                  width: t.picWidth + "px",
+                                                  height: t.picWidth + "px",
+                                                },
+                                                attrs: { src: e.thumb },
+                                              })
+                                            : t._e(),
+                                          "h5" == t.palte
+                                            ? a("img", {
+                                                attrs: { src: e.thumb },
+                                              })
+                                            : t._e(),
+                                          a("seckill-mask", {
+                                            attrs: { seckill: e.seckill_show },
+                                          }),
+                                        ],
+                                        1,
+                                      ),
+                                      a(
+                                        "v-uni-view",
+                                        {
+                                          staticClass:
+                                            "name vipgoods_box uv-line-2",
+                                        },
+                                        [
+                                          1 == e.is_vip && 1 == t.vip_status
+                                            ? a(
+                                                "v-uni-text",
+                                                { staticClass: "tag" },
+                                                [t._v("会员商品")],
+                                              )
+                                            : t._e(),
+                                          t._v(" " + t._s(e.title) + " "),
+                                        ],
+                                        1,
+                                      ),
+                                      a(
+                                        "v-uni-view",
+                                        { staticClass: "intro uv-line-3" },
+                                        [t._v(t._s(e.intro))],
+                                      ),
+                                      a(
+                                        "v-uni-view",
+                                        { staticClass: "price_box flex_box" },
+                                        [
+                                          a(
+                                            "v-uni-view",
+                                            { staticClass: "new_price" },
+                                            [
+                                              a(
+                                                "v-uni-text",
+                                                { staticClass: "icon" },
+                                                [t._v("￥")],
+                                              ),
+                                              a(
+                                                "v-uni-text",
+                                                { staticClass: "num" },
+                                                [t._v(t._s(e.price))],
+                                              ),
+                                            ],
+                                            1,
+                                          ),
+                                          a(
+                                            "v-uni-view",
+                                            { staticClass: "old_price" },
+                                            [t._v(t._s(e.priced))],
+                                          ),
+                                          e.sale_num2 > 0
+                                            ? a(
+                                                "v-uni-view",
+                                                { staticClass: "sales_box" },
+                                                [
+                                                  t._v(
+                                                    "销量: " +
+                                                      t._s(e.sale_num2),
+                                                  ),
+                                                ],
+                                              )
+                                            : a("v-uni-view", {
+                                                staticClass: "sales_box",
+                                              }),
+                                        ],
+                                        1,
+                                      ),
+                                    ],
+                                    1,
+                                  ),
+                                ],
+                                1,
+                              )
+                            : a(
+                                "v-uni-view",
+                                { staticClass: "col" },
+                                [
+                                  a(
+                                    "v-uni-view",
+                                    {
+                                      on: {
+                                        click: function (i) {
+                                          (arguments[0] = i =
+                                            t.$handleEvent(i)),
+                                            t.jumpGoodsDes(
+                                              "/pages/active/goods?id=" +
+                                                e.raffle_show_id,
+                                            );
+                                        },
+                                      },
+                                    },
+                                    [
+                                      a(
+                                        "v-uni-view",
+                                        { staticClass: "img_box" },
+                                        [
+                                          "mp-weixin" == t.palte
+                                            ? a("img", {
+                                                style: {
+                                                  width: t.picWidth + "px",
+                                                  height: t.picWidth + "px",
+                                                },
+                                                attrs: { src: e.thumb },
+                                              })
+                                            : t._e(),
+                                          "h5" == t.palte
+                                            ? a("img", {
+                                                attrs: { src: e.thumb },
+                                              })
+                                            : t._e(),
+                                        ],
+                                      ),
+                                      a(
+                                        "v-uni-view",
+                                        {
+                                          staticClass:
+                                            "name choujiang_box uv-line-2",
+                                        },
+                                        [
+                                          a(
+                                            "v-uni-text",
+                                            { staticClass: "tag" },
+                                            [t._v("幸运转盘")],
+                                          ),
+                                          t._v(" " + t._s(e.title) + " "),
+                                        ],
+                                        1,
+                                      ),
+                                      a(
+                                        "v-uni-view",
+                                        { staticClass: "intro uv-line-3" },
+                                        [t._v(t._s(e.intro))],
+                                      ),
+                                      a(
+                                        "v-uni-view",
+                                        { staticClass: "price_box flex_box" },
+                                        [
+                                          a(
+                                            "v-uni-view",
+                                            { staticClass: "new_price" },
+                                            [
+                                              a(
+                                                "v-uni-text",
+                                                { staticClass: "icon" },
+                                                [t._v("￥")],
+                                              ),
+                                              a(
+                                                "v-uni-text",
+                                                { staticClass: "num" },
+                                                [t._v(t._s(e.price))],
+                                              ),
+                                            ],
+                                            1,
+                                          ),
+                                          e.sale_num2 > 0
+                                            ? a(
+                                                "v-uni-view",
+                                                { staticClass: "sales_box" },
+                                                [
+                                                  t._v(
+                                                    "销量: " +
+                                                      t._s(e.sale_num2),
+                                                  ),
+                                                ],
+                                              )
+                                            : t._e(),
+                                        ],
+                                        1,
+                                      ),
+                                    ],
+                                    1,
+                                  ),
+                                ],
+                                1,
+                              ),
+                        ];
+                      }),
+                    ],
+                    2,
+                  ),
+              2 != t.home_goods_tpl || t.list_loading
+                ? t._e()
+                : [
+                    t._l(t.list, function (e, i) {
+                      return [
+                        a(
+                          "v-uni-view",
+                          { key: i + "_0", staticClass: "cat_third" },
+                          [t._v(t._s(e.name))],
+                        ),
+                        2 == t.home_goods_tpl
+                          ? a(
+                              "v-uni-view",
+                              { key: i + "_1", staticClass: "goods_list" },
+                              [
+                                t._l(e.list, function (e, i) {
+                                  return [
+                                    0 == e.raffle_show_id
+                                      ? a(
+                                          "v-uni-view",
+                                          { key: i + "_0", staticClass: "col" },
+                                          [
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                on: {
+                                                  click: function (i) {
+                                                    (arguments[0] = i =
+                                                      t.$handleEvent(i)),
+                                                      t.jumpGoodsDes(
+                                                        "/pages/index/goods?id=" +
+                                                          e.id,
+                                                      );
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                a(
+                                                  "v-uni-view",
+                                                  { staticClass: "img_box" },
+                                                  [
+                                                    "mp-weixin" == t.palte
+                                                      ? a("img", {
+                                                          style: {
+                                                            width:
+                                                              t.picWidth + "px",
+                                                            height:
+                                                              t.picWidth + "px",
+                                                          },
+                                                          attrs: {
+                                                            src: e.thumb,
+                                                          },
+                                                        })
+                                                      : t._e(),
+                                                    "h5" == t.palte
+                                                      ? a("img", {
+                                                          attrs: {
+                                                            src: e.thumb,
+                                                          },
+                                                        })
+                                                      : t._e(),
+                                                    a("seckill-mask", {
+                                                      attrs: {
+                                                        seckill: e.seckill_show,
+                                                      },
+                                                    }),
+                                                  ],
+                                                  1,
+                                                ),
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass:
+                                                      "name vipgoods_box uv-line-2",
+                                                  },
+                                                  [
+                                                    1 == e.is_vip &&
+                                                    1 == t.vip_status
+                                                      ? a(
+                                                          "v-uni-text",
+                                                          {
+                                                            staticClass: "tag",
+                                                          },
+                                                          [t._v("会员商品")],
+                                                        )
+                                                      : t._e(),
+                                                    t._v(
+                                                      " " + t._s(e.title) + " ",
+                                                    ),
+                                                  ],
+                                                  1,
+                                                ),
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass:
+                                                      "intro uv-line-3",
+                                                  },
+                                                  [t._v(t._s(e.intro))],
+                                                ),
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass:
+                                                      "price_box flex_box",
+                                                  },
+                                                  [
+                                                    a(
+                                                      "v-uni-view",
+                                                      {
+                                                        staticClass:
+                                                          "new_price",
+                                                      },
+                                                      [
+                                                        a(
+                                                          "v-uni-text",
+                                                          {
+                                                            staticClass: "icon",
+                                                          },
+                                                          [t._v("￥")],
+                                                        ),
+                                                        a(
+                                                          "v-uni-text",
+                                                          {
+                                                            staticClass: "num",
+                                                          },
+                                                          [t._v(t._s(e.price))],
+                                                        ),
+                                                      ],
+                                                      1,
+                                                    ),
+                                                    a(
+                                                      "v-uni-view",
+                                                      {
+                                                        staticClass:
+                                                          "old_price",
+                                                      },
+                                                      [t._v(t._s(e.priced))],
+                                                    ),
+                                                    e.sale_num2 > 0
+                                                      ? a(
+                                                          "v-uni-view",
+                                                          {
+                                                            staticClass:
+                                                              "sales_box",
+                                                          },
+                                                          [
+                                                            t._v(
+                                                              "销量: " +
+                                                                t._s(
+                                                                  e.sale_num2,
+                                                                ),
+                                                            ),
+                                                          ],
+                                                        )
+                                                      : a("v-uni-view", {
+                                                          staticClass:
+                                                            "sales_box",
+                                                        }),
+                                                  ],
+                                                  1,
+                                                ),
+                                              ],
+                                              1,
+                                            ),
+                                          ],
+                                          1,
+                                        )
+                                      : a(
+                                          "v-uni-view",
+                                          { staticClass: "col" },
+                                          [
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                on: {
+                                                  click: function (i) {
+                                                    (arguments[0] = i =
+                                                      t.$handleEvent(i)),
+                                                      t.jumpGoodsDes(
+                                                        "/pages/active/goods?id=" +
+                                                          e.raffle_show_id,
+                                                      );
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                a(
+                                                  "v-uni-view",
+                                                  { staticClass: "img_box" },
+                                                  [
+                                                    "mp-weixin" == t.palte
+                                                      ? a("img", {
+                                                          style: {
+                                                            width:
+                                                              t.picWidth + "px",
+                                                            height:
+                                                              t.picWidth + "px",
+                                                          },
+                                                          attrs: {
+                                                            src: e.thumb,
+                                                          },
+                                                        })
+                                                      : t._e(),
+                                                    "h5" == t.palte
+                                                      ? a("img", {
+                                                          attrs: {
+                                                            src: e.thumb,
+                                                          },
+                                                        })
+                                                      : t._e(),
+                                                  ],
+                                                ),
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass:
+                                                      "name choujiang_box uv-line-2",
+                                                  },
+                                                  [
+                                                    a(
+                                                      "v-uni-text",
+                                                      { staticClass: "tag" },
+                                                      [t._v("幸运转盘")],
+                                                    ),
+                                                    t._v(
+                                                      " " + t._s(e.title) + " ",
+                                                    ),
+                                                  ],
+                                                  1,
+                                                ),
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass:
+                                                      "intro uv-line-3",
+                                                  },
+                                                  [t._v(t._s(e.intro))],
+                                                ),
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass:
+                                                      "price_box flex_box",
+                                                  },
+                                                  [
+                                                    a(
+                                                      "v-uni-view",
+                                                      {
+                                                        staticClass:
+                                                          "new_price",
+                                                      },
+                                                      [
+                                                        a(
+                                                          "v-uni-text",
+                                                          {
+                                                            staticClass: "icon",
+                                                          },
+                                                          [t._v("￥")],
+                                                        ),
+                                                        a(
+                                                          "v-uni-text",
+                                                          {
+                                                            staticClass: "num",
+                                                          },
+                                                          [t._v(t._s(e.price))],
+                                                        ),
+                                                      ],
+                                                      1,
+                                                    ),
+                                                    e.sale_num2 > 0
+                                                      ? a(
+                                                          "v-uni-view",
+                                                          {
+                                                            staticClass:
+                                                              "sales_box",
+                                                          },
+                                                          [
+                                                            t._v(
+                                                              "销量: " +
+                                                                t._s(
+                                                                  e.sale_num2,
+                                                                ),
+                                                            ),
+                                                          ],
+                                                        )
+                                                      : t._e(),
+                                                  ],
+                                                  1,
+                                                ),
+                                              ],
+                                              1,
+                                            ),
+                                          ],
+                                          1,
+                                        ),
+                                  ];
+                                }),
+                              ],
+                              2,
+                            )
+                          : t._e(),
+                      ];
+                    }),
+                  ],
+              3 == t.home_goods_tpl
+                ? [
+                    t._l(t.list, function (e, i) {
+                      return [
+                        a(
+                          "v-uni-view",
+                          { key: i + "_0", staticClass: "cat_third" },
+                          [t._v(t._s(e.name))],
+                        ),
+                        a(
+                          "v-uni-view",
+                          {
+                            key: i + "_1",
+                            staticClass: "goods_list goods_list_third",
+                          },
+                          [
+                            t._l(e.list, function (e, i) {
+                              return [
+                                0 == e.raffle_show_id
+                                  ? a(
+                                      "v-uni-view",
+                                      {
+                                        key: i + "_0",
+                                        staticClass: "col",
+                                        style: { width: t.picWidth + "px" },
+                                      },
+                                      [
+                                        a(
+                                          "v-uni-view",
+                                          [
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                staticClass: "img_box",
+                                                on: {
+                                                  click: function (i) {
+                                                    (arguments[0] = i =
+                                                      t.$handleEvent(i)),
+                                                      t.jumpGoodsDes(
+                                                        "/pages/index/goods?id=" +
+                                                          e.id,
+                                                      );
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                "mp-weixin" == t.palte
+                                                  ? a("img", {
+                                                      style: {
+                                                        width:
+                                                          t.picWidth + "px",
+                                                        height:
+                                                          t.picWidth + "px",
+                                                      },
+                                                      attrs: { src: e.thumb },
+                                                    })
+                                                  : t._e(),
+                                                "h5" == t.palte
+                                                  ? a("img", {
+                                                      attrs: { src: e.thumb },
+                                                    })
+                                                  : t._e(),
+                                                a("seckill-mask", {
+                                                  attrs: {
+                                                    seckill: e.seckill_show,
+                                                  },
+                                                }),
+                                              ],
+                                              1,
+                                            ),
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                staticClass:
+                                                  "name vipgoods_box uv-line-2",
+                                                on: {
+                                                  click: function (i) {
+                                                    (arguments[0] = i =
+                                                      t.$handleEvent(i)),
+                                                      t.jumpGoodsDes(
+                                                        "/pages/index/goods?id=" +
+                                                          e.id,
+                                                      );
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                1 == e.is_vip &&
+                                                1 == t.vip_status
+                                                  ? a(
+                                                      "v-uni-text",
+                                                      { staticClass: "tag" },
+                                                      [t._v("会员商品")],
+                                                    )
+                                                  : t._e(),
+                                                t._v(" " + t._s(e.title) + " "),
+                                              ],
+                                              1,
+                                            ),
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                staticClass:
+                                                  "price_box flex_box",
+                                              },
+                                              [
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass: "new_price",
+                                                    on: {
+                                                      click: function (i) {
+                                                        (arguments[0] = i =
+                                                          t.$handleEvent(i)),
+                                                          t.jumpGoodsDes(
+                                                            "/pages/index/goods?id=" +
+                                                              e.id,
+                                                          );
+                                                      },
+                                                    },
+                                                  },
+                                                  [
+                                                    a(
+                                                      "v-uni-text",
+                                                      { staticClass: "icon" },
+                                                      [t._v("￥")],
+                                                    ),
+                                                    a(
+                                                      "v-uni-text",
+                                                      { staticClass: "num" },
+                                                      [t._v(t._s(e.price))],
+                                                    ),
+                                                  ],
+                                                  1,
+                                                ),
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass:
+                                                      "cart_box flex_box",
+                                                    on: {
+                                                      click: function (i) {
+                                                        (arguments[0] = i =
+                                                          t.$handleEvent(i)),
+                                                          t.clickShopCar(e);
+                                                      },
+                                                    },
+                                                  },
+                                                  [
+                                                    a("uv-icon", {
+                                                      attrs: {
+                                                        name: "shopping-cart",
+                                                        color: "#000",
+                                                        size: "20",
+                                                      },
+                                                    }),
+                                                  ],
+                                                  1,
+                                                ),
+                                              ],
+                                              1,
+                                            ),
+                                          ],
+                                          1,
+                                        ),
+                                      ],
+                                      1,
+                                    )
+                                  : a(
+                                      "v-uni-view",
+                                      { staticClass: "col" },
+                                      [
+                                        a(
+                                          "v-uni-view",
+                                          [
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                staticClass: "img_box",
+                                                on: {
+                                                  click: function (i) {
+                                                    (arguments[0] = i =
+                                                      t.$handleEvent(i)),
+                                                      t.jumpGoodsDes(
+                                                        "/pages/active/goods?id=" +
+                                                          e.raffle_show_id,
+                                                      );
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                "mp-weixin" == t.palte
+                                                  ? a("img", {
+                                                      style: {
+                                                        width:
+                                                          t.picWidth + "px",
+                                                        height:
+                                                          t.picWidth + "px",
+                                                      },
+                                                      attrs: { src: e.thumb },
+                                                    })
+                                                  : t._e(),
+                                                "h5" == t.palte
+                                                  ? a("img", {
+                                                      attrs: { src: e.thumb },
+                                                    })
+                                                  : t._e(),
+                                              ],
+                                            ),
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                staticClass:
+                                                  "name choujiang_box uv-line-2",
+                                                on: {
+                                                  click: function (i) {
+                                                    (arguments[0] = i =
+                                                      t.$handleEvent(i)),
+                                                      t.jumpGoodsDes(
+                                                        "/pages/active/goods?id=" +
+                                                          e.raffle_show_id,
+                                                      );
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                a(
+                                                  "v-uni-text",
+                                                  { staticClass: "tag" },
+                                                  [t._v("幸运转盘")],
+                                                ),
+                                                t._v(" " + t._s(e.title) + " "),
+                                              ],
+                                              1,
+                                            ),
+                                            a(
+                                              "v-uni-view",
+                                              {
+                                                staticClass:
+                                                  "price_box flex_box",
+                                              },
+                                              [
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass: "new_price",
+                                                    on: {
+                                                      click: function (i) {
+                                                        (arguments[0] = i =
+                                                          t.$handleEvent(i)),
+                                                          t.jumpGoodsDes(
+                                                            "/pages/active/goods?id=" +
+                                                              e.raffle_show_id,
+                                                          );
+                                                      },
+                                                    },
+                                                  },
+                                                  [
+                                                    a(
+                                                      "v-uni-text",
+                                                      { staticClass: "icon" },
+                                                      [t._v("￥")],
+                                                    ),
+                                                    a(
+                                                      "v-uni-text",
+                                                      { staticClass: "num" },
+                                                      [t._v(t._s(e.price))],
+                                                    ),
+                                                  ],
+                                                  1,
+                                                ),
+                                                a(
+                                                  "v-uni-view",
+                                                  {
+                                                    staticClass:
+                                                      "cart_box flex_box",
+                                                    on: {
+                                                      click: function (i) {
+                                                        (arguments[0] = i =
+                                                          t.$handleEvent(i)),
+                                                          t.clickShopCar(e);
+                                                      },
+                                                    },
+                                                  },
+                                                  [
+                                                    a("uv-icon", {
+                                                      attrs: {
+                                                        name: "shopping-cart",
+                                                        color: "#000",
+                                                        size: "20",
+                                                      },
+                                                    }),
+                                                  ],
+                                                  1,
+                                                ),
+                                              ],
+                                              1,
+                                            ),
+                                          ],
+                                          1,
+                                        ),
+                                      ],
+                                      1,
+                                    ),
+                              ];
+                            }),
+                          ],
+                          2,
+                        ),
+                      ];
+                    }),
+                  ]
+                : t._e(),
+              0 == t.list.length
+                ? a("uv-empty", {
+                    attrs: {
+                      mode: "data",
+                      text: "暂无数据",
+                      icon: "/static/imgs/no-data.png",
+                    },
+                  })
+                : t._e(),
+              t.page > 1
+                ? a("uv-load-more", { attrs: { status: t.status } })
+                : t._e(),
+              0 == t.store_close.online
+                ? a(
+                    "v-uni-view",
+                    { staticClass: "storeClose_box flex_box" },
+                    [
+                      a("img", {
+                        attrs: { src: t.store_close.close_store_icon },
+                      }),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "dd_box" },
+                        [
+                          a("v-uni-view", { staticClass: "dd" }, [
+                            t._v("商家已打烊"),
+                          ]),
+                          a("v-uni-view", { staticClass: "des" }, [
+                            t._v(t._s(t.store_close.store_tip_txt)),
+                          ]),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              1 == t.home_copy_right ? a("copy-right") : t._e(),
+              a("tab-bar", { attrs: { selected: t.selected } }),
+              t.showBackToTop
+                ? a(
+                    "v-uni-view",
+                    {
+                      staticClass: "backto_top flex_box",
+                      on: {
+                        click: function (e) {
+                          (arguments[0] = e = t.$handleEvent(e)),
+                            t.scrollToTop.apply(void 0, arguments);
+                        },
+                      },
+                    },
+                    [
+                      a("uv-icon", {
+                        attrs: { name: "arrow-up", color: "#000", size: "16" },
+                      }),
+                      a("v-uni-view", { staticClass: "dd" }, [t._v("顶部")]),
+                    ],
+                    1,
+                  )
+                : t._e(),
+              a(
+                "uv-popup",
+                {
+                  ref: "notice",
+                  attrs: {
+                    mode: "center",
+                    bgColor: "none",
+                    "z-index": "99999",
+                  },
+                  on: {
+                    maskClick: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.closeNotice.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  a(
+                    "v-uni-view",
+                    { staticClass: "notice_every_day" },
+                    [
+                      a("v-uni-view", { staticClass: "dd" }, [
+                        t._v(t._s(t.notice.title)),
+                      ]),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "rich_box" },
+                        [
+                          a("uv-parse", {
+                            attrs: { content: t.notice.des, "preview-img": !1 },
+                          }),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        {
+                          staticClass: "btn",
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.closeNotice.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [t._v("关闭")],
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a(
+                "uv-popup",
+                {
+                  ref: "bannerRef",
+                  attrs: {
+                    mode: "center",
+                    bgColor: "none",
+                    "z-index": "99999",
+                  },
+                  on: {
+                    maskClick: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.closeNotice.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  a(
+                    "v-uni-view",
+                    { staticClass: "banner_notice" },
+                    [
+                      a("v-uni-view", { staticClass: "dd" }),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "rich_box" },
+                        [
+                          a("uv-parse", {
+                            attrs: {
+                              content: t.banner_notice.des,
+                              "preview-img": !1,
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        {
+                          staticClass: "btn",
+                          on: {
+                            click: function (e) {
+                              (arguments[0] = e = t.$handleEvent(e)),
+                                t.closeBannerNotice.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [t._v("关闭")],
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a(
+                "uv-popup",
+                {
+                  ref: "homeNavPopup",
+                  attrs: {
+                    mode: "center",
+                    bgColor: "none",
+                    "z-index": "99999",
+                  },
+                  on: {
+                    maskClick: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.closeHomeNavPopup.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  a(
+                    "v-uni-view",
+                    { staticClass: "home_nav_popup" },
+                    [
+                      a("v-uni-view", { staticClass: "dd" }, [
+                        t._v(t._s(t.homeNavPopupData.title)),
+                      ]),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "rich_box" },
+                        [
+                          a("uv-parse", {
+                            attrs: {
+                              content: t.homeNavPopupData.popup_content,
+                              "preview-img": !1,
+                            },
+                          }),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        {
+                          staticClass: "btn",
+                          on: {
+                            click: function (e) {
+                              e.stopPropagation(),
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                t.closeHomeNavPopup.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [t._v("关闭")],
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a(
+                "uv-popup",
+                {
+                  ref: "specsPop",
+                  attrs: { mode: "bottom", bgColor: "none", zIndex: "10075" },
+                },
+                [
+                  a(
+                    "v-uni-view",
+                    { staticClass: "specsShow" },
+                    [
+                      a(
+                        "v-uni-view",
+                        { staticClass: "goods_msg flex_box" },
+                        [
+                          a("img", {
+                            staticClass: "img",
+                            attrs: { src: t.shop_car_goods.thumb },
+                            on: {
+                              click: function (e) {
+                                (arguments[0] = e = t.$handleEvent(e)),
+                                  t.previewImage2(t.shop_car_goods.thumb);
+                              },
+                            },
+                          }),
+                          a(
+                            "v-uni-view",
+                            { staticClass: "txt" },
+                            [
+                              a(
+                                "v-uni-view",
+                                { staticClass: "name uv-line-1" },
+                                [t._v(t._s(t.shop_car_goods.title))],
+                              ),
+                              a(
+                                "v-uni-view",
+                                { staticClass: "price_box flex_box" },
+                                [
+                                  a(
+                                    "v-uni-view",
+                                    { staticClass: "new_price" },
+                                    [
+                                      a("v-uni-text", { staticClass: "unit" }, [
+                                        t._v("￥"),
+                                      ]),
+                                      a("v-uni-text", [
+                                        t._v(t._s(t.shop_car_goods.price)),
+                                      ]),
+                                    ],
+                                    1,
+                                  ),
+                                  a("v-uni-view", { staticClass: "old_price" }),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "reason_box" },
+                        [
+                          a(
+                            "v-uni-view",
+                            { staticClass: "tit flex_box" },
+                            [
+                              a("v-uni-text", [t._v("商品规格")]),
+                              a(
+                                "v-uni-view",
+                                {
+                                  staticClass: "switch_btn",
+                                  on: {
+                                    click: function (e) {
+                                      (arguments[0] = e = t.$handleEvent(e)),
+                                        (t.specViewMode =
+                                          "img" == t.specViewMode
+                                            ? "text"
+                                            : "img");
+                                    },
+                                  },
+                                },
+                                [
+                                  t._v(
+                                    t._s(
+                                      "img" == t.specViewMode
+                                        ? "切换到文字"
+                                        : "切换到图片",
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                            1,
+                          ),
+                          a(
+                            "v-uni-view",
+                            {
+                              class: ["specs_grid", "specs_" + t.specViewMode],
+                            },
+                            t._l(t.child_list, function (e, i) {
+                              return a(
+                                "v-uni-view",
+                                {
+                                  key: i,
+                                  class: {
+                                    col: !0,
+                                    cur: t.child_goods.id == e.id,
+                                  },
+                                  on: {
+                                    click: function (i) {
+                                      (arguments[0] = i = t.$handleEvent(i)),
+                                        t.selectChildGoods(e);
+                                    },
+                                  },
+                                },
+                                [
+                                  "img" == t.specViewMode
+                                    ? a("v-uni-image", {
+                                        staticClass: "col_img",
+                                        attrs: {
+                                          src: e.thumb
+                                            ? e.thumb
+                                            : e.pics && e.pics[0]
+                                              ? e.pics[0]
+                                              : "",
+                                          mode: "aspectFill",
+                                        },
+                                      })
+                                    : t._e(),
+                                  a(
+                                    "v-uni-view",
+                                    {
+                                      class: [
+                                        "col_title",
+                                        "text" == t.specViewMode
+                                          ? "col_title_text"
+                                          : "",
+                                      ],
+                                    },
+                                    [t._v(t._s(e.title))],
+                                  ),
+                                ],
+                                1,
+                              );
+                            }),
+                            1,
+                          ),
+                        ],
+                        1,
+                      ),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "daohang_box flex_box" },
+                        [
+                          a(
+                            "v-uni-view",
+                            {
+                              staticClass: "kefu_box",
+                              on: {
+                                click: function (e) {
+                                  (arguments[0] = e = t.$handleEvent(e)),
+                                    t.jumpKefu();
+                                },
+                              },
+                            },
+                            [
+                              a("img", {
+                                staticClass: "picture",
+                                attrs: { src: i("fd7e"), alt: "" },
+                              }),
+                              a("v-uni-view", { staticClass: "kefu" }, [
+                                t._v("客服"),
+                              ]),
+                            ],
+                            1,
+                          ),
+                          "mp-weixin" == t.palte && 3 == t.kefu.kefu_weapp_type
+                            ? a("v-uni-button", {
+                                staticClass: "up_button",
+                                attrs: {
+                                  "open-type": "contact",
+                                  bindcontact: "handleContact",
+                                },
+                              })
+                            : t._e(),
+                          1 == t.store_close.online
+                            ? [
+                                "" == t.child_goods
+                                  ? a(
+                                      "v-uni-view",
+                                      { staticClass: "xiadan cancel" },
+                                      [t._v("请选择商品规格")],
+                                    )
+                                  : 1 == t.child_goods.limit1
+                                    ? a(
+                                        "v-uni-view",
+                                        { staticClass: "xiadan cancel" },
+                                        [t._v("24小时之内限制下1单")],
+                                      )
+                                    : 0 != t.child_goods.raffle_id &&
+                                        0 == t.shop_car_goods.raffle_show_id
+                                      ? a(
+                                          "v-uni-view",
+                                          { staticClass: "xiadan cancel" },
+                                          [t._v("当前商品暂不允许下单")],
+                                        )
+                                      : a(
+                                          "v-uni-view",
+                                          {
+                                            staticClass: "xiadan",
+                                            on: {
+                                              click: function (e) {
+                                                (arguments[0] = e =
+                                                  t.$handleEvent(e)),
+                                                  t.subChildGoods.apply(
+                                                    void 0,
+                                                    arguments,
+                                                  );
+                                              },
+                                            },
+                                          },
+                                          [t._v("立即下单")],
+                                        ),
+                              ]
+                            : a(
+                                "v-uni-view",
+                                { staticClass: "xiadan cancel" },
+                                [t._v("商家已打烊")],
+                              ),
+                        ],
+                        2,
+                      ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              a("audio-player"),
+              a("order-danmu"),
+              t.splash_show
+                ? a(
+                    "v-uni-view",
+                    {
+                      staticClass: "splash_screen",
+                      class: { fade_out: t.splash_fade },
+                    },
+                    [
+                      a("v-uni-image", {
+                        staticClass: "splash_logo",
+                        attrs: {
+                          src: t.baseUrl + "/files/imgs/youqu.jpg",
+                          mode: "aspectFit",
+                        },
+                      }),
+                      a(
+                        "v-uni-view",
+                        { staticClass: "splash_loading_box" },
+                        [
+                          a("v-uni-view", { staticClass: "splash_loading" }),
+                          a(
+                            "v-uni-text",
+                            { staticClass: "splash_loading_txt" },
+                            [t._v("加载中...")],
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : t._e(),
+            ],
+            2,
+          );
+        },
+        o = [];
+    },
+    "72b4": function (t, e, i) {
+      "use strict";
+      var a = i("4431"),
+        n = i.n(a);
+      n.a;
+    },
+    7689: function (t, e, i) {
+      "use strict";
+      i("6a54");
+      var a = i("f5bd").default;
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("64aa");
+      var n,
+        o,
+        s = a(i("9b1b")),
+        r = {
+          props: (0, s.default)(
+            {
+              duration: { type: Number, default: 300 },
+              list: {
+                type: Array,
+                default: function () {
+                  return [];
+                },
+              },
+              lineColor: { type: String, default: "#3c9cff" },
+              activeStyle: {
+                type: [String, Object],
+                default: function () {
+                  return { color: "#303133" };
+                },
+              },
+              inactiveStyle: {
+                type: [String, Object],
+                default: function () {
+                  return { color: "#606266" };
+                },
+              },
+              lineWidth: { type: [String, Number], default: 20 },
+              lineHeight: { type: [String, Number], default: 3 },
+              lineBgSize: { type: String, default: "cover" },
+              itemStyle: {
+                type: [String, Object],
+                default: function () {
+                  return { height: "44px" };
+                },
+              },
+              scrollable: { type: Boolean, default: !0 },
+              current: { type: [Number, String], default: 0 },
+              keyName: { type: String, default: "name" },
+            },
+            null === (n = uni.$uv) ||
+              void 0 === n ||
+              null === (o = n.props) ||
+              void 0 === o
+              ? void 0
+              : o.tabs,
+          ),
+        };
+      e.default = r;
+    },
+    "7ded": function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          ".order-danmu[data-v-2a55741c]{position:fixed;z-index:999;display:flex;align-items:center;max-width:%?600?%;height:%?68?%;padding:0 %?20?% 0 %?8?%;background:rgba(0,0,0,.4);border:%?1?% solid hsla(0,0%,100%,.12);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:%?34?%;-webkit-transform:translateX(calc(-100% - %?360?%));transform:translateX(calc(-100% - %?360?%));opacity:0;transition:opacity .5s ease,-webkit-transform .5s ease;transition:transform .5s ease,opacity .5s ease;transition:transform .5s ease,opacity .5s ease,-webkit-transform .5s ease;pointer-events:none;overflow:hidden}.order-danmu.in[data-v-2a55741c]{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}.danmu-avatar[data-v-2a55741c]{width:%?52?%;height:%?52?%;border-radius:50%;margin-right:%?10?%;flex-shrink:0}.danmu-name[data-v-2a55741c]{color:#f5c34d;font-size:%?27?%;white-space:nowrap;flex-shrink:0}.danmu-text[data-v-2a55741c]{color:#fff;font-size:%?27?%;margin-left:%?8?%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
+          "",
+        ]),
+        (t.exports = e);
+    },
+    "8bcf": function (t, e, i) {
+      var a = i("bdbb")["default"],
+        n = i("56c9");
+      (t.exports = function (t) {
+        var e = n(t, "string");
+        return "symbol" === a(e) ? e : String(e);
+      }),
+        (t.exports.__esModule = !0),
+        (t.exports["default"] = t.exports);
+    },
+    "8cb7": function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("1173"),
+        n = i.n(a);
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      e["default"] = n.a;
+    },
+    "8fcd": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return a;
+      }),
+        i.d(e, "c", function () {
+          return n;
+        }),
+        i.d(e, "a", function () {});
+      var a = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return t.show
+            ? i(
+                "v-uni-view",
+                {
+                  staticClass: "audio_player_box",
+                  class: { playing: t.isPlaying },
+                  on: {
+                    click: function (e) {
+                      (arguments[0] = e = t.$handleEvent(e)),
+                        t.togglePlay.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [
+                  i("v-uni-view", { staticClass: "halo" }),
+                  i("v-uni-view", { staticClass: "halo halo2" }),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "audio_inner" },
+                    [
+                      t.isPlaying
+                        ? i(
+                            "v-uni-view",
+                            { staticClass: "audio_svg" },
+                            [
+                              i("v-uni-view", { staticClass: "bar bar1" }),
+                              i("v-uni-view", { staticClass: "bar bar2" }),
+                              i("v-uni-view", { staticClass: "bar bar3" }),
+                              i("v-uni-view", { staticClass: "bar bar4" }),
+                            ],
+                            1,
+                          )
+                        : i(
+                            "v-uni-view",
+                            { staticClass: "play_icon" },
+                            [i("v-uni-view", { staticClass: "triangle" })],
+                            1,
+                          ),
+                    ],
+                    1,
+                  ),
+                ],
+                1,
+              )
+            : t._e();
+        },
+        n = [];
+    },
+    9604: function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return a;
+      }),
+        i.d(e, "c", function () {
+          return n;
+        }),
+        i.d(e, "a", function () {});
+      var a = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return t.enable
+            ? i(
+                "v-uni-view",
+                {
+                  staticClass: "order-danmu",
+                  class: { in: t.visible },
+                  style: t.boxStyle,
+                },
+                [
+                  i("img", {
+                    staticClass: "danmu-avatar",
+                    attrs: { src: t.current.avatar, alt: "" },
+                  }),
+                  i("v-uni-text", { staticClass: "danmu-name" }, [
+                    t._v(t._s(t.shortName(t.current.nickname))),
+                  ]),
+                  i("v-uni-text", { staticClass: "danmu-text" }, [
+                    t._v(
+                      "购买了" +
+                        t._s(t.current.num) +
+                        "件 " +
+                        t._s(t.shortName(t.current.goods_name, 10)),
+                    ),
+                  ]),
+                ],
+                1,
+              )
+            : t._e();
+        },
+        n = [];
+    },
+    "97ec": function (t, e, i) {
+      "use strict";
+      var a = i("469e"),
+        n = i.n(a);
+      n.a;
+    },
+    "9ead": function (t, e, i) {
+      "use strict";
+      i.d(e, "b", function () {
+        return a;
+      }),
+        i.d(e, "c", function () {
+          return n;
+        }),
+        i.d(e, "a", function () {});
+      var a = function () {
+          var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;
+          return t.isShow
+            ? i(
+                "v-uni-view",
+                { staticClass: "seckill_mask" },
+                [
+                  i("v-uni-view", { staticClass: "seckill_tip" }, [
+                    t._v("售罄"),
+                  ]),
+                  t.remain > 0
+                    ? i("v-uni-view", { staticClass: "seckill_countdown" }, [
+                        t._v("距补货 " + t._s(t.countText)),
+                      ])
+                    : t._e(),
+                ],
+                1,
+              )
+            : t._e();
+        },
+        n = [];
+    },
+    a5ed5: function (t, e, i) {
+      "use strict";
+      i("6a54"),
+        Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.goRaffle = function (t) {
+          return (0, a.send)(
+            "/wechat/Raffle/getRaffleStyle",
+            { label: "raffle", raffle_id: t },
+            !1,
+          )
+            .then(function (e) {
+              1 == e.status && e.data && 2 == e.data.style
+                ? uni.navigateTo({
+                    url: "/pages_sub1/active/lucky_draw?raffle_id=" + t,
+                  })
+                : uni.navigateTo({
+                    url: "/pages/active/turntable?raffle_id=" + t,
+                  });
+            })
+            .catch(function () {
+              uni.navigateTo({ url: "/pages/active/turntable?raffle_id=" + t });
+            });
+        });
+      var a = i("e74a");
+    },
+    b084: function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.seckill_mask[data-v-1aa473ad]{position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;color:#fff;pointer-events:none}.seckill_mask .seckill_tip[data-v-1aa473ad]{font-size:%?34?%;font-weight:700;letter-spacing:%?4?%}.seckill_mask .seckill_countdown[data-v-1aa473ad]{font-size:%?24?%;margin-top:%?10?%}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    c152: function (t, e, i) {
+      "use strict";
+      var a = i("e6cf"),
+        n = i.n(a);
+      n.a;
+    },
+    c954: function (t, e, i) {
+      var a = i("6321");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("40af3152", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    d9cd: function (t, e, i) {
+      var a = i("c86c");
+      (e = a(!1)),
+        e.push([
+          t.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.content[data-v-16cb9397]{position:relative}\r\n/* 首页首次打开加载画面 */.splash_screen[data-v-16cb9397]{position:fixed;left:0;top:0;right:0;bottom:0;z-index:99999;background:linear-gradient(135deg,#e6f0ff,#f3e8ff);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:1;transition:opacity .5s ease}.splash_screen.fade_out[data-v-16cb9397]{opacity:0;pointer-events:none}.splash_screen .splash_logo[data-v-16cb9397]{width:%?650?%;height:%?650?%;border-radius:%?32?%}.splash_screen .splash_loading_box[data-v-16cb9397]{margin-top:%?40?%;display:flex;align-items:center}.splash_screen .splash_loading[data-v-16cb9397]{width:%?48?%;height:%?48?%;border:%?6?% solid hsla(0,0%,100%,.9);border-top-color:#ffe610;border-radius:50%;-webkit-animation:splash_spin-data-v-16cb9397 .8s linear infinite;animation:splash_spin-data-v-16cb9397 .8s linear infinite}.splash_screen .splash_loading_txt[data-v-16cb9397]{margin-left:%?16?%;font-size:14px;color:#666}@-webkit-keyframes splash_spin-data-v-16cb9397{to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes splash_spin-data-v-16cb9397{to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}\r\n/* 切换分类时商品列表加载动画(样式复制自首屏splash) */.list_loading_box[data-v-16cb9397]{padding:%?80?% 0;display:flex;align-items:center;justify-content:center}.list_loading[data-v-16cb9397]{width:%?48?%;height:%?48?%;border:%?6?% solid rgba(0,0,0,.08);border-top-color:#ffe610;border-radius:50%;-webkit-animation:splash_spin-data-v-16cb9397 .8s linear infinite;animation:splash_spin-data-v-16cb9397 .8s linear infinite}.list_loading_txt[data-v-16cb9397]{margin-left:%?16?%;font-size:14px;color:#666}.home_search_bar[data-v-16cb9397]{position:-webkit-sticky;position:sticky;top:0;z-index:130;margin:0;padding:%?10?% %?24?% %?6?%;gap:%?14?%;justify-content:flex-start;background:#f8f8f8;box-sizing:border-box}.home_kefu_btn[data-v-16cb9397]{width:%?76?%;height:%?76?%;border-radius:%?76?%;background:#fff;justify-content:center;box-shadow:0 %?4?% %?14?% rgba(0,0,0,.08)}.home_kefu_btn img[data-v-16cb9397]{width:%?44?%;height:%?44?%}.home_kefu_contact[data-v-16cb9397]{position:absolute;left:0;top:0;width:%?72?%;height:%?72?%;opacity:0;z-index:2}.home_search_input[data-v-16cb9397]{flex:1;height:%?76?%;border-radius:%?76?%;background:#fff;padding:0 %?22?%;justify-content:flex-start;color:#999;font-size:14px;box-shadow:0 %?4?% %?14?% rgba(0,0,0,.08)}.home_search_input uni-text[data-v-16cb9397]{margin-left:%?10?%}uni-page-body[data-v-16cb9397]{background:#f8f8f8}body.?%PAGE?%[data-v-16cb9397]{background:#f8f8f8}.specsShow[data-v-16cb9397]{background:#fff;border-radius:%?30?% %?30?% 0 0}.specsShow .goods_msg[data-v-16cb9397]{padding:%?32?% %?0?%;margin:%?0?% %?30?%;border-bottom:%?2?% solid #eee}.specsShow .goods_msg .img[data-v-16cb9397]{width:%?110?%;height:%?110?%;border-radius:%?10?%}.specsShow .goods_msg .txt[data-v-16cb9397]{width:calc(100% - %?135?%)}.specsShow .goods_msg .txt .name[data-v-16cb9397]{font-weight:700;font-size:15px}.specsShow .goods_msg .txt .price_box[data-v-16cb9397]{margin-top:%?14?%;justify-content:flex-start}.specsShow .goods_msg .txt .price_box .new_price[data-v-16cb9397]{color:#fd2c28;font-weight:700;font-size:17px}.specsShow .goods_msg .txt .price_box .new_price .unit[data-v-16cb9397]{font-size:12px}.specsShow .goods_msg .txt .price_box .old_price[data-v-16cb9397]{color:#999;margin-left:%?14?%;text-decoration:line-through}.specsShow .reason_box[data-v-16cb9397]{margin:%?32?% %?30?% %?50?%}.specsShow .reason_box .tit[data-v-16cb9397]{font-size:15px;font-weight:700;position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;text-align:left;width:100%}.specsShow .reason_box .tit > uni-text[data-v-16cb9397]{display:inline-block;position:relative;z-index:10}.specsShow .reason_box .tit > uni-text[data-v-16cb9397]::before{z-index:-1;display:block;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?6?%;-webkit-transform:translate(-50%);transform:translate(-50%)}.specsShow .reason_box .tit .switch_btn[data-v-16cb9397]{font-size:11px;font-weight:400;color:#333;padding:%?8?% %?20?%;background:#fff;border:%?1?% solid #ddd;border-radius:%?40?%;position:relative;z-index:20}.specsShow .reason_box .specs_grid[data-v-16cb9397]{margin:%?28?% auto 0}.specsShow .reason_box .specs_grid.specs_img[data-v-16cb9397]{max-height:%?500?%;overflow-y:scroll;display:grid;grid-template-columns:repeat(3,1fr);grid-gap:%?20?%}.specsShow .reason_box .specs_grid.specs_img .col[data-v-16cb9397]{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:%?16?% %?10?%;background:#eee;border-radius:%?16?%;color:#555;text-align:center}.specsShow .reason_box .specs_grid.specs_img .col .col_img[data-v-16cb9397]{width:%?120?%;height:%?120?%;margin-bottom:%?12?%}.specsShow .reason_box .specs_grid.specs_img .col .col_title[data-v-16cb9397]{font-size:12px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:100%}.specsShow .reason_box .specs_grid.specs_img .col.cur[data-v-16cb9397]{background:#ffe610;color:#000}.specsShow .reason_box .specs_grid.specs_img .col.cur .col_title[data-v-16cb9397]{font-weight:700}.specsShow .reason_box .specs_grid.specs_text[data-v-16cb9397]{max-height:%?500?%;overflow-y:scroll;display:grid;grid-template-columns:repeat(2,1fr);grid-gap:%?24?% %?12?%}.specsShow .reason_box .specs_grid.specs_text .col[data-v-16cb9397]{padding:0 %?16?%;height:%?54?%;line-height:%?54?%;font-size:12px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;background:#eee;border-radius:%?10?%;color:#555;text-align:center}.specsShow .reason_box .specs_grid.specs_text .col .col_title_text[data-v-16cb9397]{display:block}.specsShow .reason_box .specs_grid.specs_text .col.cur[data-v-16cb9397]{background:#ffe610;color:#000;font-weight:700}.specsShow .daohang_box[data-v-16cb9397]{background:#fff;box-shadow:0 0 %?10?% #ddd;padding:%?20?% %?30?%;position:relative\r\n  /* 覆盖微信按钮默认样式:比如边框 */}.specsShow .daohang_box .kefu_box .picture[data-v-16cb9397]{height:%?40?%;width:%?40?%;margin:0 auto %?2?%}.specsShow .daohang_box .kefu_box .kefu[data-v-16cb9397]{font-size:12px}.specsShow .daohang_box .up_button[data-v-16cb9397]{background-color:initial!important;font-size:12.2px;position:absolute;top:0;bottom:0;left:0;z-index:30!important;width:14vw!important;text-align:center!important;padding:0!important;line-height:%?340?%!important;-webkit-tap-highlight-color:transparent!important\r\n  /* 禁用点击高亮 */}.specsShow .daohang_box uni-button[data-v-16cb9397]::after{border:none!important;box-shadow:none!important;border-radius:0!important;\r\n  /* 如果需要也可重置圆角 */display:none!important}.specsShow .daohang_box .xiadan[data-v-16cb9397]{background:#ffe610;width:calc(100% - %?80?%);height:%?90?%;line-height:%?90?%;border-radius:%?90?%;font-size:15px;font-weight:700;text-align:center}.specsShow .daohang_box .xiadan.cancel[data-v-16cb9397]{background:#dadada}.storeClose_box[data-v-16cb9397]{position:fixed;max-width:480px;width:100%;margin:0 auto;left:0;right:0;bottom:calc(env(safe-area-inset-bottom) + 51px);background:rgba(255,247,215,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:%?22?% %?30?% %?25?%}.storeClose_box img[data-v-16cb9397]{width:%?80?%;height:%?76?%}.storeClose_box .dd_box[data-v-16cb9397]{width:calc(100% - %?100?%)}.storeClose_box .dd_box .dd[data-v-16cb9397]{font-size:17px}.storeClose_box .dd_box .des[data-v-16cb9397]{color:#999;font-size:13px;margin-top:%?8?%}.more_fcat_content .fcat_box[data-v-16cb9397]{border-bottom:%?2?% solid #eee}.more_fcat_mark[data-v-16cb9397]{position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.5);z-index:111}.more_fcat_box[data-v-16cb9397]{z-index:113;max-width:480px;margin:0 auto;position:fixed;left:0;right:0;background:#fff;display:grid;grid-template-columns:repeat(5,1fr);border-radius:0 0 %?20?% %?20?%;grid-gap:%?32?% %?24?%;padding:%?54?% %?32?% %?32?%;max-height:%?560?%;overflow-y:auto}.more_fcat_box .col[data-v-16cb9397]{height:%?134?%;max-width:60px;max-height:90px}.more_fcat_box .col.cur .dd[data-v-16cb9397]{font-weight:700}.more_fcat_box .col.cur .dd[data-v-16cb9397]::before{display:block}.more_fcat_box .col img[data-v-16cb9397]{width:%?86?%;height:%?86?%;max-width:50px;max-height:50px;margin:0 auto;border-radius:%?4?%}.more_fcat_box .col .dd[data-v-16cb9397]{text-align:center;font-size:13px;margin-top:%?12?%;position:relative;z-index:10;white-space:nowrap}.more_fcat_box .col .dd[data-v-16cb9397]::before{z-index:-1;display:none;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?2?%;-webkit-transform:translate(-50%);transform:translate(-50%)}.more_fcat_box.text_only .col[data-v-16cb9397]{height:auto;max-width:none;max-height:none;text-align:center}.more_fcat_box.text_only .col img[data-v-16cb9397]{display:none}.more_fcat_box.text_only .col .dd[data-v-16cb9397]{margin-top:0;display:inline-block;padding:%?8?% %?26?%;border-radius:%?32?%;background:#f5f5f5;color:#999;max-width:100%}.more_fcat_box.text_only .col .dd[data-v-16cb9397]::before{display:none!important}.more_fcat_box.text_only .col.cur .dd[data-v-16cb9397]{color:#000;font-weight:700;background:#ffe610}.sort_btn[data-v-16cb9397]{display:flex;align-items:center;justify-content:center;margin-left:%?5?%;padding:0 %?6?%}.sort_mark[data-v-16cb9397]{position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.5);z-index:111}.sort_box[data-v-16cb9397]{z-index:113;position:absolute;right:%?30?%;width:%?440?%;background:#fff;border-radius:%?16?%;padding:%?20?% %?24?%;box-shadow:0 %?8?% %?30?% rgba(0,0,0,.12);-webkit-transform-origin:top right;transform-origin:top right;-webkit-animation:sort_box_in-data-v-16cb9397 .25s ease-out;animation:sort_box_in-data-v-16cb9397 .25s ease-out}.sort_box .sort_item[data-v-16cb9397]{display:inline-block;padding:%?12?% %?18?%;border-radius:%?32?%;background:#f5f5f5;color:#999;font-size:13px}.sort_box .sort_item + .sort_item[data-v-16cb9397]{margin-left:%?24?%}.sort_box .sort_item.cur[data-v-16cb9397]{color:#000;font-weight:700;background:#ffe610}.sort_box .sort_btns[data-v-16cb9397]{display:flex;margin-top:%?24?%}.sort_box .sort_btns .btn[data-v-16cb9397]{flex:1;height:%?64?%;line-height:%?64?%;text-align:center;border-radius:%?32?%;font-size:13px}.sort_box .sort_btns .btn.reset[data-v-16cb9397]{border:%?2?% solid #ddd;color:#666;background:#fff;margin-right:%?20?%}.sort_box .sort_btns .btn.ok[data-v-16cb9397]{background:#ffe610;color:#000;font-weight:700}@-webkit-keyframes sort_box_in-data-v-16cb9397{from{opacity:0;-webkit-transform:translate(%?30?%,%?-30?%);transform:translate(%?30?%,%?-30?%)}to{opacity:1;-webkit-transform:translate(0);transform:translate(0)}}@keyframes sort_box_in-data-v-16cb9397{from{opacity:0;-webkit-transform:translate(%?30?%,%?-30?%);transform:translate(%?30?%,%?-30?%)}to{opacity:1;-webkit-transform:translate(0);transform:translate(0)}}.fcat_box[data-v-16cb9397]{z-index:114;margin:%?0?% auto %?14?%;padding:%?24?% %?30?% %?15?%;display:flex;justify-content:space-between;align-items:stretch;position:relative;background:#fff;border-radius:0 0 %?20?% %?20?%}.fcat_box img[data-v-16cb9397]{width:%?86?%;height:%?86?%;margin:0 auto;border-radius:%?4?%;max-width:50px;max-height:50px}.fcat_box .dd[data-v-16cb9397]{text-align:center;font-size:13px;margin-top:%?12?%}.fcat_box .scroll_box[data-v-16cb9397]{width:calc(81.7% - %?42?%);white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.fcat_box .scroll_box .col[data-v-16cb9397]{display:inline-block;margin-right:%?25?%;width:21.66%}.fcat_box .scroll_box .col.cur .dd[data-v-16cb9397]{font-weight:700}.fcat_box .scroll_box .col.cur .dd[data-v-16cb9397]::before{display:block}.fcat_box .scroll_box .col .dd[data-v-16cb9397]{position:relative;z-index:10}.fcat_box .scroll_box .col .dd[data-v-16cb9397]::before{z-index:-1;display:none;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?2?%;-webkit-transform:translate(-50%);transform:translate(-50%)}.fcat_box[data-v-16cb9397] .uv-icon{height:%?86?%!important;margin-left:%?5?%!important}.fcat_box[data-v-16cb9397] .uv-icon__icon{width:%?36?%!important;justify-content:center!important}.fcat_box .more_btn[data-v-16cb9397]{width:18.3%}.fcat_box.text_only .scroll_box[data-v-16cb9397]{width:calc(100% - %?42?%)}.fcat_box.text_only[data-v-16cb9397] .uv-icon{height:auto!important;align-self:center}.fcat_box.text_only .col[data-v-16cb9397]{text-align:center;width:auto}.fcat_box.text_only .col img[data-v-16cb9397]{display:none}.fcat_box.text_only .col .dd[data-v-16cb9397]{display:inline-block;margin-top:0;padding:%?10?% %?26?%;border-radius:%?32?%;background:#f5f5f5;color:#999;max-width:8em}.fcat_box.text_only .col .dd[data-v-16cb9397]::before{display:none!important}.fcat_box.text_only .col.cur .dd[data-v-16cb9397]{color:#000;font-weight:700;background:#ffe610}[data-v-16cb9397] .uv-swiper{margin:%?10?% %?30?% %?5?%}[data-v-16cb9397] .uv-notice-bar{margin:%?25?% %?30?%;border-radius:%?4?%}.hengfu_box[data-v-16cb9397]{margin:%?25?% auto %?20?%}.hengfu_box[data-v-16cb9397] .uv-swiper{margin:%?0?% %?30?%}.home_nav_box[data-v-16cb9397]{display:grid;grid-template-columns:repeat(4,1fr);grid-gap:%?20?% 0;padding:%?20?% %?30?%;background:#fff;margin-bottom:%?14?%;border-radius:%?20?%}.home_nav_box .home_nav_col[data-v-16cb9397]{display:flex;flex-direction:column;align-items:center}.home_nav_box .home_nav_col .home_nav_img[data-v-16cb9397]{width:%?100?%;height:%?100?%;margin-bottom:%?10?%}.home_nav_box .home_nav_col .home_nav_title[data-v-16cb9397]{text-align:center;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}uni-button.home_nav_col[data-v-16cb9397]{background:none;border:none;padding:0;margin:0;line-height:inherit;font-size:inherit;text-align:inherit;border-radius:0}uni-button.home_nav_col[data-v-16cb9397]::after{border:none}.fir_tabs_box[data-v-16cb9397]{position:relative;z-index:110;padding-bottom:%?15?%}.fir_tabs_box .img_tabs_box[data-v-16cb9397]{width:calc(100% - %?60?%);margin:0 %?30?%}.fir_tabs_box .img_tabs_box .scroll_box[data-v-16cb9397]{white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.fir_tabs_box .img_tabs_box .game_tpl_min[data-v-16cb9397]{display:flex;justify-content:space-around;align-items:center}.fir_tabs_box .img_tabs_box .item[data-v-16cb9397]{display:inline-block;min-width:20%;margin-right:%?28?%}.fir_tabs_box .img_tabs_box .item[data-v-16cb9397]:last-child{margin-right:0!important}.fir_tabs_box .img_tabs_box .item .img[data-v-16cb9397]{width:%?104?%;height:auto;margin:0 auto;border-radius:%?4?%}.fir_tabs_box .img_tabs_box .item .tit[data-v-16cb9397]{margin-top:%?12?%;background:#fff;border-radius:%?14?%;height:%?56?%;line-height:%?56?%;font-size:12px;text-align:center;padding:0 %?16?%;color:#777;white-space:nowrap;overflow:hidden;text-align:center}.fir_tabs_box .img_tabs_box .item.cur .tit[data-v-16cb9397]{font-weight:700;background:#ffe610;color:#333;font-size:calc(12px * 1.04)}.fir_tabs_box .img_tabs_box_horizontal .item[data-v-16cb9397]{display:inline-block;background:#fff;padding:%?6?%;border-radius:%?25?%;font-size:0}.fir_tabs_box .img_tabs_box_horizontal .item .img[data-v-16cb9397]{display:inline-block;margin:0;float:left}.fir_tabs_box .img_tabs_box_horizontal .item .tit[data-v-16cb9397]{display:inline-block;margin-top:0;margin-left:%?6?%;background:none;padding:0 %?8?%}.fir_tabs_box .img_tabs_box_horizontal .item.cur[data-v-16cb9397]{background:#ffe610}.fir_tabs_box .img_tabs_box_horizontal .item.cur .tit[data-v-16cb9397]{background:none}.fir_tabs_box[data-v-16cb9397] .uv-tabs{width:calc(100% - %?60?%)!important;margin:0 %?30?%!important}.fir_tabs_box[data-v-16cb9397] .uv-tabs__wrapper__nav__item{min-width:20%;padding:0!important;margin-right:%?28?%!important;height:34px!important}.fir_tabs_box[data-v-16cb9397] .uv-tabs__wrapper__nav__item__text{height:34px!important;line-height:34px!important;font-size:13px!important;background:#fff!important;padding:0 %?24?%!important;border-radius:%?14?%!important;white-space:nowrap!important;overflow:hidden!important;text-align:center!important}.fir_tabs_box[data-v-16cb9397] .uv-tabs__wrapper__nav__line{display:none!important}.fir_tabs_box .more_btn[data-v-16cb9397]{justify-content:center}.fir_tabs_box .more_btn[data-v-16cb9397] .uv-icon__icon{font-weight:700!important}.more_cat_content[data-v-16cb9397]{height:100vh}.more_cat_content .fir_tabs_box[data-v-16cb9397]{border-bottom:%?2?% solid #eee}.more_cat_mark[data-v-16cb9397]{position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.5);z-index:105}.more_cat_box[data-v-16cb9397]{z-index:106;max-width:480px;margin:0 auto;position:fixed;left:0;right:0;background:#fff;display:grid;grid-template-columns:repeat(4,1fr);grid-gap:%?20?%;border-radius:0 0 %?20?% %?20?%;padding:%?45?% %?30?% %?34?%}.more_cat_box .item[data-v-16cb9397]{background:#eee;text-align:center;height:%?68?%;line-height:%?68?%;border-radius:%?10?%;padding:0 %?10?%}.more_cat_box .item.cur[data-v-16cb9397]{background:#ffe610;font-weight:700}.cat_box[data-v-16cb9397]{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;grid-gap:%?25?% %?0?%;padding:0 %?10?%;margin:%?20?% auto %?28?%}.cat_box .col img[data-v-16cb9397]{width:%?76?%;height:%?76?%;margin:0 auto}.cat_box .col .dd[data-v-16cb9397]{text-align:center;font-size:12px;margin-top:%?12?%;position:relative;z-index:10}.cat_box .col .dd[data-v-16cb9397]::before{z-index:-1;display:none;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?2?%;-webkit-transform:translate(-50%);transform:translate(-50%)}.cat_box .col .dd.cur[data-v-16cb9397]{font-weight:700}.cat_box .col .dd.cur[data-v-16cb9397]::before{display:block}.filter_box[data-v-16cb9397]{margin:%?30?% auto %?24?%;padding:%?0?% %?30?%}.filter_box[data-v-16cb9397] .uv-tabs{max-width:75%}.filter_box[data-v-16cb9397] .uv-tabs__wrapper__nav__item{position:relative;z-index:2}.filter_box[data-v-16cb9397] .uv-tabs__wrapper__nav__line{width:%?94?%!important;height:%?20?%!important;z-index:1;bottom:%?8?%!important;margin-left:%?-27?%!important}.filter_box .sort[data-v-16cb9397]{max-width:25%}.filter_box .sort .icon_box[data-v-16cb9397]{margin-right:%?10?%}.filter_box .sort .text[data-v-16cb9397]{font-size:13px;color:#444}.cat_third[data-v-16cb9397]{display:inline-block;margin:%?6?% %?20?%;position:relative;z-index:2;overflow:visible;font-weight:700;font-size:16px}.cat_third[data-v-16cb9397]:before{display:block;content:"";position:absolute;left:0;bottom:%?-2?%;width:100%;height:%?22?%;background:linear-gradient(90deg,#ffe610,hsla(0,0%,100%,0));z-index:-1;border-radius:%?6?%}.goods_list[data-v-16cb9397]{margin-top:%?20?%;padding:0 %?20?% %?35?%;display:grid;grid-gap:%?10?%;grid-template-columns:repeat(2,1fr)}.goods_list .col[data-v-16cb9397]{background:#fff;border-radius:%?12?%;box-shadow:0 0 %?10?% #ddd;margin:%?5?%}.goods_list .col .img_box[data-v-16cb9397]{max-height:%?450?%;border-radius:%?10?% %?10?% 0 0;position:relative;background:#f7f8fa}.goods_list .col .img_box uni-image[data-v-16cb9397]{width:100%;height:%?362?%;display:block}.goods_list .col .name[data-v-16cb9397]{margin:%?24?% auto %?8?%;padding:0 %?14?%;font-weight:700;line-height:%?36?%!important}.goods_list .col .choujiang_box .tag[data-v-16cb9397]{display:inline-block;font-weight:400;border:%?2?% solid #ff2525;border-radius:%?8?%;color:#ff2525;padding:%?3?% %?8?%;font-size:12px;margin-right:%?8?%}.goods_list .col .vipgoods_box .tag[data-v-16cb9397]{display:inline-block;background:linear-gradient(90deg,#f53c04,#f54f01);color:#fff;border-radius:%?8?%;padding:%?0?% %?8?%;height:%?42?%;line-height:%?42?%;font-size:12px;margin-right:%?8?%}.goods_list .col .intro[data-v-16cb9397]{padding:0 %?14?%;color:#999;font-size:13.6px}.goods_list .col .price_box[data-v-16cb9397]{padding:0 %?14?%;display:flex;align-items:center;margin:%?8?% auto %?14?%}.goods_list .col .price_box .new_price[data-v-16cb9397]{color:#fd2c28}.goods_list .col .price_box .new_price .icon[data-v-16cb9397]{font-size:13px;font-weight:700}.goods_list .col .price_box .new_price .num[data-v-16cb9397]{font-size:17px;font-weight:700}.goods_list .col .price_box .old_price[data-v-16cb9397]{font-size:12px;color:#999;text-decoration:line-through;margin-left:%?9?%;-webkit-transform:scale(.9);transform:scale(.9);-webkit-transform-origin:left;transform-origin:left}.goods_list .col .price_box .sales_box[data-v-16cb9397]{color:#999;text-align:right;font-size:12px;margin-left:auto}.goods_list .col .user .head[data-v-16cb9397]{width:%?58?%;height:%?58?%;position:relative}.goods_list .col .user .head .circle[data-v-16cb9397]{width:%?24?%;height:%?24?%;border-radius:100%;background:#6dff26;position:absolute;right:%?-4?%;bottom:%?-4?%;border:%?4?% solid #fff}.goods_list .col .user .head .circle.dis[data-v-16cb9397]{background:#ddd}.goods_list .col .user .head img[data-v-16cb9397]{border-radius:100%}.goods_list .col .user .name_box[data-v-16cb9397]{width:calc(100% - %?195?%);justify-content:flex-start}.goods_list .col .user .name_box .nickname[data-v-16cb9397]{font-size:12px;color:#666}.goods_list .col .user .name_box .vip[data-v-16cb9397]{margin-left:%?6?%;height:%?34?%;width:%?34?%}.goods_list .col .user .name_box.is_vip .nickname[data-v-16cb9397]{color:red}.goods_list .col .user .credit[data-v-16cb9397]{-webkit-transform:scale(.98);transform:scale(.98);padding:0 %?8?%;height:%?35?%;line-height:%?35?%;border-radius:%?35?%;background:#fff1d4;color:#fd6400;font-size:11px;white-space:nowrap}.goods_list_third[data-v-16cb9397]{grid-template-columns:repeat(3,1fr)}.goods_list_third .price_box .cart_box[data-v-16cb9397]{background:#ffe610;width:%?48?%;height:%?48?%;border-radius:100%;justify-content:center}.backto_top[data-v-16cb9397]{z-index:9;position:fixed;right:%?30?%;bottom:14%;flex-direction:column;width:%?104?%;height:%?104?%;border-radius:%?20?%;justify-content:center;background:#ffe610;border:%?4?% solid #000}.backto_top[data-v-16cb9397] .uv-icon span{font-weight:700}.backto_top .dd[data-v-16cb9397]{margin:%?2?% auto %?4?%;font-size:13.4px}[data-v-16cb9397] .uv-popup__content{max-width:480px!important;width:100%!important}.notice_every_day[data-v-16cb9397]{background:#fff;border-radius:%?30?%;padding:%?0?% %?30?% %?40?%;text-align:center;margin:0 %?30?%}.notice_every_day .dd[data-v-16cb9397]{font-weight:700;padding:%?36?% 0;font-size:18px}.notice_every_day .rich_box[data-v-16cb9397]{max-height:70vh;min-height:%?50?%;overflow-y:scroll}.notice_every_day .btn[data-v-16cb9397]{background:#ffe610;width:44%;font-size:16px;font-weight:700;height:%?78?%;line-height:%?78?%;border-radius:%?78?%;margin:%?70?% auto %?3?%}.banner_notice[data-v-16cb9397]{background:#fff;border-radius:%?30?%;padding:%?0?% %?30?% %?40?%;text-align:center;margin:0 %?30?%}.banner_notice .dd[data-v-16cb9397]{font-weight:700;padding:%?36?% 0;font-size:18px}.banner_notice .rich_box[data-v-16cb9397]{max-height:%?520?%;min-height:%?300?%;overflow-y:scroll}.banner_notice .btn[data-v-16cb9397]{background:#ffe610;width:44%;font-size:16px;font-weight:700;height:%?78?%;line-height:%?78?%;border-radius:%?78?%;margin:%?70?% auto %?3?%}.home_nav_popup[data-v-16cb9397]{background:#fff;border-radius:%?30?%;padding:%?0?% %?30?% %?40?%;text-align:center;margin:0 %?30?%;max-height:80vh;overflow-y:auto}.home_nav_popup .dd[data-v-16cb9397]{font-weight:700;padding:%?36?% 0;font-size:18px}.home_nav_popup .rich_box[data-v-16cb9397]{max-height:70vh;min-height:%?50?%;overflow-y:scroll}.home_nav_popup .btn[data-v-16cb9397]{background:#ffe610;width:44%;font-size:16px;font-weight:700;height:%?78?%;line-height:%?78?%;border-radius:%?78?%;margin:%?70?% auto %?3?%}',
+          "",
+        ]),
+        (t.exports = e);
+    },
+    e6cf: function (t, e, i) {
+      var a = i("7ded");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[t.i, a, ""]]),
+        a.locals && (t.exports = a.locals);
+      var n = i("967d").default;
+      n("22885a6d", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    f5c9: function (t, e, i) {
+      "use strict";
+      i("6a54"),
+        Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.default = void 0),
+        i("f7a5");
+      var a = i("e74a"),
+        n = {
+          name: "orderDanmu",
+          data: function () {
+            return {
+              enable: !1,
+              visible: !1,
+              x: 24,
+              y: 220,
+              list: [],
+              index: 0,
+            };
+          },
+          computed: {
+            current: function () {
+              return this.list[this.index] || {};
+            },
+            boxStyle: function () {
+              return (
+                "left:calc(max(0px, 50% - 240px) + " +
+                this.x +
+                "rpx); top:" +
+                this.y +
+                "rpx;"
+              );
+            },
+          },
+          mounted: function () {
+            var t = this;
+            setTimeout(function () {
+              return t.getInfo();
+            }, 500);
+          },
+          beforeDestroy: function () {
+            clearTimeout(this._t1), clearTimeout(this._t2);
+          },
+          methods: {
+            shortName: function (t, e) {
+              return (
+                (e = e || 5),
+                (t = String(t || "")),
+                t.length > e ? t.slice(0, e) + ".." : t
+              );
+            },
+            getInfo: function () {
+              var t = this;
+              (0, a.send)("/wechat/Home/getOrderDanmu", {}, !1)
+                .then(function (e) {
+                  var i = e.status,
+                    a = e.data;
+                  1 == i &&
+                    a &&
+                    1 == a.switch &&
+                    ((t.x = a.x),
+                    (t.y = a.y),
+                    (t.list = a.list || []),
+                    0 != t.list.length && ((t.enable = !0), t.play()));
+                })
+                .catch(function () {});
+            },
+            play: function () {
+              var t = this;
+              (this.visible = !0),
+                (this._t1 = setTimeout(function () {
+                  (t.visible = !1),
+                    (t._t2 = setTimeout(function () {
+                      (t.index = (t.index + 1) % t.list.length), t.play();
+                    }, 4500));
+                }, 3e3));
+            },
+          },
+        };
+      e.default = n;
+    },
+    f6ff: function (t, e, i) {
+      "use strict";
+      i.r(e);
+      var a = i("31ed"),
+        n = i.n(a);
+      for (var o in a)
+        ["default"].indexOf(o) < 0 &&
+          (function (t) {
+            i.d(e, t, function () {
+              return a[t];
+            });
+          })(o);
+      e["default"] = n.a;
+    },
+    fd7e: function (t, e) {
+      t.exports =
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAACrBJREFUeF7tnV1sFUUUgM+WIvITwIABBGMB++ODJj6BBmMbExJ/YjD6QoRA44MPoiZqgi+mrS+SGENEfZVC0JAYY/yLPzFQxED0weCTbQm2BrBFUbFQQCisnMudup17ZubM7Mze3d5uQu5N2Z2dPd+cnzlzdm4ExTgaAKAVAPDztvInfsdDfOL3wcTj4Hf8d6D8N/zek/fHjXLaQRTyZgC4vwzCVzcFFISUS0B5AiIgbJJGvS8YVDsIZde1+3VL2hXyntq28wCkEwCyhKASCMJpr7ZZqxYQoQ0djkNR+Ar5M+lP0Oe4HEJrcKBkflQDCD6oDQghIBQOOmUbx4yAxD/hj5LQdALH+3aVzVlmYLIEgoLYz/QPIUepiNjQTHK0CAcAmrJkBBcMUFZAOFoREoJKgNxAIrO+hQbC0YqqmAaJEFdrsK9tIbUlJBCTVuQiqiFUB+c/6ONUviaotoQCsrM8sdPF/lWJYpjG3xQFBoMSAgg6bpWzRAeJKl+Uw2RyMQrzOrB8AsHOo2aoYHjvfEZUTdri9bl8AlFpRl59hS1PHGj4jNSBqRcMjVMfvoDoYCxP3cv8NKAzYV40xQcQFYyi+Qsu9qBQ0gJRhbaTFYaApoKS2jynAaKyqZMdBgeK8+QxDZABYvKEI2Qy+QyTGUNNQTnIh/OgdAWi8hsII5MknElSGf6/ylI4OXkXIJhawPmGfKCa2qTGU8ks/rmlAeqhAWJogKic5ohhEKLrAyJq7M2sL+XJobyk4ORPXIBQpspbHK6iVAawGSDmrbMjHIh7AOoORE292L+Qh2pSbG26bIFQUVVQv1ECMe1qB0QRaqbbIeBcqeuK7ugNZVJV/sTKctgA8XJDrkQTGmGzuqhvvmTSol0wBt2BwFDm3GrA2gChMrjWKskBEh9tab1mmlRpCk4THDDtAfyMan6CaRWW2bQBEhNP6T2qio+2dALEHWdHr8LFf2MYuxLDkpvr00MAgKHfx6C+PoJZMyOYfWNdSVuixl6v2dpyclUeTGwt4QKhfId3Rx4fbS6F0y+99ge88e5f4xCaV9wAH+y4Be5snuEE5tCPF+DJF4Zg8OTl8etf2bIAXn1+IcZjXQGgUNMCli/hAqEiK6/aEfc37UTH/dupMVi65liF4J/ZMB/e7ljkBGTDi0Pw3icjFdeePdIIc2bXhYBCzU1Y5p0DhHJUXrUj6TP6Bi5By9rKye/6R+bC+9uXOAF56KkT8MW3oxXXDh9eCYsW1gNcd/Y+fYoqDDZqCQcI5cyNDXMlJzvwqgDBziKUK1Gbx+iLGsjG2TsHCOXMOdexmAi/IU6uGpDrHeiJGvt8LTFT0wSjczcJNqi5ivtbNkMUT0jDVBkI+pM2j+GwtXM3AQlrrvqbB8bzUGUVyRbI7bBo4TRZk31qibXZMgGhoivTNTxTRWgHXpgDID61hDJb2mjLJFzZf3iLrkSYK9PLBZA47o6a+r0ULZQLI5KVOFo/ogNCqRs7BWBSk/hoMxUsQP/AJWgmwt6N6+bC7tfdwt5Hnz4Jn+47V9GlocMrYTGGvfIRw2DU1Odroc3Kj+iAUP7Dy2SQcuZJmax64lf44aeLE8SEMBCKy/HOnjOwpevUhEsfuGcWfLP7Vk1z3pw7NUlUThtsgWAcrTpQFVnv7anMlWj4/MUY9n42AiPnrkIUAdzVPAPaVs9yYTF+zVcHR6H32CVAtbxpXh1sXDcP6rQG2yqlknwPRe7nfADYLv1ROR/RdYly6ByhGOteTUA4Nwl+jtmPmCoadV1U+mIdENLGWwhCWbovTwYt2szyVF34q6ti5PRRGWmFBIIdI6HExPyD8xQZn6MCoqopsOneMACQEYoKiGp10Oam4tyK0aCKsFwaD3YNHWml1QzRXYxYZlJ9twWiewkSO6t6b29CVFFgDVH5VZQLDjxqvR7lIlfpjAHAdBsg1Eg4AgB3G0YkahaugcsFCROcWCF8SKVTV62Xc6oUzwLAHEl25BRCpSFrAOCg1MDHALCOYSKMWc6CAkmT1/sbADD8TR5WQCihGnP5ibvJs9MJ6QKxbs6AW71T4qhdqueSo07WCmD5AY4DwLJqAqFG07g2Bq8q8YFxLFouLValyeuxl8BtnLqNhuiBlMpAY6pI2YcovbQRNfYlZZPWYuQbCEos136k0qHXApD/i+GwPKdhKRkFehnt9o1UJBYnPxChJcvbfmkdPHEZNj8+D3ZuW2wvOw9XtG04Dj3fn4eGZdNhYN9yai2kNoA83Dp72+c9o1uFTDueXQCdz2HxWnZH+8vD0P3hP+M3XHvvnPVfHzq3V+pBbQCRyy5xhKKWtK5Kl2rn4kStQO1ghKM1AwTrbA+fvxCvFkIpmY39K7gyTXWeMFWJRlRp8doBUn5PcUIInIXp6txxGrre+pOjHXhOTQHBB67IE4WEIvuNMhVdNWbNAUGZVBQDhIBCmCm8tykNUpNAyAJldPD79+iKEXhuBOc67VuHS+GtdJhg1KTJGvfp1I5C6Og3PTa3NFexnUAiCAxrCX/B0Yxkv+RUj00qKf+pE824VhYPIBjUGISjC40RAk42d300MmGOId3TpuivJk2WzMi0RWBpZo0HwkEApSFfaZIo9i4Ff2nS71TByH0A8J3cOZsiB46tFe37qglOU2pDgbAxM/L11BoPZ7VQVRRhtUBFRj3l7flMOyRQy7825oESpGppmOPRRZ1Y2v3dXd7R1xWLkMqg0xBVB3DzetWbq6rR4GIiVGAQOO7moKoWFBWU+AsItjth6wCrKk6oLTRMmv0lADxI3UwHREdXPHSyTd0u0aYqe85I152DfQ21Q0PyvroNPvE87AP2xXQ41fZio0bHarpzeS9C1kvzjLaqfYpqYwDbfikHKGfkpoGS1nfYPmgW56eFopUJB4irpqSJaLIQbJp7mHyErm3tG8xcIHgD0Qnd9kjGyvc0UsjhtSL6E7+PleziaQCQV9uMUwcbIMmbUY4rC6eaQybjXUrKBGVBzcWM0aYrkDwLJg99c96maQqIf3yq6YJRO7ArU0D8A1HNVViyZp3kv8+TtsXUG4ROAfE3NlSmyhhZJbswBcQfEC97GU8B8QNEBYPlyKc0xA8E0YrXHySY0pB0cFRO3PnX3KaAuAPRvZHrvONe0YFgZJP8nXUhXlycCpny172r7gyjyBNDTrY1VKJT95OAqWAUFYjty/vO9lyyZmQhX+IcL8sNRTNZtjCEvJx+OiIhbNOilBcYRdMQ3Ro/xzW7aArHNKY2U0Wdh+h+DU5sbSEqUXA3CarowmZJ2bR0nVbryEFUFJOl0g6dqVCVMeHsWVdbZvIVKEjj/rsclaXOKQoQ1/2DKa2i0hnCNOHmOaYyHm/+oshAXPd/pDQrmX3l+AhfgQFLaYqiIWlqheVCZ1HkpyvsSwov1Hym0D5EBmJjw133jkSBBTVPRTZZ2t2FDLbAdu/ITDVC7ntRTBYVMXHWGkyha9VMk2oQFQUINUM3TfQ4E0l08CIRmYu6sqIAwQFFhbAq86LKxp65to/ym55fU2BFT9yTigREl8cSO2qLdLzq+b2mObhCtjmvSEDwuWx8giwHjs+xkV2Qc4sGxBVK5uGrK60iAsFnFXvhmtIcQRKArsLmXFdUIPhswl+I1yOSr7Xhe5BCmzhyyM05/wGhNOiSLHV8XgAAAABJRU5ErkJggg==";
+    },
+  },
+]);
+//# sourceMappingURL=pages-index-index.d5551ea4.js.map

@@ -1,0 +1,570 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages_sub1-kefu-fine_add"],
+  {
+    "0957": function (e, t, i) {
+      "use strict";
+      var a = i("1037"),
+        n = i.n(a);
+      n.a;
+    },
+    1037: function (e, t, i) {
+      var a = i("5c9a");
+      a.__esModule && (a = a.default),
+        "string" === typeof a && (a = [[e.i, a, ""]]),
+        a.locals && (e.exports = a.locals);
+      var n = i("967d").default;
+      n("61d148ac", a, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "5c9a": function (e, t, i) {
+      var a = i("c86c");
+      (t = a(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.content[data-v-136e2c32]{padding:%?30?%;min-height:100vh;background:#f5f5f5}.form_box[data-v-136e2c32]{background:#fff;border-radius:%?20?%;padding:%?30?%;margin-bottom:%?30?%}.form_item[data-v-136e2c32]{margin-bottom:%?30?%}.form_item .label[data-v-136e2c32]{font-size:14px;color:#333;margin-bottom:%?15?%}.form_item .input[data-v-136e2c32]{width:100%;height:%?80?%;border:%?2?% solid #eee;border-radius:%?10?%;padding:0 %?20?%;font-size:15px}.form_item .textarea[data-v-136e2c32]{width:100%;height:%?150?%;border:%?2?% solid #eee;border-radius:%?10?%;padding:%?20?%;font-size:15px}.form_item .picker_btn[data-v-136e2c32]{height:%?80?%;border:%?2?% dashed #ccc;border-radius:%?10?%;display:flex;align-items:center;justify-content:center;font-size:15px;color:#999}.selected_list[data-v-136e2c32]{display:flex;flex-wrap:wrap;gap:%?20?%}.selected_list .selected_item[data-v-136e2c32]{display:flex;align-items:center;background:#f7f8fa;border-radius:%?10?%;padding:%?10?% %?20?%}.selected_list .selected_item .avatar[data-v-136e2c32]{width:%?60?%;height:%?60?%;border-radius:50%;margin-right:%?10?%}.selected_list .selected_item .name[data-v-136e2c32]{font-size:13px;margin-right:%?10?%}.selected_list .selected_item .close[data-v-136e2c32]{font-size:24px;color:#999}.submit_btn[data-v-136e2c32]{background:#ffe610;border-radius:%?20?%;padding:%?25?%;text-align:center;font-weight:700;font-size:16px}.picker_mask[data-v-136e2c32]{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;z-index:1000}.picker_box[data-v-136e2c32]{width:100%;background:#fff;border-radius:%?30?% %?30?% 0 0;max-height:80vh;display:flex;flex-direction:column}.picker_header[data-v-136e2c32]{display:flex;align-items:center;padding:%?30?%;border-bottom:%?2?% solid #eee}.picker_header .cancel[data-v-136e2c32]{font-size:15px;padding:%?10?% %?20?%;color:#999}.picker_header .title[data-v-136e2c32]{flex:1;text-align:center;font-size:16px;font-weight:700}.picker_header .right_box[data-v-136e2c32]{display:flex;align-items:center}.picker_header .select_all[data-v-136e2c32]{font-size:15px;color:#2979ff;padding:%?10?% %?20?%}.picker_header .confirm[data-v-136e2c32]{font-size:15px;padding:%?10?% %?20?%;color:#2979ff;font-weight:700}.search_box[data-v-136e2c32]{padding:%?20?% %?30?%;border-bottom:%?2?% solid #eee}.search_box .search_input[data-v-136e2c32]{width:100%;height:%?70?%;background:#f7f8fa;border-radius:%?35?%;padding:0 %?30?%;font-size:14px}.picker_list[data-v-136e2c32]{flex:1;max-height:60vh}.picker_item[data-v-136e2c32]{display:flex;align-items:center;padding:%?25?% %?30?%;border-bottom:%?2?% solid #f5f5f5}.picker_item .checkbox[data-v-136e2c32]{width:%?44?%;height:%?44?%;border:%?2?% solid #ccc;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:%?20?%;font-size:20px;color:#fff}.picker_item .checkbox.checked[data-v-136e2c32]{background:#ffe610;border-color:#ffe610}.picker_item .avatar[data-v-136e2c32]{width:%?80?%;height:%?80?%;border-radius:50%;margin-right:%?20?%}.picker_item .name[data-v-136e2c32]{font-size:15px}.load_more[data-v-136e2c32], .no_more[data-v-136e2c32]{text-align:center;padding:%?20?%;font-size:13px;color:#999}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    "88bb": function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var a = i("c2e9"),
+        n = i("f810");
+      for (var s in n)
+        ["default"].indexOf(s) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return n[e];
+            });
+          })(s);
+      i("0957");
+      var r = i("828b"),
+        l = Object(r["a"])(
+          n["default"],
+          a["b"],
+          a["c"],
+          !1,
+          null,
+          "136e2c32",
+          null,
+          !1,
+          a["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    c2e9: function (e, t, i) {
+      "use strict";
+      i.d(t, "b", function () {
+        return a;
+      }),
+        i.d(t, "c", function () {
+          return n;
+        }),
+        i.d(t, "a", function () {});
+      var a = function () {
+          var e = this,
+            t = e.$createElement,
+            i = e._self._c || t;
+          return i(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              i(
+                "v-uni-view",
+                { staticClass: "form_box" },
+                [
+                  i(
+                    "v-uni-view",
+                    { staticClass: "form_item" },
+                    [
+                      i("v-uni-view", { staticClass: "label" }, [
+                        e._v("罚款标题"),
+                      ]),
+                      i("v-uni-input", {
+                        staticClass: "input",
+                        attrs: { placeholder: "请输入罚款标题" },
+                        model: {
+                          value: e.form.title,
+                          callback: function (t) {
+                            e.$set(e.form, "title", t);
+                          },
+                          expression: "form.title",
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "form_item" },
+                    [
+                      i("v-uni-view", { staticClass: "label" }, [
+                        e._v("罚款金额"),
+                      ]),
+                      i("v-uni-input", {
+                        staticClass: "input",
+                        attrs: {
+                          type: "number",
+                          placeholder: "请输入罚款金额",
+                        },
+                        model: {
+                          value: e.form.amount,
+                          callback: function (t) {
+                            e.$set(e.form, "amount", t);
+                          },
+                          expression: "form.amount",
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "form_item" },
+                    [
+                      i("v-uni-view", { staticClass: "label" }, [
+                        e._v("罚款原因"),
+                      ]),
+                      i("v-uni-textarea", {
+                        staticClass: "textarea",
+                        attrs: { placeholder: "请输入罚款原因" },
+                        model: {
+                          value: e.form.reason,
+                          callback: function (t) {
+                            e.$set(e.form, "reason", t);
+                          },
+                          expression: "form.reason",
+                        },
+                      }),
+                    ],
+                    1,
+                  ),
+                  i(
+                    "v-uni-view",
+                    { staticClass: "form_item" },
+                    [
+                      i("v-uni-view", { staticClass: "label" }, [
+                        e._v("选择打手"),
+                      ]),
+                      i(
+                        "v-uni-view",
+                        {
+                          staticClass: "picker_btn",
+                          on: {
+                            click: function (t) {
+                              (arguments[0] = t = e.$handleEvent(t)),
+                                e.showSellerPicker.apply(void 0, arguments);
+                            },
+                          },
+                        },
+                        [
+                          0 == e.selectedSellers.length
+                            ? i("v-uni-text", [e._v("请选择打手")])
+                            : i("v-uni-text", [
+                                e._v(
+                                  "已选择 " +
+                                    e._s(e.selectedSellers.length) +
+                                    " 人",
+                                ),
+                              ]),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  ),
+                  e.selectedSellers.length > 0
+                    ? i(
+                        "v-uni-view",
+                        { staticClass: "selected_list" },
+                        e._l(e.selectedSellers, function (t, a) {
+                          return i(
+                            "v-uni-view",
+                            { key: a, staticClass: "selected_item" },
+                            [
+                              i("v-uni-image", {
+                                staticClass: "avatar",
+                                attrs: { src: t.avatar },
+                              }),
+                              i("v-uni-view", { staticClass: "name" }, [
+                                e._v(e._s(t.nickname)),
+                              ]),
+                              i(
+                                "v-uni-view",
+                                {
+                                  staticClass: "close",
+                                  on: {
+                                    click: function (t) {
+                                      (arguments[0] = t = e.$handleEvent(t)),
+                                        e.removeSeller(a);
+                                    },
+                                  },
+                                },
+                                [e._v("×")],
+                              ),
+                            ],
+                            1,
+                          );
+                        }),
+                        1,
+                      )
+                    : e._e(),
+                ],
+                1,
+              ),
+              i(
+                "v-uni-view",
+                {
+                  staticClass: "submit_btn",
+                  on: {
+                    click: function (t) {
+                      (arguments[0] = t = e.$handleEvent(t)),
+                        e.submit.apply(void 0, arguments);
+                    },
+                  },
+                },
+                [e._v("提交罚款")],
+              ),
+              e.showPicker
+                ? i(
+                    "v-uni-view",
+                    {
+                      staticClass: "picker_mask",
+                      on: {
+                        click: function (t) {
+                          (arguments[0] = t = e.$handleEvent(t)),
+                            (e.showPicker = !1);
+                        },
+                      },
+                    },
+                    [
+                      i(
+                        "v-uni-view",
+                        {
+                          staticClass: "picker_box",
+                          on: {
+                            click: function (t) {
+                              t.stopPropagation(),
+                                (arguments[0] = t = e.$handleEvent(t));
+                            },
+                          },
+                        },
+                        [
+                          i(
+                            "v-uni-view",
+                            { staticClass: "picker_header" },
+                            [
+                              i(
+                                "v-uni-view",
+                                {
+                                  staticClass: "cancel",
+                                  on: {
+                                    click: function (t) {
+                                      (arguments[0] = t = e.$handleEvent(t)),
+                                        (e.showPicker = !1);
+                                    },
+                                  },
+                                },
+                                [e._v("关闭")],
+                              ),
+                              i("v-uni-view", { staticClass: "title" }, [
+                                e._v("选择打手"),
+                              ]),
+                              i(
+                                "v-uni-view",
+                                { staticClass: "right_box" },
+                                [
+                                  i(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: "select_all",
+                                      on: {
+                                        click: function (t) {
+                                          (arguments[0] = t =
+                                            e.$handleEvent(t)),
+                                            e.toggleSelectAll.apply(
+                                              void 0,
+                                              arguments,
+                                            );
+                                        },
+                                      },
+                                    },
+                                    [e._v("全选")],
+                                  ),
+                                  i(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: "confirm",
+                                      on: {
+                                        click: function (t) {
+                                          (arguments[0] = t =
+                                            e.$handleEvent(t)),
+                                            e.confirmSellers.apply(
+                                              void 0,
+                                              arguments,
+                                            );
+                                        },
+                                      },
+                                    },
+                                    [e._v("确认")],
+                                  ),
+                                ],
+                                1,
+                              ),
+                            ],
+                            1,
+                          ),
+                          i(
+                            "v-uni-view",
+                            { staticClass: "search_box" },
+                            [
+                              i("v-uni-input", {
+                                staticClass: "search_input",
+                                attrs: { placeholder: "搜索打手" },
+                                on: {
+                                  input: function (t) {
+                                    (arguments[0] = t = e.$handleEvent(t)),
+                                      e.searchSellers.apply(void 0, arguments);
+                                  },
+                                },
+                                model: {
+                                  value: e.keyword,
+                                  callback: function (t) {
+                                    e.keyword = t;
+                                  },
+                                  expression: "keyword",
+                                },
+                              }),
+                            ],
+                            1,
+                          ),
+                          i(
+                            "v-uni-scroll-view",
+                            {
+                              staticClass: "picker_list",
+                              attrs: { "scroll-y": !0 },
+                              on: {
+                                scrolltolower: function (t) {
+                                  (arguments[0] = t = e.$handleEvent(t)),
+                                    e.loadMore.apply(void 0, arguments);
+                                },
+                              },
+                            },
+                            [
+                              e._l(e.sellerList, function (t, a) {
+                                return i(
+                                  "v-uni-view",
+                                  {
+                                    key: a,
+                                    staticClass: "picker_item",
+                                    on: {
+                                      click: function (i) {
+                                        (arguments[0] = i = e.$handleEvent(i)),
+                                          e.toggleSeller(t);
+                                      },
+                                    },
+                                  },
+                                  [
+                                    i(
+                                      "v-uni-view",
+                                      {
+                                        class: {
+                                          checkbox: !0,
+                                          checked: e.isSelected(t.id),
+                                        },
+                                      },
+                                      [
+                                        e.isSelected(t.id)
+                                          ? i("v-uni-text", [e._v("✓")])
+                                          : e._e(),
+                                      ],
+                                      1,
+                                    ),
+                                    i("v-uni-image", {
+                                      staticClass: "avatar",
+                                      attrs: { src: t.avatar },
+                                    }),
+                                    i("v-uni-view", { staticClass: "name" }, [
+                                      e._v(e._s(t.nickname)),
+                                    ]),
+                                  ],
+                                  1,
+                                );
+                              }),
+                              e.hasMore
+                                ? i(
+                                    "v-uni-view",
+                                    { staticClass: "load_more" },
+                                    [e._v("加载更多...")],
+                                  )
+                                : i("v-uni-view", { staticClass: "no_more" }, [
+                                    e._v("没有更多了"),
+                                  ]),
+                            ],
+                            2,
+                          ),
+                        ],
+                        1,
+                      ),
+                    ],
+                    1,
+                  )
+                : e._e(),
+            ],
+            1,
+          );
+        },
+        n = [];
+    },
+    e715: function (e, t, i) {
+      "use strict";
+      i("6a54"),
+        Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        i("bf0f"),
+        i("c223"),
+        i("d4b5"),
+        i("bd06"),
+        i("dd2b"),
+        i("aa9c"),
+        i("fd3c");
+      var a = i("e74a"),
+        n = {
+          data: function () {
+            return {
+              form: { title: "", amount: "", reason: "" },
+              selectedSellers: [],
+              showPicker: !1,
+              sellerList: [],
+              keyword: "",
+              tempSelected: [],
+              page: 1,
+              hasMore: !0,
+            };
+          },
+          computed: {
+            isAllSelected: function () {
+              var e = this;
+              return (
+                0 != this.sellerList.length &&
+                this.sellerList.every(function (t) {
+                  return e.isSelected(t.id);
+                })
+              );
+            },
+          },
+          onLoad: function () {
+            this.getSellerList();
+          },
+          methods: {
+            getSellerList: function () {
+              var e = this;
+              (0, a.send)(
+                "/wechat/KefuFine/getSellerList",
+                { keyword: this.keyword, page: this.page },
+                !1,
+              ).then(function (t) {
+                var i = t.status,
+                  a = t.data;
+                1 == i &&
+                  (1 == e.page
+                    ? (e.sellerList = a.list)
+                    : (e.sellerList = e.sellerList.concat(a.list)),
+                  (e.hasMore = a.list.length >= 20));
+              });
+            },
+            searchSellers: function () {
+              (this.page = 1), (this.hasMore = !0), this.getSellerList();
+            },
+            loadMore: function () {
+              this.hasMore && (this.page++, this.getSellerList());
+            },
+            showSellerPicker: function () {
+              (this.tempSelected = JSON.parse(
+                JSON.stringify(this.selectedSellers),
+              )),
+                (this.showPicker = !0);
+            },
+            isSelected: function (e) {
+              return this.tempSelected.some(function (t) {
+                return t.id == e;
+              });
+            },
+            toggleSeller: function (e) {
+              var t = this.tempSelected.findIndex(function (t) {
+                return t.id == e.id;
+              });
+              t > -1
+                ? this.tempSelected.splice(t, 1)
+                : this.tempSelected.push(e);
+            },
+            toggleSelectAll: function () {
+              this.isAllSelected
+                ? (this.tempSelected = [])
+                : (this.tempSelected = JSON.parse(
+                    JSON.stringify(this.sellerList),
+                  ));
+            },
+            confirmSellers: function () {
+              (this.selectedSellers = this.tempSelected),
+                (this.showPicker = !1);
+            },
+            removeSeller: function (e) {
+              this.selectedSellers.splice(e, 1);
+            },
+            submit: function () {
+              if (!this.form.title) return uni.$uv.toast("请输入罚款标题");
+              if (!this.form.amount) return uni.$uv.toast("请输入罚款金额");
+              if (this.form.amount <= 0)
+                return uni.$uv.toast("罚款金额必须大于0");
+              if (0 == this.selectedSellers.length)
+                return uni.$uv.toast("请选择至少一个打手");
+              var e = this.selectedSellers
+                .map(function (e) {
+                  return e.id;
+                })
+                .join(",");
+              uni.showLoading({ title: "提交中.." }),
+                (0, a.send)(
+                  "/wechat/KefuFine/addFine",
+                  {
+                    title: this.form.title,
+                    amount: this.form.amount,
+                    reason: this.form.reason,
+                    seller_ids: e,
+                  },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var t = e.status,
+                    i = e.msg;
+                  1 == t
+                    ? (uni.showToast({ title: "提交成功", icon: "success" }),
+                      setTimeout(function () {
+                        uni.navigateBack();
+                      }, 1500))
+                    : uni.$uv.toast(i);
+                });
+            },
+          },
+        };
+      t.default = n;
+    },
+    f810: function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var a = i("e715"),
+        n = i.n(a);
+      for (var s in a)
+        ["default"].indexOf(s) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return a[e];
+            });
+          })(s);
+      t["default"] = n.a;
+    },
+  },
+]);
+//# sourceMappingURL=pages_sub1-kefu-fine_add.18ee73e0.js.map

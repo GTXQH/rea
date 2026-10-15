@@ -1,0 +1,1726 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  ["pages-user-certification", "pages-index-index~pages_sub1-chat-info"],
+  {
+    "0c54": function (e, t, i) {
+      var n = i("f83f");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[e.i, n, ""]]),
+        n.locals && (e.exports = n.locals);
+      var a = i("967d").default;
+      a("652ddff8", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "1d85": function (e, t, i) {
+      "use strict";
+      i.d(t, "b", function () {
+        return a;
+      }),
+        i.d(t, "c", function () {
+          return r;
+        }),
+        i.d(t, "a", function () {
+          return n;
+        });
+      var n = { uvIcon: i("1a07").default },
+        a = function () {
+          var e = this,
+            t = e.$createElement,
+            i = e._self._c || t;
+          return i(
+            "v-uni-view",
+            {
+              staticClass: "uv-notice",
+              on: {
+                click: function (t) {
+                  (arguments[0] = t = e.$handleEvent(t)),
+                    e.clickHandler.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              e._t("icon", [
+                e.icon
+                  ? i(
+                      "v-uni-view",
+                      { staticClass: "uv-notice__left-icon" },
+                      [
+                        i("uv-icon", {
+                          attrs: { name: e.icon, color: e.color, size: "19" },
+                        }),
+                      ],
+                      1,
+                    )
+                  : e._e(),
+              ]),
+              i(
+                "v-uni-swiper",
+                {
+                  staticClass: "uv-notice__swiper",
+                  style: [e.swiperStyle],
+                  attrs: {
+                    "disable-touch": e.disableTouch,
+                    vertical: !e.step,
+                    circular: !0,
+                    interval: e.duration,
+                    autoplay: !e.disableScroll,
+                  },
+                  on: {
+                    change: function (t) {
+                      (arguments[0] = t = e.$handleEvent(t)),
+                        e.noticeChange.apply(void 0, arguments);
+                    },
+                  },
+                },
+                e._l(e.text, function (t, n) {
+                  return i(
+                    "v-uni-swiper-item",
+                    { key: n, staticClass: "uv-notice__swiper__item" },
+                    [
+                      i(
+                        "v-uni-text",
+                        {
+                          staticClass:
+                            "uv-notice__swiper__item__text uv-line-1",
+                          style: [e.textStyle],
+                        },
+                        [e._v(e._s(t))],
+                      ),
+                    ],
+                    1,
+                  );
+                }),
+                1,
+              ),
+              ["link", "closable"].includes(e.mode)
+                ? i(
+                    "v-uni-view",
+                    { staticClass: "uv-notice__right-icon" },
+                    [
+                      "link" === e.mode
+                        ? i("uv-icon", {
+                            attrs: {
+                              name: "arrow-right",
+                              size: 17,
+                              color: e.color,
+                            },
+                          })
+                        : e._e(),
+                      "closable" === e.mode
+                        ? i("uv-icon", {
+                            attrs: { name: "close", size: 16, color: e.color },
+                            on: {
+                              click: function (t) {
+                                (arguments[0] = t = e.$handleEvent(t)),
+                                  e.close.apply(void 0, arguments);
+                              },
+                            },
+                          })
+                        : e._e(),
+                    ],
+                    1,
+                  )
+                : e._e(),
+            ],
+            2,
+          );
+        },
+        r = [];
+    },
+    "25b2": function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var n = i("fce2"),
+        a = i("cee4");
+      for (var r in a)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return a[e];
+            });
+          })(r);
+      i("6ed5");
+      var o = i("828b"),
+        l = Object(o["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "8c8f0464",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    2657: function (e, t, i) {
+      var n = i("c86c");
+      (t = n(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-5c490638], uni-scroll-view[data-v-5c490638], uni-swiper-item[data-v-5c490638]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-notice-bar[data-v-5c490638]{overflow:hidden;padding:9px 12px;flex:1}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    2733: function (e, t, i) {
+      var n = i("c86c");
+      (t = n(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */uni-view[data-v-8c8f0464], uni-scroll-view[data-v-8c8f0464], uni-swiper-item[data-v-8c8f0464]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-notice[data-v-8c8f0464]{display:flex;flex-direction:row;align-items:center;justify-content:space-between}.uv-notice__left-icon[data-v-8c8f0464]{align-items:center;margin-right:5px}.uv-notice__right-icon[data-v-8c8f0464]{margin-left:5px;align-items:center}.uv-notice__content[data-v-8c8f0464]{text-align:right;flex:1;display:flex;flex-direction:row;flex-wrap:nowrap;overflow:hidden}.uv-notice__content__text[data-v-8c8f0464]{font-size:14px;color:#f9ae3d;padding-left:100%;word-break:keep-all;white-space:nowrap;-webkit-animation:uv-loop-animation-data-v-8c8f0464 10s linear infinite both;animation:uv-loop-animation-data-v-8c8f0464 10s linear infinite both;display:flex;flex-direction:row}@-webkit-keyframes uv-loop-animation-data-v-8c8f0464{0%{-webkit-transform:translateZ(0);transform:translateZ(0)}100%{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0)}}@keyframes uv-loop-animation-data-v-8c8f0464{0%{-webkit-transform:translateZ(0);transform:translateZ(0)}100%{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0)}}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    "334a": function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var n = i("e05a"),
+        a = i("5be2");
+      for (var r in a)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return a[e];
+            });
+          })(r);
+      i("af7e");
+      var o = i("828b"),
+        l = Object(o["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "ce4ee83a",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    4940: function (e, t, i) {
+      "use strict";
+      var n = i("fe5a"),
+        a = i.n(n);
+      a.a;
+    },
+    "5a96": function (e, t, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        i("64aa");
+      var a,
+        r,
+        o = n(i("9b1b")),
+        l = {
+          props: (0, o.default)(
+            {
+              text: {
+                type: [Array, String],
+                default: function () {
+                  return [];
+                },
+              },
+              direction: { type: String, default: "row" },
+              step: { type: Boolean, default: !1 },
+              icon: { type: [String, Boolean, null], default: "volume" },
+              mode: { type: String, default: "" },
+              color: { type: String, default: "#f9ae3d" },
+              bgColor: { type: String, default: "#fdf6ec" },
+              speed: { type: [String, Number], default: 80 },
+              fontSize: { type: [String, Number], default: 14 },
+              duration: { type: [String, Number], default: 2e3 },
+              url: { type: String, default: "" },
+              linkType: { type: String, default: "navigateTo" },
+              disableTouch: { type: Boolean, default: !0 },
+              disableScroll: { type: Boolean, default: !1 },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (r = a.props) ||
+              void 0 === r
+              ? void 0
+              : r.noticeBar,
+          ),
+        };
+      t.default = l;
+    },
+    "5be2": function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var n = i("c8d9"),
+        a = i.n(n);
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      t["default"] = a.a;
+    },
+    "680c": function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var n = i("c31c"),
+        a = i.n(n);
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      t["default"] = a.a;
+    },
+    "685d": function (e, t, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0);
+      var a = n(i("4d8f0")),
+        r = n(i("9463")),
+        o = n(i("5a96")),
+        l = {
+          name: "uv-notice-bar",
+          emits: ["click", "close", "change"],
+          mixins: [a.default, r.default, o.default],
+          data: function () {
+            return { show: !0 };
+          },
+          methods: {
+            click: function (e) {
+              this.$emit("click", e),
+                this.url && this.linkType && this.openPage();
+            },
+            close: function () {
+              (this.show = !1), this.$emit("close");
+            },
+            change: function (e) {
+              this.$emit("change", e);
+            },
+          },
+        };
+      t.default = l;
+    },
+    "6ed5": function (e, t, i) {
+      "use strict";
+      var n = i("7f52"),
+        a = i.n(n);
+      a.a;
+    },
+    "7f52": function (e, t, i) {
+      var n = i("2733");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[e.i, n, ""]]),
+        n.locals && (e.exports = n.locals);
+      var a = i("967d").default;
+      a("c9333750", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    "8cdf": function (e, t, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        i("64aa");
+      var a,
+        r,
+        o = n(i("9b1b")),
+        l = {
+          props: (0, o.default)(
+            {
+              text: { type: [Array], default: "" },
+              icon: { type: [String, Boolean, null], default: "volume" },
+              mode: { type: String, default: "" },
+              color: { type: String, default: "#f9ae3d" },
+              bgColor: { type: String, default: "#fdf6ec" },
+              fontSize: { type: [String, Number], default: 14 },
+              speed: { type: [String, Number], default: 80 },
+              step: { type: Boolean, default: !1 },
+              duration: { type: [String, Number], default: 1500 },
+              disableTouch: { type: Boolean, default: !0 },
+              disableScroll: { type: Boolean, default: !1 },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (r = a.props) ||
+              void 0 === r
+              ? void 0
+              : r.columnNotice,
+          ),
+        };
+      t.default = l;
+    },
+    9054: function (e, t, i) {
+      "use strict";
+      var n = i("0c54"),
+        a = i.n(n);
+      a.a;
+    },
+    9327: function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var n = i("1d85"),
+        a = i("680c");
+      for (var r in a)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return a[e];
+            });
+          })(r);
+      i("9054");
+      var o = i("828b"),
+        l = Object(o["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "14a7a885",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    a922: function (e, t, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0);
+      var a = n(i("2634")),
+        r = n(i("2fdc"));
+      i("5c47"), i("0506"), i("aa9c"), i("f7a5");
+      var o = n(i("4d8f0")),
+        l = n(i("9463")),
+        s = n(i("c000")),
+        u = {
+          name: "uv-row-notice",
+          emits: ["click", "close"],
+          mixins: [o.default, l.default, s.default],
+          data: function () {
+            return {
+              animationDuration: "0",
+              animationPlayState: "paused",
+              nvueInit: !0,
+              show: !0,
+            };
+          },
+          watch: {
+            text: {
+              immediate: !0,
+              handler: function (e, t) {
+                this.vue(),
+                  this.$uv.test.string(e) ||
+                    this.$uv.error(
+                      "noticebar组件direction为row时，要求text参数为字符串形式",
+                    );
+              },
+            },
+            fontSize: function () {
+              this.vue();
+            },
+            speed: function () {
+              this.vue();
+            },
+          },
+          computed: {
+            textStyle: function () {
+              var e = {};
+              return (
+                (e.color = this.color),
+                (e.fontSize = this.$uv.addUnit(this.fontSize)),
+                e
+              );
+            },
+            animationStyle: function () {
+              var e = {};
+              return (
+                (e.animationDuration = this.animationDuration),
+                (e.animationPlayState = this.animationPlayState),
+                e
+              );
+            },
+            innerText: function () {
+              for (
+                var e = [], t = this.text ? this.text.split("") : [], i = 0;
+                i < t.length;
+                i += 20
+              )
+                e.push(t.slice(i, i + 20).join(""));
+              return e;
+            },
+          },
+          mounted: function () {
+            this.init();
+          },
+          methods: {
+            init: function () {
+              this.vue(),
+                this.$uv.test.string(this.text) ||
+                  this.$uv.error(
+                    "noticebar组件direction为row时，要求text参数为字符串形式",
+                  );
+            },
+            vue: function () {
+              var e = this;
+              return (0, r.default)(
+                (0, a.default)().mark(function t() {
+                  var i;
+                  return (0, a.default)().wrap(function (t) {
+                    while (1)
+                      switch ((t.prev = t.next)) {
+                        case 0:
+                          return 0, (i = 0), (t.next = 3), e.$uv.sleep();
+                        case 3:
+                          return (
+                            (t.next = 5),
+                            e.$uvGetRect(".uv-notice__content__text")
+                          );
+                        case 5:
+                          return (
+                            (i = t.sent.width),
+                            (t.next = 8),
+                            e.$uvGetRect(".uv-notice__content")
+                          );
+                        case 8:
+                          t.sent.width,
+                            (e.animationDuration = "".concat(
+                              i / e.$uv.getPx(e.speed),
+                              "s",
+                            )),
+                            (e.animationPlayState = "paused"),
+                            setTimeout(function () {
+                              e.animationPlayState = "running";
+                            }, 10);
+                        case 12:
+                        case "end":
+                          return t.stop();
+                      }
+                  }, t);
+                }),
+              )();
+            },
+            nvue: function () {
+              return (0, r.default)(
+                (0, a.default)().mark(function e() {
+                  return (0, a.default)().wrap(function (e) {
+                    while (1)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                }),
+              )();
+            },
+            loopAnimation: function (e, t) {},
+            getNvueRect: function (e) {},
+            clickHandler: function (e) {
+              this.$emit("click");
+            },
+            close: function () {
+              this.$emit("close");
+            },
+          },
+        };
+      t.default = u;
+    },
+    af7e: function (e, t, i) {
+      "use strict";
+      var n = i("e803"),
+        a = i.n(n);
+      a.a;
+    },
+    bde6: function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var n = i("685d"),
+        a = i.n(n);
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      t["default"] = a.a;
+    },
+    c000: function (e, t, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        i("64aa");
+      var a,
+        r,
+        o = n(i("9b1b")),
+        l = {
+          props: (0, o.default)(
+            {
+              text: { type: String, default: "" },
+              icon: { type: [String, Boolean, null], default: "volume" },
+              mode: { type: String, default: "" },
+              color: { type: String, default: "#f9ae3d" },
+              bgColor: { type: String, default: "#fdf6ec" },
+              fontSize: { type: [String, Number], default: 14 },
+              speed: { type: [String, Number], default: 80 },
+            },
+            null === (a = uni.$uv) ||
+              void 0 === a ||
+              null === (r = a.props) ||
+              void 0 === r
+              ? void 0
+              : r.rowNotice,
+          ),
+        };
+      t.default = l;
+    },
+    c31c: function (e, t, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        i("5c47"),
+        i("0506");
+      var a = n(i("4d8f0")),
+        r = n(i("9463")),
+        o = n(i("8cdf")),
+        l = {
+          emits: ["click", "close", "change"],
+          mixins: [a.default, r.default, o.default],
+          watch: {
+            text: {
+              immediate: !0,
+              handler: function (e, t) {
+                this.$uv.test.array(e) ||
+                  this.$uv.error(
+                    "noticebar组件direction为column时，要求text参数为数组形式",
+                  );
+              },
+            },
+          },
+          computed: {
+            textStyle: function () {
+              var e = {};
+              return (
+                (e.color = this.color),
+                (e.fontSize = this.$uv.addUnit(this.fontSize)),
+                e
+              );
+            },
+            vertical: function () {
+              return "horizontal" != this.mode;
+            },
+            swiperStyle: function () {
+              return {};
+            },
+          },
+          data: function () {
+            return { index: 0 };
+          },
+          methods: {
+            noticeChange: function (e) {
+              (this.index = e.detail.current), this.$emit("change", this.index);
+            },
+            clickHandler: function () {
+              this.$emit("click", this.index);
+            },
+            close: function () {
+              this.$emit("close");
+            },
+          },
+        };
+      t.default = l;
+    },
+    c8d9: function (e, t, i) {
+      "use strict";
+      i("6a54");
+      var n = i("f5bd").default;
+      Object.defineProperty(t, "__esModule", { value: !0 }),
+        (t.default = void 0),
+        i("dd2b"),
+        i("c223"),
+        i("fd3c"),
+        i("aa9c");
+      var a = n(i("9b1b")),
+        r = n(i("2634")),
+        o = n(i("2fdc")),
+        l = n(i("39d8")),
+        s = i("e74a"),
+        u = n(i("2609")),
+        c = i("15b8"),
+        d = {
+          data: function () {
+            var e;
+            return (
+              (e = {
+                palte: "h5",
+                notice: "以下三种提现方式可以全部填写,也可任选其一填写",
+                form: {
+                  alipay_name: "",
+                  alipay: "",
+                  alipay_code: [],
+                  weixin_name: "",
+                  weixin: "",
+                  weixin_code: [],
+                  bank_name: "",
+                  bank: "",
+                  bank_mobile: "",
+                  bank_sfz: "",
+                  bank_open: "",
+                },
+                rules: {
+                  alipay_name: {
+                    type: "string",
+                    required: !1,
+                    message: "请输入支付宝实名",
+                    trigger: ["blur", "change"],
+                  },
+                  alipay: {
+                    type: "string",
+                    required: !1,
+                    message: "请输入支付宝账号",
+                    trigger: ["blur", "change"],
+                  },
+                  alipay_code: {
+                    type: "array",
+                    required: !1,
+                    message: "请上传支付宝收款码",
+                    trigger: ["blur", "change"],
+                  },
+                  weixin_name: {
+                    type: "string",
+                    required: !1,
+                    message: "请输入微信实名",
+                    trigger: ["blur", "change"],
+                  },
+                  weixin: {
+                    type: "string",
+                    required: !1,
+                    message: "请输入微信账号",
+                    trigger: ["blur", "change"],
+                  },
+                  weixin_code: {
+                    type: "array",
+                    required: !1,
+                    message: "请上传微信收款码",
+                    trigger: ["blur", "change"],
+                  },
+                  bank_name: {
+                    type: "string",
+                    required: !1,
+                    message: "请输入银行实名",
+                    trigger: ["blur", "change"],
+                  },
+                  bank: {
+                    type: "string",
+                    required: !1,
+                    message: "请输入银行账号",
+                    trigger: ["blur", "change"],
+                  },
+                  bank_mobile: {
+                    type: "string",
+                    required: !1,
+                    message: "请输入银行预留手机号",
+                    trigger: ["blur", "change"],
+                  },
+                  bank_sfz: {
+                    type: "string",
+                    required: !1,
+                    message: "请输入持卡人身份证号",
+                    trigger: ["blur", "change"],
+                  },
+                  bank_open: {
+                    type: "string",
+                    required: !1,
+                    message: "请输入开户行名称",
+                    trigger: ["blur", "change"],
+                  },
+                },
+                style: 0,
+              }),
+              (0, l.default)(e, "palte", "h5"),
+              (0, l.default)(e, "cash_show_alipay", 0),
+              (0, l.default)(e, "cash_pay_list", []),
+              e
+            );
+          },
+          computed: {
+            height: function () {
+              return uni.getSystemInfoSync().windowHeight - uni.upx2px(100);
+            },
+          },
+          onReady: function () {
+            this.$refs.form.setRules(this.rules);
+          },
+          onLoad: function (e) {
+            this.getRealInfo();
+          },
+          onPullDownRefresh: function () {
+            var e = this;
+            uni.showLoading({ title: "刷新中" }),
+              setTimeout(function () {
+                uni.hideLoading(),
+                  e.getRealInfo(),
+                  uni.showToast({ title: "刷新成功", duration: 1e3 }),
+                  uni.stopPullDownRefresh();
+              }, 300);
+          },
+          methods: {
+            submit: function () {
+              var e = this;
+              0 == this.style &&
+                (1 == this.cash_show_alipay &&
+                  (this.rules.alipay_name.required = !1),
+                (this.rules.weixin_name.required = !1),
+                (this.rules.bank_name.required = !1)),
+                "" != this.form.alipay_name
+                  ? ((this.style = 1),
+                    (this.rules.weixin_name.required = !1),
+                    (this.rules.weixin.required = !1),
+                    (this.rules.weixin_code.required = !1),
+                    (this.rules.bank_name.required = !1),
+                    (this.rules.bank.required = !1),
+                    (this.rules.bank_open.required = !1),
+                    1 == this.cash_show_alipay &&
+                      ((this.rules.alipay.required = !1),
+                      (this.rules.alipay_code.required = !1)))
+                  : "" != this.form.weixin_name
+                    ? ((this.style = 2),
+                      1 == this.cash_show_alipay &&
+                        ((this.rules.alipay_name.required = !1),
+                        (this.rules.alipay.required = !1),
+                        (this.rules.alipay_code.required = !1)),
+                      (this.rules.bank_name.required = !1),
+                      (this.rules.bank.required = !1),
+                      (this.rules.bank_open.required = !1),
+                      (this.rules.weixin.required = !1),
+                      (this.rules.weixin_code.required = !1))
+                    : "" != this.form.bank_name &&
+                      ((this.style = 3),
+                      1 == this.cash_show_alipay &&
+                        ((this.rules.alipay_name.required = !1),
+                        (this.rules.alipay.required = !1),
+                        (this.rules.alipay_code.required = !1)),
+                      (this.rules.weixin_name.required = !1),
+                      (this.rules.weixin.required = !1),
+                      (this.rules.weixin_code.required = !1),
+                      (this.rules.bank.required = !1),
+                      (this.rules.bank_open.required = !1)),
+                console.log(this.style),
+                this.$refs.form
+                  .validate()
+                  .then(function (t) {
+                    uni.$uv.throttle(e.saveRealInfo, 1500),
+                      console.log("已经提交");
+                  })
+                  .catch(function (e) {
+                    console.log("拦截了");
+                  });
+            },
+            saveRealInfo: function () {
+              uni.showLoading({ title: "加载中.." }),
+                (0, s.send)(
+                  "/wechat/UserReal/saveRealInfo",
+                  {
+                    alipay_name: this.form.alipay_name,
+                    alipay: this.form.alipay,
+                    alipay_code: this.form.alipay_code,
+                    weixin_name: this.form.weixin_name,
+                    weixin: this.form.weixin,
+                    weixin_code: this.form.weixin_code,
+                    bank_name: this.form.bank_name,
+                    bank: this.form.bank,
+                    bank_mobile: this.form.bank_mobile,
+                    bank_sfz: this.form.bank_sfz,
+                    bank_open: this.form.bank_open,
+                  },
+                  !1,
+                ).then(function (e) {
+                  uni.hideLoading();
+                  var t = e.status,
+                    i = e.msg;
+                  e.data;
+                  if (1 != t) return uni.$uv.toast(i);
+                  uni.$uv.toast(i),
+                    setTimeout(function () {
+                      uni.navigateBack();
+                    }, 3e3);
+                });
+            },
+            getRealInfo: function () {
+              var e = this;
+              uni.showLoading({ title: "加载中.." }),
+                (0, s.send)(
+                  "/wechat/UserReal/getRealInfo",
+                  { label: "share" },
+                  !1,
+                ).then(function (t) {
+                  uni.hideLoading();
+                  var i = t.status,
+                    n = t.msg,
+                    a = t.data;
+                  if (1 != i) return uni.$uv.toast(n);
+                  a.notice_real && (e.notice = a.notice_real);
+                  var r = a.user;
+                  r &&
+                    ((e.form.alipay_name = r.alipay_name),
+                    (e.form.alipay = r.alipay),
+                    (e.form.alipay_code = r.alipay_code),
+                    (e.form.weixin_name = r.weixin_name),
+                    (e.form.weixin = r.weixin),
+                    (e.form.weixin_code = r.weixin_code),
+                    (e.form.bank_name = r.bank_name),
+                    (e.form.bank = r.bank),
+                    (e.form.bank_mobile = r.bank_mobile ? r.bank_mobile : ""),
+                    (e.form.bank_sfz = r.bank_sfz ? r.bank_sfz : ""),
+                    (e.form.bank_open = r.bank_open)),
+                    (e.cash_show_alipay = a.cash_show_alipay),
+                    (e.cash_pay_list = a.cash_pay_list),
+                    e.initUpload(a.up_config);
+                });
+            },
+            jump: function (e) {
+              uni.navigateTo({ url: e });
+            },
+            upAlipay: function (e, t) {
+              var i = this;
+              return (0, o.default)(
+                (0, r.default)().mark(function n() {
+                  var a;
+                  return (0, r.default)().wrap(function (n) {
+                    while (1)
+                      switch ((n.prev = n.next)) {
+                        case 0:
+                          return (n.next = 2), (0, c.uploadCompressImgs)(e);
+                        case 2:
+                          (a = n.sent),
+                            (0, s.send)(
+                              "/wechat/Files/uploadBase64",
+                              { label: "real", file: a },
+                              !1,
+                            ).then(function (e) {
+                              e.status;
+                              var n = e.msg,
+                                a = e.data;
+                              if (1 != e.code)
+                                return (
+                                  (i.form.alipay_code = []), uni.$uv.toast(n)
+                                );
+                              var r = i.form.alipay_code[t];
+                              i.form.alipay_code.splice(
+                                t,
+                                1,
+                                Object.assign(r, {
+                                  status: "success",
+                                  message: "",
+                                  url: a.fullurl,
+                                }),
+                              );
+                            });
+                        case 4:
+                        case "end":
+                          return n.stop();
+                      }
+                  }, n);
+                }),
+              )();
+            },
+            selectAlipay: function (e) {
+              var t = this,
+                i = [].concat(e.file),
+                n = this.form.alipay_code.length;
+              i.map(function (e) {
+                t.form.alipay_code.push(
+                  (0, a.default)(
+                    (0, a.default)({}, e),
+                    {},
+                    { status: "uploading", message: "上传中" },
+                  ),
+                );
+              });
+              for (var r = 0; r < i.length; r++)
+                "h5" == this.palte && this.upAlipay(i[r].url, n),
+                  "mp-weixin" == this.palte &&
+                    this.selectWeappPic(1, i[r].url, n),
+                  n++;
+            },
+            initUpload: function (e) {
+              "mp-weixin" == this.palte &&
+                (this.uploader = new u.default({
+                  domain: e.domain,
+                  tokenUrl: e.token_url,
+                  quality: 0.6,
+                  prefix: e.prefix,
+                }));
+            },
+            selectWeappPic: function () {
+              var e = arguments,
+                t = this;
+              return (0, o.default)(
+                (0, r.default)().mark(function i() {
+                  var n, a, o, l, s, u;
+                  return (0, r.default)().wrap(
+                    function (i) {
+                      while (1)
+                        switch ((i.prev = i.next)) {
+                          case 0:
+                            return (
+                              (n = e.length > 0 && void 0 !== e[0] ? e[0] : 1),
+                              (a = e.length > 1 ? e[1] : void 0),
+                              (o = e.length > 2 ? e[2] : void 0),
+                              (i.prev = 3),
+                              (i.next = 6),
+                              t.uploader.uploadWechatAvatar({ avatarUrl: a })
+                            );
+                          case 6:
+                            (l = i.sent),
+                              console.log(l),
+                              1 == n &&
+                                ((s = t.form.alipay_code[o]),
+                                t.form.alipay_code.splice(
+                                  o,
+                                  1,
+                                  Object.assign(s, {
+                                    status: "success",
+                                    message: "",
+                                    url: l.url,
+                                  }),
+                                )),
+                              2 == n &&
+                                ((u = t.form.weixin_code[o]),
+                                t.form.weixin_code.splice(
+                                  o,
+                                  1,
+                                  Object.assign(u, {
+                                    status: "success",
+                                    message: "",
+                                    url: l.url,
+                                  }),
+                                )),
+                              (i.next = 16);
+                            break;
+                          case 12:
+                            (i.prev = 12),
+                              (i.t0 = i["catch"](3)),
+                              uni.showToast({
+                                title:
+                                  "发送失败: " + (i.t0.message || "未知错误"),
+                                icon: "none",
+                              }),
+                              console.error("发送失败:", i.t0);
+                          case 16:
+                          case "end":
+                            return i.stop();
+                        }
+                    },
+                    i,
+                    null,
+                    [[3, 12]],
+                  );
+                }),
+              )();
+            },
+            deleteAlipay: function (e) {
+              console.log(this.form.alipay_code),
+                console.log(e),
+                this.form.alipay_code.splice(e.index, 1);
+            },
+            upWeixin: function (e, t) {
+              var i = this;
+              return (0, o.default)(
+                (0, r.default)().mark(function n() {
+                  var a;
+                  return (0, r.default)().wrap(function (n) {
+                    while (1)
+                      switch ((n.prev = n.next)) {
+                        case 0:
+                          return (n.next = 2), (0, c.uploadCompressImgs)(e);
+                        case 2:
+                          (a = n.sent),
+                            (0, s.send)(
+                              "/wechat/Files/uploadBase64",
+                              { label: "real", file: a },
+                              !1,
+                            ).then(function (e) {
+                              e.status;
+                              var n = e.msg,
+                                a = e.data;
+                              if (1 != e.code)
+                                return (
+                                  (i.form.weixin_code = []), uni.$uv.toast(n)
+                                );
+                              var r = i.form.weixin_code[t];
+                              i.form.weixin_code.splice(
+                                t,
+                                1,
+                                Object.assign(r, {
+                                  status: "success",
+                                  message: "",
+                                  url: a.fullurl,
+                                }),
+                              );
+                            });
+                        case 4:
+                        case "end":
+                          return n.stop();
+                      }
+                  }, n);
+                }),
+              )();
+            },
+            selectWeixin: function (e) {
+              var t = this,
+                i = [].concat(e.file),
+                n = this.form.weixin_code.length;
+              i.map(function (e) {
+                t.form.weixin_code.push(
+                  (0, a.default)(
+                    (0, a.default)({}, e),
+                    {},
+                    { status: "uploading", message: "上传中" },
+                  ),
+                );
+              });
+              for (var r = 0; r < i.length; r++)
+                "h5" == this.palte && this.upWeixin(i[r].url, n),
+                  "mp-weixin" == this.palte &&
+                    this.selectWeappPic(2, i[r].url, n),
+                  n++;
+            },
+            deleteWeixin: function (e) {
+              console.log(this.form.weixin_code),
+                console.log(e),
+                this.form.weixin_code.splice(e.index, 1);
+            },
+            previewImage: function (e, t) {
+              uni.previewImage({ current: e, urls: t });
+            },
+          },
+        };
+      t.default = d;
+    },
+    cec2: function (e, t, i) {
+      "use strict";
+      i.d(t, "b", function () {
+        return a;
+      }),
+        i.d(t, "c", function () {
+          return r;
+        }),
+        i.d(t, "a", function () {
+          return n;
+        });
+      var n = {
+          uvColumnNotice: i("9327").default,
+          uvRowNotice: i("25b2").default,
+        },
+        a = function () {
+          var e = this,
+            t = e.$createElement,
+            i = e._self._c || t;
+          return e.show
+            ? i(
+                "v-uni-view",
+                {
+                  staticClass: "uv-notice-bar",
+                  style: [
+                    { backgroundColor: e.bgColor },
+                    e.$uv.addStyle(e.customStyle),
+                  ],
+                },
+                [
+                  "column" === e.direction || ("row" === e.direction && e.step)
+                    ? [
+                        i("uv-column-notice", {
+                          attrs: {
+                            color: e.color,
+                            bgColor: e.bgColor,
+                            text: e.text,
+                            mode: e.mode,
+                            step: e.step,
+                            icon: e.icon,
+                            "disable-touch": e.disableTouch,
+                            "disable-scroll": e.disableScroll,
+                            fontSize: e.fontSize,
+                            duration: e.duration,
+                          },
+                          on: {
+                            close: function (t) {
+                              (arguments[0] = t = e.$handleEvent(t)),
+                                e.close.apply(void 0, arguments);
+                            },
+                            click: function (t) {
+                              (arguments[0] = t = e.$handleEvent(t)),
+                                e.click.apply(void 0, arguments);
+                            },
+                            change: function (t) {
+                              (arguments[0] = t = e.$handleEvent(t)),
+                                e.change.apply(void 0, arguments);
+                            },
+                          },
+                        }),
+                      ]
+                    : [
+                        i("uv-row-notice", {
+                          attrs: {
+                            color: e.color,
+                            bgColor: e.bgColor,
+                            text: e.text,
+                            mode: e.mode,
+                            fontSize: e.fontSize,
+                            speed: e.speed,
+                            url: e.url,
+                            linkType: e.linkType,
+                            icon: e.icon,
+                          },
+                          on: {
+                            close: function (t) {
+                              (arguments[0] = t = e.$handleEvent(t)),
+                                e.close.apply(void 0, arguments);
+                            },
+                            click: function (t) {
+                              (arguments[0] = t = e.$handleEvent(t)),
+                                e.click.apply(void 0, arguments);
+                            },
+                          },
+                        }),
+                      ],
+                ],
+                2,
+              )
+            : e._e();
+        },
+        r = [];
+    },
+    cee4: function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var n = i("a922"),
+        a = i.n(n);
+      for (var r in n)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return n[e];
+            });
+          })(r);
+      t["default"] = a.a;
+    },
+    d2f9: function (e, t, i) {
+      var n = i("c86c");
+      (t = n(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.content[data-v-ce4ee83a]{padding:%?84?% %?0?% %?155?% 0}[data-v-ce4ee83a] .uv-notice-bar{position:fixed;left:0;right:0;top:0;max-width:480px;width:100%;margin:0 auto;z-index:21;box-shadow:0 0 %?10?% #ddd}[data-v-ce4ee83a] .uv-form-item__body__left{align-items:flex-start!important;margin-top:%?18?%!important}[data-v-ce4ee83a] .uv-form-item__body__left__content__label span{white-space:nowrap!important}[data-v-ce4ee83a] .uv-form-item{margin:%?55?% auto;padding-right:%?30?%}[data-v-ce4ee83a] .uv-form-item.remarks_box .uv-form-item__body__left{align-items:flex-start!important}[data-v-ce4ee83a] .uv-form-item__body{padding:%?0?%!important}[data-v-ce4ee83a] .uv-form-item__body__left{width:auto!important;margin-right:%?24?%!important;position:relative;font-weight:700;width:%?220?%!important;white-space:nowrap}[data-v-ce4ee83a] .uv-form-item__body__left__content{padding:0!important;justify-content:flex-end!important}[data-v-ce4ee83a] .uv-form-item__body__left__content__label{position:relative!important;display:inline-block!important;text-align:right!important;z-index:10!important;flex:0!important}[data-v-ce4ee83a] .uv-form-item__body__left__content__label::before{z-index:-1;display:block;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?6?%;-webkit-transform:translate(-50%);transform:translate(-50%)}[data-v-ce4ee83a] .uv-form-item__body__right__message{margin-left:%?244?%!important;margin-top:%?4?%!important}.btn_box[data-v-ce4ee83a]{position:fixed;max-width:480px;width:100%;margin:0 auto;box-shadow:0 0 %?10?% #ddd;left:0;right:0;bottom:0;background:#fff;z-index:20}.btn_box .sub_btn[data-v-ce4ee83a]{margin:%?20?% %?30?%;background:#ffe610;height:%?90?%;line-height:%?90?%;border-radius:%?90?%;font-size:15px;font-weight:700;text-align:center}.btn_box .sub_btn.dis[data-v-ce4ee83a]{background:#eee;color:#666}.reason_box[data-v-ce4ee83a]{padding:%?30?%}.reason_box.remarks_box[data-v-ce4ee83a]{align-items:flex-start}.reason_box .tit[data-v-ce4ee83a]{font-size:15px;font-weight:700;position:relative;z-index:10}.reason_box .tit[data-v-ce4ee83a]::before{z-index:-1;display:block;content:"";width:72%;height:%?20?%;border-radius:%?20?%;background:#ffe610;position:absolute;left:50%;bottom:%?6?%;-webkit-transform:translate(-50%);transform:translate(-50%)}.reason_box .txt[data-v-ce4ee83a]{width:calc(100% - %?170?%)}.reason_box .txt.img_box[data-v-ce4ee83a]{display:grid;grid-template-columns:repeat(3,1fr);grid-gap:%?25?%}.reason_box .txt.img_box img[data-v-ce4ee83a]{border-radius:%?15?%;width:%?162?%;height:%?162?%}.line_box[data-v-ce4ee83a]{background:#f8f8f8;width:100%;height:%?14?%;margin:%?30?% auto}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    e05a: function (e, t, i) {
+      "use strict";
+      i.d(t, "b", function () {
+        return a;
+      }),
+        i.d(t, "c", function () {
+          return r;
+        }),
+        i.d(t, "a", function () {
+          return n;
+        });
+      var n = {
+          uvNoticeBar: i("ee8c").default,
+          uvForm: i("0de9").default,
+          uvFormItem: i("05af").default,
+          uvInput: i("f723").default,
+          uvUpload: i("7447").default,
+        },
+        a = function () {
+          var e = this,
+            t = e.$createElement,
+            i = e._self._c || t;
+          return i(
+            "v-uni-view",
+            { staticClass: "content" },
+            [
+              "h5" == e.palte
+                ? i("uv-notice-bar", {
+                    staticStyle: { top: "44px" },
+                    attrs: {
+                      text: e.notice ? e.notice : "",
+                      color: "#000",
+                      bgColor: "#F5B451",
+                      speed: "80",
+                    },
+                  })
+                : e._e(),
+              "mp-weixin" == e.palte
+                ? i("uv-notice-bar", {
+                    staticStyle: { top: "0px" },
+                    attrs: {
+                      text: e.notice ? e.notice : "",
+                      color: "#000",
+                      bgColor: "#F5B451",
+                      speed: "80",
+                    },
+                  })
+                : e._e(),
+              i(
+                "uv-form",
+                {
+                  ref: "form",
+                  attrs: {
+                    labelPosition: "left",
+                    model: e.form,
+                    rules: e.rules,
+                  },
+                },
+                [
+                  e.cash_pay_list.includes("2")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "支付宝姓名", prop: "alipay_name" } },
+                        [
+                          i("uv-input", {
+                            attrs: { placeholder: "请输入支付宝姓名" },
+                            model: {
+                              value: e.form.alipay_name,
+                              callback: function (t) {
+                                e.$set(e.form, "alipay_name", t);
+                              },
+                              expression: "form.alipay_name",
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("2")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "支付宝手机号", prop: "alipay" } },
+                        [
+                          i("uv-input", {
+                            attrs: {
+                              placeholder: "请输入支付宝手机号",
+                              type: "number",
+                              maxlength: "11",
+                            },
+                            model: {
+                              value: e.form.alipay,
+                              callback: function (t) {
+                                e.$set(e.form, "alipay", t);
+                              },
+                              expression: "form.alipay",
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("2")
+                    ? i(
+                        "uv-form-item",
+                        {
+                          attrs: { label: "支付宝收款码", prop: "alipay_code" },
+                        },
+                        [
+                          i("uv-upload", {
+                            attrs: {
+                              fileList: e.form.alipay_code,
+                              name: "1",
+                              maxCount: 1,
+                              multiple: !0,
+                              previewFullImage: !0,
+                              uploadText: "点击上传",
+                              accept: "image",
+                            },
+                            on: {
+                              afterRead: function (t) {
+                                (arguments[0] = t = e.$handleEvent(t)),
+                                  e.selectAlipay.apply(void 0, arguments);
+                              },
+                              delete: function (t) {
+                                (arguments[0] = t = e.$handleEvent(t)),
+                                  e.deleteAlipay.apply(void 0, arguments);
+                              },
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("2")
+                    ? i("v-uni-view", { staticClass: "line_box" })
+                    : e._e(),
+                  e.cash_pay_list.includes("1")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "微信实名", prop: "weixin_name" } },
+                        [
+                          i("uv-input", {
+                            attrs: { placeholder: "请输入微信实名" },
+                            model: {
+                              value: e.form.weixin_name,
+                              callback: function (t) {
+                                e.$set(e.form, "weixin_name", t);
+                              },
+                              expression: "form.weixin_name",
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("1")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "微信账号", prop: "weixin" } },
+                        [
+                          i("uv-input", {
+                            attrs: { placeholder: "请输入微信账号" },
+                            model: {
+                              value: e.form.weixin,
+                              callback: function (t) {
+                                e.$set(e.form, "weixin", t);
+                              },
+                              expression: "form.weixin",
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("1")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "微信收款码", prop: "weixin_code" } },
+                        [
+                          i("uv-upload", {
+                            attrs: {
+                              fileList: e.form.weixin_code,
+                              name: "1",
+                              maxCount: 1,
+                              multiple: !0,
+                              previewFullImage: !0,
+                              uploadText: "点击上传",
+                              accept: "image",
+                            },
+                            on: {
+                              afterRead: function (t) {
+                                (arguments[0] = t = e.$handleEvent(t)),
+                                  e.selectWeixin.apply(void 0, arguments);
+                              },
+                              delete: function (t) {
+                                (arguments[0] = t = e.$handleEvent(t)),
+                                  e.deleteWeixin.apply(void 0, arguments);
+                              },
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("1")
+                    ? i("v-uni-view", { staticClass: "line_box" })
+                    : e._e(),
+                  e.cash_pay_list.includes("3")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "姓名", prop: "bank_name" } },
+                        [
+                          i("uv-input", {
+                            attrs: { placeholder: "请输入姓名" },
+                            model: {
+                              value: e.form.bank_name,
+                              callback: function (t) {
+                                e.$set(e.form, "bank_name", t);
+                              },
+                              expression: "form.bank_name",
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("3")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "手机号", prop: "bank_mobile" } },
+                        [
+                          i("uv-input", {
+                            attrs: {
+                              placeholder: "请输入手机号",
+                              type: "number",
+                              maxlength: "11",
+                            },
+                            model: {
+                              value: e.form.bank_mobile,
+                              callback: function (t) {
+                                e.$set(e.form, "bank_mobile", t);
+                              },
+                              expression: "form.bank_mobile",
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("3")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "身份证", prop: "bank_sfz" } },
+                        [
+                          i("uv-input", {
+                            attrs: { placeholder: "请输入身份证号" },
+                            model: {
+                              value: e.form.bank_sfz,
+                              callback: function (t) {
+                                e.$set(e.form, "bank_sfz", t);
+                              },
+                              expression: "form.bank_sfz",
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("3")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "开户行", prop: "bank_open" } },
+                        [
+                          i("uv-input", {
+                            attrs: { placeholder: "请输入开户行" },
+                            model: {
+                              value: e.form.bank_open,
+                              callback: function (t) {
+                                e.$set(e.form, "bank_open", t);
+                              },
+                              expression: "form.bank_open",
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                  e.cash_pay_list.includes("3")
+                    ? i(
+                        "uv-form-item",
+                        { attrs: { label: "银行卡账号", prop: "bank" } },
+                        [
+                          i("uv-input", {
+                            attrs: { placeholder: "请输入银行卡账号" },
+                            model: {
+                              value: e.form.bank,
+                              callback: function (t) {
+                                e.$set(e.form, "bank", t);
+                              },
+                              expression: "form.bank",
+                            },
+                          }),
+                        ],
+                        1,
+                      )
+                    : e._e(),
+                ],
+                1,
+              ),
+              i(
+                "v-uni-view",
+                { staticClass: "btn_box" },
+                [
+                  i(
+                    "v-uni-view",
+                    {
+                      staticClass: "sub_btn",
+                      on: {
+                        click: function (t) {
+                          (arguments[0] = t = e.$handleEvent(t)),
+                            e.submit.apply(void 0, arguments);
+                        },
+                      },
+                    },
+                    [e._v("保存")],
+                  ),
+                ],
+                1,
+              ),
+            ],
+            1,
+          );
+        },
+        r = [];
+    },
+    e803: function (e, t, i) {
+      var n = i("d2f9");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[e.i, n, ""]]),
+        n.locals && (e.exports = n.locals);
+      var a = i("967d").default;
+      a("a7976ebe", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+    ee8c: function (e, t, i) {
+      "use strict";
+      i.r(t);
+      var n = i("cec2"),
+        a = i("bde6");
+      for (var r in a)
+        ["default"].indexOf(r) < 0 &&
+          (function (e) {
+            i.d(t, e, function () {
+              return a[e];
+            });
+          })(r);
+      i("4940");
+      var o = i("828b"),
+        l = Object(o["a"])(
+          a["default"],
+          n["b"],
+          n["c"],
+          !1,
+          null,
+          "5c490638",
+          null,
+          !1,
+          n["a"],
+          void 0,
+        );
+      t["default"] = l.exports;
+    },
+    f83f: function (e, t, i) {
+      var n = i("c86c");
+      (t = n(!1)),
+        t.push([
+          e.i,
+          '@charset "UTF-8";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */.uv-line-1[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:1;-webkit-box-orient:vertical!important}.uv-line-2[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:2;-webkit-box-orient:vertical!important}.uv-line-3[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:3;-webkit-box-orient:vertical!important}.uv-line-4[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:4;-webkit-box-orient:vertical!important}.uv-line-5[data-v-14a7a885]{display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-line-clamp:5;-webkit-box-orient:vertical!important}uni-view[data-v-14a7a885], uni-scroll-view[data-v-14a7a885], uni-swiper-item[data-v-14a7a885]{display:flex;flex-direction:column;flex-shrink:0;flex-grow:0;flex-basis:auto;align-items:stretch;align-content:flex-start}.uv-notice[data-v-14a7a885]{display:flex;flex-direction:row;align-items:center;justify-content:space-between}.uv-notice__left-icon[data-v-14a7a885]{align-items:center;margin-right:5px}.uv-notice__right-icon[data-v-14a7a885]{margin-left:5px;align-items:center}.uv-notice__swiper[data-v-14a7a885]{height:16px;display:flex;flex-direction:row;align-items:center;flex:1}.uv-notice__swiper__item[data-v-14a7a885]{display:flex;flex-direction:row;align-items:center;overflow:hidden}.uv-notice__swiper__item__text[data-v-14a7a885]{font-size:14px;color:#f9ae3d}',
+          "",
+        ]),
+        (e.exports = t);
+    },
+    fce2: function (e, t, i) {
+      "use strict";
+      i.d(t, "b", function () {
+        return a;
+      }),
+        i.d(t, "c", function () {
+          return r;
+        }),
+        i.d(t, "a", function () {
+          return n;
+        });
+      var n = { uvIcon: i("1a07").default },
+        a = function () {
+          var e = this,
+            t = e.$createElement,
+            i = e._self._c || t;
+          return i(
+            "v-uni-view",
+            {
+              staticClass: "uv-notice",
+              on: {
+                click: function (t) {
+                  (arguments[0] = t = e.$handleEvent(t)),
+                    e.clickHandler.apply(void 0, arguments);
+                },
+              },
+            },
+            [
+              e._t("icon", [
+                e.icon
+                  ? i(
+                      "v-uni-view",
+                      { staticClass: "uv-notice__left-icon" },
+                      [
+                        i("uv-icon", {
+                          attrs: { name: e.icon, color: e.color, size: "19" },
+                        }),
+                      ],
+                      1,
+                    )
+                  : e._e(),
+              ]),
+              i(
+                "v-uni-view",
+                {
+                  ref: "uv-notice__content",
+                  staticClass: "uv-notice__content",
+                },
+                [
+                  i(
+                    "v-uni-view",
+                    {
+                      ref: "uv-notice__content__text",
+                      staticClass: "uv-notice__content__text",
+                      style: [e.animationStyle],
+                    },
+                    e._l(e.innerText, function (t, n) {
+                      return i("v-uni-text", { key: n, style: [e.textStyle] }, [
+                        e._v(e._s(t)),
+                      ]);
+                    }),
+                    1,
+                  ),
+                ],
+                1,
+              ),
+              ["link", "closable"].includes(e.mode)
+                ? i(
+                    "v-uni-view",
+                    { staticClass: "uv-notice__right-icon" },
+                    [
+                      "link" === e.mode
+                        ? i("uv-icon", {
+                            attrs: {
+                              name: "arrow-right",
+                              size: 17,
+                              color: e.color,
+                            },
+                          })
+                        : e._e(),
+                      "closable" === e.mode
+                        ? i("uv-icon", {
+                            attrs: { name: "close", size: 16, color: e.color },
+                            on: {
+                              click: function (t) {
+                                (arguments[0] = t = e.$handleEvent(t)),
+                                  e.close.apply(void 0, arguments);
+                              },
+                            },
+                          })
+                        : e._e(),
+                    ],
+                    1,
+                  )
+                : e._e(),
+            ],
+            2,
+          );
+        },
+        r = [];
+    },
+    fe5a: function (e, t, i) {
+      var n = i("2657");
+      n.__esModule && (n = n.default),
+        "string" === typeof n && (n = [[e.i, n, ""]]),
+        n.locals && (e.exports = n.locals);
+      var a = i("967d").default;
+      a("570ded6e", n, !0, { sourceMap: !1, shadowMode: !1 });
+    },
+  },
+]);
+//# sourceMappingURL=pages-user-certification.61def474.js.map
