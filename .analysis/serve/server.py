@@ -430,9 +430,18 @@ def api_getSubmitInfo(conn, req, user):
         return {"status": 0, "msg": "商品不存在", "data": {}}
     cat = conn.execute("SELECT * FROM cats WHERE id=?",
                        (row["cat1_id"],)).fetchone()
+    goods = goods_dict(row)
+    # 原站商品字段：area_price=null、rise_price=0 时前端不加价；
+    # 缺失会使合计计算得到 NaN（显示 ￥0）
+    goods.update({
+        "price": fmt_price(row["price"]),
+        "area_price": None, "rise_price": 0,
+        "buy_type": 0, "buy_num1": 0, "buy_num2": 0,
+        "buy_dis1": 0, "buy_dis2": 0,
+    })
     data = {
-        "goods": goods_dict(row),
-        "buy_tips": "<p>%s</p>" % (row["content"] or row["intro"]),
+        "goods": goods,
+        "buy_tips": row["content"] or ("<p>%s</p>" % row["intro"]),
         "num_ids": [1, 2, 3, 4, 5], "text_ids": [],
         "can_buy_num": 10, "seckill_left_num": -1,
         "input_mobile": 1, "show_text_id": 0, "zhiding_to_rand": 0,
@@ -461,7 +470,9 @@ def api_getPayInfo(conn, req, user):
              "color": "#ff9800", "status": 1},
         ],
         "pay_type": 3, "order_black": "",
-        "price": "%.2f" % row["price"], "pay_deadline": "10分钟",
+        "price": "%.2f" % row["price"],
+        # 倒计时组件需要毫秒数
+        "pay_deadline": 600000,
         "money": "%.2f" % ((user or {}).get("balance", 0)),
         "pay_debug": 1,
     }}
