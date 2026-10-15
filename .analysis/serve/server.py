@@ -17,45 +17,127 @@ from urllib.parse import unquote
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
 
-IMG = "https://trae-api-cn.mchost.guru/api/ide/v1/tool_text_to_image?prompt=%s&image_size=%s"
+IMG_DIR = os.path.join(ROOT, "imgs")
 
 
-def img(prompt, size="square"):
-    from urllib.parse import quote
+def _save_svg(name, body):
+    """生成 SVG 演示图并写入 imgs/ 目录，返回同源 URL。
 
-    return IMG % (quote(prompt), size)
+    原方案使用在线图片生成接口，实测该接口需鉴权（返回 code:1001），
+    导致页面上所有图片加载失败，因此改为本地生成矢量图。
+    """
+    os.makedirs(IMG_DIR, exist_ok=True)
+    os.makedirs(os.path.join(ROOT, "h5", "imgs"), exist_ok=True)
+    path = os.path.join(IMG_DIR, name + ".svg")
+    if not os.path.exists(path):
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(body)
+    # uni-app tabbar 组件会给图片路径加 /h5 前缀，因此同时写入 h5/imgs/
+    with open(os.path.join(ROOT, "h5", "imgs", name + ".svg"), "w", encoding="utf-8") as f:
+        f.write(body)
+    return "/imgs/" + name + ".svg"
+
+
+def _grad(gid, c1, c2):
+    return ('<defs><linearGradient id="%s" x1="0" y1="0" x2="1" y2="1">'
+            '<stop offset="0" stop-color="%s"/><stop offset="1" stop-color="%s"/>'
+            "</linearGradient></defs>") % (gid, c1, c2)
+
+
+def cover_img(name, title, sub, c1, c2):
+    body = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">'
+        + _grad("g", c1, c2)
+        + '<rect width="400" height="400" fill="url(#g)"/>'
+        '<circle cx="335" cy="65" r="95" fill="#ffffff" opacity=".10"/>'
+        '<circle cx="55" cy="345" r="75" fill="#000000" opacity=".12"/>'
+        '<polygon points="200,120 260,155 260,225 200,260 140,225 140,155" fill="none" stroke="#ffffff" stroke-width="6" opacity=".55"/>'
+        '<text x="200" y="315" font-size="46" fill="#ffffff" text-anchor="middle" font-family="sans-serif" font-weight="700">'
+        + title + "</text>"
+        '<text x="200" y="352" font-size="22" fill="#ffffff" opacity=".8" text-anchor="middle" font-family="sans-serif">'
+        + sub + "</text></svg>"
+    )
+    return _save_svg(name, body)
+
+
+def icon_img(name, text, c1, c2):
+    body = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">'
+        + _grad("g", c1, c2)
+        + '<rect x="8" y="8" width="184" height="184" rx="44" fill="url(#g)"/>'
+        '<text x="100" y="118" font-size="56" fill="#ffffff" text-anchor="middle" font-family="sans-serif" font-weight="700">'
+        + text + "</text></svg>"
+    )
+    return _save_svg(name, body)
+
+
+def banner_img(name, text, sub, c1, c2):
+    body = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="750" height="280" viewBox="0 0 750 280">'
+        + _grad("g", c1, c2)
+        + '<rect width="750" height="280" fill="url(#g)"/>'
+        '<circle cx="660" cy="40" r="130" fill="#ffffff" opacity=".10"/>'
+        '<circle cx="90" cy="260" r="90" fill="#000000" opacity=".12"/>'
+        '<text x="60" y="130" font-size="52" fill="#ffffff" font-family="sans-serif" font-weight="700">'
+        + text + "</text>"
+        '<text x="60" y="185" font-size="26" fill="#ffffff" opacity=".85" font-family="sans-serif">'
+        + sub + "</text></svg>"
+    )
+    return _save_svg(name, body)
+
+
+def avatar_img(name, letter, c1, c2):
+    body = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">'
+        + _grad("g", c1, c2)
+        + '<circle cx="80" cy="80" r="80" fill="url(#g)"/>'
+        '<circle cx="80" cy="62" r="28" fill="#ffffff" opacity=".9"/>'
+        '<path d="M30 140 Q80 92 130 140 L130 160 L30 160 Z" fill="#ffffff" opacity=".9"/></svg>'
+    )
+    return _save_svg(name, body)
+
+
+def tab_img(name, kind, color):
+    shapes = {
+        "home": '<path d="M20 50 L50 25 L80 50" fill="none" stroke="%s" stroke-width="6"/><rect x="30" y="50" width="40" height="28" rx="4" fill="none" stroke="%s" stroke-width="6"/>' % (color, color),
+        "cat": '<g fill="none" stroke="%s" stroke-width="6"><rect x="24" y="24" width="22" height="22" rx="4"/><rect x="54" y="24" width="22" height="22" rx="4"/><rect x="24" y="54" width="22" height="22" rx="4"/><rect x="54" y="54" width="22" height="22" rx="4"/></g>' % color,
+        "star": '<polygon points="50,22 60,42 82,45 66,60 70,82 50,71 30,82 34,60 18,45 40,42" fill="none" stroke="%s" stroke-width="6"/>' % color,
+        "kefu": '<path d="M25 60 L25 45 Q25 22 50 22 Q75 22 75 45 L75 60" fill="none" stroke="%s" stroke-width="6"/><rect x="20" y="55" width="14" height="22" rx="6" fill="%s"/><rect x="66" y="55" width="14" height="22" rx="6" fill="%s"/>' % (color, color, color),
+        "user": '<circle cx="50" cy="38" r="15" fill="none" stroke="%s" stroke-width="6"/><path d="M24 82 Q50 58 76 82" fill="none" stroke="%s" stroke-width="6"/>' % (color, color),
+    }
+    body = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">'
+        + shapes[kind] + "</svg>"
+    )
+    return _save_svg(name, body)
 
 
 GOODS = [
-    {"id": i + 1, "name": n, "goods_name": n, "thumb": img(p), "price": pr,
-     "unit": "小时", "star": 5, "sales": s, "label": "", "tags": []}
-    for i, (n, p, pr, s) in enumerate([
-        ("王者荣耀 上分陪玩", "esports mobile game companion service cover, MOBA warrior, neon glow, game card art", "20.00", 328),
-        ("和平精英 四排带飞", "battle royale shooter game companion service cover, tactical soldier, dynamic action, game card art", "25.00", 256),
-        ("原神 深渊代打", "anime open world fantasy game companion service cover, elemental mage, vibrant colors, game card art", "30.00", 189),
-        ("英雄联盟手游 上分", "esports mobile MOBA companion service cover, league of legends style hero, blue glow, game card art", "22.00", 143),
-        ("蛋仔派对 陪玩", "cute casual party game companion service cover, pastel colors, playful cartoon style", "15.00", 512),
-        ("云顶之弈 上分", "auto chess strategy game companion service cover, chess pieces, purple neon, game card art", "18.00", 97),
+    {"id": i + 1, "name": n, "goods_name": n, "thumb": cover_img("goods%d" % (i + 1), t, "陪玩 · 上分", c1, c2),
+     "price": pr, "unit": "小时", "star": 5, "sales": s, "label": "", "tags": []}
+    for i, (n, t, pr, s, c1, c2) in enumerate([
+        ("王者荣耀 上分陪玩", "王者荣耀", "20.00", 328, "#ff7a45", "#c0392b"),
+        ("和平精英 四排带飞", "和平精英", "25.00", 256, "#2f9e44", "#1b5e20"),
+        ("原神 深渊代打", "原神", "30.00", 189, "#13c2c2", "#006064"),
+        ("英雄联盟手游 上分", "英雄联盟", "22.00", 143, "#2f54eb", "#1a237e"),
+        ("蛋仔派对 陪玩", "蛋仔派对", "15.00", 512, "#eb2f96", "#880e4f"),
+        ("云顶之弈 上分", "云顶之弈", "18.00", 97, "#722ed1", "#311b92"),
     ])
 ]
 
 ICATS = [
-    {"id": 1, "name": "王者荣耀", "thumb": img("MOBA game category icon, warrior helmet, red gold, minimal flat icon")},
-    {"id": 2, "name": "和平精英", "thumb": img("shooter game category icon, crosshair and helmet, green military, minimal flat icon")},
-    {"id": 3, "name": "原神", "thumb": img("anime fantasy game category icon, magic crystal, teal glow, minimal flat icon")},
-    {"id": 4, "name": "英雄联盟", "thumb": img("esports MOBA category icon, sword and shield, blue gold, minimal flat icon")},
-    {"id": 5, "name": "蛋仔派对", "thumb": img("casual party game category icon, cute egg character, pastel pink, minimal flat icon")},
-    {"id": 6, "name": "更多分类", "thumb": img("more category icon, three dots grid, gray gradient, minimal flat icon")},
+    {"id": 1, "name": "王者荣耀", "thumb": icon_img("icat1", "王者", "#ff7a45", "#c0392b")},
+    {"id": 2, "name": "和平精英", "thumb": icon_img("icat2", "吃鸡", "#2f9e44", "#1b5e20")},
+    {"id": 3, "name": "原神", "thumb": icon_img("icat3", "原神", "#13c2c2", "#006064")},
+    {"id": 4, "name": "英雄联盟", "thumb": icon_img("icat4", "LOL", "#2f54eb", "#1a237e")},
+    {"id": 5, "name": "蛋仔派对", "thumb": icon_img("icat5", "蛋仔", "#eb2f96", "#880e4f")},
+    {"id": 6, "name": "更多分类", "thumb": icon_img("icat6", "更多", "#8c8c8c", "#595959")},
 ]
 
 # 真实 tabBar 路由来自编译产物 pages.json：首页/分类/达人/客服/我的
-NAV_ICONS = [
-    img("simple flat mobile app tab icon, home symbol, line style, white on transparent background"),
-    img("simple flat mobile app tab icon, category grid symbol, line style, white on transparent background"),
-    img("simple flat mobile app tab icon, star badge symbol, line style, white on transparent background"),
-    img("simple flat mobile app tab icon, headset service symbol, line style, white on transparent background"),
-    img("simple flat mobile app tab icon, user person symbol, line style, white on transparent background"),
-]
+NAV_ICONS = [tab_img("tab-home", "home", "#9b9b9b"), tab_img("tab-cat", "cat", "#9b9b9b"),
+             tab_img("tab-star", "star", "#9b9b9b"), tab_img("tab-kefu", "kefu", "#9b9b9b"),
+             tab_img("tab-user", "user", "#9b9b9b")]
 NAV_LIST = [
     {"id": 1, "name": "首页", "title": "首页", "path": "/pages/index/index",
      "icon": NAV_ICONS[0], "cur_icon": NAV_ICONS[0]},
@@ -70,14 +152,16 @@ NAV_LIST = [
 ]
 
 BANNERS = [
-    {"id": 1, "image": img("esports game companion platform banner, wide hero illustration, neon city night, gamers silhouettes", "landscape_16_9"), "url": ""},
-    {"id": 2, "image": img("game boosting service banner, wide illustration, trophy and star rating, purple gradient", "landscape_16_9"), "url": ""},
+    {"id": 1, "image": banner_img("banner1", "大神在线 · 随心畅玩", "真人陪玩 高分带飞", "#5b8def", "#2b3a8f"),
+     "url": ""},
+    {"id": 2, "image": banner_img("banner2", "新人专享 · 首单立减", "全场通用 自动到账", "#722ed1", "#311b92"),
+     "url": ""},
 ]
 
 DANMU = [
-    {"avatar": img("cartoon gamer boy avatar, neon blue, round icon"), "nickname": "玩家**86", "text": "刚刚下单了 王者荣耀 上分陪玩"},
-    {"avatar": img("cartoon gamer girl avatar, pink purple, round icon"), "nickname": "小***哦", "text": "刚刚下单了 和平精英 四排带飞"},
-    {"avatar": img("cartoon fox gamer avatar, orange, round icon"), "nickname": "大***哥", "text": "刚刚下单了 原神 深渊代打"},
+    {"avatar": avatar_img("dm1", "", "#5b8def", "#2b3a8f"), "nickname": "玩家**86", "text": "刚刚下单了 王者荣耀 上分陪玩"},
+    {"avatar": avatar_img("dm2", "", "#eb2f96", "#880e4f"), "nickname": "小***哦", "text": "刚刚下单了 和平精英 四排带飞"},
+    {"avatar": avatar_img("dm3", "", "#2f9e44", "#1b5e20"), "nickname": "大***哥", "text": "刚刚下单了 原神 深渊代打"},
 ]
 
 HOME_INFO = {
@@ -107,9 +191,17 @@ HOME_INFO = {
     "auth_status": 1,
 }
 
-GOODS_INFO = dict(GOODS[0], content="<p>本地演示数据：包含 1 小时代练陪玩服务。</p>", comments=[], spec=[])
+GOODS_INFO = dict(
+    GOODS[0],
+    title=GOODS[0]["name"], pics=[GOODS[0]["thumb"]], sale_num2=328, is_vip=0,
+    child_num=0, limit1=0, intro="", alert_status=0, alert_des="", raffle_id=0,
+    buy_tips="<p>本地演示数据：包含 1 小时陪玩服务。</p>",
+    vip_status=0, store_close=0, show_login_panel=1,
+    kefu={"kefu_weapp_type": 0, "kefu_link": "", "kefu_h5_type": 0},
+    seckill_show=None, user={},
+)
 
-DEMO_AVATAR = img("cartoon gamer avatar, hooded player with neon visor, round icon")
+DEMO_AVATAR = avatar_img("me", "", "#8c8c8c", "#434343")
 USER_INFO = {
     "id": 0, "nickname": "", "avatar": DEMO_AVATAR, "avatar_frame": "",
     "seller": 0, "seller_accept": 0, "user_vip": {}, "show_plat_pay_enter": 0,
