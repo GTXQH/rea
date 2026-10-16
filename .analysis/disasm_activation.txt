@@ -1,0 +1,2875 @@
+MODULE '@424'
+  imports: []
+  req_modules: []
+  exports: [('local', 0, '#c2cddc')]
+  star_exports: []
+=== func module._authVisible  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=1 bclen=13 debug=False
+    bc@2523
+    closure_vars: @252@0
+       0  push_this                
+       1  set_arg2                 
+       2  push_true                
+       3  scope_put_private_field  @1461504, 0
+      10  get_arg1                 
+      11  return_undef             
+      12  return_undef             
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index  kind=function args=5 varargs=2 defargs=5 stack=2 locals=0 closures=0 cpool=1 bclen=50 debug=False
+    bc@2549
+       0  get_var                  '输入激活码'
+       5  push_6                   -49
+       6  get_loc8                 loc65
+       8  put_loc0                 
+       9  invalid                  
+      10  invalid                  
+      11  invalid                  
+      12  drop                     
+      13  get_loc8                 loc65
+      15  put_loc1                 
+      16  invalid                  
+      17  invalid                  
+      18  invalid                  
+      19  drop                     
+      20  get_loc8                 loc65
+      22  put_loc2                 
+      23  invalid                  
+      24  invalid                  
+      25  invalid                  
+      26  drop                     
+      27  get_loc8                 loc65
+      29  put_loc3                 
+      30  invalid                  
+      31  invalid                  
+      32  invalid                  
+      33  drop                     
+      34  get_loc8                 loc65
+      36  get_loc3                 
+      37  invalid                  
+      38  invalid                  
+      39  invalid                  
+      40  dup                      
+      41  set_arg3                 
+      42  fclosure                 cpool[3200762894]
+      47  invalid                  
+      48  get_var_ref2             
+      49  return_undef             
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index  kind=function args=0 varargs=6 defargs=0 stack=32 locals=0 closures=2 cpool=7 bclen=2145 debug=False
+    bc@2619
+    closure_vars: @aiot/index@0, @aiot/index@3
+       0  scope_put_private_field  @184926466, 190
+       7  define_method            @2147484123, 4
+      13  scope_put_private_field  @56054785, 32768
+      20  push_atom_value          @79760330
+      25  line_num                 1124318725
+      30  set_loc0                 
+      31  invalid                  
+      32  invalid                  
+      33  invalid                  
+      34  line_num                 14353413
+      39  invalid                  
+      40  invalid                  
+      41  put_field                '/common/activation-qr.png'
+      46  leave_scope              56580
+      49  invalid                  
+      50  invalid                  
+      51  invalid                  
+      52  array_from               2
+      55  array_from               1
+      58  object                   
+      59  push_atom_value          '扫码购买，或在爱发电搜索'
+      64  define_field             '一只鱼yuii'
+      69  push_atom_value          '1. 购买后查看爱发电私信。 2. 发送“卡密,设备码”。 3. 核对后回复“确认”。 4. 输入收到的12位激活码。'
+      74  define_field             '交流 / 帮助 QQ 群'
+      79  array_from               2
+      82  leave_scope              57860
+      85  invalid                  
+      86  invalid                  
+      87  invalid                  
+      88  array_from               2
+      91  array_from               1
+      94  object                   
+      95  push_atom_value          '扫码购买，或在爱发电搜索'
+     100  define_field             '一只鱼yuii'
+     105  push_atom_value          '1. 购买后查看爱发电私信。 2. 发送“卡密,设备码”。 3. 核对后回复“确认”。 4. 输入收到的12位激活码。'
+     110  define_field             '交流 / 帮助 QQ 群'
+     115  push_atom_value          '返回激活页面'
+     120  define_field             '__cf__'
+     125  push_atom_value          'exp'
+     130  define_field             '$idx'
+     135  push_atom_value          'key'
+     140  define_field             '$item'
+     145  push_atom_value          '设备码 '
+     150  define_field             '------------'
+     155  array_from               2
+     158  leave_scope              60164
+     161  invalid                  
+     162  invalid                  
+     163  invalid                  
+     164  array_from               2
+     167  array_from               1
+     170  object                   
+     171  push_atom_value          '确认激活'
+     176  define_field             '一只鱼yuii'
+     181  push_atom_value          '/common/icons/cherry.png'
+     186  define_field             '交流 / 帮助 QQ 群'
+     191  push_atom_value          '/common/icons/coin.png'
+     196  define_field             '/common/icons/cat.png'
+     201  push_atom_value          '本机设备码'
+     206  define_field             'error'
+     211  push_atom_value          'key'
+     216  define_field             '重新核对'
+     221  array_from               2
+     224  leave_scope              62212
+     227  invalid                  
+     228  invalid                  
+     229  invalid                  
+     230  array_from               2
+     233  array_from               1
+     236  object                   
+     237  push_atom_value          '确认激活'
+     242  define_field             '一只鱼yuii'
+     247  push_atom_value          'exp'
+     252  define_field             '$idx'
+     257  push_atom_value          'key'
+     262  define_field             '$item'
+     267  array_from               2
+     270  leave_scope              62468
+     273  invalid                  
+     274  invalid                  
+     275  invalid                  
+     276  array_from               2
+     279  array_from               1
+     282  object                   
+     283  push_atom_value          '确认激活'
+     288  define_field             '一只鱼yuii'
+     293  push_atom_value          'exp'
+     298  define_field             '$idx'
+     303  push_atom_value          'key'
+     308  define_field             '$item'
+     313  array_from               2
+     316  leave_scope              62724
+     319  invalid                  
+     320  invalid                  
+     321  invalid                  
+     322  array_from               2
+     325  array_from               1
+     328  object                   
+     329  push_atom_value          '确认激活'
+     334  define_field             '一只鱼yuii'
+     339  push_atom_value          '进入游戏'
+     344  define_field             '交流 / 帮助 QQ 群'
+     349  push_atom_value          'exp'
+     354  define_field             '$idx'
+     359  push_atom_value          'key'
+     364  define_field             '$item'
+     369  array_from               2
+     372  leave_scope              63236
+     375  invalid                  
+     376  invalid                  
+     377  invalid                  
+     378  array_from               2
+     381  array_from               1
+     384  object                   
+     385  push_atom_value          'style'
+     390  define_field             '一只鱼yuii'
+     395  push_atom_value          'style'
+     400  define_field             '交流 / 帮助 QQ 群'
+     405  push_atom_value          @249
+     410  define_field             @250
+     415  push_atom_value          @251
+     420  define_field             @252
+     425  array_from               2
+     428  leave_scope              64772
+     431  invalid                  
+     432  invalid                  
+     433  invalid                  
+     434  array_from               2
+     437  array_from               1
+     440  object                   
+     441  push_atom_value          '确认激活'
+     446  define_field             '一只鱼yuii'
+     451  push_atom_value          @254
+     456  define_field             '交流 / 帮助 QQ 群'
+     461  push_atom_value          @255
+     466  define_field             '/common/icons/cat.png'
+     471  push_atom_value          @256
+     476  define_field             'error'
+     481  push_atom_value          'key'
+     486  define_field             '重新核对'
+     491  array_from               2
+     494  leave_scope              260
+     497  push_i32                 36044800
+     502  invalid                  
+     503  array_from               1
+     506  object                   
+     507  push_atom_value          '确认激活'
+     512  define_field             '一只鱼yuii'
+     517  push_atom_value          @258
+     522  define_field             '交流 / 帮助 QQ 群'
+     527  push_atom_value          @259
+     532  define_field             '/common/icons/cat.png'
+     537  push_atom_value          '本机设备码'
+     542  define_field             'error'
+     547  push_atom_value          'key'
+     552  define_field             '重新核对'
+     557  push_atom_value          @260
+     562  define_field             '__cf__'
+     567  push_atom_value          @261
+     572  define_field             @262
+     577  array_from               2
+     580  leave_scope              1796
+     583  push_i32                 36044800
+     588  invalid                  
+     589  array_from               1
+     592  object                   
+     593  push_atom_value          '确认激活'
+     598  define_field             '一只鱼yuii'
+     603  push_atom_value          'style'
+     608  define_field             '交流 / 帮助 QQ 群'
+     613  push_atom_value          @264
+     618  define_field             '/common/icons/cat.png'
+     623  push_atom_value          @265
+     628  define_field             @266
+     633  push_atom_value          @256
+     638  define_field             'error'
+     643  push_atom_value          'key'
+     648  define_field             '重新核对'
+     653  scope_get_var            @68428, 9728
+     660  push_const               cpool[201634560]
+     665  push_i32                 36044800
+     670  invalid                  
+     671  array_from               1
+     674  object                   
+     675  push_atom_value          @269
+     680  define_field             '一只鱼yuii'
+     685  push_atom_value          '/common/icons/cherry.png'
+     690  define_field             '交流 / 帮助 QQ 群'
+     695  push_atom_value          @270
+     700  define_field             @250
+     705  push_atom_value          @271
+     710  define_field             @262
+     715  push_atom_value          @272
+     720  define_field             '__cf__'
+     725  push_atom_value          'key'
+     730  define_field             @273
+     735  push_atom_value          'key'
+     740  define_field             '$item'
+     745  array_from               2
+     748  leave_scope              4612
+     751  push_i32                 36044800
+     756  invalid                  
+     757  array_from               1
+     760  object                   
+     761  push_atom_value          @275
+     766  define_field             '一只鱼yuii'
+     771  push_atom_value          @276
+     776  define_field             '交流 / 帮助 QQ 群'
+     781  push_atom_value          @277
+     786  define_field             '/common/icons/cat.png'
+     791  push_atom_value          @278
+     796  define_field             'error'
+     801  push_atom_value          'key'
+     806  define_field             '重新核对'
+     811  array_from               2
+     814  leave_scope              5892
+     817  push_i32                 36044800
+     822  invalid                  
+     823  array_from               1
+     826  object                   
+     827  push_atom_value          '确认激活'
+     832  define_field             '一只鱼yuii'
+     837  push_atom_value          '/common/icons/cherry.png'
+     842  define_field             '交流 / 帮助 QQ 群'
+     847  push_atom_value          @255
+     852  define_field             '/common/icons/cat.png'
+     857  push_atom_value          '本机设备码'
+     862  define_field             'error'
+     867  push_atom_value          'key'
+     872  define_field             '重新核对'
+     877  array_from               2
+     880  leave_scope              6148
+     883  push_i32                 36044800
+     888  invalid                  
+     889  array_from               1
+     892  object                   
+     893  push_atom_value          '确认激活'
+     898  define_field             '一只鱼yuii'
+     903  push_atom_value          '/common/icons/coin.png'
+     908  define_field             '交流 / 帮助 QQ 群'
+     913  push_atom_value          @271
+     918  define_field             '/common/icons/cat.png'
+     923  push_atom_value          @256
+     928  define_field             'error'
+     933  push_atom_value          'key'
+     938  define_field             '重新核对'
+     943  array_from               2
+     946  leave_scope              6404
+     949  push_i32                 36044800
+     954  invalid                  
+     955  array_from               1
+     958  object                   
+     959  push_atom_value          '确认激活'
+     964  define_field             '一只鱼yuii'
+     969  push_atom_value          @276
+     974  define_field             '交流 / 帮助 QQ 群'
+     979  push_atom_value          @282
+     984  define_field             '/common/icons/cat.png'
+     989  push_atom_value          '本机设备码'
+     994  define_field             'error'
+     999  push_atom_value          @260
+    1004  define_field             '__cf__'
+    1009  push_atom_value          @249
+    1014  define_field             @262
+    1019  push_atom_value          'key'
+    1024  define_field             '重新核对'
+    1029  array_from               2
+    1032  leave_scope              6916
+    1035  push_i32                 36044800
+    1040  invalid                  
+    1041  array_from               1
+    1044  object                   
+    1045  push_atom_value          '确认激活'
+    1050  define_field             '一只鱼yuii'
+    1055  push_atom_value          '/common/icons/cherry.png'
+    1060  define_field             '交流 / 帮助 QQ 群'
+    1065  push_atom_value          @261
+    1070  define_field             '/common/icons/cat.png'
+    1075  push_atom_value          @284
+    1080  define_field             @266
+    1085  push_atom_value          @256
+    1090  define_field             'error'
+    1095  push_atom_value          'key'
+    1100  define_field             '重新核对'
+    1105  scope_get_var_undef      @68428, 9728
+    1112  push_const               cpool[486847232]
+    1117  push_i32                 36044800
+    1122  invalid                  
+    1123  array_from               1
+    1126  object                   
+    1127  push_atom_value          '确认激活'
+    1132  define_field             '一只鱼yuii'
+    1137  push_atom_value          @286
+    1142  define_field             '交流 / 帮助 QQ 群'
+    1147  push_atom_value          @287
+    1152  define_field             @288
+    1157  array_from               2
+    1160  leave_scope              8452
+    1163  push_i32                 36044800
+    1168  invalid                  
+    1169  array_from               1
+    1172  object                   
+    1173  push_atom_value          @290
+    1178  define_field             '一只鱼yuii'
+    1183  push_atom_value          @291
+    1188  define_field             '交流 / 帮助 QQ 群'
+    1193  push_atom_value          @292
+    1198  define_field             @293
+    1203  push_atom_value          @292
+    1208  define_field             @294
+    1213  push_atom_value          'key'
+    1218  define_field             @273
+    1223  push_atom_value          'key'
+    1228  define_field             '$item'
+    1233  push_atom_value          @249
+    1238  define_field             @262
+    1243  push_atom_value          @260
+    1248  define_field             '__cf__'
+    1253  push_atom_value          @295
+    1258  define_field             @296
+    1263  push_atom_value          @295
+    1268  define_field             @297
+    1273  push_atom_value          @295
+    1278  define_field             @298
+    1283  push_atom_value          @295
+    1288  define_field             @299
+    1293  push_atom_value          @300
+    1298  define_field             @301
+    1303  push_atom_value          @300
+    1308  define_field             @302
+    1313  push_atom_value          @300
+    1318  define_field             @303
+    1323  push_atom_value          @300
+    1328  define_field             @304
+    1333  array_from               2
+    1336  leave_scope              12548
+    1339  push_i32                 36044800
+    1344  invalid                  
+    1345  array_from               1
+    1348  object                   
+    1349  push_atom_value          @306
+    1354  define_field             '一只鱼yuii'
+    1359  push_atom_value          @307
+    1364  define_field             '交流 / 帮助 QQ 群'
+    1369  push_atom_value          @308
+    1374  define_field             '/common/icons/cat.png'
+    1379  push_atom_value          '本机设备码'
+    1384  define_field             'error'
+    1389  push_atom_value          'key'
+    1394  define_field             '重新核对'
+    1399  array_from               2
+    1402  leave_scope              13572
+    1405  push_i32                 36044800
+    1410  invalid                  
+    1411  array_from               1
+    1414  object                   
+    1415  push_atom_value          '确认激活'
+    1420  define_field             '一只鱼yuii'
+    1425  push_atom_value          @310
+    1430  define_field             '交流 / 帮助 QQ 群'
+    1435  array_from               2
+    1438  leave_scope              14084
+    1441  push_i32                 36044800
+    1446  invalid                  
+    1447  array_from               1
+    1450  object                   
+    1451  push_atom_value          '确认激活'
+    1456  define_field             '一只鱼yuii'
+    1461  push_atom_value          @312
+    1466  define_field             '交流 / 帮助 QQ 群'
+    1471  push_atom_value          'exp'
+    1476  define_field             '$idx'
+    1481  push_atom_value          'key'
+    1486  define_field             '$item'
+    1491  push_atom_value          @270
+    1496  define_field             @313
+    1501  array_from               2
+    1504  leave_scope              14852
+    1507  push_i32                 36044800
+    1512  invalid                  
+    1513  array_from               1
+    1516  object                   
+    1517  push_atom_value          @315
+    1522  define_field             '一只鱼yuii'
+    1527  push_atom_value          @315
+    1532  define_field             '交流 / 帮助 QQ 群'
+    1537  push_atom_value          @251
+    1542  define_field             @252
+    1547  push_atom_value          @292
+    1552  define_field             @250
+    1557  array_from               2
+    1560  leave_scope              15364
+    1563  push_i32                 36044800
+    1568  invalid                  
+    1569  array_from               1
+    1572  object                   
+    1573  push_atom_value          '确认激活'
+    1578  define_field             '一只鱼yuii'
+    1583  push_atom_value          @282
+    1588  define_field             '交流 / 帮助 QQ 群'
+    1593  push_atom_value          @271
+    1598  define_field             '/common/icons/cat.png'
+    1603  push_atom_value          @265
+    1608  define_field             @266
+    1613  push_atom_value          @256
+    1618  define_field             'error'
+    1623  push_atom_value          'key'
+    1628  define_field             '重新核对'
+    1633  label                    -> 68428
+    1638  invalid                  
+    1639  array_from               2
+    1642  leave_scope              15620
+    1645  push_i32                 36044800
+    1650  invalid                  
+    1651  array_from               1
+    1654  object                   
+    1655  push_atom_value          '确认激活'
+    1660  define_field             '一只鱼yuii'
+    1665  push_atom_value          @318
+    1670  define_field             '交流 / 帮助 QQ 群'
+    1675  push_atom_value          @308
+    1680  define_field             '/common/icons/cat.png'
+    1685  push_atom_value          '本机设备码'
+    1690  define_field             'error'
+    1695  push_atom_value          'key'
+    1700  define_field             '重新核对'
+    1705  array_from               2
+    1708  leave_scope              16132
+    1711  push_i32                 36044800
+    1716  invalid                  
+    1717  array_from               1
+    1720  object                   
+    1721  push_atom_value          @269
+    1726  define_field             '一只鱼yuii'
+    1731  push_atom_value          @320
+    1736  define_field             '交流 / 帮助 QQ 群'
+    1741  push_atom_value          @264
+    1746  define_field             '/common/icons/cat.png'
+    1751  push_atom_value          @321
+    1756  define_field             @266
+    1761  push_atom_value          '本机设备码'
+    1766  define_field             'error'
+    1771  scope_delete_var         @68428, 9728
+    1778  push_const               cpool[1107604224]
+    1783  push_i32                 36044800
+    1788  invalid                  
+    1789  array_from               1
+    1792  object                   
+    1793  push_atom_value          '确认激活'
+    1798  define_field             '一只鱼yuii'
+    1803  push_atom_value          @254
+    1808  define_field             '交流 / 帮助 QQ 群'
+    1813  push_atom_value          @271
+    1818  define_field             '/common/icons/cat.png'
+    1823  push_atom_value          @256
+    1828  define_field             'error'
+    1833  push_atom_value          'key'
+    1838  define_field             '重新核对'
+    1843  array_from               2
+    1846  leave_scope              17156
+    1849  push_i32                 36044800
+    1854  invalid                  
+    1855  array_from               1
+    1858  object                   
+    1859  push_atom_value          '确认激活'
+    1864  define_field             '一只鱼yuii'
+    1869  push_atom_value          @254
+    1874  define_field             '交流 / 帮助 QQ 群'
+    1879  push_atom_value          @265
+    1884  define_field             '/common/icons/cat.png'
+    1889  push_atom_value          '本机设备码'
+    1894  define_field             'error'
+    1899  push_atom_value          'key'
+    1904  define_field             '重新核对'
+    1909  array_from               2
+    1912  leave_scope              17412
+    1915  push_i32                 36044800
+    1920  invalid                  
+    1921  array_from               1
+    1924  object                   
+    1925  push_atom_value          @269
+    1930  define_field             '一只鱼yuii'
+    1935  push_atom_value          @325
+    1940  define_field             '交流 / 帮助 QQ 群'
+    1945  push_atom_value          @261
+    1950  define_field             '/common/icons/cat.png'
+    1955  push_atom_value          @326
+    1960  define_field             @266
+    1965  push_atom_value          @256
+    1970  define_field             'error'
+    1975  scope_get_var_undef      @68428, 9728
+    1982  push_const               cpool[1191490304]
+    1987  push_i32                 36044800
+    1992  invalid                  
+    1993  array_from               1
+    1996  object                   
+    1997  push_atom_value          @328
+    2002  define_field             '一只鱼yuii'
+    2007  push_atom_value          @329
+    2012  define_field             '交流 / 帮助 QQ 群'
+    2017  push_atom_value          @270
+    2022  define_field             @250
+    2027  push_atom_value          @260
+    2032  define_field             '__cf__'
+    2037  push_atom_value          @261
+    2042  define_field             @262
+    2047  push_atom_value          @330
+    2052  define_field             @273
+    2057  push_atom_value          'key'
+    2062  define_field             '$item'
+    2067  array_from               2
+    2070  leave_scope              19204
+    2073  push_i32                 36044800
+    2078  invalid                  
+    2079  array_from               1
+    2082  object                   
+    2083  push_atom_value          '/common/icons/cherry.png'
+    2088  define_field             '一只鱼yuii'
+    2093  push_atom_value          '/common/icons/cherry.png'
+    2098  define_field             '交流 / 帮助 QQ 群'
+    2103  push_atom_value          @251
+    2108  define_field             @252
+    2113  array_from               2
+    2116  array_from               30
+    2119  push_5                   -66
+    2120  scope_put_private_field  @21777668, 0
+    2127  push_6                   -66
+    2128  scope_put_private_field  @21843205, 0
+    2135  push_7                   -36
+    2136  set_loc2                 
+    2137  scope_put_private_field  @21906182, 0
+    2144  return_undef             
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=2 defargs=1 stack=13 locals=0 closures=0 cpool=9 bclen=145 debug=False
+    bc@4778
+       0  set_loc_uninitialized    1
+       3  set_loc_uninitialized    0
+       6  scope_put_var_init       @16497677, 53948
+      13  invalid                  
+      14  scope_get_private_field  @2898002136, 48128
+      21  label                    -> 402944
+      26  scope_put_var_init       @12565582, 37052
+      33  invalid                  
+      34  scope_get_private_field  @4072407169, 48128
+      41  put_arg1                 
+      42  invalid                  
+      43  scope_get_private_field  @3317432532, 47872
+      50  check_var                @414918587
+      55  scope_put_var_init       @796169, 550
+      62  invalid                  
+      63  get_field2               @335
+      68  scope_put_private_field  @74752, 48583
+      75  push_i32                 2035537665
+      80  eval                     701, 14337
+      85  get_array_el             
+      86  set_arg2                 
+      87  gosub                    -> 532701953
+      92  special_object           189
+      94  fclosure                 cpool[2394184961]
+      99  get_array_el2            
+     100  scope_get_private_field2 @17153284, 61948
+     107  throw_error              @637975843, 11
+     113  invalid                  
+     114  get_field2               @335
+     119  scope_put_private_field  @74759, 53192
+     126  object                   
+     127  scope_put_private_field  @22039816, 0
+     134  define_field             @336
+     139  put_field                @337
+     144  return_undef             
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=0 cpool=1 bclen=20 debug=False
+    bc@4936
+       0  get_loc8                 loc66
+       2  set_proto                
+       3  push_i32                 12451840
+       8  call_method              1
+      11  get_field2               'auth-key-text'
+      16  set_class_name              ; ERR unpack_from requires a buffer of at least 21 bytes for unpacking 4 bytes at offset 17 (actual buffer size is 20)
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index  kind=function args=2 varargs=0 defargs=2 stack=6 locals=0 closures=0 cpool=0 bclen=26 debug=False
+    bc@4969
+       0  get_var                  'authBack'
+       5  get_field2               @338
+      10  get_loc8                 loc187
+      12  for_await_of_start       
+      13  scope_put_var_init       @2644168721, 65468
+      20  invalid                  
+      21  and                      
+      22  xor                      
+      23  tail_call_method         1
+  -- cpool[1] = float 2469542071.0
+  -- cpool[2] = float 3484470656.0
+  -- cpool[3] = float 2857843350.0
+  -- cpool[4] = float 3871747576.0
+  -- cpool[5] = float 2231215979.0
+  -- cpool[6] = float 3245120284.0
+  -- cpool[7] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[7]@aiot/index  kind=function args=2 varargs=0 defargs=2 stack=4 locals=0 closures=0 cpool=2 bclen=16 debug=False
+    bc@5062
+       0  get_loc8                 loc189
+       2  invalid                  
+       3  put_loc8                 loc180
+       5  add                      
+       6  scope_get_private_field2 @3013450241, 44706
+      13  leave_scope              10402
+  -- cpool[0] = float 4111097973.0
+  -- cpool[1] = float 2654435761.0
+  -- cpool[8] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[8]@aiot/index  kind=function args=1 varargs=1 defargs=1 stack=4 locals=0 closures=2 cpool=3 bclen=62 debug=False
+    bc@5115
+    closure_vars: @aiot/index@1, @aiot/index@0
+       0  set_loc_uninitialized    0
+       3  get_loc8                 loc151
+       5  get_var_ref_check        1
+       8  leave_scope              44103
+      11  dup                      
+      12  set_arg3                 
+      13  dup                      
+      14  drop                     
+      15  scope_get_private_field2 @855751936, 21314
+      22  push_i32                 617545728
+      27  push_i32                 65574400
+      32  set_class_name           3959602728
+      37  push_5                   101
+      38  get_var_ref_check        1
+      41  label                    -> 25159
+      46  add                      
+      47  get_field2               @340
+      52  get_var_ref_check        0
+      55  scope_put_var_init       @629950218, 1
+  -- cpool[0] = string '^\\d{8}$'
+  -- cpool[1] = string '\x00\x01\x00+\x00\x00\x00\x08\x06\x00\x00\x00\x04\x07����\x0b\x00\x05\x1c\x08\x00\x00\x00\x08\x00\x00\x00\x08\x00\x00\x00\x01\x00\x00\x00\x15\x01\x000\x009\x00\n\x06\x0c\x00\n'
+  -- cpool[2] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[8]@aiot/index.cpool[2]@aiot/index  kind=function args=0 varargs=2 defargs=0 stack=5 locals=0 closures=2 cpool=0 bclen=154 debug=False
+    bc@5258
+    closure_vars: @aiot/index@0, @aiot/index@0
+       0  set_loc_uninitialized    0
+       3  get_var_ref_check        0
+       6  leave_scope              51015
+       9  set_loc_uninitialized    1
+      12  get_var_ref_check        0
+      15  label                    -> 23251015
+      20  invalid                  
+      21  get_var_ref_check        0
+      24  scope_get_var_undef      @1726522183, 98
+      31  invalid                  
+      32  set_loc2                 
+      33  get_field2               @341
+      38  get_loc_check            1
+      41  call_method              1
+      44  get_loc_check            1
+      47  get_var_ref_check        0
+      50  scope_get_var            @6659399, 46848
+      57  get_array_el             
+      58  mul                      
+      59  add                      
+      60  xor                      
+      61  dup                      
+      62  put_loc_check            0
+      65  drop                     
+      66  get_loc_check            0
+      69  get_loc_check            0
+      72  get_var_ref_check        0
+      75  scope_delete_var         @296656967, 99
+      82  invalid                  
+      83  drop                     
+      84  get_loc_check            0
+      87  get_loc_check            0
+      90  get_var_ref_check        0
+      93  scope_make_ref           @296657479, -> 234881123, 98
+     104  invalid                  
+     105  get_loc_check            0
+     108  get_var_ref_check        0
+     111  scope_get_ref            @296656967, 99
+     118  invalid                  
+     119  drop                     
+     120  get_loc_check            1
+     123  post_inc                 
+     124  put_loc_check            1
+     127  drop                     
+     128  get_var_ref0             
+     129  post_inc                 
+     130  get_loc_check            0
+     133  get_var_ref_check        0
+     136  label                    -> 6660679
+     141  invalid                  
+     142  scope_put_var_init       @1704609544, 0
+     149  scope_put_var_init          ; ERR unpack_from requires a buffer of at least 156 bytes for unpacking 2 bytes at offset 154 (actual buffer size is 154)
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index  kind=function args=1 varargs=2 defargs=1 stack=35 locals=0 closures=0 cpool=5 bclen=374 debug=False
+    bc@5426
+       0  set_loc_uninitialized    1
+       3  set_loc_uninitialized    0
+       6  scope_get_private_field  @1924858000, 30395
+      13  scope_put_var_init       @3142499146, 47906
+      20  regexp                   
+      21  scope_get_var            @3154118694, 129
+      28  scope_put_var_init       @3144792934, 9821
+      35  push_atom_value          @14400512
+      40  scope_put_var_init       @3073751850, 6843
+      47  scope_put_var_init       @3144792934, 47936
+      54  copy_data_properties     38
+      56  push_false               
+      57  invalid                  
+      58  scope_get_private_field  @800877461, 48215
+      65  rot5l                    
+      66  close_loc                53436
+      69  get_arg                  33793
+      72  await                    
+      73  invalid                  
+      74  invalid                  
+      75  scope_get_private_field  @2059163980, 9760
+      82  null                     
+      83  invalid                  
+      84  scope_get_private_field  @19267783, 48128
+      91  push_2                   0
+      92  invalid                  
+      93  array_from               1
+      96  scope_get_private_field  @19267781, 48128
+     103  push_0                   0
+     104  invalid                  
+     105  array_from               1
+     108  scope_get_private_field  @19267779, 48128
+     115  line_num                 75264
+     120  scope_get_private_field  @19267777, 48128
+     127  push_empty_string        
+     128  invalid                  
+     129  array_from               1
+     132  scope_get_private_field  @19267791, 256
+     139  call                     143
+     142  invalid                  
+     143  scope_get_private_field  @36067033, 48128
+     150  push_4                   0
+     151  invalid                  
+     152  array_from               1
+     155  scope_get_private_field  @1661031126, 150
+     162  invalid                  
+     163  array_from               2
+     166  scope_get_private_field  @19267798, 48128
+     173  set_loc1                 
+     174  invalid                  
+     175  scope_put_var_init       @3073751850, 6843
+     182  scope_put_var_init       @3144792934, 47936
+     189  copy_data_properties     38
+     191  push_false               
+     192  invalid                  
+     193  scope_get_private_field  @1723531393, 29115
+     200  scope_put_var_init       @271965, 38844
+     207  invalid                  
+     208  scope_put_var_init       @3144465252, 47936
+     215  define_field             @103165627
+     220  invalid                  
+     221  scope_get_private_field  @1941635205, 30651
+     228  scope_put_var_init       @3145448281, 47909
+     235  import                   
+     236  leave_scope              8123
+     239  scope_get_private_field  @3384541435, 48128
+     246  get_arg0                 
+     247  invalid                  
+     248  scope_get_private_field  @220594348, 48128
+     255  typeof                   
+     256  invalid                  
+     257  scope_put_var_init       @3144203127, 47941
+     264  put_field                @3141122995
+     269  push_this                
+     270  scope_put_var_init       @13548558, 55228
+     277  invalid                  
+     278  scope_get_private_field  @2847670480, 48128
+     285  scope_get_var            @927232, 8705
+     292  inc                      
+     293  invalid                  
+     294  invalid                  
+     295  scope_get_private_field  @36067033, 48128
+     302  put_loc0                 
+     303  append                   
+     304  push_i32                 38499
+     309  array_from               2
+     312  array_from               24
+     315  get_field2               @335
+     320  scope_put_private_field  @74752, 48583
+     327  push_i32                 -1037030911
+     332  call_method              701
+     335  push_i32                 1630610332
+     340  array_from               4
+     343  get_field2               @335
+     348  scope_put_private_field  @74755, 53192
+     355  object                   
+     356  scope_put_private_field  @18828548, 0
+     363  define_field             @287
+     368  put_field                @337
+     373  return_undef             
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=0 cpool=1 bclen=20 debug=False
+    bc@5813
+       0  get_loc8                 loc66
+       2  set_proto                
+       3  push_i32                 12451840
+       8  call_method              1
+      11  get_field2               'auth-key-text'
+      16  set_class_name              ; ERR unpack_from requires a buffer of at least 21 bytes for unpacking 4 bytes at offset 17 (actual buffer size is 20)
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[0]@aiot/index.cpool[0]@aiot/index  kind=function args=2 varargs=0 defargs=2 stack=6 locals=0 closures=0 cpool=0 bclen=27 debug=False
+    bc@5846
+       0  get_var                  'authBack'
+       5  get_field2               @338
+      10  get_loc8                 loc188
+      12  get_length               
+      13  invalid                  
+      14  scope_put_var_init       @2644168721, 65468
+      21  invalid                  
+      22  and                      
+      23  xor                      
+      24  tail_call_method         1
+  -- cpool[1] = float 2257237629.0
+  -- cpool[2] = float 3271141854.0
+  -- cpool[3] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[3]@aiot/index  kind=function args=2 varargs=0 defargs=2 stack=4 locals=0 closures=0 cpool=2 bclen=16 debug=False
+    bc@5904
+       0  get_loc8                 loc189
+       2  invalid                  
+       3  put_loc8                 loc180
+       5  add                      
+       6  scope_get_private_field2 @3013450241, 44706
+      13  leave_scope              10402
+  -- cpool[0] = float 3897769164.0
+  -- cpool[1] = float 2654435761.0
+  -- cpool[4] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index  kind=function args=2 varargs=4 defargs=2 stack=17 locals=0 closures=2 cpool=18 bclen=341 debug=False
+    bc@5958
+    closure_vars: @aiot/index@0, @aiot/index@1
+       0  scope_put_private_field  @62834946, 25034
+       7  push_i32                 24832
+      12  object                   
+      13  push_5                   56
+      14  get_var                  'onShow'
+      19  get_field2               @342
+      24  get_loc8                 loc36
+      26  push_i32                 22495744
+      31  invalid                  
+      32  invalid                  
+      33  scope_put_private_field  @74752, 14350
+      40  post_inc                 
+      41  invalid                  
+      42  invalid                  
+      43  invalid                  
+      44  get_field2               @344
+      49  get_loc8                 loc65
+      51  check_ctor               
+      52  invalid                  
+      53  invalid                  
+      54  invalid                  
+      55  object                   
+      56  get_var_ref_check        0
+      59  label                    -> 22629447
+      64  invalid                  
+      65  invalid                  
+      66  get_var_ref_check        0
+      69  scope_get_var_undef      @22694983, 0
+      76  get_var_ref_check        0
+      79  scope_get_var            @22760519, 0
+      86  leave_scope              19606
+      89  put_arg                  1
+      92  invalid                  
+      93  label                    -> 22891670
+      98  invalid                  
+      99  invalid                  
+     100  label                    -> 22957206
+     105  invalid                  
+     106  invalid                  
+     107  label                    -> 23022742
+     112  invalid                  
+     113  invalid                  
+     114  set_class_name           90188
+     119  invalid                  
+     120  get_var_ref_check        0
+     123  scope_put_var            @25927, 18360
+     130  get_var_ref_check        0
+     133  scope_make_ref           @25927, -> 6637498, 47872
+     144  push_this                
+     145  get_array_el             
+     146  get_var_ref_check        0
+     149  scope_put_var_init       @6637321, 47872
+     156  push_true                
+     157  get_array_el             
+     158  get_var_ref_check        0
+     161  scope_put_var_init       @6637323, 47872
+     168  special_object           71
+     170  get_var_ref_check        0
+     173  scope_put_var_init       @6637325, 47872
+     180  drop                     
+     181  get_array_el             
+     182  get_var_ref_check        0
+     185  scope_put_var_init       @203835151, 19456
+     192  set_loc_uninitialized    1
+     195  invalid                  
+     196  call_method              2
+     199  drop                     
+     200  scope_put_private_field  @23219457, 0
+     207  push_6                   56
+     208  get_var                  'onShow'
+     213  get_field2               @342
+     218  get_loc_check            0
+     221  call_method              1
+     224  get_field2               @343
+     229  scope_put_private_field  @74756, 53006
+     236  scope_put_private_field  @23282437, 0
+     243  get_loc8                 loc190
+     245  undefined                
+     246  put_field                @356
+     251  get_loc8                 loc190
+     253  null                     
+     254  put_field                @357
+     259  get_loc8                 loc190
+     261  push_this                
+     262  put_field                @358
+     267  get_loc8                 loc190
+     269  push_false               
+     270  put_field                @359
+     275  get_loc8                 loc190
+     277  push_true                
+     278  put_field                @360
+     283  get_loc8                 loc190
+     285  object                   
+     286  put_field                @361
+     291  get_loc8                 loc190
+     293  special_object           67
+     295  if_true                  -> 3472883713
+     300  scope_put_private_field  @23806733, 0
+     307  get_loc8                 loc190
+     309  drop                     
+     310  put_field                @364
+     315  get_loc8                 loc190
+     317  nip                      
+     318  put_field                @365
+     323  get_loc8                 loc190
+     325  nip1                     
+     326  put_field                @366
+     331  get_loc8                 loc190
+     333  dup                      
+     334  put_field                @367
+     339  get_loc8                 loc40
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=3 cpool=0 bclen=25 debug=False
+    bc@6321
+    closure_vars: @aiot/index@0, @aiot/index@0, @aiot/index@0
+       0  set_loc1                 
+       1  get_loc8                 loc71
+       3  typeof                   
+       4  get_var_ref_check        1
+       7  leave_scope              43847
+      10  dup                      
+      11  set_arg2                 
+      12  special_object           14
+      14  get_var_ref_check        2
+      17  get_loc8                 loc113
+      19  set_loc1                 
+      20  get_loc8                 loc71
+      22  insert3                  
+      23  put_array_el             
+      24  return_undef             
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[1]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=2 locals=0 closures=0 cpool=0 bclen=19 debug=False
+    bc@6359
+       0  get_loc8                 loc65
+       2  to_propkey               
+       3  push_i32                 1900085248
+       8  push_i32                 1916928000
+      13  push_i32                 2424832
+      18  invalid                  
+  -- cpool[2] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[2]@742  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=1 cpool=0 bclen=85 debug=False
+    bc@6395
+    closure_vars: @aiot/index@0
+       0  get_loc8                 loc65
+       2  with_delete_var          @3892314113, -> 1967247181, 1
+      12  invalid                  
+      13  invalid                  
+      14  lnot                     
+      15  set_arg2                 
+      16  get_private_field        
+      17  get_loc8                 loc179
+      19  lnot                     
+      20  put_field                @373
+      25  catch                    -> 43
+      30  get_var_ref_check        0
+      33  get_field                @358
+      38  dup                      
+      39  set_arg2                 
+      40  dup2                     
+      41  drop                     
+      42  get_var_ref_check        0
+      45  get_field                @358
+      50  get_field2               @374
+      55  get_loc8                 loc36
+      57  push_i32                 101584384
+      62  gosub                    -> 12
+      67  drop                     
+      68  return_undef             
+      69  gosub                    -> 5
+      74  throw                    
+      75  get_loc8                 loc180
+      77  lnot                     
+      78  put_field                @373
+      83  ret                      
+      84  return_undef             
+  -- cpool[3] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[3]@750  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=3 cpool=0 bclen=244 debug=False
+    bc@6504
+    closure_vars: @aiot/index@1, @aiot/index@0, @aiot/index@1
+       0  get_loc8                 loc65
+       2  make_loc_ref             @285212673, 60265
+       9  invalid                  
+      10  invalid                  
+      11  invalid                  
+      12  drop                     
+      13  get_var_ref_check        0
+      16  get_loc8                 loc237
+      18  get_field2               @377
+      23  call_method              0
+      26  dup                      
+      27  if_false                 -> 215
+      32  drop                     
+      33  get_loc8                 loc65
+      35  with_delete_var          @3892314113, -> 2051133226, 1
+      45  invalid                  
+      46  invalid                  
+      47  dup                      
+      48  set_arg2                 
+      49  if_false                 -> 91406
+      54  get_field                @379
+      59  dup                      
+      60  set_arg2                 
+      61  set_arg                  25870
+      64  push_i32                 24854784
+      69  invalid                  
+      70  invalid                  
+      71  get_field2               @374
+      76  get_loc8                 loc36
+      78  push_i32                 -817239552
+      83  leave_scope              17302
+      86  with_delete_var          @3707764737, -> 236972049, 221
+      96  get_field                @380
+     101  dup                      
+     102  set_arg2                 
+     103  insert2                  
+     104  drop                     
+     105  set_loc3                 
+     106  get_field2               @380
+     111  get_var_ref_check        0
+     114  get_loc8                 loc237
+     116  get_field                @377
+     121  call_method              1
+     124  drop                     
+     125  get_var_ref_check        1
+     128  get_field                @355
+     133  dup                      
+     134  set_arg2                 
+     135  dup2                     
+     136  drop                     
+     137  get_var_ref_check        1
+     140  get_field                @355
+     145  get_field2               @374
+     150  get_loc8                 loc36
+     152  push_i32                 1104088576
+     157  for_of_start             
+     158  push_i32                 -401539072
+     163  apply_eval               53006
+     166  get_field                @382
+     171  lnot                     
+     172  dup                      
+     173  set_arg2                 
+     174  apply                    53006
+     177  leave_scope              17302
+     180  for_await_of_start       
+     181  push_i32                 23396352
+     186  invalid                  
+     187  get_field                @356
+     192  dup                      
+     193  set_arg2                 
+     194  dup2                     
+     195  drop                     
+     196  get_var_ref_check        1
+     199  get_field                @356
+     204  get_field2               @374
+     209  get_loc8                 loc36
+     211  push_i32                 23399936
+     216  invalid                  
+     217  get_field                @357
+     222  dup                      
+     223  set_arg2                 
+     224  dup2                     
+     225  drop                     
+     226  get_var_ref_check        1
+     229  get_field                @357
+     234  get_field2               @374
+     239  get_loc8                 loc36
+     241  push_i32                    ; ERR unpack_from requires a buffer of at least 246 bytes for unpacking 4 bytes at offset 242 (actual buffer size is 244)
+  -- cpool[4] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[4]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=5 cpool=3 bclen=28 debug=False
+    bc@6776
+    closure_vars: @aiot/index@0, @aiot/index@1, @aiot/index@1, @aiot/index@0, @aiot/index@0
+       0  scope_get_private_field2 @855751936, 21314
+       7  push_i32                 617545728
+      12  push_i32                 199823616
+      17  drop                     
+      18  get_var_ref              4
+      21  get_loc8                 loc113
+      23  scope_put_private_field     ; ERR unpack_from requires a buffer of at least 30 bytes for unpacking 2 bytes at offset 28 (actual buffer size is 28)
+  -- cpool[0] = string '^on(Init|Ready|Show|Hide|Destroy|BackPress)$'
+  -- cpool[1] = string '\x00\x02\x00�\x00\x00\x00\x08\x06\x00\x00\x00\x04\x07����\x0b\x00\x05\x01o\x00\x01n\x00\x0b\x01\tu\x00\x00\x00\tV\x00\x00\x00\t@\x00\x00\x00\t*\x00\x00\x00\t\x11\x00\x00\x00\x01I\x00\x01n\x00\x01i\x00\x01t\x00\x07\x0f\x00\x00\x00\x01R\x00\x01e\x00\x01a\x00\x01d\x00\x01y\x00\x07\x0c\x00\x00\x00\x01S\x00\x01h\x00\x01o\x00\x01w\x00\x07\x0c\x00\x00\x00\x01H\x00\x01i\x00\x01d\x00\x01e\x00\x07\x15\x00\x00\x00\x01D\x00\x01e\x00\x01s\x00\x01t\x00\x01r\x00\x01o\x00\x01y\x00\x07\x1b\x00\x00\x00\x01B\x00\x01a\x00\x01c\x00\x01k\x00\x01P\x00\x01r\x00\x01e\x00\x01s\x00\x01s\x00\x0c\x01\x06\x0c\x00\n'
+  -- cpool[2] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[4]@aiot/index.cpool[2]@aiot/index  kind=function args=0 varargs=2 defargs=0 stack=4 locals=0 closures=5 cpool=0 bclen=80 debug=False
+    bc@7065
+    closure_vars: @aiot/index@0, @aiot/index@0, @aiot/index@1, @aiot/index@2, @aiot/index@3
+       0  push_this                
+       1  push_5                   12
+       2  special_object           0
+       4  push_6                   -61
+       5  push_1                   65
+       6  get_field                @373
+      11  dup                      
+      12  set_arg2                 
+      13  rot5l                    
+      14  drop                     
+      15  get_var_ref_check        0
+      18  scope_put_var_init       @6637332, 47872
+      25  insert2                  
+      26  get_array_el             
+      27  array_from               2
+      30  get_field2               @383
+      35  set_loc2                 
+      36  call_method              1
+      39  get_var_ref_check        2
+      42  leave_scope              42567
+      45  dup                      
+      46  set_arg3                 
+      47  nip                      
+      48  drop                     
+      49  get_var_ref_check        3
+      52  push_1                   -19
+      53  get_var_ref3             
+      54  get_field2               @377
+      59  call_method              0
+      62  set_arg2                 
+      63  nip1                     
+      64  get_var_ref_check        4
+      67  set_loc2                 
+      68  get_array_el             
+      69  get_field2               'borderLeftColor'
+      74  push_1                   -60
+      75  push_2                   37
+      76  tail_call_method         2
+      79  return_undef             
+  -- cpool[5] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[5]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=5 cpool=1 bclen=62 debug=False
+    bc@7173
+    closure_vars: @aiot/index@1, @aiot/index@0, @aiot/index@3, @aiot/index@2, @aiot/index@1
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   -77
+       3  leave_scope              17302
+       6  make_loc_ref             @3271557121, 38580
+      13  put_field                @372
+      18  push_1                   -76
+      19  label                    -> 25052054
+      24  invalid                  
+      25  invalid                  
+      26  push_1                   -76
+      27  label                    -> 24986518
+      32  invalid                  
+      33  invalid                  
+      34  push_1                   -66
+      35  scope_put_private_field  @25182976, 0
+      42  get_var_ref_check        4
+      45  push_1                   -19
+      46  get_var_ref3             
+      47  get_field2               @385
+      52  push_1                   65
+      53  get_field                @384
+      58  call_method              1
+      61  return_undef             
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[5]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=6 locals=0 closures=5 cpool=0 bclen=187 debug=False
+    bc@7264
+    closure_vars: @aiot/index@0, @aiot/index@0, @aiot/index@1, @aiot/index@2, @aiot/index@3
+       0  set_loc1                 
+       1  get_loc8                 loc65
+       3  iterator_get_value_done  
+       4  push_i32                 1497563136
+       9  push_i32                 -807731200
+      14  get_field                @387
+      19  set_arg2                 
+      20  check_var                @25379279
+      25  invalid                  
+      26  invalid                  
+      27  get_field2               @340
+      32  get_var_ref_check        1
+      35  leave_scope              25927
+      38  push_i32                 608678912
+      43  push_const               cpool[156928]
+      48  scope_put_var_init       @3483191056, 33601
+      55  push_i32                 1413611520
+      60  push_i32                 23396352
+      65  invalid                  
+      66  label                    -> 74823
+      71  add                      
+      72  get_var_ref0             
+      73  null                     
+      74  get_var_ref_check        2
+      77  scope_put_var_init       @1514358545, 1
+      84  invalid                  
+      85  set_loc1                 
+      86  get_loc8                 loc65
+      88  iterator_close_return    
+      89  push_i32                 1531117568
+      94  push_i32                 -807731200
+      99  get_field                @389
+     104  put_field                @348
+     109  set_loc1                 
+     110  get_loc8                 loc65
+     112  iterator_call            1
+     114  invalid                  
+     115  invalid                  
+     116  lnot                     
+     117  dup                      
+     118  set_arg2                 
+     119  nip                      
+     120  drop                     
+     121  get_loc8                 loc65
+     123  iterator_get_value_done  
+     124  push_i32                 40173568
+     129  invalid                  
+     130  scope_put_var_init       @1135363858, 349
+     137  invalid                  
+     138  invalid                  
+     139  get_loc8                 loc65
+     141  iterator_get_value_done  
+     142  push_i32                 40173568
+     147  invalid                  
+     148  scope_put_var_init       @3903538963, 56092
+     155  label                    -> 22954902
+     160  invalid                  
+     161  invalid                  
+     162  set_loc1                 
+     163  label                    -> 23020438
+     168  invalid                  
+     169  invalid                  
+     170  set_loc1                 
+     171  set_class_name           90179
+     176  invalid                  
+     177  get_arg0                 
+     178  set_loc1                 
+     179  get_var_ref3             
+     180  return_undef             
+     181  get_var_ref              4
+     184  set_loc1                 
+     185  get_var_ref3             
+     186  return_undef             
+  -- cpool[6] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[6]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=14 debug=False
+    bc@7467
+    closure_vars: @aiot/index@3
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   -77
+       3  leave_scope              17302
+       6  for_of_start             
+       7  push_i32                 -1009057792
+      12  get_var_ref3             
+      13  return_undef             
+  -- cpool[7] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[7]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=1 cpool=0 bclen=30 debug=False
+    bc@7497
+    closure_vars: @aiot/index@1
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   -77
+       3  leave_scope              17302
+       6  make_loc_ref             @1694498817, 0
+      13  push_1                   -19
+      14  get_var_ref3             
+      15  get_field2               @385
+      20  push_1                   65
+      21  get_field                @384
+      26  call_method              1
+      29  return_undef             
+  -- cpool[8] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[8]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=2 cpool=0 bclen=34 debug=False
+    bc@7546
+    closure_vars: @aiot/index@2, @aiot/index@1
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   -76
+       3  label                    -> 24658838
+       8  invalid                  
+       9  invalid                  
+      10  set_loc1                 
+      11  push_1                   -19
+      12  get_var_ref3             
+      13  drop                     
+      14  get_var_ref_check        1
+      17  push_1                   -19
+      18  get_var_ref3             
+      19  get_field2               @391
+      24  push_1                   65
+      25  get_field                @384
+      30  call_method              1
+      33  return_undef             
+  -- cpool[9] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[9]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=4 locals=0 closures=3 cpool=0 bclen=110 debug=False
+    bc@7602
+    closure_vars: @aiot/index@2, @aiot/index@1, @aiot/index@0
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   -76
+       3  label                    -> 24658838
+       8  invalid                  
+       9  invalid                  
+      10  set_loc1                 
+      11  push_1                   -19
+      12  get_var_ref3             
+      13  drop                     
+      14  get_var_ref_check        1
+      17  push_1                   -19
+      18  get_var_ref3             
+      19  get_field2               @391
+      24  push_1                   65
+      25  get_field                @384
+      30  call_method              1
+      33  drop                     
+      34  push_1                   65
+      35  get_field                @372
+      40  set_arg2                 
+      41  get_private_field        
+      42  push_1                   -77
+      43  leave_scope              17302
+      46  with_make_ref            @1811939329, -> 43, 101
+      56  push_const               cpool[23544064]
+      61  invalid                  
+      62  invalid                  
+      63  dup                      
+      64  set_arg2                 
+      65  dup2                     
+      66  drop                     
+      67  get_var_ref_check        2
+      70  get_field                @359
+      75  get_field2               @374
+      80  push_1                   36
+      81  call_method              1
+      84  drop                     
+      85  drop                     
+      86  undefined                
+      87  gosub                    -> 12
+      92  drop                     
+      93  return_undef             
+      94  gosub                    -> 5
+      99  throw                    
+     100  push_1                   -76
+     101  label                    -> 24462230
+     106  invalid                  
+     107  invalid                  
+     108  ret                      
+     109  return_undef             
+  -- cpool[10] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[10]@aiot/index  kind=function args=0 varargs=2 defargs=0 stack=3 locals=0 closures=2 cpool=0 bclen=101 debug=False
+    bc@7731
+    closure_vars: @aiot/index@1, @aiot/index@0
+       0  push_this                
+       1  push_6                   97
+       2  set_loc_uninitialized    0
+       5  get_var_ref_check        0
+       8  push_2                   -19
+       9  get_var_ref3             
+      10  get_field2               @377
+      15  call_method              0
+      18  set_arg2                 
+      19  call_constructor         357
+      22  invalid                  
+      23  get_field                @360
+      28  lnot                     
+      29  lnot                     
+      30  dup                      
+      31  set_arg2                 
+      32  dup2                     
+      33  drop                     
+      34  get_var_ref_check        1
+      37  get_field                @360
+      42  get_field2               @374
+      47  push_2                   36
+      48  call_method              1
+      51  return                   
+      52  get_var_ref_check        0
+      55  push_2                   -19
+      56  get_var_ref3             
+      57  get_field2               @392
+      62  call_method              0
+      65  push_5                   -60
+      66  push_2                   65
+      67  get_field                @351
+      72  dup                      
+      73  set_arg3                 
+      74  push_this                
+      75  drop                     
+      76  push_2                   65
+      77  get_field                @350
+      82  set_arg2                 
+      83  drop                     
+      84  push_2                   66
+      85  get_field2               @361
+      90  call_method              0
+      93  drop                     
+      94  leave_scope              10390
+      97  get_loc_check            0
+     100  return                   
+  -- cpool[11] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[11]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=2 locals=0 closures=0 cpool=0 bclen=19 debug=False
+    bc@7845
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   -76
+       3  label                    -> 23020438
+       8  invalid                  
+       9  invalid                  
+      10  push_1                   -76
+      11  label                    -> 22954902
+      16  invalid                  
+      17  invalid                  
+      18  return_undef             
+  -- cpool[12] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[12]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=0 locals=0 closures=0 cpool=0 bclen=1 debug=False
+    bc@7877
+       0  return_undef             
+  -- cpool[13] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[13]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=1 cpool=0 bclen=60 debug=False
+    bc@7894
+    closure_vars: @aiot/index@1
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   65
+       3  get_field                @348
+       8  lnot                     
+       9  dup                      
+      10  set_arg2                 
+      11  throw_error              @25870, 195
+      17  get_var_ref3             
+      18  get_field2               @393
+      23  call_method              0
+      26  get_field                @387
+      31  dup                      
+      32  set_arg2                 
+      33  perm5                    
+      34  drop                     
+      35  push_1                   -77
+      36  leave_scope              17302
+      39  get_var_ref              1
+      42  invalid                  
+      43  push_1                   -76
+      44  label                    -> 23020438
+      49  invalid                  
+      50  invalid                  
+      51  push_1                   -65
+      52  set_class_name           23085845
+      57  invalid                  
+      58  invalid                  
+      59  return_undef             
+  -- cpool[14] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[14]@aiot/index  kind=function args=1 varargs=1 defargs=1 stack=6 locals=0 closures=2 cpool=2 bclen=123 debug=False
+    bc@7973
+    closure_vars: @aiot/index@0, @aiot/index@1
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   65
+       3  get_field                @348
+       8  lnot                     
+       9  set_arg2                 
+      10  to_propkey               
+      11  get_loc8                 loc101
+      13  invalid                  
+      14  invalid                  
+      15  scope_put_var_init       @3903538966, 49930
+      22  label                    -> 22954902
+      27  invalid                  
+      28  invalid                  
+      29  return_undef             
+      30  get_loc8                 loc101
+      32  invalid                  
+      33  invalid                  
+      34  scope_put_var_init       @3903538967, 49953
+      41  push_1                   65
+      42  get_field                @352
+      47  get_field2               @340
+      52  get_var_ref_check        1
+      55  leave_scope              25927
+      58  push_i32                 -1941457664
+      63  call_method              2
+      66  put_field                @352
+      71  return_undef             
+      72  scope_get_private_field2 @855751936, 21314
+      79  push_i32                 617545728
+      84  push_i32                 568856832
+      89  drop                     
+      90  push_1                   65
+      91  get_field                @352
+      96  set_arg1                 
+      97  get_var_ref_check        1
+     100  scope_get_var            @3893470023, 3600
+     107  push_1                   66
+     108  get_field2               @352
+     113  get_loc8                 loc157
+     115  insert2                  
+     116  put_field                @352
+     121  drop                     
+     122  return_undef             
+  -- cpool[0] = string '^\\d$'
+  -- cpool[1] = string '\x00\x01\x00\x19\x00\x00\x00\x08\x06\x00\x00\x00\x04\x07����\x0b\x00\x05\x15\x01\x000\x009\x00\x06\x0c\x00\n'
+  -- cpool[15] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[15]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=1 cpool=0 bclen=32 debug=False
+    bc@8152
+    closure_vars: @aiot/index@1
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   65
+       3  get_field                @348
+       8  dup                      
+       9  set_arg3                 
+      10  insert2                  
+      11  drop                     
+      12  get_var_ref_check        0
+      15  push_1                   -19
+      16  get_var_ref3             
+      17  get_field2               @394
+      22  push_1                   65
+      23  get_field                @352
+      28  call_method              1
+      31  return_undef             
+  -- cpool[16] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[16]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=38 debug=False
+    bc@8200
+    closure_vars: @aiot/index@1
+       0  push_this                
+       1  push_5                   101
+       2  get_var_ref_check        0
+       5  push_1                   -19
+       6  get_var_ref3             
+       7  get_field2               @393
+      12  call_method              0
+      15  get_field                @389
+      20  dup                      
+      21  set_arg3                 
+      22  nip                      
+      23  drop                     
+      24  get_var_ref_check        0
+      27  push_1                   -19
+      28  get_var_ref3             
+      29  get_field2               @395
+      34  call_method              0
+      37  return_undef             
+  -- cpool[17] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[17]@aiot/index  kind=function args=0 varargs=1 defargs=0 stack=2 locals=0 closures=0 cpool=0 bclen=24 debug=False
+    bc@8251
+       0  push_this                
+       1  push_5                   -61
+       2  push_1                   -61
+       3  push_1                   65
+       4  get_field                @351
+       9  lnot                     
+      10  put_field                @351
+      15  push_1                   -76
+      16  label                    -> 22954902
+      21  invalid                  
+      22  invalid                  
+      23  return_undef             
+  -- cpool[2] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[2]@750  kind=function args=1 varargs=2 defargs=1 stack=5 locals=0 closures=3 cpool=0 bclen=51 debug=False
+    bc@8298
+    closure_vars: @aiot/index@4, @aiot/index@3, @aiot/index@5
+       0  set_loc1                 
+       1  get_loc8                 loc71
+       3  push_5                   6
+       4  undefined                
+       5  push_1                   -84
+       6  strict_neq               
+       7  set_arg2                 
+       8  push_this                
+       9  push_1                   65
+      10  get_field                @337
+      15  return                   
+      16  set_loc1                 
+      17  get_loc8                 loc113
+      19  object                   
+      20  object                   
+      21  define_field             @337
+      26  insert3                  
+      27  put_array_el             
+      28  push_6                   -36
+      29  set_loc2                 
+      30  get_loc8                 loc72
+      32  push_2                   -60
+      33  push_2                   65
+      34  get_field                @337
+      39  set_loc3                 
+      40  call_method              3
+      43  drop                     
+      44  push_2                   65
+      45  get_field                @337
+      50  return                   
+  -- cpool[3] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[3]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=0 cpool=0 bclen=6 debug=False
+    bc@8362
+       0  push_atom_value          @396
+       5  return                   
+  -- cpool[4] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[4]@aiot/index  kind=function args=3 varargs=6 defargs=3 stack=6 locals=0 closures=1 cpool=5 bclen=286 debug=False
+    bc@8385
+    closure_vars: @aiot/index@5
+       0  set_loc_uninitialized    5
+       3  set_loc_uninitialized    4
+       6  set_loc_uninitialized    3
+       9  set_loc_uninitialized    2
+      12  get_var                  'onShow'
+      17  get_field2               '168px'
+      22  put_loc8                 loc4
+      24  plus                     
+      25  push_i32                 -1291124736
+      30  lnot                     
+      31  define_field             '#ffffff'
+      36  call_method              3
+      39  drop                     
+      40  put_loc8                 loc6
+      42  put_field                'paddingTop'
+      47  set_loc8                 loc4
+      49  dec                      
+      50  push_i32                 -873660416
+      55  set_arg2                 
+      56  special_object           195
+      58  get_field                @397
+      63  set_arg2                 
+      64  push_atom_value          @185133763
+      69  push_1                   76
+      70  define_field             'paddingTop'
+      75  push_6                   -37
+      76  set_loc1                 
+      77  scope_get_private_field  @3387753303, 48347
+      84  set_loc1                 
+      85  push_i32                 1657850605
+      90  push_const               cpool[18825728]
+      95  invalid                  
+      96  invalid                  
+      97  object                   
+      98  object                   
+      99  define_field             '15px'
+     104  scope_put_private_field  @26168576, 0
+     111  define_field             @399
+     116  scope_put_private_field  @26235905, 0
+     123  push_atom_value          @1749877438
+     128  push_i32                 1749811200
+     133  push_i32                 19136512
+     138  invalid                  
+     139  put_field                'paddingTop'
+     144  put_loc8                 loc65
+     146  insert3                  
+     147  invalid                  
+     148  invalid                  
+     149  invalid                  
+     150  dup                      
+     151  set_arg3                 
+     152  push_this                
+     153  drop                     
+     154  get_loc8                 loc65
+     156  define_array_el          
+     157  push_i32                 79757312
+     162  push_atom_value          'auth-device'
+     167  push_atom_value          '#c2cddc'
+     172  push_atom_value          '15px'
+     177  array_from               3
+     180  push_minus1              5
+     181  private_symbol           @1090520162
+     186  post_inc                 
+     187  push_i32                 870842368
+     192  get_loc_check            5
+     195  get_field2               @402
+     200  scope_put_private_field  @74755, 9448
+     207  get_var                  'onDestroy'
+     212  push_atom_value          @403
+     217  get_loc_check            5
+     220  get_field2               'auth-key-text'
+     225  push_atom_value          @404
+     230  call_method              1
+     233  add                      
+     234  push_atom_value          @405
+     239  add                      
+     240  get_var_ref3             
+     241  throw                    
+     242  get_loc_check            4
+     245  get_field                @401
+     250  dup                      
+     251  set_arg3                 
+     252  call_constructor         25102
+     255  push_atom_value          @2437090048
+     260  push_i32                 73531392
+     265  invalid                  
+     266  object                   
+     267  put_field                @406
+     272  get_loc_check            5
+     275  get_field2               @343
+     280  scope_put_private_field     ; ERR unpack_from requires a buffer of at least 287 bytes for unpacking 2 bytes at offset 285 (actual buffer size is 286)
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[4]@aiot/index.cpool[0]@aiot/index  kind=function args=2 varargs=0 defargs=2 stack=3 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@8687
+    closure_vars: @aiot/index@3
+       0  get_var_ref_check        0
+       3  get_field2               @336
+       8  get_loc8                 loc36
+      10  push_i32                 682348544
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[4]@aiot/index.cpool[1]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=4 locals=0 closures=1 cpool=0 bclen=26 debug=False
+    bc@8719
+    closure_vars: @814@1
+       0  set_loc1                 
+       1  get_field                'paddingTop'
+       6  get_field2               @408
+      11  object                   
+      12  push_atom_value          @409
+      17  define_field             @410
+      22  call_method              1
+      25  return_undef             
+  -- cpool[2] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[4]@aiot/index.cpool[2]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=0 cpool=0 bclen=3 debug=False
+    bc@8758
+       0  label                       ; ERR unpack_from requires a buffer of at least 5 bytes for unpacking 4 bytes at offset 1 (actual buffer size is 3)
+  -- cpool[3] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[4]@aiot/index.cpool[3]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=2 locals=0 closures=1 cpool=0 bclen=6 debug=False
+    bc@8777
+    closure_vars: @aiot/index@4
+       0  get_var_ref_check        0
+       3  get_loc8                 loc71
+       5  return                   
+  -- cpool[4] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[4]@aiot/index.cpool[4]@aiot/index  kind=function args=1 varargs=1 defargs=1 stack=6 locals=0 closures=1 cpool=0 bclen=86 debug=False
+    bc@8799
+    closure_vars: @aiot/index@4
+       0  push_atom_value          'wrap'
+       5  get_var_ref_check        0
+       8  get_loc8                 loc71
+      10  typeof                   
+      11  eq                       
+      12  set_arg2                 
+      13  get_array_el2            
+      14  set_loc_uninitialized    0
+      17  get_var_ref_check        0
+      20  get_var                  'onShow'
+      25  get_field2               @344
+      30  get_var_ref_check        0
+      33  get_field                @401
+      38  get_var_ref_check        0
+      41  get_loc8                 loc71
+      43  call_method              2
+      46  put_field                @401
+      51  get_var_ref_check        0
+      54  get_loc8                 loc71
+      56  for_in_start             
+      57  get_var_ref0             
+      58  insert3                  
+      59  push_5                   101
+      60  get_var_ref_check        0
+      63  get_field                @406
+      68  get_loc_check            0
+      71  to_propkey2              
+      72  object                   
+      73  get_loc8                 loc76
+      75  div                      
+      76  push_i32                 2135490560
+      81  set_arg2                 
+      82  set_arg3                 
+      83  drop                     
+      84  drop                     
+      85  return_undef             
+  -- cpool[5] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index  kind=function args=1 varargs=2 defargs=1 stack=10 locals=0 closures=0 cpool=4 bclen=145 debug=False
+    bc@8899
+       0  push_this                
+       1  push_6                   97
+       2  set_loc_uninitialized    0
+       5  get_loc8                 loc17
+       7  set_arg3                 
+       8  fclosure                 cpool[952615950]
+      13  mod                      
+      14  push_i32                 -1656619008
+      19  push_i32                 -1643905024
+      24  push_i32                 1644888064
+      29  invalid                  
+      30  invalid                  
+      31  define_field             @415
+      36  object                   
+      37  push_atom_value          'src'
+      42  array_from               1
+      45  define_field             @416
+      50  define_field             @417
+      55  get_var                  @412
+      60  get_field2               @418
+      65  object                   
+      66  get_loc_check            0
+      69  define_field             @415
+      74  object                   
+      75  scope_put_private_field  @27479296, 0
+      82  define_field             @419
+      87  define_field             @417
+      92  scope_put_private_field  @140289, 39992
+      99  push_i32                 -1572732928
+     104  push_i32                 1644888064
+     109  invalid                  
+     110  invalid                  
+     111  define_field             @415
+     116  object                   
+     117  scope_put_private_field  @27479298, 0
+     124  define_field             @419
+     129  define_field             @417
+     134  scope_put_private_field  @140291, 550
+     141  invalid                  
+     142  tail_call_method         3
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[0]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@9061
+    closure_vars: @664@0
+       0  push_atom_value          @420
+       5  get_var_ref_check        0
+       8  get_field                @345
+      13  strict_neq               
+      14  return                   
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=12 locals=0 closures=1 cpool=9 bclen=276 debug=False
+    bc@9094
+    closure_vars: @664@0
+       0  get_var                  @412
+       5  get_field2               @413
+      10  push_atom_value          @414
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             @415
+      24  object                   
+      25  push_atom_value          '也可在 lxyu.top 兑换。设备码8位，激活码12位，开头的0请保留。'
+      30  array_from               1
+      33  define_field             @416
+      38  object                   
+      39  scope_put_private_field  @27610368, 0
+      46  define_field             @421
+      51  define_field             @422
+      56  define_field             @417
+      61  get_var                  @412
+      66  get_field2               @413
+      71  push_atom_value          @423
+      76  object                   
+      77  get_var_ref_check        0
+      80  define_field             @415
+      85  object                   
+      86  push_atom_value          '正在核对…'
+      91  array_from               1
+      94  define_field             @416
+      99  object                   
+     100  scope_put_private_field  @27610369, 0
+     107  define_field             @421
+     112  define_field             @422
+     117  scope_put_private_field  @4345090, 0
+     124  define_field             '#ffffff'
+     129  define_field             @417
+     134  array_from               0
+     137  call_method              3
+     140  get_var                  @412
+     145  get_field2               @418
+     150  object                   
+     151  get_var_ref_check        0
+     154  define_field             @415
+     159  object                   
+     160  scope_put_private_field  @27479299, 0
+     167  define_field             @419
+     172  define_field             @417
+     177  scope_put_private_field  @140292, 39992
+     184  push_i32                 -1572732928
+     189  push_i32                 1695219712
+     194  invalid                  
+     195  invalid                  
+     196  define_field             @415
+     201  object                   
+     202  scope_put_private_field  @27479301, 0
+     209  define_field             @419
+     214  define_field             @417
+     219  scope_put_private_field  @140294, 39992
+     226  push_i32                 -1572732928
+     231  push_i32                 1695219712
+     236  invalid                  
+     237  invalid                  
+     238  define_field             @415
+     243  object                   
+     244  scope_put_private_field  @27479303, 0
+     251  define_field             @419
+     256  define_field             @417
+     261  scope_put_private_field  @140296, 1062
+     268  invalid                  
+     269  call_method              3
+     272  array_from               1
+     275  return                   
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@9386
+    closure_vars: @aiot/index@0
+       0  get_var_ref_check        0
+       3  get_field2               @362
+       8  get_loc8                 loc37
+      10  push_i32                    ; ERR unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 12)
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[1]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@9414
+    closure_vars: @aiot/index@0
+       0  get_var_ref_check        0
+       3  get_field2               @361
+       8  get_loc8                 loc37
+      10  push_i32                    ; ERR unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 12)
+  -- cpool[2] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[2]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=38 debug=False
+    bc@9443
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @351
+       8  set_arg2                 
+       9  null                     
+      10  push_atom_value          @424
+      15  return                   
+      16  get_var_ref_check        0
+      19  get_field                @350
+      24  set_arg2                 
+      25  null                     
+      26  push_atom_value          @425
+      31  return                   
+      32  push_atom_value          @426
+      37  return                   
+  -- cpool[3] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[3]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@9498
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @351
+       8  return                   
+  -- cpool[4] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=24 locals=0 closures=1 cpool=2 bclen=697 debug=False
+    bc@9525
+    closure_vars: @664@0
+       0  get_var                  @412
+       5  get_field2               @413
+      10  push_atom_value          @414
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             @415
+      24  object                   
+      25  push_atom_value          '好运已就绪'
+      30  array_from               1
+      33  define_field             @416
+      38  define_field             @417
+      43  get_var                  @412
+      48  get_field2               @413
+      53  push_atom_value          @427
+      58  object                   
+      59  get_var_ref_check        0
+      62  define_field             @415
+      67  object                   
+      68  push_atom_value          @309
+      73  array_from               1
+      76  define_field             @416
+      81  define_field             @417
+      86  get_var                  @412
+      91  get_field2               @413
+      96  push_atom_value          @428
+     101  object                   
+     102  get_var_ref_check        0
+     105  define_field             @415
+     110  object                   
+     111  push_atom_value          @429
+     116  define_field             @430
+     121  push_atom_value          @311
+     126  array_from               1
+     129  define_field             @416
+     134  define_field             @417
+     139  get_var                  @412
+     144  get_field2               @413
+     149  push_atom_value          @431
+     154  object                   
+     155  get_var_ref_check        0
+     158  define_field             @415
+     163  object                   
+     164  push_atom_value          @314
+     169  array_from               1
+     172  define_field             @416
+     177  push_atom_value          @432
+     182  define_field             @433
+     187  define_field             @417
+     192  array_from               0
+     195  call_method              3
+     198  get_var                  @412
+     203  get_field2               @413
+     208  push_atom_value          @423
+     213  object                   
+     214  get_var_ref_check        0
+     217  define_field             @415
+     222  object                   
+     223  push_atom_value          @316
+     228  array_from               1
+     231  define_field             @416
+     236  push_atom_value          @434
+     241  define_field             '#ffffff'
+     246  define_field             @417
+     251  array_from               0
+     254  call_method              3
+     257  get_var                  @412
+     262  get_field2               @413
+     267  push_atom_value          @423
+     272  object                   
+     273  get_var_ref_check        0
+     276  define_field             @415
+     281  object                   
+     282  push_atom_value          @317
+     287  array_from               1
+     290  define_field             @416
+     295  push_atom_value          @435
+     300  define_field             '#ffffff'
+     305  define_field             @417
+     310  array_from               0
+     313  call_method              3
+     316  get_var                  @412
+     321  get_field2               @413
+     326  push_atom_value          @423
+     331  object                   
+     332  get_var_ref_check        0
+     335  define_field             @415
+     340  object                   
+     341  push_atom_value          @319
+     346  array_from               1
+     349  define_field             @416
+     354  push_atom_value          @436
+     359  define_field             '#ffffff'
+     364  define_field             @417
+     369  array_from               0
+     372  call_method              3
+     375  get_var                  @412
+     380  get_field2               @413
+     385  push_atom_value          @423
+     390  object                   
+     391  get_var_ref_check        0
+     394  define_field             @415
+     399  object                   
+     400  push_atom_value          @322
+     405  array_from               1
+     408  define_field             @416
+     413  push_atom_value          @437
+     418  define_field             '#ffffff'
+     423  define_field             @417
+     428  array_from               0
+     431  call_method              3
+     434  get_var                  @412
+     439  get_field2               @413
+     444  push_atom_value          @423
+     449  object                   
+     450  get_var_ref_check        0
+     453  define_field             @415
+     458  object                   
+     459  push_atom_value          @323
+     464  array_from               1
+     467  define_field             @416
+     472  scope_get_private_field2 @4344832, 0
+     479  define_field             @417
+     484  array_from               0
+     487  call_method              3
+     490  get_var                  @412
+     495  get_field2               @413
+     500  push_atom_value          @423
+     505  object                   
+     506  get_var_ref_check        0
+     509  define_field             @415
+     514  object                   
+     515  push_atom_value          @324
+     520  array_from               1
+     523  define_field             @416
+     528  push_atom_value          @438
+     533  define_field             '#ffffff'
+     538  define_field             @417
+     543  array_from               0
+     546  call_method              3
+     549  array_from               7
+     552  call_method              3
+     555  array_from               1
+     558  call_method              3
+     561  get_var                  @412
+     566  get_field2               @413
+     571  push_atom_value          @414
+     576  object                   
+     577  get_var_ref_check        0
+     580  define_field             @415
+     585  object                   
+     586  push_atom_value          @268
+     591  array_from               1
+     594  define_field             @416
+     599  object                   
+     600  scope_put_private_field  @27610369, 0
+     607  define_field             @421
+     612  define_field             @422
+     617  define_field             @417
+     622  get_var                  @412
+     627  get_field2               @413
+     632  push_atom_value          @423
+     637  object                   
+     638  get_var_ref_check        0
+     641  define_field             @415
+     646  object                   
+     647  push_atom_value          @274
+     652  array_from               1
+     655  define_field             @416
+     660  push_atom_value          @439
+     665  define_field             '#ffffff'
+     670  define_field             @417
+     675  array_from               0
+     678  call_method              3
+     681  array_from               1
+     684  call_method              3
+     687  array_from               2
+     690  call_method              3
+     693  array_from               1
+     696  return                   
+  -- cpool[0] = string '176129709'
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[4]@aiot/index.cpool[1]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@10249
+    closure_vars: @aiot/index@0
+       0  get_var_ref_check        0
+       3  get_field2               @361
+       8  get_loc8                 loc37
+      10  push_i32                    ; ERR unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 12)
+  -- cpool[5] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[5]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=22 debug=False
+    bc@10278
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @351
+       8  lnot                     
+       9  dup                      
+      10  set_arg2                 
+      11  push_true                
+      12  drop                     
+      13  get_var_ref_check        0
+      16  get_field                @350
+      21  return                   
+  -- cpool[6] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=18 locals=0 closures=1 cpool=7 bclen=475 debug=False
+    bc@10318
+    closure_vars: @664@0
+       0  get_var                  @412
+       5  get_field2               @413
+      10  push_atom_value          @414
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             @415
+      24  object                   
+      25  push_atom_value          '恢复正式授权'
+      30  array_from               1
+      33  define_field             @416
+      38  define_field             @417
+      43  get_var                  @412
+      48  get_field2               @413
+      53  push_atom_value          @423
+      58  object                   
+      59  get_var_ref_check        0
+      62  define_field             @415
+      67  object                   
+      68  push_atom_value          @280
+      73  array_from               1
+      76  define_field             @416
+      81  scope_put_private_field  @4345088, 0
+      88  define_field             '#ffffff'
+      93  define_field             @417
+      98  array_from               0
+     101  call_method              3
+     104  get_var                  @412
+     109  get_field2               @413
+     114  push_atom_value          @423
+     119  object                   
+     120  get_var_ref_check        0
+     123  define_field             @415
+     128  object                   
+     129  push_atom_value          @281
+     134  array_from               1
+     137  define_field             @416
+     142  scope_put_private_field  @4345089, 0
+     149  define_field             '#ffffff'
+     154  define_field             @417
+     159  array_from               0
+     162  call_method              3
+     165  get_var                  @412
+     170  get_field2               @413
+     175  push_atom_value          @423
+     180  object                   
+     181  get_var_ref_check        0
+     184  define_field             @415
+     189  object                   
+     190  push_atom_value          @283
+     195  array_from               1
+     198  define_field             @416
+     203  scope_put_private_field  @4345090, 0
+     210  define_field             '#ffffff'
+     215  define_field             @417
+     220  array_from               0
+     223  call_method              3
+     226  get_var                  @412
+     231  get_field2               @413
+     236  push_atom_value          @414
+     241  object                   
+     242  get_var_ref_check        0
+     245  define_field             @415
+     250  object                   
+     251  push_atom_value          @285
+     256  array_from               1
+     259  define_field             @416
+     264  define_field             @417
+     269  get_var                  @412
+     274  get_field2               @440
+     279  object                   
+     280  get_var_ref_check        0
+     283  define_field             @415
+     288  object                   
+     289  scope_put_private_field  @28921091, 0
+     296  define_field             @441
+     301  push_atom_value          @442
+     306  define_field             @443
+     311  push_atom_value          @444
+     316  define_field             '#ffffff'
+     321  define_field             @417
+     326  scope_put_private_field  @140292, 294
+     333  invalid                  
+     334  call_method              3
+     337  get_var                  @412
+     342  get_field2               @413
+     347  push_atom_value          @414
+     352  object                   
+     353  get_var_ref_check        0
+     356  define_field             @415
+     361  object                   
+     362  push_atom_value          @268
+     367  array_from               1
+     370  define_field             @416
+     375  object                   
+     376  scope_put_private_field  @27610373, 0
+     383  define_field             @421
+     388  define_field             @422
+     393  define_field             @417
+     398  get_var                  @412
+     403  get_field2               @413
+     408  push_atom_value          @423
+     413  object                   
+     414  get_var_ref_check        0
+     417  define_field             @415
+     422  object                   
+     423  push_atom_value          @274
+     428  array_from               1
+     431  define_field             @416
+     436  scope_put_private_field  @4345094, 0
+     443  define_field             '#ffffff'
+     448  define_field             @417
+     453  array_from               0
+     456  call_method              3
+     459  array_from               1
+     462  call_method              3
+     465  array_from               5
+     468  call_method              3
+     471  array_from               1
+     474  return                   
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index.cpool[0]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@10810
+    closure_vars: @664@0
+       0  push_atom_value          @445
+       5  get_var_ref_check        0
+       8  get_field                @346
+      13  add                      
+      14  return                   
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index.cpool[1]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=18 debug=False
+    bc@10842
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @352
+       8  dup                      
+       9  set_arg3                 
+      10  null                     
+      11  drop                     
+      12  push_atom_value          @446
+      17  return                   
+  -- cpool[2] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index.cpool[2]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@10877
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @347
+       8  return                   
+  -- cpool[3] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index.cpool[3]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@10903
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @353
+       8  return                   
+  -- cpool[4] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index.cpool[4]@aiot/index  kind=function args=2 varargs=0 defargs=2 stack=10 locals=0 closures=1 cpool=2 bclen=132 debug=False
+    bc@10929
+    closure_vars: @aiot/index@0
+       0  get_var                  @412
+       5  get_field2               @413
+      10  push_atom_value          @414
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             @415
+      24  object                   
+      25  push_atom_value          @289
+      30  array_from               1
+      33  define_field             @416
+      38  object                   
+      39  scope_put_private_field  @27610368, 0
+      46  define_field             @421
+      51  define_field             @422
+      56  define_field             @417
+      61  get_var                  @412
+      66  get_field2               @413
+      71  push_atom_value          @423
+      76  object                   
+      77  get_var_ref_check        0
+      80  define_field             @415
+      85  object                   
+      86  push_atom_value          @305
+      91  array_from               1
+      94  define_field             @416
+      99  scope_put_private_field  @4345089, 0
+     106  define_field             '#ffffff'
+     111  define_field             @417
+     116  array_from               0
+     119  call_method              3
+     122  array_from               1
+     125  call_method              3
+     128  array_from               1
+     131  return                   
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index.cpool[4]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=2 cpool=0 bclen=13 debug=False
+    bc@11080
+    closure_vars: @aiot/index@0, @aiot/index@1
+       0  get_var_ref_check        0
+       3  get_field2               @364
+       8  set_loc2                 
+       9  get_loc8                 loc37
+      11  push_const                  ; ERR unpack_from requires a buffer of at least 16 bytes for unpacking 4 bytes at offset 12 (actual buffer size is 13)
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index.cpool[4]@aiot/index.cpool[1]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=2 debug=False
+    bc@11110
+    closure_vars: @666@1
+       0  set_loc1                 
+       1  return                   
+  -- cpool[5] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index.cpool[5]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@11128
+    closure_vars: @aiot/index@0
+       0  get_var_ref_check        0
+       3  get_field2               @365
+       8  get_loc8                 loc37
+      10  push_i32                    ; ERR unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 12)
+  -- cpool[6] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[6]@aiot/index.cpool[6]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=22 debug=False
+    bc@11157
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @348
+       8  set_arg2                 
+       9  null                     
+      10  push_atom_value          @447
+      15  return                   
+      16  push_atom_value          @448
+      21  return                   
+  -- cpool[7] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[7]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=23 debug=False
+    bc@11196
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @350
+       8  lnot                     
+       9  dup                      
+      10  set_arg2                 
+      11  object                   
+      12  drop                     
+      13  get_var_ref_check        0
+      16  get_field                @351
+      21  lnot                     
+      22  return                   
+  -- cpool[8] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=17 locals=0 closures=1 cpool=7 bclen=621 debug=False
+    bc@11237
+    closure_vars: @664@0
+       0  get_var                  @412
+       5  get_field2               @413
+      10  push_atom_value          @414
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             @415
+      24  object                   
+      25  push_atom_value          'locked'
+      30  array_from               1
+      33  define_field             @416
+      38  define_field             @417
+      43  get_var                  @412
+      48  get_field2               @413
+      53  push_atom_value          @414
+      58  object                   
+      59  get_var_ref_check        0
+      62  define_field             @415
+      67  object                   
+      68  push_atom_value          @327
+      73  array_from               1
+      76  define_field             @416
+      81  define_field             @417
+      86  get_var                  @412
+      91  get_field2               @413
+      96  push_atom_value          @431
+     101  object                   
+     102  get_var_ref_check        0
+     105  define_field             @415
+     110  object                   
+     111  push_atom_value          @331
+     116  array_from               1
+     119  define_field             @416
+     124  push_atom_value          @449
+     129  define_field             @433
+     134  define_field             @417
+     139  array_from               0
+     142  call_method              3
+     145  get_var                  @412
+     150  get_field2               @413
+     155  push_atom_value          @431
+     160  object                   
+     161  get_var_ref_check        0
+     164  define_field             @415
+     169  object                   
+     170  push_atom_value          @331
+     175  array_from               1
+     178  define_field             @416
+     183  push_atom_value          @450
+     188  define_field             @433
+     193  define_field             @417
+     198  array_from               0
+     201  call_method              3
+     204  get_var                  @412
+     209  get_field2               @413
+     214  push_atom_value          @431
+     219  object                   
+     220  get_var_ref_check        0
+     223  define_field             @415
+     228  object                   
+     229  push_atom_value          @331
+     234  array_from               1
+     237  define_field             @416
+     242  push_atom_value          @451
+     247  define_field             @433
+     252  define_field             @417
+     257  array_from               0
+     260  call_method              3
+     263  array_from               3
+     266  call_method              3
+     269  get_var                  @412
+     274  get_field2               @413
+     279  push_atom_value          @423
+     284  object                   
+     285  get_var_ref_check        0
+     288  define_field             @415
+     293  object                   
+     294  push_atom_value          @253
+     299  array_from               1
+     302  define_field             @416
+     307  push_atom_value          @452
+     312  define_field             '#ffffff'
+     317  define_field             @417
+     322  array_from               0
+     325  call_method              3
+     328  get_var                  @412
+     333  get_field2               @413
+     338  push_atom_value          @423
+     343  object                   
+     344  get_var_ref_check        0
+     347  define_field             @415
+     352  object                   
+     353  push_atom_value          @257
+     358  array_from               1
+     361  define_field             @416
+     366  scope_put_private_field  @4345088, 0
+     373  define_field             '#ffffff'
+     378  define_field             @417
+     383  array_from               0
+     386  call_method              3
+     389  get_var                  @412
+     394  get_field2               @413
+     399  push_atom_value          @423
+     404  object                   
+     405  get_var_ref_check        0
+     408  define_field             @415
+     413  object                   
+     414  push_atom_value          @263
+     419  array_from               1
+     422  define_field             @416
+     427  scope_put_private_field  @4345089, 0
+     434  define_field             '#ffffff'
+     439  define_field             @417
+     444  array_from               0
+     447  call_method              3
+     450  get_var                  @412
+     455  get_field2               @418
+     460  object                   
+     461  get_var_ref_check        0
+     464  define_field             @415
+     469  object                   
+     470  scope_put_private_field  @27479298, 0
+     477  define_field             @419
+     482  define_field             @417
+     487  scope_put_private_field  @140291, 39992
+     494  push_i32                 -1572732928
+     499  push_i32                 1695219712
+     504  invalid                  
+     505  invalid                  
+     506  define_field             @415
+     511  object                   
+     512  scope_put_private_field  @27479300, 0
+     519  define_field             @419
+     524  define_field             @417
+     529  scope_put_private_field  @140293, 39992
+     536  push_i32                 -1656619008
+     541  push_i32                 -1492910080
+     546  push_i32                 1695219712
+     551  invalid                  
+     552  invalid                  
+     553  define_field             @415
+     558  object                   
+     559  push_atom_value          @279
+     564  array_from               1
+     567  define_field             @416
+     572  object                   
+     573  scope_put_private_field  @27610374, 0
+     580  define_field             @421
+     585  define_field             @422
+     590  push_atom_value          @424
+     595  define_field             '#ffffff'
+     600  define_field             @417
+     605  array_from               0
+     608  call_method              3
+     611  array_from               7
+     614  call_method              3
+     617  array_from               1
+     620  return                   
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[0]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@11875
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @346
+       8  return                   
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[1]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@11901
+    closure_vars: @664@0
+       0  get_var_ref_check        0
+       3  get_field                @347
+       8  return                   
+  -- cpool[2] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[2]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@11927
+    closure_vars: @664@0
+       0  push_atom_value          @453
+       5  get_var_ref_check        0
+       8  get_field                @345
+      13  strict_eq                
+      14  return                   
+  -- cpool[3] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[3]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=10 locals=0 closures=1 cpool=1 bclen=130 debug=False
+    bc@11960
+    closure_vars: @664@0
+       0  get_var                  @412
+       5  get_field2               @413
+      10  push_atom_value          @414
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             @415
+      24  object                   
+      25  push_atom_value          @268
+      30  array_from               1
+      33  define_field             @416
+      38  object                   
+      39  scope_put_private_field  @27610368, 0
+      46  define_field             @421
+      51  define_field             @422
+      56  define_field             @417
+      61  get_var                  @412
+      66  get_field2               @413
+      71  push_atom_value          @423
+      76  object                   
+      77  get_var_ref_check        0
+      80  define_field             @415
+      85  object                   
+      86  push_atom_value          @274
+      91  array_from               1
+      94  define_field             @416
+      99  push_atom_value          @454
+     104  define_field             '#ffffff'
+     109  define_field             @417
+     114  array_from               0
+     117  call_method              3
+     120  array_from               1
+     123  call_method              3
+     126  array_from               1
+     129  return                   
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[3]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@12106
+    closure_vars: @aiot/index@0
+       0  get_var_ref_check        0
+       3  get_field2               @366
+       8  get_loc8                 loc37
+      10  push_i32                    ; ERR unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 12)
+  -- cpool[4] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[4]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=28 debug=False
+    bc@12135
+    closure_vars: @664@0
+       0  push_atom_value          @453
+       5  get_var_ref_check        0
+       8  get_field                @345
+      13  strict_neq               
+      14  dup                      
+      15  set_arg2                 
+      16  object                   
+      17  drop                     
+      18  get_var_ref_check        0
+      21  get_field                @348
+      26  lnot                     
+      27  return                   
+  -- cpool[5] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[5]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=10 locals=0 closures=1 cpool=2 bclen=132 debug=False
+    bc@12181
+    closure_vars: @664@0
+       0  get_var                  @412
+       5  get_field2               @413
+      10  push_atom_value          @414
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             @415
+      24  object                   
+      25  push_atom_value          @268
+      30  array_from               1
+      33  define_field             @416
+      38  object                   
+      39  scope_put_private_field  @27610368, 0
+      46  define_field             @421
+      51  define_field             @422
+      56  define_field             @417
+      61  get_var                  @412
+      66  get_field2               @413
+      71  push_atom_value          @423
+      76  object                   
+      77  get_var_ref_check        0
+      80  define_field             @415
+      85  object                   
+      86  push_atom_value          @274
+      91  array_from               1
+      94  define_field             @416
+      99  scope_put_private_field  @4345089, 0
+     106  define_field             '#ffffff'
+     111  define_field             @417
+     116  array_from               0
+     119  call_method              3
+     122  array_from               1
+     125  call_method              3
+     128  array_from               1
+     131  return                   
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[5]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@12329
+    closure_vars: @aiot/index@0
+       0  get_var_ref_check        0
+       3  get_field2               @363
+       8  get_loc8                 loc37
+      10  push_i32                    ; ERR unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 12)
+  -- cpool[1] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=28 debug=False
+    bc@12358
+    closure_vars: @664@0
+       0  push_atom_value          @455
+       5  get_var_ref_check        0
+       8  get_field                @345
+      13  strict_eq                
+      14  set_arg2                 
+      15  null                     
+      16  push_atom_value          @456
+      21  return                   
+      22  push_atom_value          @425
+      27  return                   
+  -- cpool[6] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[1]@aiot/index.cpool[8]@aiot/index.cpool[6]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@12402
+    closure_vars: @aiot/index@0
+       0  get_var_ref_check        0
+       3  get_field2               @367
+       8  get_loc8                 loc37
+      10  push_i32                    ; ERR unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 12)
+  -- cpool[2] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[2]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@12431
+    closure_vars: @664@0
+       0  push_atom_value          @420
+       5  get_var_ref_check        0
+       8  get_field                @345
+      13  strict_eq                
+      14  return                   
+  -- cpool[3] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[3]@aiot/index  kind=function args=0 varargs=0 defargs=0 stack=15 locals=0 closures=1 cpool=1 bclen=238 debug=False
+    bc@12464
+    closure_vars: @664@0
+       0  get_var                  @412
+       5  get_field2               @413
+      10  push_atom_value          @414
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             @415
+      24  object                   
+      25  push_atom_value          '也可在 lxyu.top 兑换。设备码8位，激活码12位，开头的0请保留。'
+      30  array_from               1
+      33  define_field             @416
+      38  define_field             @417
+      43  get_var                  @412
+      48  get_field2               @413
+      53  push_atom_value          @423
+      58  object                   
+      59  get_var_ref_check        0
+      62  define_field             @415
+      67  object                   
+      68  push_atom_value          '正在核对…'
+      73  array_from               1
+      76  define_field             @416
+      81  push_atom_value          @457
+      86  define_field             '#ffffff'
+      91  define_field             @417
+      96  array_from               0
+      99  call_method              3
+     102  get_var                  @412
+     107  get_field2               @413
+     112  push_atom_value          @414
+     117  object                   
+     118  get_var_ref_check        0
+     121  define_field             @415
+     126  object                   
+     127  push_atom_value          @268
+     132  array_from               1
+     135  define_field             @416
+     140  object                   
+     141  scope_put_private_field  @27610368, 0
+     148  define_field             @421
+     153  define_field             @422
+     158  define_field             @417
+     163  get_var                  @412
+     168  get_field2               @413
+     173  push_atom_value          @423
+     178  object                   
+     179  get_var_ref_check        0
+     182  define_field             @415
+     187  object                   
+     188  push_atom_value          @274
+     193  array_from               1
+     196  define_field             @416
+     201  push_atom_value          @458
+     206  define_field             '#ffffff'
+     211  define_field             @417
+     216  array_from               0
+     219  call_method              3
+     222  array_from               1
+     225  call_method              3
+     228  array_from               2
+     231  call_method              3
+     234  array_from               1
+     237  return                   
+  -- cpool[0] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[5]@aiot/index.cpool[3]@aiot/index.cpool[0]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@12718
+    closure_vars: @aiot/index@0
+       0  get_var_ref_check        0
+       3  get_field2               @400
+       8  get_loc8                 loc37
+      10  push_i32                    ; ERR unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 12)
+  -- cpool[6] = function --
+=== func module._authVisible.cpool[0]@aiot/index.cpool[0]@aiot/index.cpool[6]@aiot/index  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=4 cpool=0 bclen=31 debug=False
+    bc@12755
+    closure_vars: @aiot/index@1, @aiot/index@0, @aiot/index@2, @aiot/index@0
+       0  set_loc1                 
+       1  object                   
+       2  get_loc8                 loc220
+       4  put_var_ref1             
+       5  drop                     
+       6  get_loc8                 loc65
+       8  insert3                  
+       9  invalid                  
+      10  invalid                  
+      11  invalid                  
+      12  set_loc3                 
+      13  put_field                @459
+      18  get_loc8                 loc65
+      20  insert3                  
+      21  invalid                  
+      22  invalid                  
+      23  invalid                  
+      24  get_arg0                 
+      25  put_field                @460
+      30  return_undef             

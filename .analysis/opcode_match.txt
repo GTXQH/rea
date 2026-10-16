@@ -1,0 +1,261 @@
+  0 size= 1 pop=0 push=0 fmt= 0 none             invalid
+  1 size= 5 pop=0 push=1 fmt=20 i32              push_i32
+  2 size= 5 pop=0 push=1 fmt=21 const            push_const
+  3 size= 5 pop=0 push=1 fmt=21 const            fclosure
+  4 size= 5 pop=0 push=1 fmt=23 atom             push_atom_value
+  5 size= 5 pop=0 push=1 fmt=23 atom             private_symbol
+  6 size= 1 pop=0 push=1 fmt= 0 none             undefined
+  7 size= 1 pop=0 push=1 fmt= 0 none             null
+  8 size= 1 pop=0 push=1 fmt= 0 none             push_this
+  9 size= 1 pop=0 push=1 fmt= 0 none             push_false
+ 10 size= 1 pop=0 push=1 fmt= 0 none             push_true
+ 11 size= 1 pop=0 push=1 fmt= 0 none             object
+ 12 size= 2 pop=0 push=1 fmt= 5 u8               special_object
+ 13 size= 3 pop=0 push=1 fmt=10 u16              rest
+ 14 size= 1 pop=1 push=0 fmt= 0 none             drop
+ 15 size= 1 pop=2 push=1 fmt= 0 none             nip
+ 16 size= 1 pop=3 push=2 fmt= 0 none             nip1
+ 17 size= 1 pop=1 push=2 fmt= 0 none             dup
+ 18 size= 1 pop=2 push=3 fmt= 0 none             dup1
+ 19 size= 1 pop=2 push=4 fmt= 0 none             dup2
+ 20 size= 1 pop=3 push=6 fmt= 0 none             dup3
+ 21 size= 1 pop=2 push=3 fmt= 0 none             insert2
+ 22 size= 1 pop=3 push=4 fmt= 0 none             insert3
+ 23 size= 1 pop=4 push=5 fmt= 0 none             insert4
+ 24 size= 1 pop=3 push=3 fmt= 0 none             perm3
+ 25 size= 1 pop=4 push=4 fmt= 0 none             perm4
+ 26 size= 1 pop=5 push=5 fmt= 0 none             perm5
+ 27 size= 1 pop=2 push=2 fmt= 0 none             swap
+ 28 size= 1 pop=4 push=4 fmt= 0 none             swap2
+ 29 size= 1 pop=3 push=3 fmt= 0 none             rot3l
+ 30 size= 1 pop=3 push=3 fmt= 0 none             rot3r
+ 31 size= 1 pop=4 push=4 fmt= 0 none             rot4l
+ 32 size= 1 pop=5 push=5 fmt= 0 none             rot5l
+ 33 size= 3 pop=2 push=1 fmt=13 npop             call_constructor
+ 34 size= 3 pop=1 push=1 fmt=13 npop             call
+ 35 size= 3 pop=1 push=0 fmt=13 npop             tail_call
+ 36 size= 3 pop=2 push=1 fmt=13 npop             call_method
+ 37 size= 3 pop=2 push=0 fmt=13 npop             tail_call_method
+ 38 size= 3 pop=0 push=1 fmt=13 npop             array_from
+ 39 size= 3 pop=3 push=1 fmt=10 u16              apply
+ 40 size= 1 pop=1 push=0 fmt= 0 none             return
+ 41 size= 1 pop=0 push=0 fmt= 0 none             return_undef
+ 42 size= 1 pop=1 push=2 fmt= 0 none             check_ctor_return
+ 43 size= 1 pop=0 push=0 fmt= 0 none             check_ctor
+ 44 size= 1 pop=2 push=2 fmt= 0 none             check_brand
+ 45 size= 1 pop=2 push=0 fmt= 0 none             add_brand
+ 46 size= 1 pop=1 push=0 fmt= 0 none             return_async
+ 47 size= 1 pop=1 push=0 fmt= 0 none             throw
+ 48 size= 6 pop=0 push=0 fmt=24 atom_u8          throw_error
+ 49 size= 5 pop=1 push=1 fmt=15 npop_u16         eval
+ 50 size= 3 pop=2 push=1 fmt=10 u16              apply_eval
+ 51 size= 1 pop=2 push=1 fmt= 0 none             regexp
+ 52 size= 1 pop=1 push=1 fmt= 0 none             get_super
+ 53 size= 1 pop=1 push=1 fmt= 0 none             import
+ 54 size= 5 pop=0 push=1 fmt=23 atom             check_var
+ 55 size= 5 pop=0 push=1 fmt=23 atom             get_var_undef
+ 56 size= 5 pop=0 push=1 fmt=23 atom             get_var
+ 57 size= 5 pop=1 push=0 fmt=23 atom             put_var
+ 58 size= 5 pop=1 push=0 fmt=23 atom             put_var_init
+ 59 size= 5 pop=2 push=0 fmt=23 atom             put_var_strict
+ 60 size= 1 pop=2 push=3 fmt= 0 none             get_ref_value
+ 61 size= 1 pop=3 push=0 fmt= 0 none             put_ref_value
+ 62 size= 6 pop=0 push=0 fmt=24 atom_u8          define_var
+ 63 size= 6 pop=0 push=0 fmt=24 atom_u8          check_define_var
+ 64 size= 6 pop=1 push=0 fmt=24 atom_u8          define_func
+ 65 size= 5 pop=1 push=1 fmt=23 atom             get_field
+ 66 size= 5 pop=1 push=2 fmt=23 atom             get_field2
+ 67 size= 5 pop=2 push=0 fmt=23 atom             put_field
+ 68 size= 1 pop=2 push=1 fmt= 0 none             get_private_field
+ 69 size= 1 pop=3 push=0 fmt= 0 none             put_private_field
+ 70 size= 1 pop=3 push=1 fmt= 0 none             define_private_field
+ 71 size= 1 pop=2 push=1 fmt= 0 none             get_array_el
+ 72 size= 1 pop=2 push=2 fmt= 0 none             get_array_el2
+ 73 size= 1 pop=3 push=0 fmt= 0 none             put_array_el
+ 74 size= 1 pop=3 push=1 fmt= 0 none             get_super_value
+ 75 size= 1 pop=4 push=0 fmt= 0 none             put_super_value
+ 76 size= 5 pop=2 push=1 fmt=23 atom             define_field
+ 77 size= 5 pop=1 push=1 fmt=23 atom             set_name
+ 78 size= 1 pop=2 push=2 fmt= 0 none             set_name_computed
+ 79 size= 1 pop=2 push=1 fmt= 0 none             set_proto
+ 80 size= 1 pop=2 push=2 fmt= 0 none             set_home_object
+ 81 size= 1 pop=3 push=2 fmt= 0 none             define_array_el
+ 82 size= 1 pop=3 push=2 fmt= 0 none             append
+ 83 size= 2 pop=3 push=3 fmt= 5 u8               copy_data_properties
+ 84 size= 6 pop=2 push=1 fmt=24 atom_u8          define_method
+ 85 size= 2 pop=3 push=1 fmt= 5 u8               define_method_computed
+ 86 size= 6 pop=2 push=2 fmt=24 atom_u8          define_class
+ 87 size= 6 pop=3 push=3 fmt=24 atom_u8          define_class_computed
+ 88 size= 3 pop=0 push=1 fmt=16 loc              get_loc
+ 89 size= 3 pop=1 push=0 fmt=16 loc              put_loc
+ 90 size= 3 pop=1 push=1 fmt=16 loc              set_loc
+ 91 size= 3 pop=0 push=1 fmt=17 arg              get_arg
+ 92 size= 3 pop=1 push=0 fmt=17 arg              put_arg
+ 93 size= 3 pop=1 push=1 fmt=17 arg              set_arg
+ 94 size= 3 pop=0 push=1 fmt=18 var_ref          get_var_ref
+ 95 size= 3 pop=1 push=0 fmt=18 var_ref          put_var_ref
+ 96 size= 3 pop=1 push=1 fmt=18 var_ref          set_var_ref
+ 97 size= 3 pop=0 push=0 fmt=16 loc              set_loc_uninitialized
+ 98 size= 3 pop=0 push=1 fmt=16 loc              get_loc_check
+ 99 size= 3 pop=1 push=0 fmt=16 loc              put_loc_check
+100 size= 3 pop=1 push=0 fmt=16 loc              put_loc_check_init
+101 size= 3 pop=0 push=1 fmt=18 var_ref          get_var_ref_check
+102 size= 3 pop=1 push=0 fmt=18 var_ref          put_var_ref_check
+103 size= 3 pop=1 push=0 fmt=18 var_ref          put_var_ref_check_init
+104 size= 3 pop=0 push=0 fmt=16 loc              close_loc
+105 size= 5 pop=1 push=0 fmt=22 label            if_false
+106 size= 5 pop=1 push=0 fmt=22 label            if_true
+107 size= 5 pop=0 push=0 fmt=22 label            goto
+108 size= 5 pop=0 push=1 fmt=22 label            catch
+109 size= 5 pop=0 push=0 fmt=22 label            gosub
+110 size= 1 pop=1 push=0 fmt= 0 none             ret
+111 size= 1 pop=1 push=1 fmt= 0 none             to_object
+112 size= 1 pop=1 push=1 fmt= 0 none             to_propkey
+113 size= 1 pop=2 push=2 fmt= 0 none             to_propkey2
+114 size=10 pop=1 push=0 fmt=26 atom_label_u8    with_get_var
+115 size=10 pop=2 push=1 fmt=26 atom_label_u8    with_put_var
+116 size=10 pop=1 push=0 fmt=26 atom_label_u8    with_delete_var
+117 size=10 pop=1 push=0 fmt=26 atom_label_u8    with_make_ref
+118 size=10 pop=1 push=0 fmt=26 atom_label_u8    with_get_ref
+119 size=10 pop=1 push=0 fmt=26 atom_label_u8    with_get_ref_undef
+120 size= 7 pop=0 push=2 fmt=25 atom_u16         make_loc_ref
+121 size= 7 pop=0 push=2 fmt=25 atom_u16         make_arg_ref
+122 size= 7 pop=0 push=2 fmt=25 atom_u16         make_var_ref_ref
+123 size= 5 pop=0 push=2 fmt=23 atom             make_var_ref
+124 size= 1 pop=1 push=1 fmt= 0 none             for_in_start
+125 size= 1 pop=1 push=3 fmt= 0 none             for_of_start
+126 size= 1 pop=1 push=3 fmt= 0 none             for_await_of_start
+127 size= 1 pop=1 push=3 fmt= 0 none             for_in_next
+128 size= 2 pop=3 push=5 fmt= 5 u8               for_of_next
+129 size= 1 pop=1 push=1 fmt= 0 none             iterator_check_object
+130 size= 1 pop=1 push=2 fmt= 0 none             iterator_get_value_done
+131 size= 1 pop=3 push=0 fmt= 0 none             iterator_close
+132 size= 1 pop=4 push=4 fmt= 0 none             iterator_close_return
+133 size= 1 pop=4 push=4 fmt= 0 none             iterator_next
+134 size= 2 pop=4 push=5 fmt= 5 u8               iterator_call
+135 size= 1 pop=0 push=0 fmt= 0 none             initial_yield
+136 size= 1 pop=1 push=2 fmt= 0 none             yield
+137 size= 1 pop=1 push=2 fmt= 0 none             yield_star
+138 size= 1 pop=1 push=2 fmt= 0 none             async_yield_star
+139 size= 1 pop=1 push=1 fmt= 0 none             await
+140 size= 1 pop=1 push=1 fmt= 0 none             neg
+141 size= 1 pop=1 push=1 fmt= 0 none             plus
+142 size= 1 pop=1 push=1 fmt= 0 none             dec
+143 size= 1 pop=1 push=1 fmt= 0 none             inc
+144 size= 1 pop=1 push=2 fmt= 0 none             post_dec
+145 size= 1 pop=1 push=2 fmt= 0 none             post_inc
+146 size= 2 pop=0 push=0 fmt= 7 loc8             dec_loc
+147 size= 2 pop=0 push=0 fmt= 7 loc8             inc_loc
+148 size= 2 pop=1 push=0 fmt= 7 loc8             add_loc
+149 size= 1 pop=1 push=1 fmt= 0 none             not
+150 size= 1 pop=1 push=1 fmt= 0 none             lnot
+151 size= 1 pop=1 push=1 fmt= 0 none             typeof
+152 size= 1 pop=2 push=1 fmt= 0 none             delete
+153 size= 5 pop=0 push=1 fmt=23 atom             delete_var
+154 size= 1 pop=2 push=1 fmt= 0 none             mul
+155 size= 1 pop=2 push=1 fmt= 0 none             div
+156 size= 1 pop=2 push=1 fmt= 0 none             mod
+157 size= 1 pop=2 push=1 fmt= 0 none             add
+158 size= 1 pop=2 push=1 fmt= 0 none             sub
+159 size= 1 pop=2 push=1 fmt= 0 none             pow
+160 size= 1 pop=2 push=1 fmt= 0 none             shl
+161 size= 1 pop=2 push=1 fmt= 0 none             sar
+162 size= 1 pop=2 push=1 fmt= 0 none             shr
+163 size= 1 pop=2 push=1 fmt= 0 none             lt
+164 size= 1 pop=2 push=1 fmt= 0 none             lte
+165 size= 1 pop=2 push=1 fmt= 0 none             gt
+166 size= 1 pop=2 push=1 fmt= 0 none             gte
+167 size= 1 pop=2 push=1 fmt= 0 none             instanceof
+168 size= 1 pop=2 push=1 fmt= 0 none             in
+169 size= 1 pop=2 push=1 fmt= 0 none             eq
+170 size= 1 pop=2 push=1 fmt= 0 none             neq
+171 size= 1 pop=2 push=1 fmt= 0 none             strict_eq
+172 size= 1 pop=2 push=1 fmt= 0 none             strict_neq
+173 size= 1 pop=2 push=1 fmt= 0 none             and
+174 size= 1 pop=2 push=1 fmt= 0 none             xor
+175 size= 1 pop=2 push=1 fmt= 0 none             or
+176 size= 1 pop=1 push=1 fmt= 0 none             is_undefined_or_null
+177 size= 1 pop=0 push=0 fmt= 0 none             ?mul_pow10
+178 size= 3 pop=0 push=0 fmt=10 u16              ?math_mod
+179 size= 3 pop=0 push=0 fmt=10 u16              ?nop
+180 size= 5 pop=0 push=0 fmt=22 label            ?push_minus1
+181 size= 7 pop=0 push=1 fmt=25 atom_u16         ?push_0
+182 size= 7 pop=0 push=1 fmt=25 atom_u16         ?push_1
+183 size= 7 pop=1 push=0 fmt=25 atom_u16         ?push_2
+184 size= 7 pop=0 push=1 fmt=25 atom_u16         ?push_3
+185 size=11 pop=0 push=2 fmt=27 atom_label_u16   ?push_4
+186 size= 7 pop=0 push=2 fmt=25 atom_u16         ?push_5
+187 size= 7 pop=0 push=2 fmt=25 atom_u16         ?push_6
+188 size= 7 pop=1 push=1 fmt=25 atom_u16         ?push_7
+189 size= 7 pop=1 push=2 fmt=25 atom_u16         ?push_i8
+190 size= 7 pop=1 push=1 fmt=25 atom_u16         ?push_i16
+191 size= 5 pop=1 push=1 fmt=19 u32              ?push_const8
+192 size= 5 pop=0 push=0 fmt=19 u32              ?fclosure8
+193 size= 1 pop=0 push=1 fmt= 1 none_int         ?push_empty_string
+194 size= 1 pop=0 push=1 fmt= 1 none_int         ?get_loc8
+195 size= 1 pop=0 push=1 fmt= 1 none_int         ?put_loc8
+196 size= 1 pop=0 push=1 fmt= 1 none_int         ?set_loc8
+197 size= 1 pop=0 push=1 fmt= 1 none_int         ?get_loc0
+198 size= 1 pop=0 push=1 fmt= 1 none_int         ?get_loc1
+199 size= 1 pop=0 push=1 fmt= 1 none_int         ?get_loc2
+200 size= 1 pop=0 push=1 fmt= 1 none_int         ?get_loc3
+201 size= 1 pop=0 push=1 fmt= 1 none_int         ?put_loc0
+202 size= 2 pop=0 push=1 fmt= 6 i8               ?put_loc1
+203 size= 3 pop=0 push=1 fmt=11 i16              ?put_loc2
+204 size= 2 pop=0 push=1 fmt= 8 const8           ?put_loc3
+205 size= 2 pop=0 push=1 fmt= 8 const8           ?set_loc0
+206 size= 1 pop=0 push=1 fmt= 0 none             ?set_loc1
+207 size= 2 pop=0 push=1 fmt= 7 loc8             ?set_loc2
+208 size= 2 pop=1 push=0 fmt= 7 loc8             ?set_loc3
+209 size= 2 pop=1 push=1 fmt= 7 loc8             ?get_arg0
+210 size= 1 pop=0 push=1 fmt= 2 none_loc         ?get_arg1
+211 size= 1 pop=0 push=1 fmt= 2 none_loc         ?get_arg2
+212 size= 1 pop=0 push=1 fmt= 2 none_loc         ?get_arg3
+213 size= 1 pop=0 push=1 fmt= 2 none_loc         ?put_arg0
+214 size= 1 pop=1 push=0 fmt= 2 none_loc         ?put_arg1
+215 size= 1 pop=1 push=0 fmt= 2 none_loc         ?put_arg2
+216 size= 1 pop=1 push=0 fmt= 2 none_loc         ?put_arg3
+217 size= 1 pop=1 push=0 fmt= 2 none_loc         ?set_arg0
+218 size= 1 pop=1 push=1 fmt= 2 none_loc         ?set_arg1
+219 size= 1 pop=1 push=1 fmt= 2 none_loc         ?set_arg2
+220 size= 1 pop=1 push=1 fmt= 2 none_loc         ?set_arg3
+221 size= 1 pop=1 push=1 fmt= 2 none_loc         ?get_var_ref0
+222 size= 1 pop=0 push=1 fmt= 3 none_arg         ?get_var_ref1
+223 size= 1 pop=0 push=1 fmt= 3 none_arg         ?get_var_ref2
+224 size= 1 pop=0 push=1 fmt= 3 none_arg         ?get_var_ref3
+225 size= 1 pop=0 push=1 fmt= 3 none_arg         ?put_var_ref0
+226 size= 1 pop=1 push=0 fmt= 3 none_arg         ?put_var_ref1
+227 size= 1 pop=1 push=0 fmt= 3 none_arg         ?put_var_ref2
+228 size= 1 pop=1 push=0 fmt= 3 none_arg         ?put_var_ref3
+229 size= 1 pop=1 push=0 fmt= 3 none_arg         ?set_var_ref0
+230 size= 1 pop=1 push=1 fmt= 3 none_arg         ?set_var_ref1
+231 size= 1 pop=1 push=1 fmt= 3 none_arg         ?set_var_ref2
+232 size= 1 pop=1 push=1 fmt= 3 none_arg         ?set_var_ref3
+233 size= 1 pop=1 push=1 fmt= 3 none_arg         ?get_length
+234 size= 1 pop=0 push=1 fmt= 4 none_var_ref     ?if_false8
+235 size= 1 pop=0 push=1 fmt= 4 none_var_ref     ?if_true8
+236 size= 1 pop=0 push=1 fmt= 4 none_var_ref     ?goto8
+237 size= 1 pop=0 push=1 fmt= 4 none_var_ref     ?goto16
+238 size= 1 pop=1 push=0 fmt= 4 none_var_ref     ?call0
+239 size= 1 pop=1 push=0 fmt= 4 none_var_ref     ?call1
+240 size= 1 pop=1 push=0 fmt= 4 none_var_ref     ?call2
+241 size= 1 pop=1 push=0 fmt= 4 none_var_ref     ?call3
+242 size= 1 pop=1 push=1 fmt= 4 none_var_ref     ?is_undefined
+243 size= 1 pop=1 push=1 fmt= 4 none_var_ref     ?is_null
+244 size= 1 pop=1 push=1 fmt= 4 none_var_ref     ?typeof_is_undefined
+245 size= 1 pop=1 push=1 fmt= 4 none_var_ref     ?typeof_is_function
+246 size= 1 pop=1 push=1 fmt= 0 none             
+247 size= 2 pop=1 push=0 fmt= 9 label8           
+248 size= 2 pop=1 push=0 fmt= 9 label8           
+249 size= 2 pop=0 push=0 fmt= 9 label8           
+250 size= 3 pop=0 push=0 fmt=12 label16          
+251 size= 1 pop=1 push=1 fmt=14 npopx            
+252 size= 1 pop=1 push=1 fmt=14 npopx            
+253 size= 1 pop=1 push=1 fmt=14 npopx            
+254 size= 1 pop=1 push=1 fmt=14 npopx            
+255 size= 1 pop=1 push=1 fmt= 0 none             
+256 size= 1 pop=1 push=1 fmt= 0 none             
+257 size= 1 pop=1 push=1 fmt= 0 none             
+258 size= 1 pop=1 push=1 fmt= 0 none             
+
+matched 177/246 stock entries; extras: 13

@@ -1,0 +1,263 @@
+  0 <unresolved:1401000500000001>    size=  5 fmt=5377
+  1 <unresolved:1701000517010005>    size=  1 fmt=1
+  2 <unresolved:1000100010001>       size=  1 fmt=1
+  3 <unresolved:a01000305010002>     size=  1 fmt=0
+  4 <unresolved:2010100020301>       size=  1 fmt=3
+  5 <unresolved:3020100060301>       size=  1 fmt=4
+  6 <unresolved:4040100030301>       size=  1 fmt=5
+  7 <unresolved:3030100040401>       size=  1 fmt=3
+  8 <unresolved:d01020300050501>     size=  3 fmt=3329
+  9 <unresolved:d0002030d010203>     size=  3 fmt=3329
+ 10 <unresolved:100000101>           size=  1 fmt=2
+ 11 <unresolved:20100020201>         size=  1 fmt=0
+ 12 <unresolved:f01010518000006>     size=  3 fmt=2561
+ 13 <unresolved:1010100010101>       size=  5 fmt=5889
+ 14 <unresolved:1700010517010005>    size=  5 fmt=5888
+ 15 <unresolved:30100030201>         size=  6 fmt=6144
+ 16 <unresolved:1701010518000106>    size=  5 fmt=5890
+ 17 <unresolved:30100010201>         size=  1 fmt=1
+ 18 <unresolved:30100020201>         size=  1 fmt=1
+ 19 <unresolved:1701010517010205>    size=  1 fmt=2
+ 20 <unresolved:2030100020201>       size=  1 fmt=2
+ 21 <unresolved:501030218010206>     size=  6 fmt=6146
+ 22 <unresolved:1000010310010003>    size=  3 fmt=4097
+ 23 <unresolved:1101010311000103>    size=  3 fmt=4609
+ 24 <unresolved:1000000312010103>    size=  3 fmt=4097
+ 25 <unresolved:1201000310000103>    size=  3 fmt=4608
+ 26 <unresolved:1600010510000003>    size=  5 fmt=5632
+ 27 <unresolved:1600000516010005>    size=  1 fmt=0
+ 28 <unresolved:2020100010101>       size= 10 fmt=6656
+ 29 <unresolved:1a00010a1a00010a>    size= 10 fmt=6656
+ 30 <unresolved:1902000719020007>    size=  7 fmt=6402
+ 31 <unresolved:3010100010101>       size=  1 fmt=3
+ 32 <unresolved:1010105050302>       size=  1 fmt=2
+ 33 <unresolved:4040100040401>       size=  2 fmt=1285
+ 34 <unresolved:2010100020101>       size=  1 fmt=2
+ 35 <unresolved:1010100010101>       size=  1 fmt=1
+ 36 <unresolved:2010100020101>       size=  2 fmt=1792
+ 37 <unresolved:1010107000102>       size=  1 fmt=1
+ 38 <unresolved:1701000500010201>    size=  1 fmt=1
+ 39 <unresolved:1020100010201>       size=  1 fmt=1
+ 40 <unresolved:1020100010201>       size=  1 fmt=1
+ 41 <unresolved:1020100010201>       size=  1 fmt=1
+ 42 <unresolved:1020100010201>       size=  1 fmt=1
+ 43 <unresolved:1020100010201>       size=  1 fmt=1
+ 44 <unresolved:100010101>           size=  3 fmt=2560
+ 45 <unresolved:1901000716000005>    size=  7 fmt=6401
+ 46 <unresolved:1b02000b19010007>    size=  7 fmt=6402
+ 47 <unresolved:1902010719010107>    size=  7 fmt=6401
+ 48 <unresolved:101000113000005>     size=  1 fmt=257
+ 49 <unresolved:101000101010001>     size=  1 fmt=257
+ 50 <unresolved:101000101010001>     size=  2 fmt=1537
+ 51 <unresolved:801000208010002>     size=  1 fmt=1
+ 52 <unresolved:701010207000102>     size=  1 fmt=513
+ 53 <unresolved:201000102010001>     size=  1 fmt=512
+ 54 <unresolved:200010102000101>     size=  1 fmt=513
+ 55 <unresolved:201010102010101>     size=  1 fmt=769
+ 56 <unresolved:301000103010001>     size=  1 fmt=768
+ 57 <unresolved:300010103000101>     size=  1 fmt=769
+ 58 <unresolved:301010103010101>     size=  1 fmt=1025
+ 59 <unresolved:401000104010001>     size=  1 fmt=1024
+ 60 <unresolved:400010104000101>     size=  1 fmt=1025
+ 61 <unresolved:401010104010101>     size=  1 fmt=1
+ 62 <unresolved:900000209000102>     size=  3 fmt=3072
+ 63 <unresolved:e0101010e010101>     size=  1 fmt=3585
+ 64 <unresolved:1010100010101>       size=  1 fmt=1
+ 65 <unresolved:34312e25203a7265>    size=103 fmt=26880
+ 66 <unresolved:a27732527203a>       size=115 fmt=26994
+ 67 <unresolved:6574000a27732527>    size=109 fmt=24940
+ 68 <unresolved:6572000a60732560>    size=103 fmt=28792
+ 69 <unresolved:a27732527202773>     size=  0 fmt=26223
+ 70 <unresolved:a6425203a6e65>       size=116 fmt=25963
+ 71 <unresolved:a276325>             size=218 fmt=65526
+ 72 <unresolved:fff6e722fff6e7c3>    size= 36 fmt=65526
+ 73 <unresolved:fff6e8d8fff6e8d8>    size=216 fmt=65526
+ 74 <unresolved:fff6e8d8fff6e8d8>    size=216 fmt=65526
+ 75 <unresolved:fff6e8d8fff6e8d8>    size=216 fmt=65526
+ 76 <unresolved:fff6e8d8fff6e8d8>    size=216 fmt=65526
+ 77 <unresolved:fff6e8d8fff6e8d8>    size=216 fmt=65526
+ 78 <unresolved:fff6e8d8fff6e8d8>    size=216 fmt=65526
+ 79 <unresolved:fff6e8d8fff6e8d8>    size=216 fmt=65526
+ 80 <unresolved:fff6e8d8fff6e8d8>    size=216 fmt=65526
+ 81 <unresolved:fff6e8d8fff6e8d8>    size=216 fmt=65526
+ 82 <unresolved:65707865fff6e8ca>    size= 99 fmt=28265
+ 83 <unresolved:2027732527002763>    size=105 fmt=24864
+ 84 <unresolved:6469206465767265>    size=101 fmt=26996
+ 85 <unresolved:64696c61766e6900>    size= 32 fmt=18004
+ 86 <unresolved:65636e65757165>      size=117 fmt=30821
+ 87 <unresolved:6f20646e65206465>    size=102 fmt=29811
+ 88 <unresolved:0>                   size=105 fmt=24950
+ 89 <unresolved:6574636172616863>    size=114 fmt=28265
+ 90 <unresolved:69727473204e4f53>    size=110 fmt=0
+ 91 <unresolved:7365206c6174636f>    size= 99 fmt=25968
+ 92 <unresolved:61207365636e6575>    size=114 fmt=28192
+ 93 <unresolved:69206465776f6c6c>    size=110 fmt=29811
+ 94 <unresolved:65646f6d20>          size=109 fmt=26220
+ 95 <unresolved:6570616373652064>    size= 32 fmt=29029
+ 96 <unresolved:727473206e692065>    size=105 fmt=8295
+ 97 <unresolved:fff6ee11006c6172>    size=143 fmt=65526
+ 98 <unresolved:fff6ee8ffff6ee8f>    size=143 fmt=65526
+ 99 <unresolved:fff6ee8ffff6ee8f>    size=143 fmt=65526
+100 <unresolved:fff6ee8ffff6ee8f>    size= 72 fmt=65526
+101 <unresolved:fff6ee8ffff6ee8f>    size=143 fmt=65526
+102 <unresolved:fff6ee8ffff6ee8f>    size=143 fmt=65526
+103 <unresolved:fff6ee8ffff6ee8f>    size=143 fmt=65526
+104 <unresolved:fff6ee8ffff6ee8f>    size=143 fmt=65526
+105 <unresolved:fff6ee8ffff6ee8f>    size=143 fmt=65526
+106 <unresolved:fff6ee8ffff6ee8f>    size=143 fmt=65526
+107 <unresolved:78656e75fff6ee37>    size=112 fmt=29795
+108 <unresolved:657220666f20646e>    size=103 fmt=28792
+109 <unresolved:7463657078656e75>    size=101 fmt=27680
+110 <unresolved:74616e696d726574>    size=111 fmt=26912
+111 <unresolved:656e750070786567>    size=120 fmt=25445
+112 <unresolved:6320666f20646e65>    size=111 fmt=25965
+113 <unresolved:2064696c61766e69>    size=102 fmt=29554
+114 <unresolved:2072657463617261>    size=111 fmt=28704
+115 <unresolved:656d616e206574>      size=111 fmt=24948
+116 <unresolved:6120736c61726574>    size=114 fmt=25632
+117 <unresolved:6e69206465746163>    size= 32 fmt=29300
+118 <unresolved:766e690065646f6d>    size= 97 fmt=25705
+119 <unresolved:6574696c20726562>    size=114 fmt=108
+120 <unresolved:6320646574636570>    size=104 fmt=24946
+121 <unresolved:fff6f8a400000000>    size=191 fmt=65527
+122 <unresolved:fff706bffff706bf>    size=191 fmt=65527
+123 <unresolved:fff706bffff706bf>    size=130 fmt=65526
+124 <unresolved:fff6f982fff6f982>    size= 55 fmt=65526
+125 <unresolved:fff706bffff706bf>    size=191 fmt=65527
+126 <unresolved:fff706bffff706bf>    size=191 fmt=65527
+127 <unresolved:fff706bffff706bf>    size=191 fmt=65527
+128 <unresolved:fff706bffff706bf>    size=191 fmt=65527
+129 <unresolved:fff6f982fff706bf>    size=133 fmt=65527
+130 <unresolved:fff6fc5ffff6fe3e>    size= 68 fmt=65527
+131 <unresolved:fff706bffff6f8f9>    size=191 fmt=65527
+132 <unresolved:fff706bffff70173>    size=205 fmt=65527
+133 <unresolved:fff6ff8cfff6f993>    size=220 fmt=65526
+134 <unresolved:fff6ffdcfff6ffdc>    size=220 fmt=65526
+135 <unresolved:fff6ffdcfff6ffdc>    size=220 fmt=65526
+136 <unresolved:fff70257fff706bf>    size=  0 fmt=65527
+137 <unresolved:fff706bffff70618>    size= 95 fmt=65526
+138 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+139 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+140 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+141 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+142 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+143 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+144 <unresolved:fff6fbf9fff706bf>    size=191 fmt=65527
+145 <unresolved:fff6f8c9fff6fc5f>    size= 95 fmt=65526
+146 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+147 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+148 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+149 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+150 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+151 <unresolved:fff6fc5ffff6fc5f>    size= 95 fmt=65526
+152 <unresolved:fff70593fff706bf>    size=141 fmt=65527
+153 <unresolved:fff70cadfff70cad>    size=173 fmt=65527
+154 <unresolved:fff70cadfff70cad>    size=173 fmt=65527
+155 <unresolved:fff7093cfff7091a>    size= 60 fmt=65527
+156 <unresolved:fff70cadfff70cad>    size=173 fmt=65527
+157 <unresolved:fff70cadfff70cad>    size=173 fmt=65527
+158 <unresolved:fff70cadfff70cad>    size=173 fmt=65527
+159 <unresolved:fff70cadfff70cad>    size=173 fmt=65527
+160 <unresolved:fff70cadfff70cad>    size= 75 fmt=65527
+161 <unresolved:fff70cadfff708c1>    size= 83 fmt=65527
+162 <unresolved:fff708b2fff70cad>    size=173 fmt=65527
+163 <unresolved:fff70bb2fff70cad>    size=173 fmt=65527
+164 <unresolved:fff7095cfff70cad>    size=223 fmt=65527
+165 <unresolved:fff70c20fff70c20>    size= 32 fmt=65527
+166 <unresolved:fff70c20fff70c20>    size= 32 fmt=65527
+167 <unresolved:fff70cadfff70cad>    size=173 fmt=65527
+168 <unresolved:fff70cadfff70cad>    size=173 fmt=65527
+169 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+170 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+171 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+172 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+173 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+174 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+175 <unresolved:fff70cadfff70b53>    size=173 fmt=65527
+176 <unresolved:fff70b53fff70cad>    size=173 fmt=65527
+177 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+178 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+179 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+180 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+181 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+182 <unresolved:fff70b53fff70b53>    size= 83 fmt=65527
+183 <unresolved:fff70ecefff70b53>    size=178 fmt=65527
+184 <unresolved:fff70bb2fff70ece>    size=158 fmt=65527
+185 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+186 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+187 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+188 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+189 <unresolved:fff70c9efff70ece>    size=158 fmt=65527
+190 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+191 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+192 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+193 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+194 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+195 <unresolved:fff70c9efff70c9e>    size=158 fmt=65527
+196 <unresolved:fff70c85fff70c9e>    size=108 fmt=25954
+197 <unresolved:616c202626203020>    size= 98 fmt=8300
+198 <unresolved:635f6c6562616c3e>    size=111 fmt=29806
+199 <unresolved:756f635f6665723e>    size=110 fmt=15904
+200 <unresolved:796e616d206f6f74>    size= 32 fmt=25455
+201 <unresolved:73656c6261697261>    size=  0 fmt=28527
+202 <unresolved:656d756772612079>    size=110 fmt=115
+203 <unresolved:2064696c61766e69>    size=114 fmt=25956
+204 <unresolved:20666f206e6f6974>    size=108 fmt=27000
+205 <unresolved:696669746e656469>    size=101 fmt=0
+206 <unresolved:2064696c61766e69>    size=114 fmt=25956
+207 <unresolved:20666f206e6f6974>    size=112 fmt=24946
+208 <unresolved:656d616e2072>        size=105 fmt=24950
+209 <unresolved:696e696665646572>    size=116 fmt=28271
+210 <unresolved:6261697261762061>    size=108 fmt=0
+211 <unresolved:2064696c61766e69>    size=114 fmt=25956
+212 <unresolved:20666f206e6f6974>    size=103 fmt=25199
+213 <unresolved:65696669746e6564>    size=114 fmt=0
+214 <unresolved:6465746365707865>    size= 32 fmt=10109
+215 <unresolved:6c706d6574207265>    size= 97 fmt=8293
+216 <unresolved:69006e6f69737365>    size=110 fmt=27745
+217 <unresolved:2079747265706f72>    size=110 fmt=25965
+218 <unresolved:fff7358bfff7358b>    size=146 fmt=65527
+219 <unresolved:fff73592fff7358b>    size=146 fmt=65527
+220 <unresolved:fff73592fff73592>    size=146 fmt=65527
+221 <unresolved:fff73592fff73592>    size=146 fmt=65527
+222 <unresolved:fff73592fff73592>    size=146 fmt=65527
+223 <unresolved:fff7358bfff7358b>    size=146 fmt=65527
+224 <unresolved:fff73592fff73592>    size=146 fmt=65527
+225 <unresolved:fff73592fff73592>    size=146 fmt=65527
+226 <unresolved:fff73592fff73592>    size=146 fmt=65527
+227 <unresolved:fff73592fff73592>    size=146 fmt=65527
+228 <unresolved:fff73592fff73592>    size=146 fmt=65527
+229 <unresolved:fff7358bfff7358b>    size=146 fmt=65527
+230 <unresolved:fff73592fff73592>    size=139 fmt=65527
+231 <unresolved:fff73829fff7363c>    size= 41 fmt=65527
+232 <unresolved:fff73829fff73829>    size=189 fmt=65527
+233 <unresolved:fff73829fff73829>    size= 41 fmt=65527
+234 <unresolved:fff73829fff73829>    size= 41 fmt=65527
+235 <unresolved:fff73829fff73829>    size=119 fmt=65527
+236 <unresolved:fff73829fff737a8>    size= 41 fmt=65527
+237 <unresolved:fff73829fff73829>    size= 41 fmt=65527
+238 <unresolved:fff73829fff73829>    size= 41 fmt=65527
+239 <unresolved:fff73829fff73829>    size= 41 fmt=65527
+240 <unresolved:fff73829fff73829>    size= 41 fmt=65527
+241 <unresolved:fff73829fff73829>    size= 41 fmt=65527
+242 <unresolved:fff73829fff73829>    size= 41 fmt=65527
+243 <unresolved:fff73829fff73829>    size=  1 fmt=65527
+244 <unresolved:fff73665>            size=102 fmt=15917
+245 <unresolved:75622e65646f635f>    size=102 fmt=25956
+246 <unresolved:705f7373616c635f>    size=111 fmt=8285
+247 <unresolved:656e696665645f50>    size= 95 fmt=24940
+248 <unresolved:746163696c707564>    size=101 fmt=24415
+249 <unresolved:706f7270205f5f6f>    size=101 fmt=31092
+250 <unresolved:7075737b29280065>    size=101 fmt=11816
+251 <unresolved:2973746e656d7567>    size= 59 fmt=10240
+252 <unresolved:3e7465733c>          size= 99 fmt=29537
+253 <unresolved:20746e656d657461>    size=114 fmt=30065
+254 <unresolved:656d616e206120>      size=105 fmt=24950
+255 <unresolved:6e20646f6874656d>    size= 97 fmt=101
+256 <unresolved:6c6569662064696c>    size=100 fmt=24942
+257 <unresolved:79747265706f7270>    size= 32 fmt=28271
+258 <unresolved:70706120726f7463>    size=101 fmt=29554
+
+== diff vs stock 2021-03-27 (DEF ops only) ==
+stock: 246 binary: 0
+extra entries in binary: []

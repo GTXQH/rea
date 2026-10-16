@@ -1,0 +1,60 @@
+{
+  "package": "com.yizhiyu.xyfd.ycc",
+  "name": "幸运房东",
+  "versionName": "1.0.0",
+  "versionCode": 100,
+  "minPlatformVersion": 1000,
+  "icon": "/common/logo.png",
+  "deviceTypeList": [
+    "watch"
+  ],
+  "features": [
+    {
+      "name": "system.storage"
+    },
+    {
+      "name": "system.router"
+    },
+    {
+      "name": "system.app"
+    },
+    {
+      "name": "system.vibrator"
+    },
+    {
+      "name": "system.brightness"
+    },
+    {
+      "name": "system.device"
+    }
+  ],
+  "config": {
+    "logLevel": "error",
+    "designWidth": 336
+  },
+  "display": {
+    "backgroundColor": "#122950"
+  },
+  "router": {
+    "entry": "pages/game",
+    "pages": {
+      "pages/game": {
+        "component": "index"
+      },
+      "pages/activation": {
+        "component": "index"
+      },
+      "pages/license": {
+        "component": "index"
+      },
+      "pages/register": {
+        "component": "index"
+      }
+    }
+  },
+  "permissions": [
+    {
+      "name": "hapjs.permission.DEVICE_INFO"
+    }
+  ]
+}

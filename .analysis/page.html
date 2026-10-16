@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=renderer content=webkit><meta name=keywords content=传文件,网盘,云盘,网络硬盘,发文件,收文件,收集文件><meta name=description content="文叔叔，免费空间 40GB，一款永不限速的云存储产品。传文件、收文件、网盘，还支持历史记录等高级功能。"><link rel=icon href=/favicon.ico><script src="/ag/gls?prod=com.wenshushu.web.pc"></script><script>(function() {
+        if (window.zhuge) return;
+        window.zhuge = [];
+        window.zhuge.methods = "_init identify track trackRevenue getDid getSid getKey setSuperProperty setUserProperties setWxProperties setPlatform".split(" ");
+        window.zhuge.factory = function(b) {
+          return function() {
+            var a = Array.prototype.slice.call(arguments);
+            a.unshift(b);
+            window.zhuge.push(a);
+            return window.zhuge;
+          }
+        };
+        for (var i = 0; i < window.zhuge.methods.length; i++) {
+          var key = window.zhuge.methods[i];
+          window.zhuge[key] = window.zhuge.factory(key);
+        }
+        window.zhuge.load = function(b, x) {
+          if (!document.getElementById("zhuge-js")) {
+            var a = document.createElement("script");
+            var verDate = new Date();
+            var verStr = verDate.getFullYear().toString() + verDate.getMonth().toString() + verDate.getDate().toString();
+
+            a.type = "text/javascript";
+            a.id = "zhuge-js";
+            a.async = !0;
+            a.src = 'https://zgsdk.zhugeio.com/zhuge.min.js?v=' + verStr;
+            a.onerror = function() {
+              window.zhuge.identify = window.zhuge.track = function(ename, props, callback) {
+                if(callback && Object.prototype.toString.call(callback) === '[object Function]') {
+                  callback();
+                } else if (Object.prototype.toString.call(props) === '[object Function]') {
+                  props();
+                }
+              };
+            };
+            var c = document.getElementsByTagName("script")[0];
+            c.parentNode.insertBefore(a, c);
+            window.zhuge._init(b, x);
+          }
+        };
+        window.zhuge.load('52930c181dc34cbc9f6b62ea3f4e1cbb', {
+          superProperty: {
+            '应用名称': '文叔叔'
+          },
+          adTrack:false,
+          zgsee:false,
+          autoTrack: false, 
+          singlePage: false 
+        });
+      })();</script><title>文叔叔 - 传文件，找文叔叔（永不限速）</title><style></style><link href=//static.wenshushu.cn/tp/static/css/chunk-vendors.e4026907.css rel=stylesheet><link href=//static.wenshushu.cn/tp/static/css/app.33244b71.css rel=stylesheet></head><body><div style=display:none>文叔叔是一款永不限速的网盘（云盘）产品，免费提供网络硬盘空间 40GB。支持：传文件（发文件）、收文件（收集文件）等功能，还支持查看历史记录等高级功能。</div><noscript><strong>We're sorry but wenshushu-pc doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script>var _hmt = _hmt || [];
+      (function() {
+       var hm = document.createElement("script");
+       hm.src = "https://hm.baidu.com/hm.js?8030fb66a9eeda3983d0c0efb65b30cb";
+       var s = document.getElementsByTagName("script")[0];
+       s.parentNode.insertBefore(hm, s);
+      })();</script><script src=https://turing.captcha.qcloud.com/TCaptcha.js defer></script><script src=//static.wenshushu.cn/tp/static/js/chunk-vendors.a9c46877.js></script><script src=//static.wenshushu.cn/tp/static/js/app.c7db2d12.js></script></body></html>

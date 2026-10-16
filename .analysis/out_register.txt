@@ -1,0 +1,3096 @@
+MODULE '@aiot/index'
+  imports: []
+  req_modules: []
+  exports: [('local', 0, 'default')]
+  star_exports: []
+=== func module.<eval>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=1 bclen=13 debug=False
+    bc@2516
+    closure_vars: *default*@0
+       0  push_this                
+       1  if_false8                -> 13 (10)
+       3  fclosure8                cpool[0]
+       5  set_name                 'default'
+      10  put_var_ref0             
+      11  return_undef             
+      12  return_undef             
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>  kind=function args=5 varargs=2 defargs=5 stack=2 locals=0 closures=0 cpool=1 bclen=50 debug=False
+    bc@2542
+       0  get_var                  '$app_require$'
+       5  put_loc1                 
+       6  get_arg0                 
+       7  get_field                'setTimeout'
+      12  drop                     
+      13  get_arg0                 
+      14  get_field                'setInterval'
+      19  drop                     
+      20  get_arg0                 
+      21  get_field                'clearTimeout'
+      26  drop                     
+      27  get_arg0                 
+      28  get_field                'clearInterval'
+      33  drop                     
+      34  get_arg0                 
+      35  get_field                '$app_require$'
+      40  dup                      
+      41  if_true8                 -> 46 (3)
+      43  drop                     
+      44  get_loc1                 
+      45  put_loc0                 
+      46  fclosure8                cpool[0]
+      48  call0                    41
+      49  return_undef             
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>  kind=function args=0 varargs=6 defargs=0 stack=32 locals=0 closures=2 cpool=7 bclen=2145 debug=False
+    bc@2612
+    closure_vars: <null>@0, <null>@3
+       0  fclosure8                cpool[2]
+       2  put_loc8                 loc5
+       4  object                   
+       5  fclosure8                cpool[0]
+       7  define_method            '69', 4
+      13  fclosure8                cpool[1]
+      15  define_method            '855', 4
+      21  put_loc3                 
+      22  object                   
+      23  put_loc8                 loc4
+      25  get_loc8                 loc5
+      27  fclosure8                cpool[3]
+      29  put_field                'rv'
+      34  get_loc8                 loc5
+      36  push_atom_value          'bundler=rspack@1.7.12'
+      41  put_field                'ruid'
+      46  push_0                   
+      47  push_atom_value          'app'
+      52  array_from               2
+      55  array_from               1
+      58  object                   
+      59  push_atom_value          '336px'
+      64  define_field             'width'
+      69  push_atom_value          '480px'
+      74  define_field             'height'
+      79  array_from               2
+      82  push_0                   
+      83  push_atom_value          'auth-page'
+      88  array_from               2
+      91  array_from               1
+      94  object                   
+      95  push_atom_value          '336px'
+     100  define_field             'width'
+     105  push_atom_value          '480px'
+     110  define_field             'height'
+     115  push_atom_value          '#122950'
+     120  define_field             'backgroundColor'
+     125  push_atom_value          'column'
+     130  define_field             'flexDirection'
+     135  push_atom_value          'center'
+     140  define_field             'alignItems'
+     145  push_atom_value          '38px'
+     150  define_field             'paddingTop'
+     155  array_from               2
+     158  push_0                   
+     159  push_atom_value          'auth-title'
+     164  array_from               2
+     167  array_from               1
+     170  object                   
+     171  push_atom_value          '272px'
+     176  define_field             'width'
+     181  push_atom_value          '42px'
+     186  define_field             'height'
+     191  push_atom_value          '26px'
+     196  define_field             'fontSize'
+     201  push_atom_value          '#fbf236'
+     206  define_field             'color'
+     211  push_atom_value          'center'
+     216  define_field             'textAlign'
+     221  array_from               2
+     224  push_0                   
+     225  push_atom_value          'auth-welcome'
+     230  array_from               2
+     233  array_from               1
+     236  object                   
+     237  push_atom_value          '272px'
+     242  define_field             'width'
+     247  push_atom_value          'column'
+     252  define_field             'flexDirection'
+     257  push_atom_value          'center'
+     262  define_field             'alignItems'
+     267  array_from               2
+     270  push_0                   
+     271  push_atom_value          'auth-editor'
+     276  array_from               2
+     279  array_from               1
+     282  object                   
+     283  push_atom_value          '272px'
+     288  define_field             'width'
+     293  push_atom_value          'column'
+     298  define_field             'flexDirection'
+     303  push_atom_value          'center'
+     308  define_field             'alignItems'
+     313  array_from               2
+     316  push_0                   
+     317  push_atom_value          'auth-guide-panel'
+     322  array_from               2
+     325  array_from               1
+     328  object                   
+     329  push_atom_value          '272px'
+     334  define_field             'width'
+     339  push_atom_value          '344px'
+     344  define_field             'height'
+     349  push_atom_value          'column'
+     354  define_field             'flexDirection'
+     359  push_atom_value          'center'
+     364  define_field             'alignItems'
+     369  array_from               2
+     372  push_0                   
+     373  push_atom_value          'auth-logo'
+     378  array_from               2
+     381  array_from               1
+     384  object                   
+     385  push_atom_value          '64px'
+     390  define_field             'width'
+     395  push_atom_value          '64px'
+     400  define_field             'height'
+     405  push_atom_value          '10px'
+     410  define_field             'marginTop'
+     415  push_atom_value          'contain'
+     420  define_field             'objectFit'
+     425  array_from               2
+     428  push_0                   
+     429  push_atom_value          'auth-caption'
+     434  array_from               2
+     437  array_from               1
+     440  object                   
+     441  push_atom_value          '272px'
+     446  define_field             'width'
+     451  push_atom_value          '32px'
+     456  define_field             'height'
+     461  push_atom_value          '15px'
+     466  define_field             'fontSize'
+     471  push_atom_value          '#c2cddc'
+     476  define_field             'color'
+     481  push_atom_value          'center'
+     486  define_field             'textAlign'
+     491  array_from               2
+     494  push_0                   
+     495  push_atom_value          'auth-device'
+     500  array_from               2
+     503  array_from               1
+     506  object                   
+     507  push_atom_value          '272px'
+     512  define_field             'width'
+     517  push_atom_value          '48px'
+     522  define_field             'height'
+     527  push_atom_value          '34px'
+     532  define_field             'fontSize'
+     537  push_atom_value          '#fbf236'
+     542  define_field             'color'
+     547  push_atom_value          'center'
+     552  define_field             'textAlign'
+     557  push_atom_value          '#214374'
+     562  define_field             'backgroundColor'
+     567  push_atom_value          '12px'
+     572  define_field             'borderRadius'
+     577  array_from               2
+     580  push_0                   
+     581  push_atom_value          'auth-note'
+     586  array_from               2
+     589  array_from               1
+     592  object                   
+     593  push_atom_value          '272px'
+     598  define_field             'width'
+     603  push_atom_value          '64px'
+     608  define_field             'height'
+     613  push_atom_value          '14px'
+     618  define_field             'fontSize'
+     623  push_atom_value          '20px'
+     628  define_field             'lineHeight'
+     633  push_atom_value          '#c2cddc'
+     638  define_field             'color'
+     643  push_atom_value          'center'
+     648  define_field             'textAlign'
+     653  push_3                   
+     654  define_field             'lines'
+     659  array_from               2
+     662  push_0                   
+     663  push_atom_value          'auth-button'
+     668  array_from               2
+     671  array_from               1
+     674  object                   
+     675  push_atom_value          '264px'
+     680  define_field             'width'
+     685  push_atom_value          '42px'
+     690  define_field             'height'
+     695  push_atom_value          '8px'
+     700  define_field             'marginTop'
+     705  push_atom_value          '13px'
+     710  define_field             'borderRadius'
+     715  push_atom_value          '#06799f'
+     720  define_field             'backgroundColor'
+     725  push_atom_value          'center'
+     730  define_field             'justifyContent'
+     735  push_atom_value          'center'
+     740  define_field             'alignItems'
+     745  array_from               2
+     748  push_0                   
+     749  push_atom_value          'auth-button-text'
+     754  array_from               2
+     757  array_from               1
+     760  object                   
+     761  push_atom_value          '260px'
+     766  define_field             'width'
+     771  push_atom_value          '40px'
+     776  define_field             'height'
+     781  push_atom_value          '16px'
+     786  define_field             'fontSize'
+     791  push_atom_value          '#ffffff'
+     796  define_field             'color'
+     801  push_atom_value          'center'
+     806  define_field             'textAlign'
+     811  array_from               2
+     814  push_0                   
+     815  push_atom_value          'auth-tutorial'
+     820  array_from               2
+     823  array_from               1
+     826  object                   
+     827  push_atom_value          '272px'
+     832  define_field             'width'
+     837  push_atom_value          '42px'
+     842  define_field             'height'
+     847  push_atom_value          '15px'
+     852  define_field             'fontSize'
+     857  push_atom_value          '#fbf236'
+     862  define_field             'color'
+     867  push_atom_value          'center'
+     872  define_field             'textAlign'
+     877  array_from               2
+     880  push_0                   
+     881  push_atom_value          'auth-mini'
+     886  array_from               2
+     889  array_from               1
+     892  object                   
+     893  push_atom_value          '272px'
+     898  define_field             'width'
+     903  push_atom_value          '26px'
+     908  define_field             'height'
+     913  push_atom_value          '13px'
+     918  define_field             'fontSize'
+     923  push_atom_value          '#c2cddc'
+     928  define_field             'color'
+     933  push_atom_value          'center'
+     938  define_field             'textAlign'
+     943  array_from               2
+     946  push_0                   
+     947  push_atom_value          'auth-input'
+     952  array_from               2
+     955  array_from               1
+     958  object                   
+     959  push_atom_value          '272px'
+     964  define_field             'width'
+     969  push_atom_value          '40px'
+     974  define_field             'height'
+     979  push_atom_value          '28px'
+     984  define_field             'fontSize'
+     989  push_atom_value          '#fbf236'
+     994  define_field             'color'
+     999  push_atom_value          '#214374'
+    1004  define_field             'backgroundColor'
+    1009  push_atom_value          '10px'
+    1014  define_field             'borderRadius'
+    1019  push_atom_value          'center'
+    1024  define_field             'textAlign'
+    1029  array_from               2
+    1032  push_0                   
+    1033  push_atom_value          'auth-key-note'
+    1038  array_from               2
+    1041  array_from               1
+    1044  object                   
+    1045  push_atom_value          '272px'
+    1050  define_field             'width'
+    1055  push_atom_value          '42px'
+    1060  define_field             'height'
+    1065  push_atom_value          '12px'
+    1070  define_field             'fontSize'
+    1075  push_atom_value          '17px'
+    1080  define_field             'lineHeight'
+    1085  push_atom_value          '#c2cddc'
+    1090  define_field             'color'
+    1095  push_atom_value          'center'
+    1100  define_field             'textAlign'
+    1105  push_2                   
+    1106  define_field             'lines'
+    1111  array_from               2
+    1114  push_0                   
+    1115  push_atom_value          'auth-keys'
+    1120  array_from               2
+    1123  array_from               1
+    1126  object                   
+    1127  push_atom_value          '272px'
+    1132  define_field             'width'
+    1137  push_atom_value          '200px'
+    1142  define_field             'height'
+    1147  push_atom_value          'wrap'
+    1152  define_field             'flexWrap'
+    1157  array_from               2
+    1160  push_0                   
+    1161  push_atom_value          'auth-key'
+    1166  array_from               2
+    1169  array_from               1
+    1172  object                   
+    1173  push_atom_value          '86px'
+    1178  define_field             'width'
+    1183  push_atom_value          '46px'
+    1188  define_field             'height'
+    1193  push_atom_value          '4px'
+    1198  define_field             'marginRight'
+    1203  push_atom_value          '4px'
+    1208  define_field             'marginBottom'
+    1213  push_atom_value          'center'
+    1218  define_field             'justifyContent'
+    1223  push_atom_value          'center'
+    1228  define_field             'alignItems'
+    1233  push_atom_value          '10px'
+    1238  define_field             'borderRadius'
+    1243  push_atom_value          '#214374'
+    1248  define_field             'backgroundColor'
+    1253  push_atom_value          '1px'
+    1258  define_field             'borderTopWidth'
+    1263  push_atom_value          '1px'
+    1268  define_field             'borderRightWidth'
+    1273  push_atom_value          '1px'
+    1278  define_field             'borderBottomWidth'
+    1283  push_atom_value          '1px'
+    1288  define_field             'borderLeftWidth'
+    1293  push_atom_value          '#4f6e96'
+    1298  define_field             'borderTopColor'
+    1303  push_atom_value          '#4f6e96'
+    1308  define_field             'borderRightColor'
+    1313  push_atom_value          '#4f6e96'
+    1318  define_field             'borderBottomColor'
+    1323  push_atom_value          '#4f6e96'
+    1328  define_field             'borderLeftColor'
+    1333  array_from               2
+    1336  push_0                   
+    1337  push_atom_value          'auth-key-text'
+    1342  array_from               2
+    1345  array_from               1
+    1348  object                   
+    1349  push_atom_value          '84px'
+    1354  define_field             'width'
+    1359  push_atom_value          '44px'
+    1364  define_field             'height'
+    1369  push_atom_value          '18px'
+    1374  define_field             'fontSize'
+    1379  push_atom_value          '#fbf236'
+    1384  define_field             'color'
+    1389  push_atom_value          'center'
+    1394  define_field             'textAlign'
+    1399  array_from               2
+    1402  push_0                   
+    1403  push_atom_value          'auth-scroll'
+    1408  array_from               2
+    1411  array_from               1
+    1414  object                   
+    1415  push_atom_value          '272px'
+    1420  define_field             'width'
+    1425  push_atom_value          '294px'
+    1430  define_field             'height'
+    1435  array_from               2
+    1438  push_0                   
+    1439  push_atom_value          'auth-guide'
+    1444  array_from               2
+    1447  array_from               1
+    1450  object                   
+    1451  push_atom_value          '272px'
+    1456  define_field             'width'
+    1461  push_atom_value          '492px'
+    1466  define_field             'height'
+    1471  push_atom_value          'column'
+    1476  define_field             'flexDirection'
+    1481  push_atom_value          'center'
+    1486  define_field             'alignItems'
+    1491  push_atom_value          '8px'
+    1496  define_field             'paddingBottom'
+    1501  array_from               2
+    1504  push_0                   
+    1505  push_atom_value          'auth-qr'
+    1510  array_from               2
+    1513  array_from               1
+    1516  object                   
+    1517  push_atom_value          '168px'
+    1522  define_field             'width'
+    1527  push_atom_value          '168px'
+    1532  define_field             'height'
+    1537  push_atom_value          'contain'
+    1542  define_field             'objectFit'
+    1547  push_atom_value          '4px'
+    1552  define_field             'marginTop'
+    1557  array_from               2
+    1560  push_0                   
+    1561  push_atom_value          'auth-guide-copy'
+    1566  array_from               2
+    1569  array_from               1
+    1572  object                   
+    1573  push_atom_value          '272px'
+    1578  define_field             'width'
+    1583  push_atom_value          '28px'
+    1588  define_field             'height'
+    1593  push_atom_value          '13px'
+    1598  define_field             'fontSize'
+    1603  push_atom_value          '20px'
+    1608  define_field             'lineHeight'
+    1613  push_atom_value          '#c2cddc'
+    1618  define_field             'color'
+    1623  push_atom_value          'center'
+    1628  define_field             'textAlign'
+    1633  push_1                   
+    1634  define_field             'lines'
+    1639  array_from               2
+    1642  push_0                   
+    1643  push_atom_value          'auth-search'
+    1648  array_from               2
+    1651  array_from               1
+    1654  object                   
+    1655  push_atom_value          '272px'
+    1660  define_field             'width'
+    1665  push_atom_value          '30px'
+    1670  define_field             'height'
+    1675  push_atom_value          '18px'
+    1680  define_field             'fontSize'
+    1685  push_atom_value          '#fbf236'
+    1690  define_field             'color'
+    1695  push_atom_value          'center'
+    1700  define_field             'textAlign'
+    1705  array_from               2
+    1708  push_0                   
+    1709  push_atom_value          'auth-steps'
+    1714  array_from               2
+    1717  array_from               1
+    1720  object                   
+    1721  push_atom_value          '264px'
+    1726  define_field             'width'
+    1731  push_atom_value          '112px'
+    1736  define_field             'height'
+    1741  push_atom_value          '14px'
+    1746  define_field             'fontSize'
+    1751  push_atom_value          '22px'
+    1756  define_field             'lineHeight'
+    1761  push_atom_value          '#fbf236'
+    1766  define_field             'color'
+    1771  push_5                   
+    1772  define_field             'lines'
+    1777  array_from               2
+    1780  push_0                   
+    1781  push_atom_value          'auth-group-label'
+    1786  array_from               2
+    1789  array_from               1
+    1792  object                   
+    1793  push_atom_value          '272px'
+    1798  define_field             'width'
+    1803  push_atom_value          '32px'
+    1808  define_field             'height'
+    1813  push_atom_value          '13px'
+    1818  define_field             'fontSize'
+    1823  push_atom_value          '#c2cddc'
+    1828  define_field             'color'
+    1833  push_atom_value          'center'
+    1838  define_field             'textAlign'
+    1843  array_from               2
+    1846  push_0                   
+    1847  push_atom_value          'auth-group'
+    1852  array_from               2
+    1855  array_from               1
+    1858  object                   
+    1859  push_atom_value          '272px'
+    1864  define_field             'width'
+    1869  push_atom_value          '32px'
+    1874  define_field             'height'
+    1879  push_atom_value          '20px'
+    1884  define_field             'fontSize'
+    1889  push_atom_value          '#fbf236'
+    1894  define_field             'color'
+    1899  push_atom_value          'center'
+    1904  define_field             'textAlign'
+    1909  array_from               2
+    1912  push_0                   
+    1913  push_atom_value          'auth-footnote'
+    1918  array_from               2
+    1921  array_from               1
+    1924  object                   
+    1925  push_atom_value          '264px'
+    1930  define_field             'width'
+    1935  push_atom_value          '50px'
+    1940  define_field             'height'
+    1945  push_atom_value          '12px'
+    1950  define_field             'fontSize'
+    1955  push_atom_value          '19px'
+    1960  define_field             'lineHeight'
+    1965  push_atom_value          '#c2cddc'
+    1970  define_field             'color'
+    1975  push_2                   
+    1976  define_field             'lines'
+    1981  array_from               2
+    1984  push_0                   
+    1985  push_atom_value          'auth-reels'
+    1990  array_from               2
+    1993  array_from               1
+    1996  object                   
+    1997  push_atom_value          '240px'
+    2002  define_field             'width'
+    2007  push_atom_value          '72px'
+    2012  define_field             'height'
+    2017  push_atom_value          '8px'
+    2022  define_field             'marginTop'
+    2027  push_atom_value          '#214374'
+    2032  define_field             'backgroundColor'
+    2037  push_atom_value          '12px'
+    2042  define_field             'borderRadius'
+    2047  push_atom_value          'space-around'
+    2052  define_field             'justifyContent'
+    2057  push_atom_value          'center'
+    2062  define_field             'alignItems'
+    2067  array_from               2
+    2070  push_0                   
+    2071  push_atom_value          'auth-symbol'
+    2076  array_from               2
+    2079  array_from               1
+    2082  object                   
+    2083  push_atom_value          '42px'
+    2088  define_field             'width'
+    2093  push_atom_value          '42px'
+    2098  define_field             'height'
+    2103  push_atom_value          'contain'
+    2108  define_field             'objectFit'
+    2113  array_from               2
+    2116  array_from               30
+    2119  put_loc0                 
+    2120  fclosure8                cpool[4]
+    2122  set_name                 '_'
+    2127  put_loc1                 
+    2128  fclosure8                cpool[5]
+    2130  set_name                 'e'
+    2135  put_loc2                 
+    2136  get_var_ref1             
+    2137  fclosure8                cpool[6]
+    2139  put_field                'entry'
+    2144  return_undef             
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[0]<null>  kind=function args=1 varargs=2 defargs=1 stack=13 locals=0 closures=0 cpool=7 bclen=132 debug=False
+    bc@4771
+       0  set_loc_uninitialized    1
+       3  set_loc_uninitialized    0
+       6  push_i8                  113
+       8  push_i8                  103
+      10  push_i8                  86
+      12  push_i8                  92
+      14  push_i8                  40
+      16  push_i8                  48
+      18  array_from               6
+      21  push_i8                  50
+      23  push_i8                  35
+      25  push_i8                  20
+      27  push_5                   
+      28  push_i8                  118
+      30  push_i8                  103
+      32  push_i8                  88
+      34  push_i8                  73
+      36  push_i16                 186
+      39  push_i16                 171
+      42  push_i16                 156
+      45  push_i16                 141
+      48  array_from               12
+      51  array_from               2
+      54  get_field2               'map'
+      59  fclosure8                cpool[0]
+      61  call_method              1
+      64  put_loc0                 
+      65  push_i32                 2109476953
+      70  push_i32                 469078149
+      75  push_const8              cpool[1]
+      77  push_i32                 1482982182
+      82  push_const8              cpool[2]
+      84  push_const8              cpool[3]
+      86  push_i32                 856355069
+      91  push_const8              cpool[4]
+      93  push_i32                 1870259280
+      98  array_from               9
+     101  get_field2               'map'
+     106  fclosure8                cpool[5]
+     108  call_method              1
+     111  put_loc1                 
+     112  get_arg0                 
+     113  object                   
+     114  fclosure8                cpool[6]
+     116  set_name                 'code'
+     121  define_field             'code'
+     126  put_field                'exports'
+     131  return_undef             
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[0]<null>.cpool[0]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=0 cpool=1 bclen=20 debug=False
+    bc@4916
+       0  get_arg0                 
+       1  get_field2               'map'
+       6  fclosure8                cpool[0]
+       8  call_method              1
+      11  get_field2               'join'
+      16  push_empty_string        
+      17  tail_call_method         1
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[0]<null>.cpool[0]<null>.cpool[0]<null>  kind=function args=2 varargs=0 defargs=2 stack=6 locals=0 closures=0 cpool=0 bclen=25 debug=False
+    bc@4949
+       0  get_var                  'String'
+       5  get_field2               'fromCharCode'
+      10  get_arg0                 
+      11  push_2                   
+      12  push_i8                  17
+      14  get_arg1                 
+      15  mul                      
+      16  add                      
+      17  push_i16                 255
+      20  and                      
+      21  xor                      
+      22  tail_call_method         1
+  -- cpool[1] = float 3123513918.0
+  -- cpool[2] = float 4137418131.0
+  -- cpool[3] = float 2496886602.0
+  -- cpool[4] = float 3510793284.0
+  -- cpool[5] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>  kind=function args=2 varargs=0 defargs=2 stack=4 locals=0 closures=0 cpool=2 bclen=16 debug=False
+    bc@5023
+       0  get_arg0                 
+       1  push_const8              cpool[0]
+       3  get_arg1                 
+       4  push_1                   
+       5  add                      
+       6  push_const8              cpool[1]
+       8  mul                      
+       9  add                      
+      10  push_0                   
+      11  shr                      
+      12  xor                      
+      13  push_0                   
+      14  shr                      
+      15  return                   
+  -- cpool[0] = float 3750141219.0
+  -- cpool[1] = float 2654435761.0
+  -- cpool[6] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[0]<null>.cpool[6]<null>  kind=function args=1 varargs=1 defargs=1 stack=4 locals=0 closures=2 cpool=3 bclen=62 debug=False
+    bc@5076
+    closure_vars: <null>@1, <null>@0
+       0  set_loc_uninitialized    0
+       3  get_arg0                 
+       4  typeof                   
+       5  get_var_ref_check        1
+       8  push_0                   
+       9  get_array_el             
+      10  strict_neq               
+      11  dup                      
+      12  if_true8                 -> 31 (17)
+      14  drop                     
+      15  push_const8              cpool[0]
+      17  push_const8              cpool[1]
+      19  regexp                   
+      20  get_field2               'test'
+      25  get_arg0                 
+      26  call_method              1
+      29  lnot                     
+      30  if_false8                -> 35 (3)
+      32  push_empty_string        
+      33  return                   
+      34  fclosure8                cpool[2]
+      36  call0                    199
+      37  put_loc0                 
+      38  get_var_ref_check        1
+      41  push_1                   
+      42  get_array_el             
+      43  get_loc_check            0
+      46  add                      
+      47  get_field2               'slice'
+      52  get_var_ref_check        0
+      55  push_i8                  8
+      57  get_array_el             
+      58  neg                      
+      59  tail_call_method         1
+  -- cpool[0] = string '^\\d{8}$'
+  -- cpool[1] = string '\x00\x01\x00+\x00\x00\x00\x08\x06\x00\x00\x00\x04\x07����\x0b\x00\x05\x1c\x08\x00\x00\x00\x08\x00\x00\x00\x08\x00\x00\x00\x01\x00\x00\x00\x15\x01\x000\x009\x00\n\x06\x0c\x00\n'
+  -- cpool[2] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[0]<null>.cpool[6]<null>.cpool[2]<null>  kind=function args=0 varargs=2 defargs=0 stack=6 locals=0 closures=2 cpool=1 bclen=112 debug=False
+    bc@5218
+    closure_vars: <null>@0, <null>@0
+       0  set_loc_uninitialized    0
+       3  get_var_ref_check        0
+       6  push_0                   
+       7  get_array_el             
+       8  put_loc0                 
+       9  set_loc_uninitialized    1
+      12  get_var_ref_check        0
+      15  push_1                   
+      16  get_array_el             
+      17  put_loc1                 
+      18  get_loc_check            1
+      21  get_var_ref_check        0
+      24  push_2                   
+      25  get_array_el             
+      26  lt                       
+      27  if_false8                -> 109 (80)
+      29  get_loc_check            0
+      32  get_var_ref_check        0
+      35  push_3                   
+      36  get_array_el             
+      37  mul                      
+      38  get_var                  'Math'
+      43  get_field2               'pow'
+      48  get_var                  'Number'
+      53  get_var_ref1             
+      54  get_loc_check            1
+      57  get_array_el             
+      58  call1                    101
+      59  get_var_ref_check        0
+      62  push_4                   
+      63  get_array_el             
+      64  add                      
+      65  get_var_ref_check        0
+      68  push_5                   
+      69  get_array_el             
+      70  call_method              2
+      73  get_loc_check            1
+      76  get_var_ref_check        0
+      79  push_6                   
+      80  get_array_el             
+      81  add                      
+      82  mul                      
+      83  add                      
+      84  get_var_ref_check        0
+      87  push_7                   
+      88  get_array_el             
+      89  add                      
+      90  push_const8              cpool[0]
+      92  mod                      
+      93  dup                      
+      94  put_loc_check            0
+      97  drop                     
+      98  get_loc_check            1
+     101  post_inc                 
+     102  put_loc_check            1
+     105  drop                     
+     106  goto8                    -> 19 (-89)
+     108  get_loc_check            0
+     111  return                   
+  -- cpool[0] = float 1000000000000.0
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>  kind=function args=1 varargs=2 defargs=1 stack=35 locals=0 closures=0 cpool=5 bclen=374 debug=False
+    bc@5353
+       0  set_loc_uninitialized    1
+       3  set_loc_uninitialized    0
+       6  push_i16                 144
+       9  push_i8                  114
+      11  push_i8                  118
+      13  push_i8                  74
+      15  push_i8                  78
+      17  push_i8                  34
+      19  push_i8                  51
+      21  push_3                   
+      22  array_from               8
+      25  push_i16                 129
+      28  push_i8                  102
+      30  push_i8                  113
+      32  push_i8                  93
+      34  array_from               4
+      37  push_i16                 219
+      40  push_i8                  42
+      42  push_i8                  53
+      44  push_4                   
+      45  push_i8                  26
+      47  push_i8                  102
+      49  push_i8                  113
+      51  push_i8                  64
+      53  push_i8                  83
+      55  array_from               9
+      58  push_i16                 27541
+      61  push_i16                 22319
+      64  push_i16                 26656
+      67  push_i16                 23504
+      70  push_i32                 35716
+      75  push_i16                 22860
+      78  push_i16                 8314
+      81  array_from               7
+      84  push_i16                 199
+      87  array_from               1
+      90  push_i16                 196
+      93  array_from               1
+      96  push_i16                 197
+      99  array_from               1
+     102  push_i16                 194
+     105  array_from               1
+     108  push_i16                 195
+     111  array_from               1
+     114  push_i16                 192
+     117  array_from               1
+     120  push_i16                 193
+     123  array_from               1
+     126  push_i16                 206
+     129  array_from               1
+     132  push_i16                 207
+     135  array_from               1
+     138  push_i32                 36642
+     143  push_i16                 22233
+     146  array_from               2
+     149  push_i16                 198
+     152  array_from               1
+     155  push_i16                 21206
+     158  push_i32                 38499
+     163  array_from               2
+     166  push_i16                 214
+     169  array_from               1
+     172  push_i16                 219
+     175  push_i8                  42
+     177  push_i8                  53
+     179  push_4                   
+     180  push_i8                  26
+     182  push_i8                  102
+     184  push_i8                  113
+     186  push_i8                  64
+     188  push_i8                  83
+     190  array_from               9
+     193  push_i16                 129
+     196  push_i8                  102
+     198  push_i8                  113
+     200  push_i8                  93
+     202  array_from               4
+     205  push_i16                 151
+     208  push_i8                  100
+     210  push_i8                  108
+     212  push_i8                  64
+     214  push_i8                  76
+     216  push_i8                  46
+     218  array_from               6
+     221  push_i16                 133
+     224  push_i8                  115
+     226  push_i8                  119
+     228  push_i8                  89
+     230  push_i8                  123
+     232  push_i8                  37
+     234  push_i8                  53
+     236  push_0                   
+     237  push_i8                  31
+     239  push_i16                 251
+     242  push_i16                 201
+     245  push_i16                 222
+     248  push_i16                 172
+     251  array_from               13
+     254  push_i16                 151
+     257  push_i8                  119
+     259  push_i8                  104
+     261  push_i8                  69
+     263  push_i8                  67
+     265  push_0                   
+     266  push_i8                  57
+     268  push_i8                  8
+     270  push_i8                  14
+     272  push_i16                 206
+     275  push_i16                 215
+     278  push_i16                 208
+     281  push_i16                 169
+     284  push_i16                 182
+     287  array_from               14
+     290  push_i32                 36642
+     295  push_i16                 22233
+     298  array_from               2
+     301  push_i16                 21206
+     304  push_i32                 38499
+     309  array_from               2
+     312  array_from               24
+     315  get_field2               'map'
+     320  fclosure8                cpool[0]
+     322  call_method              1
+     325  put_loc0                 
+     326  push_const8              cpool[1]
+     328  push_i32                 616706090
+     333  push_const8              cpool[2]
+     335  push_i32                 1630610332
+     340  array_from               4
+     343  get_field2               'map'
+     348  fclosure8                cpool[3]
+     350  call_method              1
+     353  put_loc1                 
+     354  get_arg0                 
+     355  object                   
+     356  fclosure8                cpool[4]
+     358  set_name                 'wrap'
+     363  define_field             'wrap'
+     368  put_field                'exports'
+     373  return_undef             
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[0]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=0 cpool=1 bclen=20 debug=False
+    bc@5740
+       0  get_arg0                 
+       1  get_field2               'map'
+       6  fclosure8                cpool[0]
+       8  call_method              1
+      11  get_field2               'join'
+      16  push_empty_string        
+      17  tail_call_method         1
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[0]<null>.cpool[0]<null>  kind=function args=2 varargs=0 defargs=2 stack=6 locals=0 closures=0 cpool=0 bclen=27 debug=False
+    bc@5773
+       0  get_var                  'String'
+       5  get_field2               'fromCharCode'
+      10  get_arg0                 
+      11  push_i16                 246
+      14  push_i8                  17
+      16  get_arg1                 
+      17  mul                      
+      18  add                      
+      19  push_i16                 255
+      22  and                      
+      23  xor                      
+      24  tail_call_method         1
+  -- cpool[1] = float 2257237629.0
+  -- cpool[2] = float 3271141854.0
+  -- cpool[3] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[3]<null>  kind=function args=2 varargs=0 defargs=2 stack=4 locals=0 closures=0 cpool=2 bclen=16 debug=False
+    bc@5831
+       0  get_arg0                 
+       1  push_const8              cpool[0]
+       3  get_arg1                 
+       4  push_1                   
+       5  add                      
+       6  push_const8              cpool[1]
+       8  mul                      
+       9  add                      
+      10  push_0                   
+      11  shr                      
+      12  xor                      
+      13  push_0                   
+      14  shr                      
+      15  return                   
+  -- cpool[0] = float 3897769164.0
+  -- cpool[1] = float 2654435761.0
+  -- cpool[4] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>  kind=function args=2 varargs=4 defargs=2 stack=17 locals=0 closures=2 cpool=18 bclen=341 debug=False
+    bc@5885
+    closure_vars: <null>@0, <null>@1
+       0  fclosure8                cpool[2]
+       2  put_loc2                 
+       3  fclosure8                cpool[3]
+       5  put_loc3                 
+       6  set_loc_uninitialized    1
+       9  set_loc_uninitialized    0
+      12  object                   
+      13  put_loc0                 
+      14  get_var                  'Object'
+      19  get_field2               'keys'
+      24  get_arg0                 
+      25  call_method              1
+      28  get_field2               'forEach'
+      33  fclosure8                cpool[0]
+      35  call_method              1
+      38  drop                     
+      39  get_var                  'Object'
+      44  get_field2               'assign'
+      49  get_arg0                 
+      50  get_field                'private'
+      55  object                   
+      56  get_var_ref_check        0
+      59  push_1                   
+      60  get_array_el             
+      61  define_field             'authState'
+      66  get_var_ref_check        0
+      69  push_2                   
+      70  get_array_el             
+      71  define_field             'authDevice'
+      76  get_var_ref_check        0
+      79  push_3                   
+      80  get_array_el             
+      81  define_field             'authNote'
+      86  push_0                   
+      87  lnot                     
+      88  define_field             'authBusy'
+      93  push_1                   
+      94  lnot                     
+      95  define_field             'authCanExit'
+     100  push_1                   
+     101  lnot                     
+     102  define_field             'authEdit'
+     107  push_1                   
+     108  lnot                     
+     109  define_field             'authGuide'
+     114  push_empty_string        
+     115  define_field             'authInput'
+     120  get_var_ref_check        0
+     123  push_4                   
+     124  get_array_el             
+     125  get_var_ref_check        0
+     128  push_5                   
+     129  get_array_el             
+     130  get_var_ref_check        0
+     133  push_6                   
+     134  get_array_el             
+     135  get_var_ref_check        0
+     138  push_7                   
+     139  get_array_el             
+     140  get_var_ref_check        0
+     143  push_i8                  8
+     145  get_array_el             
+     146  get_var_ref_check        0
+     149  push_i8                  9
+     151  get_array_el             
+     152  get_var_ref_check        0
+     155  push_i8                  10
+     157  get_array_el             
+     158  get_var_ref_check        0
+     161  push_i8                  11
+     163  get_array_el             
+     164  get_var_ref_check        0
+     167  push_i8                  12
+     169  get_array_el             
+     170  get_var_ref_check        0
+     173  push_i8                  13
+     175  get_array_el             
+     176  get_var_ref_check        0
+     179  push_i8                  14
+     181  get_array_el             
+     182  get_var_ref_check        0
+     185  push_i8                  15
+     187  get_array_el             
+     188  array_from               12
+     191  define_field             'authKeys'
+     196  call_method              2
+     199  drop                     
+     200  fclosure8                cpool[1]
+     202  set_name                 'o'
+     207  put_loc1                 
+     208  get_var                  'Object'
+     213  get_field2               'keys'
+     218  get_loc_check            0
+     221  call_method              1
+     224  get_field2               'forEach'
+     229  fclosure8                cpool[4]
+     231  call_method              1
+     234  drop                     
+     235  get_arg0                 
+     236  fclosure8                cpool[5]
+     238  put_field                'onInit'
+     243  get_arg0                 
+     244  fclosure8                cpool[6]
+     246  put_field                'onReady'
+     251  get_arg0                 
+     252  fclosure8                cpool[7]
+     254  put_field                'onShow'
+     259  get_arg0                 
+     260  fclosure8                cpool[8]
+     262  put_field                'onHide'
+     267  get_arg0                 
+     268  fclosure8                cpool[9]
+     270  put_field                'onDestroy'
+     275  get_arg0                 
+     276  fclosure8                cpool[10]
+     278  put_field                'onBackPress'
+     283  get_arg0                 
+     284  fclosure8                cpool[11]
+     286  put_field                'authBack'
+     291  get_arg0                 
+     292  fclosure8                cpool[12]
+     294  put_field                'authIgnore'
+     299  get_arg0                 
+     300  fclosure8                cpool[13]
+     302  put_field                'authOpen'
+     307  get_arg0                 
+     308  fclosure8                cpool[14]
+     310  put_field                'authKey'
+     315  get_arg0                 
+     316  fclosure8                cpool[15]
+     318  put_field                'authSubmit'
+     323  get_arg0                 
+     324  fclosure8                cpool[16]
+     326  put_field                'authRetry'
+     331  get_arg0                 
+     332  fclosure8                cpool[17]
+     334  put_field                'authHelp'
+     339  get_arg0                 
+     340  return                   
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[0]<null>  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=3 cpool=0 bclen=25 debug=False
+    bc@6248
+    closure_vars: <null>@0, <null>@0, <null>@0
+       0  get_var_ref0             
+       1  get_arg0                 
+       2  get_array_el             
+       3  typeof                   
+       4  get_var_ref_check        1
+       7  push_0                   
+       8  get_array_el             
+       9  strict_eq                
+      10  dup                      
+      11  if_false8                -> 25 (12)
+      13  drop                     
+      14  get_var_ref_check        2
+      17  get_arg0                 
+      18  to_propkey2              
+      19  get_var_ref0             
+      20  get_arg0                 
+      21  get_array_el             
+      22  insert3                  
+      23  put_array_el             
+      24  return_undef             
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[1]<null>  kind=function args=1 varargs=0 defargs=1 stack=2 locals=0 closures=0 cpool=0 bclen=19 debug=False
+    bc@6286
+       0  get_arg0                 
+       1  get_field                '$app'
+       6  get_field                '$def'
+      11  get_field2               'gate'
+      16  tail_call_method         0
+  -- cpool[2] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[2]n  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=1 cpool=0 bclen=85 debug=False
+    bc@6322
+    closure_vars: <null>@0
+       0  get_arg0                 
+       1  get_field                '_authInitialized'
+       6  if_false8                -> 85 (77)
+       8  get_arg0                 
+       9  get_field                '_authCleaning'
+      14  lnot                     
+      15  if_false8                -> 85 (68)
+      17  get_arg0                 
+      18  push_0                   
+      19  lnot                     
+      20  put_field                '_authCleaning'
+      25  catch                    -> 43
+      30  get_var_ref_check        0
+      33  get_field                'onHide'
+      38  dup                      
+      39  if_false8                -> 60 (19)
+      41  drop                     
+      42  get_var_ref_check        0
+      45  get_field                'onHide'
+      50  get_field2               'call'
+      55  get_arg0                 
+      56  call_method              1
+      59  drop                     
+      60  drop                     
+      61  undefined                
+      62  gosub                    -> 12
+      67  drop                     
+      68  return_undef             
+      69  gosub                    -> 5
+      74  throw                    
+      75  get_arg0                 
+      76  push_1                   
+      77  lnot                     
+      78  put_field                '_authCleaning'
+      83  ret                      
+      84  return_undef             
+  -- cpool[3] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[3]u  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=3 cpool=0 bclen=244 debug=False
+    bc@6431
+    closure_vars: <null>@1, <null>@0, <null>@1
+       0  get_arg0                 
+       1  get_field                '_authVisible'
+       6  dup                      
+       7  if_false                 -> 235
+      12  drop                     
+      13  get_var_ref_check        0
+      16  get_arg0                 
+      17  call1                    66
+      18  get_field2               'allowed'
+      23  call_method              0
+      26  dup                      
+      27  if_false                 -> 215
+      32  drop                     
+      33  get_arg0                 
+      34  get_field                '_authInitialized'
+      39  if_false8                -> 83 (42)
+      41  get_arg0                 
+      42  get_field                'loading'
+      47  dup                      
+      48  if_false8                -> 155 (105)
+      50  drop                     
+      51  get_var_ref_check        1
+      54  get_field                'loadGame'
+      59  dup                      
+      60  if_false8                -> 155 (93)
+      62  drop                     
+      63  get_var_ref_check        1
+      66  get_field                'loadGame'
+      71  get_field2               'call'
+      76  get_arg0                 
+      77  call_method              1
+      80  goto8                    -> 155 (73)
+      82  get_arg0                 
+      83  push_0                   
+      84  lnot                     
+      85  put_field                '_authInitialized'
+      90  get_var_ref2             
+      91  dup                      
+      92  if_false8                -> 125 (31)
+      94  drop                     
+      95  get_var_ref2             
+      96  get_field                'setGate'
+     101  dup                      
+     102  if_false8                -> 125 (21)
+     104  drop                     
+     105  get_var_ref2             
+     106  get_field2               'setGate'
+     111  get_var_ref_check        0
+     114  get_arg0                 
+     115  call1                    65
+     116  get_field                'allowed'
+     121  call_method              1
+     124  drop                     
+     125  get_var_ref_check        1
+     128  get_field                'onInit'
+     133  dup                      
+     134  if_false8                -> 155 (19)
+     136  drop                     
+     137  get_var_ref_check        1
+     140  get_field                'onInit'
+     145  get_field2               'call'
+     150  get_arg0                 
+     151  call_method              1
+     154  drop                     
+     155  get_arg0                 
+     156  get_field                '_authReady'
+     161  dup                      
+     162  if_false8                -> 214 (50)
+     164  drop                     
+     165  get_arg0                 
+     166  get_field                '_authStarted'
+     171  lnot                     
+     172  dup                      
+     173  if_false8                -> 214 (39)
+     175  drop                     
+     176  get_arg0                 
+     177  push_0                   
+     178  lnot                     
+     179  put_field                '_authStarted'
+     184  get_var_ref_check        1
+     187  get_field                'onReady'
+     192  dup                      
+     193  if_false8                -> 214 (19)
+     195  drop                     
+     196  get_var_ref_check        1
+     199  get_field                'onReady'
+     204  get_field2               'call'
+     209  get_arg0                 
+     210  call_method              1
+     213  drop                     
+     214  get_var_ref_check        1
+     217  get_field                'onShow'
+     222  dup                      
+     223  if_false8                -> 244 (19)
+     225  drop                     
+     226  get_var_ref_check        1
+     229  get_field                'onShow'
+     234  get_field2               'call'
+     239  get_arg0                 
+     240  call_method              1
+     243  return_undef             
+  -- cpool[4] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[4]<null>  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=5 cpool=3 bclen=28 debug=False
+    bc@6703
+    closure_vars: <null>@0, <null>@1, <null>@1, <null>@0, <null>@0
+       0  push_const8              cpool[0]
+       2  push_const8              cpool[1]
+       4  regexp                   
+       5  get_field2               'test'
+      10  get_arg0                 
+      11  call_method              1
+      14  dup                      
+      15  if_true8                 -> 28 (11)
+      17  drop                     
+      18  get_var_ref              4
+      21  get_arg0                 
+      22  to_propkey2              
+      23  fclosure8                cpool[2]
+      25  insert3                  
+      26  put_array_el             
+      27  return_undef             
+  -- cpool[0] = string '^on(Init|Ready|Show|Hide|Destroy|BackPress)$'
+  -- cpool[1] = string '\x00\x02\x00�\x00\x00\x00\x08\x06\x00\x00\x00\x04\x07����\x0b\x00\x05\x01o\x00\x01n\x00\x0b\x01\tu\x00\x00\x00\tV\x00\x00\x00\t@\x00\x00\x00\t*\x00\x00\x00\t\x11\x00\x00\x00\x01I\x00\x01n\x00\x01i\x00\x01t\x00\x07\x0f\x00\x00\x00\x01R\x00\x01e\x00\x01a\x00\x01d\x00\x01y\x00\x07\x0c\x00\x00\x00\x01S\x00\x01h\x00\x01o\x00\x01w\x00\x07\x0c\x00\x00\x00\x01H\x00\x01i\x00\x01d\x00\x01e\x00\x07\x15\x00\x00\x00\x01D\x00\x01e\x00\x01s\x00\x01t\x00\x01r\x00\x01o\x00\x01y\x00\x07\x1b\x00\x00\x00\x01B\x00\x01a\x00\x01c\x00\x01k\x00\x01P\x00\x01r\x00\x01e\x00\x01s\x00\x01s\x00\x0c\x01\x06\x0c\x00\n'
+  -- cpool[2] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[4]<null>.cpool[2]<null>  kind=function args=0 varargs=2 defargs=0 stack=4 locals=0 closures=5 cpool=0 bclen=80 debug=False
+    bc@6992
+    closure_vars: <null>@0, <null>@0, <null>@1, <null>@2, <null>@3
+       0  push_this                
+       1  put_loc0                 
+       2  special_object           0
+       4  put_loc1                 
+       5  get_loc0                 
+       6  get_field                '_authCleaning'
+      11  dup                      
+      12  if_false8                -> 46 (32)
+      14  drop                     
+      15  get_var_ref_check        0
+      18  push_i8                  20
+      20  get_array_el             
+      21  get_var_ref_check        0
+      24  push_i8                  21
+      26  get_array_el             
+      27  array_from               2
+      30  get_field2               'indexOf'
+      35  get_var_ref1             
+      36  call_method              1
+      39  get_var_ref_check        2
+      42  push_0                   
+      43  get_array_el             
+      44  gte                      
+      45  dup                      
+      46  if_true8                 -> 63 (15)
+      48  drop                     
+      49  get_var_ref_check        3
+      52  get_loc0                 
+      53  call1                    66
+      54  get_field2               'allowed'
+      59  call_method              0
+      62  if_false8                -> 80 (16)
+      64  get_var_ref_check        4
+      67  get_var_ref1             
+      68  get_array_el             
+      69  get_field2               'apply'
+      74  get_loc0                 
+      75  get_loc1                 
+      76  tail_call_method         2
+      79  return_undef             
+  -- cpool[5] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[5]<null>  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=5 cpool=1 bclen=62 debug=False
+    bc@7100
+    closure_vars: <null>@1, <null>@0, <null>@3, <null>@2, <null>@1
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  push_0                   
+       4  lnot                     
+       5  put_field                '_authVisible'
+      10  get_loc0                 
+      11  push_1                   
+      12  lnot                     
+      13  put_field                '_authInitialized'
+      18  get_loc0                 
+      19  push_1                   
+      20  lnot                     
+      21  put_field                '_authStarted'
+      26  get_loc0                 
+      27  push_1                   
+      28  lnot                     
+      29  put_field                '_authReady'
+      34  get_loc0                 
+      35  fclosure8                cpool[0]
+      37  put_field                '_authListener'
+      42  get_var_ref_check        4
+      45  get_loc0                 
+      46  call1                    66
+      47  get_field2               'attach'
+      52  get_loc0                 
+      53  get_field                '_authListener'
+      58  call_method              1
+      61  return_undef             
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[5]<null>.cpool[0]<null>  kind=function args=1 varargs=0 defargs=1 stack=6 locals=0 closures=5 cpool=0 bclen=187 debug=False
+    bc@7191
+    closure_vars: <null>@0, <null>@0, <null>@1, <null>@2, <null>@3
+       0  get_var_ref0             
+       1  get_arg0                 
+       2  get_field                'state'
+       7  put_field                'authState'
+      12  get_var_ref0             
+      13  get_arg0                 
+      14  get_field                'device'
+      19  if_false8                -> 75 (54)
+      21  get_arg0                 
+      22  get_field                'device'
+      27  get_field2               'slice'
+      32  get_var_ref_check        1
+      35  push_0                   
+      36  get_array_el             
+      37  get_var_ref_check        1
+      40  push_1                   
+      41  get_array_el             
+      42  call_method              2
+      45  get_var_ref_check        2
+      48  push_i8                  16
+      50  get_array_el             
+      51  add                      
+      52  get_arg0                 
+      53  get_field                'device'
+      58  get_field2               'slice'
+      63  get_var_ref_check        1
+      66  push_1                   
+      67  get_array_el             
+      68  call_method              1
+      71  add                      
+      72  goto8                    -> 81 (7)
+      74  get_var_ref_check        2
+      77  push_i8                  17
+      79  get_array_el             
+      80  put_field                'authDevice'
+      85  get_var_ref0             
+      86  get_arg0                 
+      87  get_field                'note'
+      92  put_field                'authNote'
+      97  get_var_ref0             
+      98  get_arg0                 
+      99  get_field                'busy'
+     104  put_field                'authBusy'
+     109  get_var_ref0             
+     110  get_arg0                 
+     111  get_field                'blocked'
+     116  lnot                     
+     117  dup                      
+     118  if_false8                -> 135 (15)
+     120  drop                     
+     121  get_arg0                 
+     122  get_field                'state'
+     127  get_var_ref_check        2
+     130  push_i8                  18
+     132  get_array_el             
+     133  strict_neq               
+     134  put_field                'authCanExit'
+     139  get_arg0                 
+     140  get_field                'state'
+     145  get_var_ref_check        2
+     148  push_i8                  19
+     150  get_array_el             
+     151  strict_eq                
+     152  if_false8                -> 182 (28)
+     154  get_var_ref0             
+     155  push_1                   
+     156  lnot                     
+     157  put_field                'authEdit'
+     162  get_var_ref0             
+     163  push_1                   
+     164  lnot                     
+     165  put_field                'authGuide'
+     170  get_var_ref0             
+     171  push_empty_string        
+     172  put_field                'authInput'
+     177  get_var_ref3             
+     178  get_var_ref0             
+     179  call1                    41
+     180  return_undef             
+     181  get_var_ref              4
+     184  get_var_ref0             
+     185  call1                    41
+     186  return_undef             
+  -- cpool[6] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[6]<null>  kind=function args=0 varargs=1 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=14 debug=False
+    bc@7394
+    closure_vars: <null>@3
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  push_0                   
+       4  lnot                     
+       5  put_field                '_authReady'
+      10  get_var_ref0             
+      11  get_loc0                 
+      12  call1                    41
+      13  return_undef             
+  -- cpool[7] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[7]<null>  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=1 cpool=0 bclen=30 debug=False
+    bc@7424
+    closure_vars: <null>@1
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  push_0                   
+       4  lnot                     
+       5  put_field                '_authVisible'
+      10  get_var_ref_check        0
+      13  get_loc0                 
+      14  call1                    66
+      15  get_field2               'attach'
+      20  get_loc0                 
+      21  get_field                '_authListener'
+      26  call_method              1
+      29  return_undef             
+  -- cpool[8] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[8]<null>  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=2 cpool=0 bclen=34 debug=False
+    bc@7473
+    closure_vars: <null>@2, <null>@1
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  push_1                   
+       4  lnot                     
+       5  put_field                '_authVisible'
+      10  get_var_ref0             
+      11  get_loc0                 
+      12  call1                    14
+      13  drop                     
+      14  get_var_ref_check        1
+      17  get_loc0                 
+      18  call1                    66
+      19  get_field2               'detach'
+      24  get_loc0                 
+      25  get_field                '_authListener'
+      30  call_method              1
+      33  return_undef             
+  -- cpool[9] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[9]<null>  kind=function args=0 varargs=1 defargs=0 stack=4 locals=0 closures=3 cpool=0 bclen=110 debug=False
+    bc@7529
+    closure_vars: <null>@2, <null>@1, <null>@0
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  push_1                   
+       4  lnot                     
+       5  put_field                '_authVisible'
+      10  get_var_ref0             
+      11  get_loc0                 
+      12  call1                    14
+      13  drop                     
+      14  get_var_ref_check        1
+      17  get_loc0                 
+      18  call1                    66
+      19  get_field2               'detach'
+      24  get_loc0                 
+      25  get_field                '_authListener'
+      30  call_method              1
+      33  drop                     
+      34  get_loc0                 
+      35  get_field                '_authInitialized'
+      40  if_false8                -> 110 (68)
+      42  get_loc0                 
+      43  push_0                   
+      44  lnot                     
+      45  put_field                '_authCleaning'
+      50  catch                    -> 43
+      55  get_var_ref_check        2
+      58  get_field                'onDestroy'
+      63  dup                      
+      64  if_false8                -> 85 (19)
+      66  drop                     
+      67  get_var_ref_check        2
+      70  get_field                'onDestroy'
+      75  get_field2               'call'
+      80  get_loc0                 
+      81  call_method              1
+      84  drop                     
+      85  drop                     
+      86  undefined                
+      87  gosub                    -> 12
+      92  drop                     
+      93  return_undef             
+      94  gosub                    -> 5
+      99  throw                    
+     100  get_loc0                 
+     101  push_1                   
+     102  lnot                     
+     103  put_field                '_authCleaning'
+     108  ret                      
+     109  return_undef             
+  -- cpool[10] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[10]<null>  kind=function args=0 varargs=2 defargs=0 stack=3 locals=0 closures=2 cpool=0 bclen=101 debug=False
+    bc@7658
+    closure_vars: <null>@1, <null>@0
+       0  push_this                
+       1  put_loc1                 
+       2  set_loc_uninitialized    0
+       5  get_var_ref_check        0
+       8  get_loc1                 
+       9  call1                    66
+      10  get_field2               'allowed'
+      15  call_method              0
+      18  if_false8                -> 53 (33)
+      20  get_var_ref_check        1
+      23  get_field                'onBackPress'
+      28  lnot                     
+      29  lnot                     
+      30  dup                      
+      31  if_false8                -> 52 (19)
+      33  drop                     
+      34  get_var_ref_check        1
+      37  get_field                'onBackPress'
+      42  get_field2               'call'
+      47  get_loc1                 
+      48  call_method              1
+      51  return                   
+      52  get_var_ref_check        0
+      55  get_loc1                 
+      56  call1                    66
+      57  get_field2               'backBlocked'
+      62  call_method              0
+      65  put_loc0                 
+      66  get_loc1                 
+      67  get_field                'authGuide'
+      72  dup                      
+      73  if_true8                 -> 83 (8)
+      75  drop                     
+      76  get_loc1                 
+      77  get_field                'authEdit'
+      82  if_false8                -> 98 (14)
+      84  get_loc1                 
+      85  get_field2               'authBack'
+      90  call_method              0
+      93  drop                     
+      94  push_0                   
+      95  lnot                     
+      96  return                   
+      97  get_loc_check            0
+     100  return                   
+  -- cpool[11] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[11]<null>  kind=function args=0 varargs=1 defargs=0 stack=2 locals=0 closures=0 cpool=0 bclen=19 debug=False
+    bc@7772
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  push_1                   
+       4  lnot                     
+       5  put_field                'authGuide'
+      10  get_loc0                 
+      11  push_1                   
+      12  lnot                     
+      13  put_field                'authEdit'
+      18  return_undef             
+  -- cpool[12] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[12]<null>  kind=function args=0 varargs=0 defargs=0 stack=0 locals=0 closures=0 cpool=0 bclen=1 debug=False
+    bc@7804
+       0  return_undef             
+  -- cpool[13] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[13]<null>  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=1 cpool=0 bclen=60 debug=False
+    bc@7821
+    closure_vars: <null>@1
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  get_field                'authBusy'
+       8  lnot                     
+       9  dup                      
+      10  if_false8                -> 60 (48)
+      12  drop                     
+      13  get_var_ref_check        0
+      16  get_loc0                 
+      17  call1                    66
+      18  get_field2               'snapshot'
+      23  call_method              0
+      26  get_field                'device'
+      31  dup                      
+      32  if_false8                -> 60 (26)
+      34  drop                     
+      35  get_loc0                 
+      36  push_0                   
+      37  lnot                     
+      38  put_field                'authEdit'
+      43  get_loc0                 
+      44  push_1                   
+      45  lnot                     
+      46  put_field                'authGuide'
+      51  get_loc0                 
+      52  push_empty_string        
+      53  insert2                  
+      54  put_field                'authInput'
+      59  return_undef             
+  -- cpool[14] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[14]<null>  kind=function args=1 varargs=1 defargs=1 stack=6 locals=0 closures=2 cpool=2 bclen=123 debug=False
+    bc@7900
+    closure_vars: <null>@0, <null>@1
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  get_field                'authBusy'
+       8  lnot                     
+       9  if_false8                -> 123 (112)
+      11  get_arg0                 
+      12  get_var_ref_check        0
+      15  push_i8                  22
+      17  get_array_el             
+      18  strict_eq                
+      19  if_false8                -> 31 (10)
+      21  get_loc0                 
+      22  push_1                   
+      23  lnot                     
+      24  put_field                'authEdit'
+      29  return_undef             
+      30  get_arg0                 
+      31  get_var_ref_check        0
+      34  push_i8                  23
+      36  get_array_el             
+      37  strict_eq                
+      38  if_false8                -> 73 (33)
+      40  get_loc0                 
+      41  get_loc0                 
+      42  get_field                'authInput'
+      47  get_field2               'slice'
+      52  get_var_ref_check        1
+      55  push_0                   
+      56  get_array_el             
+      57  get_var_ref_check        1
+      60  push_2                   
+      61  get_array_el             
+      62  neg                      
+      63  call_method              2
+      66  put_field                'authInput'
+      71  return_undef             
+      72  push_const8              cpool[0]
+      74  push_const8              cpool[1]
+      76  regexp                   
+      77  get_field2               'test'
+      82  get_arg0                 
+      83  call_method              1
+      86  dup                      
+      87  if_false8                -> 122 (33)
+      89  drop                     
+      90  get_loc0                 
+      91  get_field                'authInput'
+      96  get_length               
+      97  get_var_ref_check        1
+     100  push_3                   
+     101  get_array_el             
+     102  lt                       
+     103  dup                      
+     104  if_false8                -> 122 (16)
+     106  drop                     
+     107  get_loc0                 
+     108  get_field2               'authInput'
+     113  get_arg0                 
+     114  add                      
+     115  insert2                  
+     116  put_field                'authInput'
+     121  drop                     
+     122  return_undef             
+  -- cpool[0] = string '^\\d$'
+  -- cpool[1] = string '\x00\x01\x00\x19\x00\x00\x00\x08\x06\x00\x00\x00\x04\x07����\x0b\x00\x05\x15\x01\x000\x009\x00\x06\x0c\x00\n'
+  -- cpool[15] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[15]<null>  kind=function args=0 varargs=1 defargs=0 stack=3 locals=0 closures=1 cpool=0 bclen=32 debug=False
+    bc@8079
+    closure_vars: <null>@1
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  get_field                'authBusy'
+       8  dup                      
+       9  if_true8                 -> 32 (21)
+      11  drop                     
+      12  get_var_ref_check        0
+      15  get_loc0                 
+      16  call1                    66
+      17  get_field2               'submit'
+      22  get_loc0                 
+      23  get_field                'authInput'
+      28  call_method              1
+      31  return_undef             
+  -- cpool[16] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[16]<null>  kind=function args=0 varargs=1 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=38 debug=False
+    bc@8127
+    closure_vars: <null>@1
+       0  push_this                
+       1  put_loc0                 
+       2  get_var_ref_check        0
+       5  get_loc0                 
+       6  call1                    66
+       7  get_field2               'snapshot'
+      12  call_method              0
+      15  get_field                'busy'
+      20  dup                      
+      21  if_true8                 -> 38 (15)
+      23  drop                     
+      24  get_var_ref_check        0
+      27  get_loc0                 
+      28  call1                    66
+      29  get_field2               'boot'
+      34  call_method              0
+      37  return_undef             
+  -- cpool[17] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[1]<null>.cpool[4]<null>.cpool[17]<null>  kind=function args=0 varargs=1 defargs=0 stack=2 locals=0 closures=0 cpool=0 bclen=24 debug=False
+    bc@8178
+       0  push_this                
+       1  put_loc0                 
+       2  get_loc0                 
+       3  get_loc0                 
+       4  get_field                'authGuide'
+       9  lnot                     
+      10  put_field                'authGuide'
+      15  get_loc0                 
+      16  push_1                   
+      17  lnot                     
+      18  put_field                'authEdit'
+      23  return_undef             
+  -- cpool[2] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[2]u  kind=function args=1 varargs=2 defargs=1 stack=5 locals=0 closures=3 cpool=0 bclen=51 debug=False
+    bc@8225
+    closure_vars: <null>@4, <null>@3, <null>@5
+       0  get_var_ref0             
+       1  get_arg0                 
+       2  get_array_el             
+       3  put_loc0                 
+       4  undefined                
+       5  get_loc0                 
+       6  strict_neq               
+       7  if_false8                -> 17 (8)
+       9  get_loc0                 
+      10  get_field                'exports'
+      15  return                   
+      16  get_var_ref0             
+      17  get_arg0                 
+      18  to_propkey2              
+      19  object                   
+      20  object                   
+      21  define_field             'exports'
+      26  insert3                  
+      27  put_array_el             
+      28  put_loc1                 
+      29  get_var_ref1             
+      30  get_arg0                 
+      31  get_array_el2            
+      32  get_loc1                 
+      33  get_loc1                 
+      34  get_field                'exports'
+      39  get_var_ref2             
+      40  call_method              3
+      43  drop                     
+      44  get_loc1                 
+      45  get_field                'exports'
+      50  return                   
+  -- cpool[3] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[3]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=0 cpool=0 bclen=6 debug=False
+    bc@8289
+       0  push_atom_value          '1.7.12'
+       5  return                   
+  -- cpool[4] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[4]<null>  kind=function args=3 varargs=6 defargs=3 stack=6 locals=0 closures=1 cpool=5 bclen=285 debug=False
+    bc@8312
+    closure_vars: <null>@5
+       0  set_loc_uninitialized    5
+       3  set_loc_uninitialized    4
+       6  set_loc_uninitialized    3
+       9  set_loc_uninitialized    2
+      12  get_var                  'Object'
+      17  get_field2               'defineProperty'
+      22  get_arg1                 
+      23  push_atom_value          '__esModule'
+      28  object                   
+      29  push_0                   
+      30  lnot                     
+      31  define_field             'value'
+      36  call_method              3
+      39  drop                     
+      40  get_arg1                 
+      41  undefined                
+      42  put_field                'default'
+      47  get_arg2                 
+      48  push_atom_value          '@app-module/system.router'
+      53  call1                    203
+      54  set_loc0                 
+      55  if_false8                -> 69 (12)
+      57  get_loc0                 
+      58  get_field                '__esModule'
+      63  if_false8                -> 69 (4)
+      65  get_loc0                 
+      66  goto8                    -> 76 (8)
+      68  object                   
+      69  get_loc0                 
+      70  define_field             'default'
+      75  put_loc1                 
+      76  get_var_ref0             
+      77  push_i16                 855
+      80  call1                    201
+      81  put_loc2                 
+      82  get_var_ref0             
+      83  push_i8                  69
+      85  call1                    202
+      86  put_loc3                 
+      87  get_arg1                 
+      88  get_loc_check            2
+      91  get_field2               'wrap'
+      96  object                   
+      97  object                   
+      98  define_field             'private'
+     103  fclosure8                cpool[0]
+     105  set_name                 'verify'
+     110  define_field             'verify'
+     115  fclosure8                cpool[1]
+     117  define_method            'enter', 4
+     123  fclosure8                cpool[2]
+     125  set_name                 'onBackPress'
+     130  define_field             'onBackPress'
+     135  call_method              1
+     138  put_field                'default'
+     143  get_arg1                 
+     144  get_field                'default'
+     149  dup                      
+     150  if_true8                 -> 160 (8)
+     152  drop                     
+     153  get_arg0                 
+     154  get_field                'exports'
+     159  put_loc8                 loc4
+     161  push_atom_value          'public'
+     166  push_atom_value          'protected'
+     171  push_atom_value          'private'
+     176  array_from               3
+     179  put_loc8                 loc5
+     181  get_loc_check            4
+     184  get_field                'data'
+     189  if_false8                -> 242 (51)
+     191  get_loc_check            5
+     194  get_field2               'some'
+     199  fclosure8                cpool[3]
+     201  call_method              1
+     204  if_false8                -> 242 (36)
+     206  get_var                  'Error'
+     211  push_atom_value          '页面VM对象中的属性data不可与"'
+     216  get_loc_check            5
+     219  get_field2               'join'
+     224  push_atom_value          ','
+     229  call_method              1
+     232  add                      
+     233  push_atom_value          '"同时存在，请使用private替换data名称'
+     238  add                      
+     239  call1                    47
+     240  throw                    
+     241  get_loc_check            4
+     244  get_field                'data'
+     249  dup                      
+     250  if_true8                 -> 285 (33)
+     252  drop                     
+     253  get_loc_check            4
+     256  object                   
+     257  put_field                'data'
+     262  get_loc_check            4
+     265  object                   
+     266  put_field                '_descriptor'
+     271  get_loc_check            5
+     274  get_field2               'forEach'
+     279  fclosure8                cpool[4]
+     281  call_method              1
+     284  return_undef             
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[4]<null>.cpool[0]<null>  kind=function args=2 varargs=0 defargs=2 stack=3 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@8613
+    closure_vars: <null>@3
+       0  get_var_ref_check        0
+       3  get_field2               'code'
+       8  get_arg0                 
+       9  call_method              1
+      12  get_arg1                 
+      13  strict_eq                
+      14  return                   
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[4]<null>.cpool[1]<null>  kind=function args=0 varargs=0 defargs=0 stack=4 locals=0 closures=1 cpool=0 bclen=26 debug=False
+    bc@8645
+    closure_vars: a@1
+       0  get_var_ref0             
+       1  get_field                'default'
+       6  get_field2               'replace'
+      11  object                   
+      12  push_atom_value          '/pages/game'
+      17  define_field             'uri'
+      22  call_method              1
+      25  return_undef             
+  -- cpool[2] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[4]<null>.cpool[2]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=0 cpool=0 bclen=3 debug=False
+    bc@8684
+       0  push_1                   
+       1  lnot                     
+       2  return                   
+  -- cpool[3] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[4]<null>.cpool[3]<null>  kind=function args=1 varargs=0 defargs=1 stack=2 locals=0 closures=1 cpool=0 bclen=6 debug=False
+    bc@8703
+    closure_vars: <null>@4
+       0  get_var_ref_check        0
+       3  get_arg0                 
+       4  get_array_el             
+       5  return                   
+  -- cpool[4] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[4]<null>.cpool[4]<null>  kind=function args=1 varargs=1 defargs=1 stack=6 locals=0 closures=1 cpool=0 bclen=86 debug=False
+    bc@8725
+    closure_vars: <null>@4
+       0  push_atom_value          'object'
+       5  get_var_ref_check        0
+       8  get_arg0                 
+       9  get_array_el             
+      10  typeof                   
+      11  eq                       
+      12  if_false8                -> 86 (72)
+      14  set_loc_uninitialized    0
+      17  get_var_ref_check        0
+      20  get_var                  'Object'
+      25  get_field2               'assign'
+      30  get_var_ref_check        0
+      33  get_field                'data'
+      38  get_var_ref_check        0
+      41  get_arg0                 
+      42  get_array_el             
+      43  call_method              2
+      46  put_field                'data'
+      51  get_var_ref_check        0
+      54  get_arg0                 
+      55  get_array_el             
+      56  for_in_start             
+      57  goto8                    -> 81 (22)
+      59  put_loc0                 
+      60  get_var_ref_check        0
+      63  get_field                '_descriptor'
+      68  get_loc_check            0
+      71  to_propkey2              
+      72  object                   
+      73  get_arg0                 
+      74  define_field             'access'
+      79  put_array_el             
+      80  for_in_next              
+      81  if_false8                -> 60 (-23)
+      83  drop                     
+      84  drop                     
+      85  return_undef             
+  -- cpool[5] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>  kind=function args=1 varargs=2 defargs=1 stack=10 locals=0 closures=0 cpool=4 bclen=145 debug=False
+    bc@8825
+       0  push_this                
+       1  put_loc1                 
+       2  set_loc_uninitialized    0
+       5  get_arg0                 
+       6  dup                      
+       7  if_true8                 -> 12 (3)
+       9  drop                     
+      10  get_loc1                 
+      11  put_loc0                 
+      12  get_var                  'aiot'
+      17  get_field2               '__ce__'
+      22  push_atom_value          'div'
+      27  object                   
+      28  get_loc_check            0
+      31  define_field             '__vm__'
+      36  object                   
+      37  push_atom_value          'app'
+      42  array_from               1
+      45  define_field             'classList'
+      50  define_field             '__opts__'
+      55  get_var                  'aiot'
+      60  get_field2               '__ci__'
+      65  object                   
+      66  get_loc_check            0
+      69  define_field             '__vm__'
+      74  object                   
+      75  fclosure8                cpool[0]
+      77  set_name                 'shown'
+      82  define_field             'shown'
+      87  define_field             '__opts__'
+      92  fclosure8                cpool[1]
+      94  call_method              2
+      97  get_var                  'aiot'
+     102  get_field2               '__ci__'
+     107  object                   
+     108  get_loc_check            0
+     111  define_field             '__vm__'
+     116  object                   
+     117  fclosure8                cpool[2]
+     119  set_name                 'shown'
+     124  define_field             'shown'
+     129  define_field             '__opts__'
+     134  fclosure8                cpool[3]
+     136  call_method              2
+     139  array_from               2
+     142  tail_call_method         3
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[0]<null>  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@8987
+    closure_vars: _@0
+       0  push_atom_value          'active'
+       5  get_var_ref_check        0
+       8  get_field                'authState'
+      13  strict_neq               
+      14  return                   
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>  kind=function args=0 varargs=0 defargs=0 stack=12 locals=0 closures=1 cpool=9 bclen=276 debug=False
+    bc@9020
+    closure_vars: _@0
+       0  get_var                  'aiot'
+       5  get_field2               '__ce__'
+      10  push_atom_value          'div'
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             '__vm__'
+      24  object                   
+      25  push_atom_value          'auth-page'
+      30  array_from               1
+      33  define_field             'classList'
+      38  object                   
+      39  fclosure8                cpool[0]
+      41  set_name                 'click'
+      46  define_field             'click'
+      51  define_field             'events'
+      56  define_field             '__opts__'
+      61  get_var                  'aiot'
+      66  get_field2               '__ce__'
+      71  push_atom_value          'text'
+      76  object                   
+      77  get_var_ref_check        0
+      80  define_field             '__vm__'
+      85  object                   
+      86  push_atom_value          'auth-title'
+      91  array_from               1
+      94  define_field             'classList'
+      99  object                   
+     100  fclosure8                cpool[1]
+     102  set_name                 'click'
+     107  define_field             'click'
+     112  define_field             'events'
+     117  fclosure8                cpool[2]
+     119  set_name                 'value'
+     124  define_field             'value'
+     129  define_field             '__opts__'
+     134  array_from               0
+     137  call_method              3
+     140  get_var                  'aiot'
+     145  get_field2               '__ci__'
+     150  object                   
+     151  get_var_ref_check        0
+     154  define_field             '__vm__'
+     159  object                   
+     160  fclosure8                cpool[3]
+     162  set_name                 'shown'
+     167  define_field             'shown'
+     172  define_field             '__opts__'
+     177  fclosure8                cpool[4]
+     179  call_method              2
+     182  get_var                  'aiot'
+     187  get_field2               '__ci__'
+     192  object                   
+     193  get_var_ref_check        0
+     196  define_field             '__vm__'
+     201  object                   
+     202  fclosure8                cpool[5]
+     204  set_name                 'shown'
+     209  define_field             'shown'
+     214  define_field             '__opts__'
+     219  fclosure8                cpool[6]
+     221  call_method              2
+     224  get_var                  'aiot'
+     229  get_field2               '__ci__'
+     234  object                   
+     235  get_var_ref_check        0
+     238  define_field             '__vm__'
+     243  object                   
+     244  fclosure8                cpool[7]
+     246  set_name                 'shown'
+     251  define_field             'shown'
+     256  define_field             '__opts__'
+     261  fclosure8                cpool[8]
+     263  call_method              2
+     266  array_from               4
+     269  call_method              3
+     272  array_from               1
+     275  return                   
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[0]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@9312
+    closure_vars: <null>@0
+       0  get_var_ref_check        0
+       3  get_field2               'authIgnore'
+       8  get_arg0                 
+       9  tail_call_method         1
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[1]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@9340
+    closure_vars: <null>@0
+       0  get_var_ref_check        0
+       3  get_field2               'authBack'
+       8  get_arg0                 
+       9  tail_call_method         1
+  -- cpool[2] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[2]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=38 debug=False
+    bc@9369
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authGuide'
+       8  if_false8                -> 17 (7)
+      10  push_atom_value          '激活教程'
+      15  return                   
+      16  get_var_ref_check        0
+      19  get_field                'authEdit'
+      24  if_false8                -> 33 (7)
+      26  push_atom_value          '输入激活码'
+      31  return                   
+      32  push_atom_value          '幸运房东'
+      37  return                   
+  -- cpool[3] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[3]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@9424
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authGuide'
+       8  return                   
+  -- cpool[4] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[4]<null>  kind=function args=0 varargs=0 defargs=0 stack=24 locals=0 closures=1 cpool=2 bclen=697 debug=False
+    bc@9451
+    closure_vars: _@0
+       0  get_var                  'aiot'
+       5  get_field2               '__ce__'
+      10  push_atom_value          'div'
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             '__vm__'
+      24  object                   
+      25  push_atom_value          'auth-guide-panel'
+      30  array_from               1
+      33  define_field             'classList'
+      38  define_field             '__opts__'
+      43  get_var                  'aiot'
+      48  get_field2               '__ce__'
+      53  push_atom_value          'list'
+      58  object                   
+      59  get_var_ref_check        0
+      62  define_field             '__vm__'
+      67  object                   
+      68  push_atom_value          'auth-scroll'
+      73  array_from               1
+      76  define_field             'classList'
+      81  define_field             '__opts__'
+      86  get_var                  'aiot'
+      91  get_field2               '__ce__'
+      96  push_atom_value          'list-item'
+     101  object                   
+     102  get_var_ref_check        0
+     105  define_field             '__vm__'
+     110  object                   
+     111  push_atom_value          'guide'
+     116  define_field             'type'
+     121  push_atom_value          'auth-guide'
+     126  array_from               1
+     129  define_field             'classList'
+     134  define_field             '__opts__'
+     139  get_var                  'aiot'
+     144  get_field2               '__ce__'
+     149  push_atom_value          'image'
+     154  object                   
+     155  get_var_ref_check        0
+     158  define_field             '__vm__'
+     163  object                   
+     164  push_atom_value          'auth-qr'
+     169  array_from               1
+     172  define_field             'classList'
+     177  push_atom_value          '/common/activation-qr.png'
+     182  define_field             'src'
+     187  define_field             '__opts__'
+     192  array_from               0
+     195  call_method              3
+     198  get_var                  'aiot'
+     203  get_field2               '__ce__'
+     208  push_atom_value          'text'
+     213  object                   
+     214  get_var_ref_check        0
+     217  define_field             '__vm__'
+     222  object                   
+     223  push_atom_value          'auth-guide-copy'
+     228  array_from               1
+     231  define_field             'classList'
+     236  push_atom_value          '扫码购买，或在爱发电搜索'
+     241  define_field             'value'
+     246  define_field             '__opts__'
+     251  array_from               0
+     254  call_method              3
+     257  get_var                  'aiot'
+     262  get_field2               '__ce__'
+     267  push_atom_value          'text'
+     272  object                   
+     273  get_var_ref_check        0
+     276  define_field             '__vm__'
+     281  object                   
+     282  push_atom_value          'auth-search'
+     287  array_from               1
+     290  define_field             'classList'
+     295  push_atom_value          '一只鱼yuii'
+     300  define_field             'value'
+     305  define_field             '__opts__'
+     310  array_from               0
+     313  call_method              3
+     316  get_var                  'aiot'
+     321  get_field2               '__ce__'
+     326  push_atom_value          'text'
+     331  object                   
+     332  get_var_ref_check        0
+     335  define_field             '__vm__'
+     340  object                   
+     341  push_atom_value          'auth-steps'
+     346  array_from               1
+     349  define_field             'classList'
+     354  push_atom_value          '1. 购买后查看爱发电私信。 2. 发送“卡密,设备码”。 3. 核对后回复“确认”。 4. 输入收到的12位激活码。'
+     359  define_field             'value'
+     364  define_field             '__opts__'
+     369  array_from               0
+     372  call_method              3
+     375  get_var                  'aiot'
+     380  get_field2               '__ce__'
+     385  push_atom_value          'text'
+     390  object                   
+     391  get_var_ref_check        0
+     394  define_field             '__vm__'
+     399  object                   
+     400  push_atom_value          'auth-group-label'
+     405  array_from               1
+     408  define_field             'classList'
+     413  push_atom_value          '交流 / 帮助 QQ 群'
+     418  define_field             'value'
+     423  define_field             '__opts__'
+     428  array_from               0
+     431  call_method              3
+     434  get_var                  'aiot'
+     439  get_field2               '__ce__'
+     444  push_atom_value          'text'
+     449  object                   
+     450  get_var_ref_check        0
+     453  define_field             '__vm__'
+     458  object                   
+     459  push_atom_value          'auth-group'
+     464  array_from               1
+     467  define_field             'classList'
+     472  push_const8              cpool[0]
+     474  define_field             'value'
+     479  define_field             '__opts__'
+     484  array_from               0
+     487  call_method              3
+     490  get_var                  'aiot'
+     495  get_field2               '__ce__'
+     500  push_atom_value          'text'
+     505  object                   
+     506  get_var_ref_check        0
+     509  define_field             '__vm__'
+     514  object                   
+     515  push_atom_value          'auth-footnote'
+     520  array_from               1
+     523  define_field             'classList'
+     528  push_atom_value          '也可在 lxyu.top 兑换。设备码8位，激活码12位，开头的0请保留。'
+     533  define_field             'value'
+     538  define_field             '__opts__'
+     543  array_from               0
+     546  call_method              3
+     549  array_from               7
+     552  call_method              3
+     555  array_from               1
+     558  call_method              3
+     561  get_var                  'aiot'
+     566  get_field2               '__ce__'
+     571  push_atom_value          'div'
+     576  object                   
+     577  get_var_ref_check        0
+     580  define_field             '__vm__'
+     585  object                   
+     586  push_atom_value          'auth-button'
+     591  array_from               1
+     594  define_field             'classList'
+     599  object                   
+     600  fclosure8                cpool[1]
+     602  set_name                 'click'
+     607  define_field             'click'
+     612  define_field             'events'
+     617  define_field             '__opts__'
+     622  get_var                  'aiot'
+     627  get_field2               '__ce__'
+     632  push_atom_value          'text'
+     637  object                   
+     638  get_var_ref_check        0
+     641  define_field             '__vm__'
+     646  object                   
+     647  push_atom_value          'auth-button-text'
+     652  array_from               1
+     655  define_field             'classList'
+     660  push_atom_value          '返回激活页面'
+     665  define_field             'value'
+     670  define_field             '__opts__'
+     675  array_from               0
+     678  call_method              3
+     681  array_from               1
+     684  call_method              3
+     687  array_from               2
+     690  call_method              3
+     693  array_from               1
+     696  return                   
+  -- cpool[0] = string '176129709'
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[4]<null>.cpool[1]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@10175
+    closure_vars: <null>@0
+       0  get_var_ref_check        0
+       3  get_field2               'authBack'
+       8  get_arg0                 
+       9  tail_call_method         1
+  -- cpool[5] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[5]<null>  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=22 debug=False
+    bc@10204
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authGuide'
+       8  lnot                     
+       9  dup                      
+      10  if_false8                -> 22 (10)
+      12  drop                     
+      13  get_var_ref_check        0
+      16  get_field                'authEdit'
+      21  return                   
+  -- cpool[6] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>  kind=function args=0 varargs=0 defargs=0 stack=18 locals=0 closures=1 cpool=7 bclen=475 debug=False
+    bc@10244
+    closure_vars: _@0
+       0  get_var                  'aiot'
+       5  get_field2               '__ce__'
+      10  push_atom_value          'div'
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             '__vm__'
+      24  object                   
+      25  push_atom_value          'auth-editor'
+      30  array_from               1
+      33  define_field             'classList'
+      38  define_field             '__opts__'
+      43  get_var                  'aiot'
+      48  get_field2               '__ce__'
+      53  push_atom_value          'text'
+      58  object                   
+      59  get_var_ref_check        0
+      62  define_field             '__vm__'
+      67  object                   
+      68  push_atom_value          'auth-mini'
+      73  array_from               1
+      76  define_field             'classList'
+      81  fclosure8                cpool[0]
+      83  set_name                 'value'
+      88  define_field             'value'
+      93  define_field             '__opts__'
+      98  array_from               0
+     101  call_method              3
+     104  get_var                  'aiot'
+     109  get_field2               '__ce__'
+     114  push_atom_value          'text'
+     119  object                   
+     120  get_var_ref_check        0
+     123  define_field             '__vm__'
+     128  object                   
+     129  push_atom_value          'auth-input'
+     134  array_from               1
+     137  define_field             'classList'
+     142  fclosure8                cpool[1]
+     144  set_name                 'value'
+     149  define_field             'value'
+     154  define_field             '__opts__'
+     159  array_from               0
+     162  call_method              3
+     165  get_var                  'aiot'
+     170  get_field2               '__ce__'
+     175  push_atom_value          'text'
+     180  object                   
+     181  get_var_ref_check        0
+     184  define_field             '__vm__'
+     189  object                   
+     190  push_atom_value          'auth-key-note'
+     195  array_from               1
+     198  define_field             'classList'
+     203  fclosure8                cpool[2]
+     205  set_name                 'value'
+     210  define_field             'value'
+     215  define_field             '__opts__'
+     220  array_from               0
+     223  call_method              3
+     226  get_var                  'aiot'
+     231  get_field2               '__ce__'
+     236  push_atom_value          'div'
+     241  object                   
+     242  get_var_ref_check        0
+     245  define_field             '__vm__'
+     250  object                   
+     251  push_atom_value          'auth-keys'
+     256  array_from               1
+     259  define_field             'classList'
+     264  define_field             '__opts__'
+     269  get_var                  'aiot'
+     274  get_field2               '__cf__'
+     279  object                   
+     280  get_var_ref_check        0
+     283  define_field             '__vm__'
+     288  object                   
+     289  fclosure8                cpool[3]
+     291  set_name                 'exp'
+     296  define_field             'exp'
+     301  push_atom_value          '$idx'
+     306  define_field             'key'
+     311  push_atom_value          '$item'
+     316  define_field             'value'
+     321  define_field             '__opts__'
+     326  fclosure8                cpool[4]
+     328  call_method              2
+     331  array_from               1
+     334  call_method              3
+     337  get_var                  'aiot'
+     342  get_field2               '__ce__'
+     347  push_atom_value          'div'
+     352  object                   
+     353  get_var_ref_check        0
+     356  define_field             '__vm__'
+     361  object                   
+     362  push_atom_value          'auth-button'
+     367  array_from               1
+     370  define_field             'classList'
+     375  object                   
+     376  fclosure8                cpool[5]
+     378  set_name                 'click'
+     383  define_field             'click'
+     388  define_field             'events'
+     393  define_field             '__opts__'
+     398  get_var                  'aiot'
+     403  get_field2               '__ce__'
+     408  push_atom_value          'text'
+     413  object                   
+     414  get_var_ref_check        0
+     417  define_field             '__vm__'
+     422  object                   
+     423  push_atom_value          'auth-button-text'
+     428  array_from               1
+     431  define_field             'classList'
+     436  fclosure8                cpool[6]
+     438  set_name                 'value'
+     443  define_field             'value'
+     448  define_field             '__opts__'
+     453  array_from               0
+     456  call_method              3
+     459  array_from               1
+     462  call_method              3
+     465  array_from               5
+     468  call_method              3
+     471  array_from               1
+     474  return                   
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>.cpool[0]<null>  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@10736
+    closure_vars: _@0
+       0  push_atom_value          '设备码 '
+       5  get_var_ref_check        0
+       8  get_field                'authDevice'
+      13  add                      
+      14  return                   
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>.cpool[1]<null>  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=18 debug=False
+    bc@10768
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authInput'
+       8  dup                      
+       9  if_true8                 -> 18 (7)
+      11  drop                     
+      12  push_atom_value          '------------'
+      17  return                   
+  -- cpool[2] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>.cpool[2]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@10803
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authNote'
+       8  return                   
+  -- cpool[3] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>.cpool[3]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@10829
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authKeys'
+       8  return                   
+  -- cpool[4] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>.cpool[4]<null>  kind=function args=2 varargs=0 defargs=2 stack=10 locals=0 closures=1 cpool=2 bclen=132 debug=False
+    bc@10855
+    closure_vars: <null>@0
+       0  get_var                  'aiot'
+       5  get_field2               '__ce__'
+      10  push_atom_value          'div'
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             '__vm__'
+      24  object                   
+      25  push_atom_value          'auth-key'
+      30  array_from               1
+      33  define_field             'classList'
+      38  object                   
+      39  fclosure8                cpool[0]
+      41  set_name                 'click'
+      46  define_field             'click'
+      51  define_field             'events'
+      56  define_field             '__opts__'
+      61  get_var                  'aiot'
+      66  get_field2               '__ce__'
+      71  push_atom_value          'text'
+      76  object                   
+      77  get_var_ref_check        0
+      80  define_field             '__vm__'
+      85  object                   
+      86  push_atom_value          'auth-key-text'
+      91  array_from               1
+      94  define_field             'classList'
+      99  fclosure8                cpool[1]
+     101  set_name                 'value'
+     106  define_field             'value'
+     111  define_field             '__opts__'
+     116  array_from               0
+     119  call_method              3
+     122  array_from               1
+     125  call_method              3
+     128  array_from               1
+     131  return                   
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>.cpool[4]<null>.cpool[0]<null>  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=2 cpool=0 bclen=13 debug=False
+    bc@11006
+    closure_vars: <null>@0, <null>@1
+       0  get_var_ref_check        0
+       3  get_field2               'authKey'
+       8  get_var_ref1             
+       9  get_arg0                 
+      10  tail_call_method         2
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>.cpool[4]<null>.cpool[1]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=2 debug=False
+    bc@11036
+    closure_vars: e@1
+       0  get_var_ref0             
+       1  return                   
+  -- cpool[5] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>.cpool[5]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@11054
+    closure_vars: <null>@0
+       0  get_var_ref_check        0
+       3  get_field2               'authSubmit'
+       8  get_arg0                 
+       9  tail_call_method         1
+  -- cpool[6] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[6]<null>.cpool[6]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=22 debug=False
+    bc@11083
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authBusy'
+       8  if_false8                -> 17 (7)
+      10  push_atom_value          '正在核对…'
+      15  return                   
+      16  push_atom_value          '确认激活'
+      21  return                   
+  -- cpool[7] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[7]<null>  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=23 debug=False
+    bc@11122
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authEdit'
+       8  lnot                     
+       9  dup                      
+      10  if_false8                -> 23 (11)
+      12  drop                     
+      13  get_var_ref_check        0
+      16  get_field                'authGuide'
+      21  lnot                     
+      22  return                   
+  -- cpool[8] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>  kind=function args=0 varargs=0 defargs=0 stack=17 locals=0 closures=1 cpool=7 bclen=621 debug=False
+    bc@11163
+    closure_vars: _@0
+       0  get_var                  'aiot'
+       5  get_field2               '__ce__'
+      10  push_atom_value          'div'
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             '__vm__'
+      24  object                   
+      25  push_atom_value          'auth-welcome'
+      30  array_from               1
+      33  define_field             'classList'
+      38  define_field             '__opts__'
+      43  get_var                  'aiot'
+      48  get_field2               '__ce__'
+      53  push_atom_value          'div'
+      58  object                   
+      59  get_var_ref_check        0
+      62  define_field             '__vm__'
+      67  object                   
+      68  push_atom_value          'auth-reels'
+      73  array_from               1
+      76  define_field             'classList'
+      81  define_field             '__opts__'
+      86  get_var                  'aiot'
+      91  get_field2               '__ce__'
+      96  push_atom_value          'image'
+     101  object                   
+     102  get_var_ref_check        0
+     105  define_field             '__vm__'
+     110  object                   
+     111  push_atom_value          'auth-symbol'
+     116  array_from               1
+     119  define_field             'classList'
+     124  push_atom_value          '/common/icons/cherry.png'
+     129  define_field             'src'
+     134  define_field             '__opts__'
+     139  array_from               0
+     142  call_method              3
+     145  get_var                  'aiot'
+     150  get_field2               '__ce__'
+     155  push_atom_value          'image'
+     160  object                   
+     161  get_var_ref_check        0
+     164  define_field             '__vm__'
+     169  object                   
+     170  push_atom_value          'auth-symbol'
+     175  array_from               1
+     178  define_field             'classList'
+     183  push_atom_value          '/common/icons/coin.png'
+     188  define_field             'src'
+     193  define_field             '__opts__'
+     198  array_from               0
+     201  call_method              3
+     204  get_var                  'aiot'
+     209  get_field2               '__ce__'
+     214  push_atom_value          'image'
+     219  object                   
+     220  get_var_ref_check        0
+     223  define_field             '__vm__'
+     228  object                   
+     229  push_atom_value          'auth-symbol'
+     234  array_from               1
+     237  define_field             'classList'
+     242  push_atom_value          '/common/icons/cat.png'
+     247  define_field             'src'
+     252  define_field             '__opts__'
+     257  array_from               0
+     260  call_method              3
+     263  array_from               3
+     266  call_method              3
+     269  get_var                  'aiot'
+     274  get_field2               '__ce__'
+     279  push_atom_value          'text'
+     284  object                   
+     285  get_var_ref_check        0
+     288  define_field             '__vm__'
+     293  object                   
+     294  push_atom_value          'auth-caption'
+     299  array_from               1
+     302  define_field             'classList'
+     307  push_atom_value          '本机设备码'
+     312  define_field             'value'
+     317  define_field             '__opts__'
+     322  array_from               0
+     325  call_method              3
+     328  get_var                  'aiot'
+     333  get_field2               '__ce__'
+     338  push_atom_value          'text'
+     343  object                   
+     344  get_var_ref_check        0
+     347  define_field             '__vm__'
+     352  object                   
+     353  push_atom_value          'auth-device'
+     358  array_from               1
+     361  define_field             'classList'
+     366  fclosure8                cpool[0]
+     368  set_name                 'value'
+     373  define_field             'value'
+     378  define_field             '__opts__'
+     383  array_from               0
+     386  call_method              3
+     389  get_var                  'aiot'
+     394  get_field2               '__ce__'
+     399  push_atom_value          'text'
+     404  object                   
+     405  get_var_ref_check        0
+     408  define_field             '__vm__'
+     413  object                   
+     414  push_atom_value          'auth-note'
+     419  array_from               1
+     422  define_field             'classList'
+     427  fclosure8                cpool[1]
+     429  set_name                 'value'
+     434  define_field             'value'
+     439  define_field             '__opts__'
+     444  array_from               0
+     447  call_method              3
+     450  get_var                  'aiot'
+     455  get_field2               '__ci__'
+     460  object                   
+     461  get_var_ref_check        0
+     464  define_field             '__vm__'
+     469  object                   
+     470  fclosure8                cpool[2]
+     472  set_name                 'shown'
+     477  define_field             'shown'
+     482  define_field             '__opts__'
+     487  fclosure8                cpool[3]
+     489  call_method              2
+     492  get_var                  'aiot'
+     497  get_field2               '__ci__'
+     502  object                   
+     503  get_var_ref_check        0
+     506  define_field             '__vm__'
+     511  object                   
+     512  fclosure8                cpool[4]
+     514  set_name                 'shown'
+     519  define_field             'shown'
+     524  define_field             '__opts__'
+     529  fclosure8                cpool[5]
+     531  call_method              2
+     534  get_var                  'aiot'
+     539  get_field2               '__ce__'
+     544  push_atom_value          'text'
+     549  object                   
+     550  get_var_ref_check        0
+     553  define_field             '__vm__'
+     558  object                   
+     559  push_atom_value          'auth-tutorial'
+     564  array_from               1
+     567  define_field             'classList'
+     572  object                   
+     573  fclosure8                cpool[6]
+     575  set_name                 'click'
+     580  define_field             'click'
+     585  define_field             'events'
+     590  push_atom_value          '激活教程'
+     595  define_field             'value'
+     600  define_field             '__opts__'
+     605  array_from               0
+     608  call_method              3
+     611  array_from               7
+     614  call_method              3
+     617  array_from               1
+     620  return                   
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[0]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@11801
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authDevice'
+       8  return                   
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[1]<null>  kind=function args=0 varargs=0 defargs=0 stack=1 locals=0 closures=1 cpool=0 bclen=9 debug=False
+    bc@11827
+    closure_vars: _@0
+       0  get_var_ref_check        0
+       3  get_field                'authNote'
+       8  return                   
+  -- cpool[2] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[2]<null>  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@11853
+    closure_vars: _@0
+       0  push_atom_value          'error'
+       5  get_var_ref_check        0
+       8  get_field                'authState'
+      13  strict_eq                
+      14  return                   
+  -- cpool[3] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[3]<null>  kind=function args=0 varargs=0 defargs=0 stack=10 locals=0 closures=1 cpool=1 bclen=130 debug=False
+    bc@11886
+    closure_vars: _@0
+       0  get_var                  'aiot'
+       5  get_field2               '__ce__'
+      10  push_atom_value          'div'
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             '__vm__'
+      24  object                   
+      25  push_atom_value          'auth-button'
+      30  array_from               1
+      33  define_field             'classList'
+      38  object                   
+      39  fclosure8                cpool[0]
+      41  set_name                 'click'
+      46  define_field             'click'
+      51  define_field             'events'
+      56  define_field             '__opts__'
+      61  get_var                  'aiot'
+      66  get_field2               '__ce__'
+      71  push_atom_value          'text'
+      76  object                   
+      77  get_var_ref_check        0
+      80  define_field             '__vm__'
+      85  object                   
+      86  push_atom_value          'auth-button-text'
+      91  array_from               1
+      94  define_field             'classList'
+      99  push_atom_value          '重新核对'
+     104  define_field             'value'
+     109  define_field             '__opts__'
+     114  array_from               0
+     117  call_method              3
+     120  array_from               1
+     123  call_method              3
+     126  array_from               1
+     129  return                   
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[3]<null>.cpool[0]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@12032
+    closure_vars: <null>@0
+       0  get_var_ref_check        0
+       3  get_field2               'authRetry'
+       8  get_arg0                 
+       9  tail_call_method         1
+  -- cpool[4] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[4]<null>  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=28 debug=False
+    bc@12061
+    closure_vars: _@0
+       0  push_atom_value          'error'
+       5  get_var_ref_check        0
+       8  get_field                'authState'
+      13  strict_neq               
+      14  dup                      
+      15  if_false8                -> 28 (11)
+      17  drop                     
+      18  get_var_ref_check        0
+      21  get_field                'authBusy'
+      26  lnot                     
+      27  return                   
+  -- cpool[5] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[5]<null>  kind=function args=0 varargs=0 defargs=0 stack=10 locals=0 closures=1 cpool=2 bclen=132 debug=False
+    bc@12107
+    closure_vars: _@0
+       0  get_var                  'aiot'
+       5  get_field2               '__ce__'
+      10  push_atom_value          'div'
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             '__vm__'
+      24  object                   
+      25  push_atom_value          'auth-button'
+      30  array_from               1
+      33  define_field             'classList'
+      38  object                   
+      39  fclosure8                cpool[0]
+      41  set_name                 'click'
+      46  define_field             'click'
+      51  define_field             'events'
+      56  define_field             '__opts__'
+      61  get_var                  'aiot'
+      66  get_field2               '__ce__'
+      71  push_atom_value          'text'
+      76  object                   
+      77  get_var_ref_check        0
+      80  define_field             '__vm__'
+      85  object                   
+      86  push_atom_value          'auth-button-text'
+      91  array_from               1
+      94  define_field             'classList'
+      99  fclosure8                cpool[1]
+     101  set_name                 'value'
+     106  define_field             'value'
+     111  define_field             '__opts__'
+     116  array_from               0
+     119  call_method              3
+     122  array_from               1
+     125  call_method              3
+     128  array_from               1
+     131  return                   
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[5]<null>.cpool[0]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@12255
+    closure_vars: <null>@0
+       0  get_var_ref_check        0
+       3  get_field2               'authOpen'
+       8  get_arg0                 
+       9  tail_call_method         1
+  -- cpool[1] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[5]<null>.cpool[1]<null>  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=28 debug=False
+    bc@12284
+    closure_vars: _@0
+       0  push_atom_value          'locked'
+       5  get_var_ref_check        0
+       8  get_field                'authState'
+      13  strict_eq                
+      14  if_false8                -> 23 (7)
+      16  push_atom_value          '恢复正式授权'
+      21  return                   
+      22  push_atom_value          '输入激活码'
+      27  return                   
+  -- cpool[6] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[1]<null>.cpool[8]<null>.cpool[6]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@12328
+    closure_vars: <null>@0
+       0  get_var_ref_check        0
+       3  get_field2               'authHelp'
+       8  get_arg0                 
+       9  tail_call_method         1
+  -- cpool[2] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[2]<null>  kind=function args=0 varargs=0 defargs=0 stack=2 locals=0 closures=1 cpool=0 bclen=15 debug=False
+    bc@12357
+    closure_vars: _@0
+       0  push_atom_value          'active'
+       5  get_var_ref_check        0
+       8  get_field                'authState'
+      13  strict_eq                
+      14  return                   
+  -- cpool[3] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[3]<null>  kind=function args=0 varargs=0 defargs=0 stack=15 locals=0 closures=1 cpool=1 bclen=238 debug=False
+    bc@12390
+    closure_vars: _@0
+       0  get_var                  'aiot'
+       5  get_field2               '__ce__'
+      10  push_atom_value          'div'
+      15  object                   
+      16  get_var_ref_check        0
+      19  define_field             '__vm__'
+      24  object                   
+      25  push_atom_value          'auth-page'
+      30  array_from               1
+      33  define_field             'classList'
+      38  define_field             '__opts__'
+      43  get_var                  'aiot'
+      48  get_field2               '__ce__'
+      53  push_atom_value          'text'
+      58  object                   
+      59  get_var_ref_check        0
+      62  define_field             '__vm__'
+      67  object                   
+      68  push_atom_value          'auth-title'
+      73  array_from               1
+      76  define_field             'classList'
+      81  push_atom_value          '好运已就绪'
+      86  define_field             'value'
+      91  define_field             '__opts__'
+      96  array_from               0
+      99  call_method              3
+     102  get_var                  'aiot'
+     107  get_field2               '__ce__'
+     112  push_atom_value          'div'
+     117  object                   
+     118  get_var_ref_check        0
+     121  define_field             '__vm__'
+     126  object                   
+     127  push_atom_value          'auth-button'
+     132  array_from               1
+     135  define_field             'classList'
+     140  object                   
+     141  fclosure8                cpool[0]
+     143  set_name                 'click'
+     148  define_field             'click'
+     153  define_field             'events'
+     158  define_field             '__opts__'
+     163  get_var                  'aiot'
+     168  get_field2               '__ce__'
+     173  push_atom_value          'text'
+     178  object                   
+     179  get_var_ref_check        0
+     182  define_field             '__vm__'
+     187  object                   
+     188  push_atom_value          'auth-button-text'
+     193  array_from               1
+     196  define_field             'classList'
+     201  push_atom_value          '进入游戏'
+     206  define_field             'value'
+     211  define_field             '__opts__'
+     216  array_from               0
+     219  call_method              3
+     222  array_from               1
+     225  call_method              3
+     228  array_from               2
+     231  call_method              3
+     234  array_from               1
+     237  return                   
+  -- cpool[0] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[5]<null>.cpool[3]<null>.cpool[0]<null>  kind=function args=1 varargs=0 defargs=1 stack=3 locals=0 closures=1 cpool=0 bclen=12 debug=False
+    bc@12644
+    closure_vars: <null>@0
+       0  get_var_ref_check        0
+       3  get_field2               'enter'
+       8  get_arg0                 
+       9  tail_call_method         1
+  -- cpool[6] = function --
+=== func module.<eval>.cpool[0]<null>.cpool[0]<null>.cpool[6]<null>  kind=function args=1 varargs=0 defargs=1 stack=4 locals=0 closures=4 cpool=0 bclen=31 debug=False
+    bc@12681
+    closure_vars: <null>@1, <null>@0, <null>@2, <null>@0
+       0  get_var_ref0             
+       1  object                   
+       2  get_arg0                 
+       3  get_var_ref1             
+       4  call3                    14
+       5  drop                     
+       6  get_arg0                 
+       7  get_field                'default'
+      12  get_var_ref2             
+      13  put_field                'template'
+      18  get_arg0                 
+      19  get_field                'default'
+      24  get_var_ref3             
+      25  put_field                'style'
+      30  return_undef             
