@@ -1,0 +1,12 @@
+// src/app.ux
+// 应用入口：这里只保留最小生命周期，游戏与语言状态由各页面自行管理。
+
+export default {
+  data: {},
+  onCreate() {
+    console.log('noobminer: app created');
+  },
+  onDestroy() {
+    console.log('noobminer: app destroyed');
+  }
+};

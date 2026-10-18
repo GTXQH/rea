@@ -1,0 +1,2 @@
+// 商人买卖表（trader.json）
+export const TRADER=[["sell",16,"tile",1,0,0,1],["sell",59,"tile",1,0,0,1],["sell",2,"obj",1,0,0,1],["sell",24,"obj",1,1,0,1],["sell",25,"obj",1,1,0,1],["sell",5,"obj",1,1,0,1],["sell",3,"obj",1,2,0,1],["sell",4,"obj",1,2,0,1],["sell",12,"obj",1,2,0,1],["sell",82,"tile",1,3,0,1],["sell",65,"tile",1,3,0,1],["sell",45,"tile",1,1,0,1],["buy/sell","id / trader","type","count","level trader","flex/fix price","price multipler"]];

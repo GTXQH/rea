@@ -1,0 +1,30 @@
+{
+  "package": "com.vela.noobminer",
+  "name": "挖矿逃生",
+  "icon": "/common/icon.png",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "minAPILevel": 1,
+  "deviceTypeList": ["watch"],
+  "config": {
+    "logLevel": "log"
+  },
+  "features": [
+    { "name": "system.router" },
+    { "name": "system.storage" },
+    { "name": "system.prompt" },
+    { "name": "system.vibrator" },
+    { "name": "system.audio" },
+    { "name": "system.device" }
+  ],
+  "router": {
+    "entry": "Index",
+    "pages": {
+      "Index": { "component": "index", "path": "/" },
+      "Game": { "component": "game", "path": "/game" }
+    }
+  },
+  "display": {
+    "backgroundColor": "#0e0e14"
+  }
+}
