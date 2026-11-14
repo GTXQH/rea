@@ -120,9 +120,11 @@
     cursor:pointer;
     touch-action:manipulation;
     -webkit-tap-highlight-color:transparent;
-    transform:translate3d(var(--push,0px),0,0);
+    /* 磁铁斥力：用外边距把邻居真正推开，整条 dock 会被撑长 */
+    margin-left:var(--ml,0px);
+    margin-right:var(--mr,0px);
     transition:
-      transform .58s cubic-bezier(.22,1.32,.5,1),
+      margin var(--spread-dur,.52s) cubic-bezier(.3,1.5,.5,1),
       color .28s ease .04s;
   }
   .item:hover{ color:#e7eefc; }
@@ -144,7 +146,6 @@
     left:0;
     top:calc(100% + 18px);
     height:20px;
-    transition:transform .58s cubic-bezier(.22,1.32,.5,1);
     pointer-events:none;
   }
   .caption span{
@@ -299,21 +300,25 @@
       el.classList.toggle('active', i === active);
       el.setAttribute('aria-current', i === active ? 'page' : 'false');
 
-      let push = 0;
+      // 磁铁斥力：离选中框越近，被推开得越远；外侧用 margin 真正撑长 dock
+      let ml = 0;
+      let mr = 0;
       if (i !== active) {
         const distance = Math.abs(i - active);
-        const direction = Math.sign(i - active);
-        push = direction * (distance === 1 ? 13 : distance === 2 ? 5 : 0);
+        const force = distance === 1 ? 34 : distance === 2 ? 16 : distance === 3 ? 6 : 2;
+        if (i > active) ml = force;
+        else mr = force;
       }
-      el.style.setProperty('--push', push + 'px');
+      el.style.setProperty('--ml', ml + 'px');
+      el.style.setProperty('--mr', mr + 'px');
     });
 
     const m = metrics(active);
-    S.tx = m.cx;
     S.tw = m.w;
     S.cy = m.cy;
 
-    caption.style.transform = `translate3d(${m.cx}px,0,0)`;
+    captionText.textContent = items[active].getAttribute('aria-label');
+
     captionText.animate(
       [
         { opacity: 0, transform: 'translateX(-50%) translateY(5px)' },
@@ -323,7 +328,8 @@
     );
 
     if (!animate) {
-      S.x = S.tx;
+      S.x = m.cx;
+      S.tx = m.cx;
       S.w = S.tw;
       S.vx = 0;
       S.vw = 0;
@@ -365,7 +371,16 @@
     last = now;
     dt = Math.min(dt, 0.05) * timeScale;
 
-    if (dt > 0) {
+    // 邻居被推开时 dock 会被撑长，选中项本身也在移动：每帧重新取目标
+    const m = metrics(active);
+    S.tx = m.cx;
+    S.cy = m.cy;
+    caption.style.transform = `translate3d(${m.cx}px,0,0)`;
+
+    if (reduceMotion) {
+      S.x = S.tx;
+      S.vx = 0;
+    } else if (dt > 0) {
       [S.x, S.vx] = spring(S.x, S.vx, S.tx, 190, 15.5, dt);
       [S.w, S.vw] = spring(S.w, S.vw, S.tw, 220, 22, dt);
     }
@@ -394,6 +409,7 @@
   const slowToggle = document.getElementById('slowToggle');
   slowToggle.addEventListener('change', () => {
     timeScale = slowToggle.checked ? 6 : 1;
+    dock.style.setProperty('--spread-dur', slowToggle.checked ? '3.2s' : '.52s');
   });
 
   // ---------- auto demo ----------
