@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Liquid Dock · 水滴导航栏</title>
+<style>
+  :root{
+    --bg:#05070d;
+    --ink:#e9eef8;
+    --muted:#8794a8;
+    --a:#6ff2ff;
+    --b:#8f7bff;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0;
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    background:
+      radial-gradient(900px 540px at 50% 10%, rgba(70,130,255,.17), transparent 62%),
+      radial-gradient(720px 460px at 80% 90%, rgba(150,80,255,.13), transparent 62%),
+      var(--bg);
+    color:var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .stage{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:52px;
+  }
+
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    color:rgba(233,238,248,.38);
+    padding-left:.42em;
+  }
+
+  /* ---------- dock ---------- */
+  .dock{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 15px;
+    border-radius:999px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.09);
+    box-shadow:
+      0 30px 70px -24px rgba(0,0,0,.9),
+      0 2px 10px rgba(0,0,0,.35),
+      inset 0 1px 0 rgba(255,255,255,.09);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    isolation:isolate;
+  }
+
+  .glow{
+    position:absolute;
+    left:0;
+    top:0;
+    width:76px;
+    height:76px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--a), var(--b));
+    filter:blur(26px);
+    opacity:.42;
+    pointer-events:none;
+    z-index:0;
+    will-change:transform;
+  }
+
+  .droplet{
+    position:absolute;
+    left:0;
+    top:0;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:linear-gradient(135deg, #7df5ff 0%, #79ceff 44%, #a78dff 100%);
+    box-shadow:
+      inset 0 1px 2px rgba(255,255,255,.75),
+      inset 0 -6px 12px rgba(70,40,160,.22);
+    pointer-events:none;
+    z-index:1;
+    will-change:transform;
+  }
+  .droplet::after{
+    content:"";
+    position:absolute;
+    left:22%;
+    top:13%;
+    width:34%;
+    height:26%;
+    border-radius:50%;
+    background:rgba(255,255,255,.55);
+    filter:blur(3px);
+  }
+
+  .item{
+    position:relative;
+    z-index:2;
+    display:grid;
+    place-items:center;
+    width:52px;
+    height:52px;
+    padding:0;
+    border:0;
+    border-radius:50%;
+    background:none;
+    color:var(--muted);
+    cursor:pointer;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+    transform:translate3d(var(--push,0px),0,0);
+    transition:
+      transform .58s cubic-bezier(.22,1.32,.5,1),
+      color .28s ease .04s;
+  }
+  .item:hover{ color:#e7eefc; }
+  .item:focus-visible{ outline:2px solid rgba(125,245,255,.85); outline-offset:3px; }
+  .item.active{ color:#03121b; }
+  .item svg{
+    width:22px;
+    height:22px;
+    display:block;
+    overflow:visible;
+  }
+
+  .dock-wrap{ position:relative; }
+
+  /* ---------- caption ---------- */
+  /* 放在 dock 外面：backdrop-filter 会裁剪掉溢出 dock 的子元素 */
+  .caption{
+    position:absolute;
+    left:0;
+    top:calc(100% + 18px);
+    height:20px;
+    transition:transform .58s cubic-bezier(.22,1.32,.5,1);
+    pointer-events:none;
+  }
+  .caption span{
+    display:block;
+    transform:translateX(-50%);
+    white-space:nowrap;
+    font-size:13px;
+    letter-spacing:.18em;
+    padding-left:.18em;
+    color:rgba(233,238,248,.72);
+  }
+
+  .hint{
+    font-size:12px;
+    letter-spacing:.14em;
+    color:rgba(233,238,248,.3);
+  }
+  .hint kbd{
+    font:inherit;
+    color:rgba(233,238,248,.55);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:5px;
+    padding:1px 5px;
+  }
+
+  .slow{
+    position:fixed;
+    right:22px;
+    bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-size:12px;
+    letter-spacing:.1em;
+    color:rgba(233,238,248,.34);
+    cursor:pointer;
+    user-select:none;
+  }
+  .slow input{ accent-color:#6ff2ff; }
+
+  @media (prefers-reduced-motion: reduce){
+    .item,.caption{ transition-duration:.01ms; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="eyebrow">Liquid Dock</div>
+
+  <div class="dock-wrap">
+    <nav class="dock" id="dock" aria-label="主导航">
+    <div class="glow" id="glow" aria-hidden="true"></div>
+    <div class="droplet" id="droplet" aria-hidden="true"></div>
+
+    <button class="item active" type="button" aria-current="page" aria-label="首页">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 10.4 12 3.8l8 6.6V19a1.6 1.6 0 0 1-1.6 1.6h-3.9v-5.2h-5v5.2H5.6A1.6 1.6 0 0 1 4 19z"/>
+      </svg>
+    </button>
+
+    <button class="item" type="button" aria-current="false" aria-label="发现">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="8.6"/>
+        <path d="m15.6 8.4-2 5.2-5.2 2 2-5.2z"/>
+      </svg>
+    </button>
+
+    <button class="item" type="button" aria-current="false" aria-label="创作">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 4.2l1.75 4.55L18.3 10.5l-4.55 1.75L12 16.8l-1.75-4.55L5.7 10.5l4.55-1.75z"/>
+        <path d="M18.4 15.6l.8 2.05 2.05.8-2.05.8-.8 2.05-.8-2.05-2.05-.8 2.05-.8z"/>
+      </svg>
+    </button>
+
+    <button class="item" type="button" aria-current="false" aria-label="消息">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 11.6c0 3.9-3.6 7-8 7-.93 0-1.82-.14-2.64-.4L4.4 20l1.2-3.5A6.6 6.6 0 0 1 4 11.6c0-3.9 3.6-7 8-7s8 3.1 8 7z"/>
+      </svg>
+    </button>
+
+    <button class="item" type="button" aria-current="false" aria-label="我的">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8.4" r="3.6"/>
+        <path d="M5.2 20c.4-3.4 3.3-5.6 6.8-5.6s6.4 2.2 6.8 5.6"/>
+      </svg>
+    </button>
+
+    </nav>
+    <div class="caption" id="caption"><span id="captionText">首页</span></div>
+  </div>
+
+  <p class="hint">点击图标，或按 <kbd>←</kbd> <kbd>→</kbd> 切换</p>
+</div>
+
+<label class="slow"><input type="checkbox" id="slowToggle" /> 慢动作</label>
+
+<script>
+(() => {
+  const dock = document.getElementById('dock');
+  const droplet = document.getElementById('droplet');
+  const glow = document.getElementById('glow');
+  const caption = document.getElementById('caption');
+  const captionText = document.getElementById('captionText');
+  const items = Array.from(dock.querySelectorAll('.item'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const SIZE = 52;
+  let timeScale = 1;
+
+  const clamp = (v, lo, hi) => (v < lo ? lo : v > hi ? hi : v);
+
+  // 位置 / 尺寸 / 跟随全部用弹簧积分，位移越大拉扯越明显
+  const S = {
+    x: 0, vx: 0,
+    w: SIZE, vw: 0,
+    tx: 0, tw: SIZE,
+    cy: SIZE / 2
+  };
+
+  let active = 0;
+
+  function metrics(index) {
+    const el = items[index];
+    return {
+      cx: el.offsetLeft + el.offsetWidth / 2,
+      w: el.offsetWidth,
+      cy: el.offsetTop + el.offsetHeight / 2
+    };
+  }
+
+  function syncRest() {
+    const m = metrics(active);
+    S.x = S.tx = m.cx;
+    S.w = S.tw = m.w;
+    S.cy = m.cy;
+    caption.style.transform = `translate3d(${m.cx}px,0,0)`;
+  }
+
+  function select(index, animate = true) {
+    index = (index + items.length) % items.length;
+
+    if (index === active) {
+      // 再次点击当前项：给水滴一个侧向的“推挤”，看它自己晃回圆形
+      if (animate) S.vx += (Math.random() < 0.5 ? -1 : 1) * 900;
+      return;
+    }
+
+    active = index;
+
+    items.forEach((el, i) => {
+      el.classList.toggle('active', i === active);
+      el.setAttribute('aria-current', i === active ? 'page' : 'false');
+
+      let push = 0;
+      if (i !== active) {
+        const distance = Math.abs(i - active);
+        const direction = Math.sign(i - active);
+        push = direction * (distance === 1 ? 13 : distance === 2 ? 5 : 0);
+      }
+      el.style.setProperty('--push', push + 'px');
+    });
+
+    const m = metrics(active);
+    S.tx = m.cx;
+    S.tw = m.w;
+    S.cy = m.cy;
+
+    caption.style.transform = `translate3d(${m.cx}px,0,0)`;
+    captionText.animate(
+      [
+        { opacity: 0, transform: 'translateX(-50%) translateY(5px)' },
+        { opacity: 1, transform: 'translateX(-50%) translateY(0)' }
+      ],
+      { duration: 340, easing: 'cubic-bezier(.22,1,.36,1)' }
+    );
+
+    if (!animate) {
+      S.x = S.tx;
+      S.w = S.tw;
+      S.vx = 0;
+      S.vw = 0;
+    }
+  }
+
+  // 半隐式欧拉 + 子步，保证不同帧率下弹簧手感一致
+  function spring(value, velocity, target, k, damping, dt) {
+    const steps = Math.max(1, Math.ceil(dt / 0.003));
+    const h = dt / steps;
+    let v = velocity;
+    let x = value;
+    for (let i = 0; i < steps; i++) {
+      v += ((target - x) * k - v * damping) * h;
+      x += v * h;
+    }
+    return [x, v];
+  }
+
+  function render() {
+    const speed = Math.abs(S.vx);
+    // 速度 + 落后目标的距离：位移越大，水滴被拉得越长；回到目标后自然弹圆
+    const stretch = reduceMotion
+      ? 0
+      : Math.max(clamp(speed / 1600, 0, 0.9), clamp(Math.abs(S.tx - S.x) / 130, 0, 0.9));
+
+    const sx = (S.w / SIZE) * (1 + stretch * 0.85);
+    const sy = 1 - stretch * 0.32;
+
+    droplet.style.transform =
+      `translate3d(${S.x - SIZE / 2}px, ${S.cy - SIZE / 2}px, 0) scale(${sx}, ${sy})`;
+    glow.style.transform =
+      `translate3d(${S.x - 38}px, ${S.cy - 38}px, 0) scale(${sx * 0.92}, ${sy})`;
+  }
+
+  let last = performance.now();
+  function tick(now) {
+    let dt = (now - last) / 1000;
+    last = now;
+    dt = Math.min(dt, 0.05) * timeScale;
+
+    if (dt > 0) {
+      [S.x, S.vx] = spring(S.x, S.vx, S.tx, 190, 15.5, dt);
+      [S.w, S.vw] = spring(S.w, S.vw, S.tw, 220, 22, dt);
+    }
+
+    render();
+    requestAnimationFrame(tick);
+  }
+
+  // ---------- interactions ----------
+  items.forEach((el, i) => {
+    el.addEventListener('click', () => {
+      stopAutoplay();
+      select(i);
+    });
+    el.addEventListener('pointerdown', stopAutoplay, { passive: true });
+  });
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      stopAutoplay();
+      select(active + (event.key === 'ArrowRight' ? 1 : -1));
+    }
+  });
+
+  const slowToggle = document.getElementById('slowToggle');
+  slowToggle.addEventListener('change', () => {
+    timeScale = slowToggle.checked ? 6 : 1;
+  });
+
+  // ---------- auto demo ----------
+  let autoplayTimer = 0;
+  function stopAutoplay() {
+    if (!autoplayTimer) return;
+    clearInterval(autoplayTimer);
+    autoplayTimer = 0;
+  }
+  function startAutoplay() {
+    if (reduceMotion) return;
+    autoplayTimer = setInterval(() => {
+      select((active + 1) % items.length);
+    }, 1900);
+  }
+
+  // ---------- layout ----------
+  function boot() {
+    syncRest();
+    render();
+    requestAnimationFrame((t) => {
+      last = t;
+      requestAnimationFrame(tick);
+    });
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(boot);
+  } else {
+    boot();
+  }
+
+  const ro = new ResizeObserver(() => {
+    const m = metrics(active);
+    S.tx = m.cx;
+    S.tw = m.w;
+    S.cy = m.cy;
+    caption.style.transform = `translate3d(${m.cx}px,0,0)`;
+  });
+  ro.observe(dock);
+
+  setTimeout(startAutoplay, 1200);
+  window.addEventListener('pointerdown', stopAutoplay, { passive: true, once: true });
+  window.addEventListener('keydown', stopAutoplay, { once: true });
+})();
+</script>
+</body>
+</html>
